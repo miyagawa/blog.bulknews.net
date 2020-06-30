@@ -1,0 +1,392 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : Trackback Ping を受信する</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html">http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html</a>.
+<br /><br /><br />
+
+<h2>Trackback Ping を受信する</h2>
+by miyagawa at Wed, 26 Nov 2003 23:28
+<p />
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.print">Trackback Ping を送信する</a> では、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> Ping を送信するクライアントについて解説しました。今回は、受信する側の実装を解説します。
+
+<hr class="seemore">
+
+
+<p />
+
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.print">Trackback Ping クライアント</a> で解説したように、Trackback は HTTP POST によりパラメータを送信し、結果を XML 形式で返すという非常にシンプルなフレームワークです。よって、受信する Trackback サーバも、CGI スクリプトで簡単に記述することが可能です。
+
+<p />
+受信する CGI スクリプトでは、
+<ol>
+<li>Trackback ID の解析 (必要なら)</li>
+<li>POST で渡された CGI パラメータの解析</li>
+<li>パラメータの保存</li>
+<li>XML レスポンスの表示</li>
+</ol>
+
+といった処理を行います。Trackback ID の解析というところが若干やっかいで、仕様自体には、どのように Trackback ID を指定すればいいかは規定されていません。よって、
+<ol>
+<li>.../tb.cgi?tb_id=1234</li>
+<li>.../tb.cgi/1234</li>
+<li>.../1234.tb</li>
+</ol>
+
+のように、Trackback ID (ここでは 1234) が取得できれば、実装方法は何でもよいわけです。ちなみに、いくつかの Blog ツールやホスティングサービスでの実装は以下のようになっているようです。
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><th class="blosxomTableHeader">ツール名</th><th class="blosxomTableHeader">Trackback URL サンプル</th></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">Movable Type</td><td class="blosxomTableDataOdd">http://example.com/mt-tb.cgi/1234</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">Blosxom</td><td class="blosxomTableDataEven">http://example.com/entry.trackback</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">TypePad</td><td class="blosxomTableDataOdd">http://www.typepad.com/t/trackback/1234</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">tDiary</td><td class="blosxomTableDataEven">http://example.com/tdiary/tb.rb/20031126</td></tr>
+</table>
+
+いずれも、Trackback ID の取得は PATH_INFO や URL Rewriting<a href="#note-1">(*1)</a> を利用しています。先にあげたように HTTP GET のパラメータとして Query String に指定する方法もありますが、Trackback Ping 自体が HTTP POST でリクエストされるため、環境によってはうまく動作しないことも考えられますので、あまり利用しない方がよいでしょう<a href="#note-2">(*2)</a>。
+
+
+<h2>サンプルコード</h2>
+
+Trackback を受信する CGI スクリプトのサンプルは <a href="#listing-1">List 1</a> のようになります。ここでは、Trackback ID の抽出は PATH_INFO を使用、取得したデータは DBI インタフェースを使用して <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?SQLite">SQLite</a> データベースに格納することにします。
+
+<p />
+<pre class="scriptsSnippet">use CGI;
+use DBI;
+use HTML::Entities;
+use Time::Piece;
+</pre>
+
+使用するモジュールを use します。XML の文字変換に <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aEntities">HTML::Entities</a> を使用します。
+
+<p />
+<pre class="scriptsSnippet">our $dbdir = &quot;/tmp&quot;;
+our @cols  = qw(url title blog_name excerpt timestamp);
+</pre>
+
+Trackback を格納するデータベースファイルのパス、またテーブルに使用するカラム名をパッケージグローバルで宣言します。
+
+<p />
+<pre class="scriptsSnippet">my $query = CGI-&gt;new();
+   $query-&gt;charset('utf-8');
+</pre>
+
+CGI オブジェクトを new し、charset に UTF-8 をセットします。
+
+<p />
+<pre class="scriptsSnippet">    my $tb_id = munge_tb_id($query);
+</pre>
+
+<code>munge_tb_id</code> で、PATH_INFO から Trackback ID を取得します。
+
+<p />
+<pre class="scriptsSnippet">
+sub munge_tb_id {
+    my $query = shift;
+    my $path_info = $query-&gt;path_info();
+    $path_info &amp;&amp; $path_info =~ m!(\w+)! &amp;&amp; return $1;
+    return;
+}
+</pre>
+
+<code>munge_tb_id</code> では、CGI.pm の <code>path_info</code> メソッドで環境変数 <code>PATH_INFO</code> を取得し、<code>/(\w+)/</code> という正規表現にマッチさせて ID を拾っています<a href="#note-3">(*3)</a>。
+
+<p />
+<pre class="scriptsSnippet">    my $vars = $query-&gt;Vars();
+
+    # Some validations
+    if (!$tb_id) {
+        send_response(1 =&gt; &quot;Invalid Trackback ID&quot;);
+        return;
+    }
+
+    if (!$vars-&gt;{url}) {
+        send_response(1 =&gt; &quot;No url parameter (required)&quot;);
+        return;
+    }
+</pre>
+
+CGI.pm の <code>Vars</code> メソッドでハッシュリファレンスにパラメータを取得した後、Trackback ID が指定されているか、また url パラメータのチェックをしています。<a href="http://www.movabletype.org/docs/mttrackback.html">Trackback 仕様書</a> には、どのパラメータが必須かは記載されていませんが、
+<p><blockquote class="inlineRaw">In the Movable Type implementation, of the above parameters only url is required. If title is not provided, the value for url will be set as the title.<br />
+</blockquote></p>
+とも記述されている通り、url パラメータだけはチェックしておきます。
+
+<p />
+<pre class="scriptsSnippet">    fix_encoding($vars) if $vars-&gt;{charset};
+</pre>
+
+<code>charset</code> パラメータが指定されている場合は、<code>fix_encoding</code> でエンコーディングの変換を行います。
+
+<p />
+<pre class="scriptsSnippet">sub fix_encoding {
+    my $vars = shift;
+    require Encode;
+    Encode::from_to($vars-&gt;{$_},
+                    $vars-&gt;{charset} =&gt; &quot;utf-8&quot;) for @cols;
+}
+</pre>
+
+<code>@cols</code> に含まれるパラメータについて、<a href="http://search.cpan.org/search?m=module&q=Encode">Encode</a> の <code>from_to</code> 関数を使用してエンコーディングを変換します。<code>from_to</code> では変換前後ともに、変数は Perl の Unicode 文字列とはみなされず、バイト文字列として処理されます。
+
+<p />
+<pre class="scriptsSnippet">    # Default values
+    $vars-&gt;{title}     ||= $vars-&gt;{url};
+    $vars-&gt;{blog_name} ||= do {
+        require URI;
+        URI-&gt;new($vars-&gt;{url})-&gt;host;
+    };
+    $vars-&gt;{excerpt} ||= &quot;No excerpt.&quot;;
+    $vars-&gt;{timestamp} = Time::Piece-&gt;new-&gt;datetime;
+</pre>
+
+値が空のパラメータについて、デフォルトの値を埋めておきます。title は url と同様、blog_name は url のホスト部分としています。timestamp には現在時刻を ISO 8601 形式の文字列で格納します。
+
+<p />
+<pre class="scriptsSnippet">    eval {
+        store_ping($tb_id, $vars);
+        send_response(0 =&gt; &quot;Thanks for your Ping to $tb_id&quot;);
+    };
+
+    if ($@) {
+        send_response(1 =&gt; &quot;Error while storing ping: $@&quot;);
+    }
+</pre>
+
+<code>store_ping</code> で Trackback Ping の内容をデータベースに保存します。何かエラーが発生すると例外が投げられるため、拾ってレスポンスに表示します。うまくいった場合には、成功した旨のメッセージをレスポンスに表示します。
+
+<p />
+<pre class="scriptsSnippet">sub store_ping {
+    my($tb_id, $vars) = @_;
+    my $is_existent = -e &quot;$dbdir/$tb_id.db&quot;;
+    my @dsn = (&quot;dbi:SQLite:dbname=$dbdir/$tb_id.db&quot;, &quot;&quot;, &quot;&quot;);
+    my $dbh = DBI-&gt;connect(@dsn, { RaiseError =&gt; 1,
+                                   AutoCommit =&gt; 1, });
+
+    # Create table &quot;tb&quot; if it's first time
+    init_table($dbh) unless $is_existent;
+</pre>
+
+<code>store_ping</code> の実装です。事前にデータベースファイルが存在するかどうかをチェックし<code>$is_existent</code> に格納しておきます。存在しなかった場合には、データベースに接続後、<code>init_table</code> で CREATE TABLE 文を発行します。
+
+<p />
+<pre class="scriptsSnippet">sub init_table {
+    my $dbh = shift;
+    $dbh-&gt;do(&lt;&lt;SQL);
+CREATE TABLE tb (
+  url    VARCHAR(255) NOT NULL,
+  title  VARCHAR(255) NOT NULL,
+  blog_name VARCHAR(255) NOT NULL,
+  excerpt TEXT,
+  timestamp DATETIME
+)
+SQL
+    ;
+}
+</pre>
+
+<code>init_table</code> では <code>do</code> メソッドで CREATE TABLE の SQL 文を実行します。VARCHAR, TEXT, DATETIME などの型を指定していますが、実は <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?SQLite">SQLite</a> では、PRIMARY KEY 以外のカラムは、どの型にしても内部的には文字列型として保存されますので、スキーマの指定は気休め程度です。
+
+<p />
+<pre class="scriptsSnippet">    # Generate SQL statements
+    my $sql = sprintf &quot;INSERT INTO tb (%s) VALUES (%s)&quot;,
+        join(&quot;,&quot;, @cols), join(&quot;,&quot;, ('?') x @cols);
+    my $sth = $dbh-&gt;prepare($sql);
+    $sth-&gt;execute(@{$vars}{@cols});
+    $sth-&gt;finish();
+
+    $dbh-&gt;disconnect();
+</pre>
+
+カラム配列 <code>@cols</code> からプレースホルダを含む SQL 文を生成します。<code>$sql</code> は、
+<p><pre class="inlineRaw">INSERT INTO tb (url,title,blog_name,excerpt,timestamp) VALUES (?,?,?,?,?)
+</pre></p>
+
+のような内容になります。このステートメントに、<code>$vars</code> のスライスをとって <code>execute</code> メソッドを呼び出します<a href="#note-4">(*4)</a>。
+
+<p />
+<pre class="scriptsSnippet">sub send_response {
+    my($error, $message) = @_;
+    my $msg = encode_entities($message);
+    print $query-&gt;header('text/xml'), &lt;&lt;XML;
+&lt;?xml encoding=&quot;utf-8&quot;?&gt;
+&lt;response&gt;
+  &lt;error&gt;$error&lt;/error&gt;
+  &lt;message&gt;$msg&lt;/message&gt;
+&lt;/response&gt;
+XML
+    ;
+}
+</pre>
+
+<code>send_response</code> では、エラーかどうかと、内容を表すメッセージを XML にして <code>Content-Type: text/xml</code> で print します。メッセージは XML エンコードが必要です。
+
+
+<h2>実行例</h2>
+
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.print">Trackback Ping クライアント</a>を使用して Trackback を送信してみましょう。Trackback URL は、今回作成したスクリプトのパスの後ろに、<code>/TrackbackID</code> を付加したものになります。うまく、&quot;Ping sent successfully&quot; が表示されたでしょうか。
+
+<p />
+SQLite のデータベースファイルを作成するため、<code>$dbdir</code> のディレクトリに対し、httpd の実行ユーザで書き込み権限を許可する必要があることに注意してください。
+
+<p />
+<a href="http://search.cpan.org/search?m=module&q=LWP">LWP</a> モジュールに付属するコマンドラインプログラム <code>POST</code> で Trackback Ping を送信すると以下のようになります。
+
+<p><pre class="command">% <strong>POST http://localhost/tb/1234</strong>
+blog_name=test&amp;url=http%3A%2F%2Fblog.example.com%2F&amp;title=TEST&amp;charset=utf-8
+^D
+&lt;?xml encoding=&quot;utf-8&quot;?&gt;
+&lt;response&gt;
+  &lt;error&gt;0&lt;/error&gt;
+  &lt;message&gt;Thanks for your Ping to 1234&lt;/message&gt;
+&lt;/response&gt;
+</pre></p>
+
+格納された結果は <code>sqlite</code> コマンドなどで確認できます。
+
+<p><pre class="command">% <strong>sqlite /tmp/1234.db</strong>
+SQLite version 2.8.6
+Enter &quot;.help&quot; for instructions
+sqlite&gt; select * from tb;
+http://blog.example.com/|TEST|test|No excerpt.|2003-11-26T23:14:56
+sqlite&gt;
+</pre></p>
+
+<h2>Hack the Hacks</h2>
+
+Trackback リファレンス実装である <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?tb-standalone">tb-standalone</a> でも、同様に PATH_INFO から Trackback ID を取得してローカルパスにデータを保持することが可能です。
+
+<p />
+CPAN モジュール <a href="http://search.cpan.org/search?m=module&q=Net%3a%3aTrackBack">Net::TrackBack</a> を利用して、パラメータや Trackback ID の取得処理などを隠蔽・再利用することも可能ですが、この例でいえば、あまりメリットはないでしょう。
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: tb_receive.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# tb_receive - Trackback Server
+
+use strict;
+use CGI;
+use DBI;
+use HTML::Entities;
+use Time::Piece;
+
+our $dbdir = &quot;/tmp&quot;;
+our @cols  = qw(url title blog_name excerpt timestamp);
+
+my $query = CGI-&gt;new();
+   $query-&gt;charset('utf-8');
+do_task($query);
+
+sub do_task {
+    my $query = shift;
+    my $tb_id = munge_tb_id($query);
+    my $vars = $query-&gt;Vars();
+
+    # Some validations
+    if (!$tb_id) {
+        send_response(1 =&gt; &quot;Invalid Trackback ID&quot;);
+        return;
+    }
+
+    if (!$vars-&gt;{url}) {
+        send_response(1 =&gt; &quot;No url parameter (required)&quot;);
+        return;
+    }
+
+    fix_encoding($vars) if $vars-&gt;{charset};
+
+    # Default values
+    $vars-&gt;{title}     ||= $vars-&gt;{url};
+    $vars-&gt;{blog_name} ||= do {
+        require URI;
+        URI-&gt;new($vars-&gt;{url})-&gt;host;
+    };
+    $vars-&gt;{excerpt} ||= &quot;No excerpt.&quot;;
+    $vars-&gt;{timestamp} = Time::Piece-&gt;new-&gt;datetime;
+
+    eval {
+        store_ping($tb_id, $vars);
+        send_response(0 =&gt; &quot;Thanks for your Ping to $tb_id&quot;);
+    };
+
+    if ($@) {
+        send_response(1 =&gt; &quot;Error while storing ping: $@&quot;);
+    }
+}
+
+sub fix_encoding {
+    my $vars = shift;
+    require Encode;
+    Encode::from_to($vars-&gt;{$_},
+                    $vars-&gt;{charset} =&gt; &quot;utf-8&quot;) for @cols;
+}
+
+sub store_ping {
+    my($tb_id, $vars) = @_;
+    my $is_existent = -e &quot;$dbdir/$tb_id.db&quot;;
+    my @dsn = (&quot;dbi:SQLite:dbname=$dbdir/$tb_id.db&quot;, &quot;&quot;, &quot;&quot;);
+    my $dbh = DBI-&gt;connect(@dsn, { RaiseError =&gt; 1,
+                                   AutoCommit =&gt; 1, });
+
+    # Create table &quot;tb&quot; if it's first time
+    init_table($dbh) unless $is_existent;
+
+    # Generate SQL statements
+    my $sql = sprintf &quot;INSERT INTO tb (%s) VALUES (%s)&quot;,
+        join(&quot;,&quot;, @cols), join(&quot;,&quot;, ('?') x @cols);
+    my $sth = $dbh-&gt;prepare($sql);
+    $sth-&gt;execute(@{$vars}{@cols});
+    $sth-&gt;finish();
+
+    $dbh-&gt;disconnect();
+}
+
+sub init_table {
+    my $dbh = shift;
+    $dbh-&gt;do(&lt;&lt;SQL);
+CREATE TABLE tb (
+  url    VARCHAR(255) NOT NULL,
+  title  VARCHAR(255) NOT NULL,
+  blog_name VARCHAR(255) NOT NULL,
+  excerpt TEXT,
+  timestamp DATETIME
+)
+SQL
+    ;
+}
+
+sub munge_tb_id {
+    my $query = shift;
+    my $path_info = $query-&gt;path_info();
+    $path_info &amp;&amp; $path_info =~ m!(\w+)! &amp;&amp; return $1;
+    return;
+}
+
+sub send_response {
+    my($error, $message) = @_;
+    my $msg = encode_entities($message);
+    print $query-&gt;header('text/xml'), &lt;&lt;XML;
+&lt;?xml encoding=&quot;utf-8&quot;?&gt;
+&lt;response&gt;
+  &lt;error&gt;$error&lt;/error&gt;
+  &lt;message&gt;$msg&lt;/message&gt;
+&lt;/response&gt;
+XML
+    ;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> Apache モジュール mod_rewrite などを利用して、URL を変換して環境変数などに切り出す手法。<br />
+<a href="#note-2" name="note-2">*2)</a> Python でできた Blog ツール <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?PyCS">PyCS</a> ではこの方法を利用しているようです。<br />
+<a href="#note-3" name="note-3">*3)</a> <code>\w</code> は [0-9a-zA-Z_] と同等の文字クラスです。マルチバイトや - (ハイフン)などの文字はマッチしないので注意してください。<br />
+<a href="#note-4" name="note-4">*4)</a> こうして SQL 文や bind  する値のリストを生成すれば、カラムの数が増えた場合でも <code>@cols</code> に追加するだけで OK になり、DBI をインラインに記述した場合でもメンテナンスが楽になります。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

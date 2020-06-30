@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : RSS をメールで送信する (HTML メール編)</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2htmlmail.html">http://blog.bulknews.net/cookbook/blosxom/rss/rss2htmlmail.html</a>.
+<br /><br /><br />
+
+<h2>RSS をメールで送信する (HTML メール編)</h2>
+by miyagawa at Tue, 28 Oct 2003 00:07
+<p />
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.print">RSS をメールで送信する</a> では、RSS のエントリを普段使いなれた MUA (メーラ) で閲覧する方法を紹介しました。しかし RSS の description だけというのもちょっと味気ないものです。今回はさらに進んで、HTML メールを受信することによって、コンテンツをより見易い形で送信するように改良してみます。
+
+<hr class="seemore">
+
+
+
+<h2>HTML メールの送信</h2>
+
+ネット歴が長い人ほど、HTML メールというと嫌な顔をするものですが、最近ではブロードバンドの普及が原因かどうかはわかりませんが、Amazon.com や Sony Style といったメールマガジンに見られるように、HTML メールによるリッチコンテンツの供給といった手法が割と一般的になってきたようです。
+
+<p />
+今回は、RSS によって受信したコンテンツを、HTML メール化するスクリプトを作成してみます。<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.print">rss2email</a> では、description 要素をテキストで出していただけですので、ちょっと読みづらいものでしたが、HTML にして出すことにより、メーラ内である程度エントリが完結して読めるようになり、より MUA を RSS Aggregator に近い使用感で扱うことができるようになります。
+
+<h2>content モジュール</h2>
+
+RSS 内から HTML の断片を抽出するには、RSS 1.0/2.0 の content モジュールを使用します。content モジュールの namespace は http://purl.org/rss/1.0/modules/content/ で、Blog のエントリの HTML コードをそのまま、<code>content:encoded</code> 要素に CDATA で挿入することができます。
+<p><pre class="inlineRaw">  &lt;item rdf:about=&quot;http://example.org/item/&quot;&gt;
+    &lt;title&gt;The Example Item&lt;/title&gt; 
+    &lt;link&gt;http://example.org/item/&lt;/link&gt;
+    &lt;content:encoded&gt;
+    &lt;![CDATA[&lt;p&gt;What a &lt;em&gt;beautiful&lt;/em&gt; day!&lt;/p&gt;]]&gt;
+    &lt;/content:encoded&gt;
+  &lt;/item&gt; 
+</pre></p>
+
+これを利用することによって、RSS Aggregator がエントリの Permalink を取得することなく、個別 item のリッチ表示を行うことが可能になります<a href="#note-1">(*1)</a>。
+
+<h2>サンプルコード</h2>
+
+<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.print">rss2email</a> を改良して、content モジュールを使用している場合には HTML メールを送信するスクリプトは <a href="#listing-1">List 1</a> のようになります。rss2email との差分についてのみ、解説します。
+
+<p />
+<pre class="scriptsSnippet">    $rss-&gt;add_module(
+        prefix =&gt; 'content',
+        uri =&gt; 'http://purl.org/rss/1.0/modules/content/',
+    );
+</pre>
+
+XML::RSS の <code>add_module</code> メソッドで、content モジュールの名前空間と prefix を指定します。これによって、各 item の <code>content:encoded</code> 要素が、<code class="inlineRaw">$item-&gt;{content}-&gt;{encoded}</code> で取得できるようになります。
+
+<p />
+<pre class="scriptsSnippet">    my $textpart = &lt;&lt;BODY;
+New entry arrived for $rss-&gt;{channel}-&gt;{title}
+$item-&gt;{link}
+&gt;&gt; $item-&gt;{description}
+BODY
+    ;
+    my $htmlpart = $item-&gt;{content}-&gt;{encoded};
+</pre>
+
+HTML メールは通常テキスト部と HTML 部が multipart/alternative な Content-Type で送信されます。ここでは item の <code>description</code> からテキストパートを作成し、<code>content:encoded</code> から HTML パートを作成しています。
+
+<p />
+<pre class="scriptsSnippet">    my $mime = MIME::Lite-&gt;new(
+        From =&gt; $MailTo,
+        To   =&gt; $MailTo,
+        Subject =&gt; encode('MIME-Header' =&gt; $item-&gt;{title}),
+        Type =&gt; 'multipart/alternative',
+        Datestamp =&gt; 0,
+        Date =&gt; HTTP::Date::time2str($epoch),
+    );
+</pre>
+
+MIME::Lite オブジェクトを Content-Type: multipart/alternative で作成します。
+
+<p />
+<pre class="scriptsSnippet">    $mime-&gt;attach(
+        Type =&gt; 'text/plain; charset=UTF-8',
+        Data =&gt; encode('UTF-8' =&gt; $textpart),
+    );
+    $mime-&gt;attach(
+        Type =&gt; 'text/html; charset=UTF-8',
+        Data =&gt; encode('UTF-8' =&gt; $htmlpart),
+    ) if $htmlpart;
+</pre>
+
+テキストパートと HTML パートを順に <code>attach</code> します。どちらも charset=UTF-8 とし、UTF-8 に encode して添付しています。
+
+<h2>実行例</h2>
+
+<p><pre class="command">% <strong>./rss2htmlmail.pl http://blog.bulknews.net/cookbook/blosxom/index.rss10</strong>
+</pre></p>
+
+この Blog の RSS/1.0 Feed を引数にして実行します。各エントリの <code>content:encoded</code> 要素が HTML メールになって送信されてくることが確認できます。
+
+
+<h2>MIME::Lite::HTML</h2>
+
+このスクリプトでは、<code>content:encoded</code> 要素内に img タグで画像が埋め込まれている場合などは対応できません。CPAN モジュールの <a href="http://search.cpan.org/search?m=module&q=MIME%3a%3aLite%3a%3aHTML">MIME::Lite::HTML</a> を使用すると、これらの画像などをすべて multipart/alternative 内に埋めこんだ HTML メールを送信することができます<a href="#note-2">(*2)</a>。
+
+<h2>See Also</h2>
+<ul>
+<li><a href="http://www.purl.org/rss/1.0/modules/content/">RSS 1.0 Modules: Content</a></li>
+<li><a href="http://www.kanzaki.com/docs/sw/rss.html#mod-content">The Web KANZAKI - RSS によるサイト情報の要約と公開</a></li>
+</ul>
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: rss2htmlmail.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# rss2htmlmail - send HTML email from RSS feed
+
+use strict;
+use Digest::MD5 qw(md5_hex);
+use Encode;
+use File::stat;
+use HTTP::Date;
+use LWP::Simple;
+use MIME::Lite;
+use XML::RSS;
+
+our $CacheDir = &quot;rsscache&quot;;
+our $MailTo   = 'you@example.com';
+
+mkdir $CacheDir, 0755 unless -e $CacheDir;
+
+my $rss    = shift or die &quot;Usage: rss2htmlmail URL\n&quot;;
+my $digest = md5_hex($rss);
+my $cache  = &quot;$CacheDir/$digest.xml&quot;;
+
+my $lastmod = -e $cache ? stat($cache)-&gt;mtime : 0;
+my $status = LWP::Simple::mirror($rss, $cache);
+
+if ($status == RC_NOT_MODIFIED) {
+    warn &quot;$rss not modified\n&quot;;
+} elsif (is_error($status)) {
+    die &quot;$rss not found!\n&quot;;
+} elsif (is_success($status)) {
+    proc_rss($cache, $lastmod);
+}
+
+sub proc_rss {
+    my($xml, $lastmod) = @_;
+    my $rss = XML::RSS-&gt;new();
+    $rss-&gt;add_module(
+        prefix =&gt; 'content',
+        uri =&gt; 'http://purl.org/rss/1.0/modules/content/',
+    );
+    $rss-&gt;parsefile($xml);
+
+    for my $item (@{$rss-&gt;{items}}) {
+        my $dc_date = $item-&gt;{dc}-&gt;{date}
+            or die &quot;RSS should have dc:date element&quot;;
+        my $epoch = HTTP::Date::str2time($dc_date);
+        if ($epoch &gt; $lastmod) {
+            do_sendmail($rss, $item, $epoch);
+        } else {
+            last;
+        }
+    }
+}
+
+sub do_sendmail {
+    my($rss, $item, $epoch) = @_;
+    my $textpart = &lt;&lt;BODY;
+New entry arrived for $rss-&gt;{channel}-&gt;{title}
+$item-&gt;{link}
+&gt;&gt; $item-&gt;{description}
+BODY
+    ;
+    my $htmlpart = $item-&gt;{content}-&gt;{encoded};
+
+    my $mime = MIME::Lite-&gt;new(
+        From =&gt; $MailTo,
+        To   =&gt; $MailTo,
+        Subject =&gt; encode('MIME-Header' =&gt; $item-&gt;{title}),
+        Type =&gt; 'multipart/alternative',
+        Datestamp =&gt; 0,
+        Date =&gt; HTTP::Date::time2str($epoch),
+    );
+
+    $mime-&gt;attach(
+        Type =&gt; 'text/plain; charset=UTF-8',
+        Data =&gt; encode('UTF-8' =&gt; $textpart),
+    );
+    $mime-&gt;attach(
+        Type =&gt; 'text/html; charset=UTF-8',
+        Data =&gt; encode('UTF-8' =&gt; $htmlpart),
+    ) if $htmlpart;
+
+    $mime-&gt;send();
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> Movable Type で content:encoded を出力するには <a href="http://naoya.dyndns.org/~naoya/mt/archives/000239.html">NDO::Weblog: RSSリーダーで段落整形させて表示させる方法</a>を参照してください。blosxom で content:encoded を出力するには <a href="http://www.blosxom.com/plugins/syndication/rss10.htm">rss10 plugin</a> を使用します。<br />
+<a href="#note-2" name="note-2">*2)</a> HTML のエンコーディングを事前に設定する必要があり、ちょっと使いにくいのが難点です。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

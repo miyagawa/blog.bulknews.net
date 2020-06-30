@@ -1,0 +1,249 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : 関心空間の RSS を作成する</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/rss/kanshin_rss.html">http://blog.bulknews.net/cookbook/blosxom/rss/kanshin_rss.html</a>.
+<br /><br /><br />
+
+<h2>関心空間の RSS を作成する</h2>
+by miyagawa at Thu, 23 Oct 2003 20:19
+<p />
+
+<p />
+Weblog テクノロジを解説する上で欠かせないのが、RSS という技術です。RSS は Netscape が My Netscape Portal に採用したシンジケーション専用の XML フォーマットで、現在では Weblog にとどまらず、ニュースサイト等のサイト更新情報をシンジケートするデファクトスタンダードになりつつあります。
+<p />
+今回は、RSS 作成の一例として、<a href="http://www.kanshin.com/">関心空間</a> の HTML をパースして、RSS を生成してみます。
+<hr class="seemore">
+
+
+<p />
+<h2>関心空間</h2>
+関心空間は、「自分が今興味を持っているモノをキーワードとして入力していくことで、その周辺情報を入手したり他の新たな関心事を発掘できるサイト」(サイトより引用) です。自分の登録したモノと、他人の登録したモノとを、「つながり」で表現することができ、サイト自体のコンセプトが Weblog や WikiWikiWeb と通じるものがあります。今回は <a href="http://www.kanshin.com/index.php3?mode=search">キーワード一覧</a> のページを元にして、RSS を生成してみましょう<a href="#note-1">(*1)</a>。<p />
+
+<h2>RSS の種類</h2>
+ひとくちに RSS といってもいくつかのバージョンがあり、メジャーなものを簡単に分類すると以下のようになります。
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><th class="blosxomTableHeader">version</th><th class="blosxomTableHeader">概要</th></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd"><a href="http://backend.userland.com/rss091">0.91</a></td><td class="blosxomTableDataOdd">Netscape により考案され、Radio Userland により拡張されたオリジナル。Rich Site Summary の略。</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven"><a href="http://web.resource.org/rss/1.0/">1.0</a></td><td class="blosxomTableDataEven">RDF をベースにしている。namespace によるモジュール拡張が可能。RDF Site Summary の略。</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd"><a href="http://blogs.law.harvard.edu/tech/rss">2.0</a></td><td class="blosxomTableDataOdd">RDF は複雑すぎるとして、RSS 0.91 をベースに、namespace による拡張をとりいれたもの。 Dave Winer (Radio Userland) により考案された。Really Simple Syndication の略。</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven"><a href="http://www.aaronsw.com/weblog/000574">3.0</a></td><td class="blosxomTableDataEven">Aaron Swartz によるプレーンテキストなシンジケーションフォーマット。</td></tr>
+</table>
+
+<p />
+実際には、これ以外にもいくつかの亜流があり、またこれらの対立やベンダー依存の体質を打破すべく新しい XML フォーマット Atom <a href="#note-2">(*2)</a> の実装も進められています。この辺のいきさつについては、<a href="http://japan.cnet.com/news/special/story/0,2000047679,20060542,00.htm">CNET Japan - Blog戦争: RSSはどこへ行く?</a> などを参照してください。
+
+<p />
+今回の関心空間 RSS では、最もシンプルな 0.91 を採用します<a href="#note-3">(*3)</a>。
+
+<p />
+Perl で RSS の生成、パースをするには <a href="http://search.cpan.org/search?m=module&q=XML%3a%3aRSS">XML::RSS</a> を使用します。これ以外の選択肢は、現時点では考えられません。RSS 0.91, 1.0, 2.0 に対応しており、また namespace などによる拡張もサポートしている、デファクトスタンダードな RSS モジュールです。<a href="http://search.cpan.org/search?m=module&q=XML%3a%3aParser">XML::Parser</a> モジュールを内部で使用しているため、expat のインストールが別途必要です。
+
+<h2>サンプルコード</h2>
+
+関心空間の <a href="http://www.kanshin.com/index.php3?mode=search">キーワード一覧</a> の HTML を取得し、RSS を生成するスクリプトは <a href="#listing-1">List 1</a> のようになります。
+このスクリプトを動作させるには、Perl 5.8.0 以上が必要です。
+
+<p />
+<pre class="scriptsSnippet">use encoding 'euc-jp', STDOUT =&gt; 'UTF-8';
+</pre>
+Perl 5.8 より採用された encoding プラグマを使用します。今回はスクリプト自体に、サイトの HTML を解析するための正規表現(マルチバイト文字含む)を EUC-JP で埋めこんでいるため、このプラグマでその文字コードを指定します。
+<p />
+また、最終的に出力する RSS は UTF-8 でエンコードする必要があるため、STDOUT に UTF-8 を指定しています。これにより、ファイル内に EUC-JP で記述した文字列は、Perl 内部で Unicode 文字列として扱われ、STDOUT に print する際には自動的に UTF-8 にエンコードされることになります。
+<p />
+<pre class="scriptsSnippet">use Encode;
+use HTML::Entities;
+use LWP::Simple;
+use XML::RSS;
+</pre>
+動作に必要な各種モジュールを use しています。HTML エンコードのために <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aEntities">HTML::Entities</a>、URL から HTML の取得に <a href="http://search.cpan.org/search?m=module&q=LWP%3a%3aSimple">LWP::Simple</a>、また今回の主役である RSS 作成のための <a href="http://search.cpan.org/search?m=module&q=XML%3a%3aRSS">XML::RSS</a> を使用します。
+
+<p />
+<pre class="scriptsSnippet">(my $Regex = &lt;&lt;'REGEX') =~ tr/\n//d;
+&lt;A href=&quot;(index\.php3\?mode=keyword&amp;id=\d+)&quot;&gt;
+&lt;B&gt;&lt;FONT class=css3&gt;(.*?)&lt;/FONT&gt;&lt;/B&gt;
+&lt;IMG .*?&gt;&lt;/A&gt;
+&lt;FONT size=&quot;-1&quot; class=css2&gt;
+　\d+/\d+&lt;!-- .*? --&gt;&lt;img .*?&gt;
+　\[\d+\] .*?
+&lt;BR&gt;
+(.*?)&lt;BR&gt;
+REGEX
+    ;
+</pre>
+<a href="http://www.kanshin.com/index.php3?mode=search">キーワード一覧</a> の HTML ソースを見て、アイテム情報を抜き出すための正規表現を作成します。若干複雑な HTML となっていますが、img タグのアトリビュートなど、情報として不必要なものは <code class="inlineRaw">.*?</code> で処理してしまい、余計なコードにならないように工夫しています。またこうした正規表現は通常横長になってしまいがちですが、ここでは改行を入れて見やすくした上で、
+<p><pre class="inlineRaw">(my $Regex = &lt;&lt;'REGEX') =~ tr/\n//d;</pre></p> 
+によって改行を除去しています<a href="#note-4">(*4)</a>。
+
+<p />
+<pre class="scriptsSnippet">my $rss = XML::RSS-&gt;new(
+    version =&gt; 0.91,
+    encode_output =&gt; 0,
+);
+</pre>
+XML::RSS オブジェクトを作成します。<code>version</code> は何も指定しなければデフォルトで 1.0 となりますので、ここでは明示的に 0.91 を指定します。<code>encode_output</code> は、XML::RSS に渡す文字列を、出力の際に自動でXMLエンコードするかどうかのフラグで、デフォルトでは 1 となりますが、今回は HTML から拾った文字列を渡すため、二重エンコードがかかってしまう可能性があります。よって <code>encode_output</code> は 0 としています。
+
+<p />
+<pre class="scriptsSnippet">$rss-&gt;channel(
+    title    =&gt; 'kanshin.com RSS',
+    link     =&gt; 'http://www.kanshin.com/',
+    description =&gt; &quot;関心空間 最新キーワードのRSS&quot;,
+    language =&gt; 'ja',
+);
+</pre>
+RSS の channel 要素を設定しています。channel 要素には、RSS で配信するサイトについてのメタ情報を記述します。
+
+<p />
+<pre class="scriptsSnippet">my $html = decode('Shift_JIS', get($URL));
+</pre>
+最新キーワードの HTML を取得します。関心空間の HTML は Shift_JIS でエンコードされているため、Encode.pm の <code>decode</code> で、Unicode 文字列にデコードします。
+
+<p />
+<pre class="scriptsSnippet">while ($html =~ m/$Regex/gs) {
+    $rss-&gt;add_item(
+        link  =&gt; encode_entities(&quot;http://www.kanshin.com/$1&quot;),
+        title =&gt; $2,
+        description =&gt; normalize($3),
+    );
+}
+</pre>
+先ほど定義した正規表現 <code>$Regex</code> にマッチさせます。マッチした結果は
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft"><code>$1</code></td><td class="blosxomTableDataRight">URL (index.php 相対パス)</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft"><code>$2</code></td><td class="blosxomTableDataRight">アイテムのタイトル</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft"><code>$3</code></td><td class="blosxomTableDataRight">アイテムの見出し文</td></tr>
+</table>
+
+のように格納されています。link 属性については、本来であれば HTML エンコードの必要はありませんが、元 HTML で &amp; 要素がエンコードされていない<a href="#note-5">(*5)</a>ため、HTML::Entities の <code>encode_entities</code> によってエンコードしています。
+<p />
+また description 属性には、全角スペースや改行が含まれているため、後述する <code>normalize</code> 関数により除去します。
+
+<p />
+<pre class="scriptsSnippet">if ($ENV{GATEWAY_INTERFACE}) {
+    require CGI;
+    print CGI::header('text/xml; charset=utf-8');
+}
+</pre>
+このスクリプトは、コマンドラインで RSS を生成する目的で作成しましたが、CGI として動作させることもできるように対策してあります。CGI で動作すると、環境変数 <code>GATEWAY_INTERFACE</code> に <code>CGI/1.1</code> といった文字列が格納されます。ここでは、<code>$ENV{GATEWAY_INTERFACE}</code> が設定されていた場合には、CGI.pm の <code>header</code> メソッドにより、Content-Type: を適切に出力するようにしています。
+
+<p />
+<pre class="scriptsSnippet">print $rss-&gt;as_string();
+</pre>
+XML::RSS オブジェクトから <code>as_string</code> メソッドを呼び出し、STDOUT に RSS を出力します。本来であれば、<p><pre class="inlineRaw">print encode('UTF-8', $rss-&gt;as_string());</pre></p> のように、結果の文字列を UTF-8 にエンコードする必要がありますが、今回は encoding プラグマで自動的に行われるようにしてあります。
+
+<p />
+<pre class="scriptsSnippet">sub normalize {
+    local $_ = shift;
+    tr/　\r\n//d;
+    return $_;
+}
+</pre>
+description 要素を正規化するサブルーチンです。<code>$_</code> に引数を格納し、tr で全角スペースと CRLF を削除しています。ここでは tr 内に全角スペースを使用していますが、先頭で encoding プラグマにより定義しているため、問題なく動作します<a href="#note-6">(*6)</a>。
+
+<h2>実行例</h2>
+
+コマンドラインで実行して、RSS を生成してみます<a href="#note-7">(*7)</a>。
+
+<p><pre class="command">% <strong>./kanshin_rss.pl</strong>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!DOCTYPE rss PUBLIC &quot;-//Netscape Communications//DTD RSS 0.91//EN&quot;
+            &quot;http://my.netscape.com/publish/formats/rss-0.91.dtd&quot;&gt;
+...
+&lt;/channel&gt;
+&lt;/rss&gt;</pre></p>
+
+標準出力に RSS が出力されますので、リダイレクトを使用してファイルに書き出します。
+
+<p><pre class="command">% <strong>./kanshin_rss.pl &gt; kanshin.xml</strong>
+</pre></p>
+
+作成された <code>kanshin.xml</code> を HTTP でアクセス可能な場所に移動します。念のため、.htaccess 等で
+<p><pre class="inlineRaw">AddType text/xml .xml
+AddDefaultCharset utf-8
+</pre></p>
+のように設定しておくとよいでしょう<a href="#note-8">(*8)</a>。
+
+<p />
+また <code>kanshin_rss.pl</code> を CGI を実行できるディレクトリ(cgi-bin など)に格納して、直接ブラウザからアクセスして RSS を出力することもできます。
+
+<h2>まとめ</h2>
+今回作成した RSS を、RSS リーダーなどのアグリゲーションツールで読み込むことにより、関心空間の新着アイテムがチェックできます。こうして既存の更新情報を RSS で取り込むと、Web ブラウザでちまちまと巡回していた手間が、RSS リーダーなどのツールに一元化され非常に便利です。
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: kanshin_rss.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# kanshin_rss - generate RSS for kanshin.com
+
+use strict;
+use encoding 'euc-jp', STDOUT =&gt; 'UTF-8';
+use Encode;
+use HTML::Entities;
+use LWP::Simple;
+use XML::RSS;
+
+my $URL = &quot;http://www.kanshin.com/index.php3?mode=search&quot;;
+
+(my $Regex = &lt;&lt;'REGEX') =~ tr/\n//d;
+&lt;A href=&quot;(index\.php3\?mode=keyword&amp;id=\d+)&quot;&gt;
+&lt;B&gt;&lt;FONT class=css3&gt;(.*?)&lt;/FONT&gt;&lt;/B&gt;
+&lt;IMG .*?&gt;&lt;/A&gt;
+&lt;FONT size=&quot;-1&quot; class=css2&gt;
+　\d+/\d+&lt;!-- .*? --&gt;&lt;img .*?&gt;
+　\[\d+\] .*?
+&lt;BR&gt;
+(.*?)&lt;BR&gt;
+REGEX
+    ;
+
+my $rss = XML::RSS-&gt;new(
+    version =&gt; 0.91,
+    encode_output =&gt; 0,
+);
+$rss-&gt;channel(
+    title    =&gt; 'kanshin.com RSS',
+    link     =&gt; 'http://www.kanshin.com/',
+    description =&gt; &quot;関心空間 最新キーワードのRSS&quot;,
+    language =&gt; 'ja',
+);
+
+my $html = decode('Shift_JIS', get($URL));
+while ($html =~ m/$Regex/gs) {
+    $rss-&gt;add_item(
+        link  =&gt; encode_entities(&quot;http://www.kanshin.com/$1&quot;),
+        title =&gt; $2,
+        description =&gt; normalize($3),
+    );
+}
+
+if ($ENV{GATEWAY_INTERFACE}) {
+    require CGI;
+    print CGI::header('text/xml; charset=utf-8');
+}
+
+print $rss-&gt;as_string();
+
+sub normalize {
+    local $_ = shift;
+    tr/　\r\n//d;
+    return $_;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> 執筆時点で関心空間では、RSS 等によるデータ配信は行っていません。<br />
+<a href="#note-2" name="note-2">*2)</a> <a href="http://www.intertwingly.net/wiki/pie/FrontPage">The Atom Project</a><br />
+<a href="#note-3" name="note-3">*3)</a> 日付情報などが不完全であるため 1.0 には適さないという理由もあります。<br />
+<a href="#note-4" name="note-4">*4)</a> 正規表現の x オプションを使用する手もありますが、その場合、スペースを <code>\s</code> に置換する必要があります。<br />
+<a href="#note-5" name="note-5">*5)</a> a タグの href 要素内では、 &amp; は &amp;amp; にエンコードする必要がありますが、されていないサイトが多いようです。<br />
+<a href="#note-6" name="note-6">*6)</a> Perl 5.8.0 では encoding プラグマと tr の動作に不具合があることが報告されていますが、5.8.1 では問題ありません。<br />
+<a href="#note-7" name="note-7">*7)</a> 今回の URL は検索などに負荷がかかるようで、若干レスポンスに時間がかります。<br />
+<a href="#note-8" name="note-8">*8)</a> 一般に公開する場合は、元サイトの規約に反しないよう注意が必要です。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

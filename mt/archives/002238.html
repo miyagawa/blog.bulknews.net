@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>学校では教えてくれないエンジニアリング英語 #6: red herring: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/002238.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/002237.html" title="ガキの使いと電波少年がHulu.comに" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/002239.html" title="NOFX 25th Anniversary Live at Slim's San Francisco" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002238.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2154"
+    dc:title="学校では教えてくれないエンジニアリング英語 #6: red herring"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002238.html"
+    dc:subject=""
+    dc:description="何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。 Red herring あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。 そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。 &quot;Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was..."
+    dc:creator="miyagawa"
+    dc:date="2009-01-30T05:37:25+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">January 30, 2009</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">学校では教えてくれないエンジニアリング英語 #6: red herring</h1>
+
+<p>何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。</p>
+
+<h3>Red herring</h3>
+
+<p>あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。</p>
+
+<p>そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。</p>
+
+<p>"Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was giving an OOM (out of memory) error. It looks like we recently updated Image Magick on our development instances but didn't on production. Shall we upgrade?"</p>
+
+<p>(ウィジェットがうまく表示されない件なんだけど、サーバログに ImageMagick の Out of Memory がたくさん出ていたよ。どうも開発環境では ImageMagick をアップグレードしているんだがプロダクションではまだみたいだ。アップグレードすればなおるのかな？)</p>
+
+<p>"That ImageMagick thing is <strong>a red herring</strong>. What's happening here is: when the widget definition XML file causes a parser error, we redirect the user to our Oops error page, which includes a beacon image that's automatically generated based on their geo location, and that is causing ImageMagick OOM. So, what we should fix is the widget XML file syntax error, not ImageMagick"</p>
+
+<p>(そのImageMagick エラーは Red Herring だね。これ、実はウィジェットのXMLファイルがパーサーエラーを起こしていて、それでエラー画面にリダイレクトするときにエラー画面のHTMLにある画像が動的に生成されていてそれがImageMagick のOOMを起こすことがあるみたいだ。だからwidget のXMLファイルの文法エラーをなおすべきで、ImageMagickは直接関係ないよ)</p>
+
+<p>いい直接の訳が思い浮かびませんが、「関係ないのに紛らわしいもの」というぐらいの意味で、Wikipedia には <a href="http://en.wikipedia.org/wiki/Red_herring_(narrative)">ドラマ脚本やサスペンスで読者の気を引いてだますための余計なエピソード</a> という意味も紹介されていますね。</p>
+
+<p>以下、実際に僕のメールボックスから:</p>
+
+<p>typepad.log on our stage doesn't show any errors similar to what Chris saw around the time of his emails.. i.e. yesterday at 9:00pm.. it does show some apache restarts at that time, which would correspond to some redirect changes I was testing.  But he said this morning that it's consistent.. so those log messages are probably <strong>a red herring</strong>.</p>
+
+<p>Categories are a bit weird: only one category is displaying ("Current Affairs"). That sounds similar to what's happening in XXX, *but* I have no idea how YYY is even getting that list of categories, so that may be <strong>a red herring</strong>.</p>
+
+<p>調査段階で red herring かどうかもわからない（けど、おそらく関係ないエラーだろうとおもう）時には、probably や may be とつけていうのが便利ですね。</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at January 30, 2009 05:37 AM
+| <a href="http://blog.bulknews.net/mt/archives/002238.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/002238.html#comments">Comments (6)</a>
+
+| <a href="#trackbacks">TrackBack(0)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/002237.html\">&laquo; ガキの使いと電波少年がHulu.comに</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/002239.html\">NOFX 25th Anniversary Live at Slim\'s San Francisco &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>同じようなバグの調査をしてるときのシチュエーションで「怪しい」という意味で fishy を使いますよね。 "We've only gotten two reports of this but it seems fishy." ま、学校で教えてくれるのかもしれないですけど。;p<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://sekimura.vox.com" rel="nofollow">sekimura</a> on January 30, 2009 08:16 AM</span>
+</div>
+<div class="comments-body">
+<p>fishyは学校で教えてくれなそうだなあ。名詞+y で違った意味になるシリーズはいろいろありそう。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on January 30, 2009 08:30 AM</span>
+</div>
+<div class="comments-body">
+<p>意訳すると「罠」（あるいは「ワナ」）じゃないでしょうか。<br />
+翻訳ミステリ方面では「燻製ニシン」と直訳したりすることもありますが、「レッド・へリング」とカタカナで書くのが一般的かも。私はクリスティのミステリで覚えました。</p>
+<span class="comments-post">Posted by: takahashim on February  2, 2009 02:43 PM</span>
+</div>
+<div class="comments-body">
+<p>ジェフリーアーチャーの「十二の意外な結末」って短編集の原題が「Twelve Red Herrings」で、訳者が最後にそれについても書いていたので、私はそれで知りました。</p>
+<span class="comments-post">Posted by: Fumiaki Yoshimatsu on February 22, 2009 10:10 AM</span>
+</div>
+<div class="comments-body">
+<p>Students like to order custom written essays about this post, using the support the essay writing service. You definately will need use plagiarism checker. Now, you don’t have to worry about getting a failing mark simply because you have been accused of plagiarizing someone else’s work.</p>
+<span class="comments-post">Posted by: <a href="http://www.plagiarismsearch.com" rel="nofollow">DianaLucas</a> on July 21, 2011 04:30 AM</span>
+</div>
+<div class="comments-body">
+<p>ありがとう！非常に有用なポスト！、素晴らしい仕事をして働き続ける！サンキュー。</p>
+<span class="comments-post">Posted by: <a href="http://ds-dsi.net" rel="nofollow">dsi マジコン</a> on September  8, 2011 07:12 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/2154</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="2238" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

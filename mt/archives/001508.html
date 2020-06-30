@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title> MTBanASCII: コメントSPAM対策を MT3 に移植: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001508.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001507.html" title="Extreme Perl is online" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001509.html" title="今週、妻が浮気します。" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">January 24, 2005</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title"> MTBanASCII: コメントSPAM対策を MT3 に移植</h1>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001098.html">ASCII のみのコメントを拒否する</a> 方法を以前紹介していて、これを使用している方もいるかと思うのですが、これは MT のソースをいじる必要があるためバージョンアップなどで問題がありました。</p>
+
+<p>ということで MT3.1 の CommentFilter コールバックを利用して、ASCII or Latin-1 のコメントを拒否またはモデレートするプラグイン <a href="http://bulknews.net/lib/archives/mt-ban-ascii.pl">MTBanASCII</a> を作成しました。</p>
+
+<p>インストールは plugins ディレクトリに mt-ban-ascii.pl を置くだけです。<code>our $Method = "moderate";</code> でモデレート、"deny" にすると投稿を拒否します。</p>
+
+<p><a href="http://mt-plugins.org/archives/entry/banascii.php">mt-plugins.org</a> にも submit しました。</p>
+
+<p><b>UPDATE:</b> バージョン 0.90 では、日本語を含むすべてのコメントを deny または moderate してしまう不具合がありました。<a href="http://bulknews.net/lib/archives/mt-ban-ascii.pl">0.91</a> からダウンロードして置き換えてください。ただし perl 5.8 以上でないと動作しません。（Laitn-1 文字列かどうかをバイト列で判別するのは不可能のため）</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'Movable Type, SPAM';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at January 24, 2005 02:59 AM
+| <a href="http://blog.bulknews.net/mt/archives/001508.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001508.html#comments">Comments (7)</a>
+
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001507.html\">&laquo; Extreme Perl is online</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001509.html\">今週、妻が浮気します。 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>昔こんなの作ったんですが、なるほどModerateにもできますね。<br />
+http://as-is.net/blog/archives/000902.html</p>
+<span class="comments-post">Posted by: <a href="http://as-is.net/blog/" rel="nofollow">(o)</a> on January 24, 2005 03:22 AM</span>
+</div>
+<div class="comments-body">
+<p>[\x00-\xff]？<br />
+[\x00-\x7f]？</p>
+<span class="comments-post">Posted by: <a href="http://rebecca.ac/milano/mt/" rel="nofollow">milano</a> on January 25, 2005 02:35 PM</span>
+</div>
+<div class="comments-body">
+<p>\x00-\x7f だとASCIIで、\x00-\xff だと Latin-1 も含むという認識で書いたのですがこれだと全部マッチしてしまいますね。utf8::decode() が直前に必要でした。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on January 25, 2005 03:50 PM</span>
+</div>
+<div class="comments-body">
+<p>しかしそれだと Perl 5.8 が必要になってしまう。。<br />
+バイト列でマッチできるように調整します。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on January 25, 2005 04:05 PM</span>
+</div>
+<div class="comments-body">
+<p>ってバイト列だけでlatin-1かどうか判別するのは不可能でした。UTF-8 な文字列なら無理やりlatin-1として読むことができるはずだから。というわけでperl5.8以上が必要になります。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on January 25, 2005 04:21 PM</span>
+</div>
+<div class="comments-body">
+<p>スパマーにコメントに失敗したことを明示的に認識させるために、CommentThrottleFilterを使うというのはどうでしょう。DBに触る回数も減ります。</p>
+<span class="comments-post">Posted by: <a href="http://as-is.net/blog/" rel="nofollow">(o)</a> on January 26, 2005 06:29 AM</span>
+</div>
+<div class="comments-body">
+<p>参考になりました。。<br />
+ありがとう♪</p>
+<span class="comments-post">Posted by: <a href="http://sizuka.ciao.jp/blog/" rel="nofollow">しずか</a> on January 27, 2005 01:03 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1508</div>
+
+<div class="comments-body">
+<a name="2858"></a>
+<span class="comments-post"><a href="http://blog.ishikawa-news.com/mt/archives/200501/24-1336-1265.php" target="new" rel="nofollow nofollow">対コメントスパム連合艦隊にMTBanASCII</a><br />
+<b>Excerpt:</b> blog.bulknews.net ASCII のみのコメントを拒否する 方法を...<br />
+<b>Weblog:</b> 国際ニュース::Ishikawa-News.com<br />
+<b>Tracked:</b> January 24, 2005 01:36 PM</span>
+</div>
+<div class="comments-body">
+<a name="2860"></a>
+<span class="comments-post"><a href="http://bbws.main.jp/blog/2005/01/200501241620.php" target="new" rel="nofollow nofollow">MTのスパム対策２つ</a><br />
+<b>Excerpt:</b> 結局はバカスパマーとのイタチごっこになるんだけど<br />
+<b>Weblog:</b> B.B.'sWebSpace<br />
+<b>Tracked:</b> January 24, 2005 04:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="2862"></a>
+<span class="comments-post"><a href="http://rebecca.ac/milano/mt/archives/001042.html" target="new" rel="nofollow nofollow">新たなコメントSPAMが！</a><br />
+<b>Excerpt:</b> MTBanASCII: コメントSPAM対策を MT3 に移植: blog.bu...<br />
+<b>Weblog:</b> Milano::Monolog<br />
+<b>Tracked:</b> January 24, 2005 11:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="2863"></a>
+<span class="comments-post"><a href="http://www.de4u.net/mt/archives/001214.html" target="new" rel="nofollow nofollow">Movable TypenoCommentFilter コールバックを利用して</a><br />
+<b>Excerpt:</b>  blog.bulknews.net MTBanASCII: コメントSPAM対策を MT3 に移植 CommentFilter コールバックを利用して...<br />
+<b>Weblog:</b> Epic->yoshimax<br />
+<b>Tracked:</b> January 24, 2005 11:31 PM</span>
+</div>
+<div class="comments-body">
+<a name="2870"></a>
+<span class="comments-post"><a href="http://raizo.daa.jp/archives/2005/0125_0615.php" target="new" rel="nofollow nofollow">コメントSPAM対策のプラグイン</a><br />
+<b>Excerpt:</b> 次回MovableTypeをバージョンアップしたときに試してみようかと思ってのメ...<br />
+<b>Weblog:</b> now and then<br />
+<b>Tracked:</b> January 25, 2005 06:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="2872"></a>
+<span class="comments-post"><a href="http://as-is.net/blog/archives/000961.html" target="new" rel="nofollow nofollow">私のコメントスパム対策</a><br />
+<b>Excerpt:</b> 「コメントスパム対策」と言うとき、それは複合的な意味を持ちます。コメントスパムがブログ内に表示されるのを避けたいのか、管理画面の「コメント一覧」に表示されるのすら避けたいのか、あるいはコメント投稿によって発生する再構築の負荷を低減したいのか？ このエン�...<br />
+<b>Weblog:</b> Ogawa::Memoranda<br />
+<b>Tracked:</b> January 25, 2005 09:48 AM</span>
+</div>
+<div class="comments-body">
+<a name="2875"></a>
+<span class="comments-post"><a href="http://clouder.jp/yoshiki/mt/archives/000264.html" target="new" rel="nofollow nofollow">MTBanASCII導入</a><br />
+<b>Excerpt:</b> MTBanASCII: コメントSPAM...<br />
+<b>Weblog:</b> Clouder::Blogger<br />
+<b>Tracked:</b> January 25, 2005 12:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="2876"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/001508.html" target="new" rel="nofollow nofollow">MTBanASCII: コメントSPAM対策を MT3 に移植</a><br />
+<b>Excerpt:</b> 0.90 にはすべてのコメントを拒否またはモデレートしてしまう不具合がありました。Perl 5.8 を利用の方は 0.91 に置き換えてください。Perl 5.6 以前の場合、Latin-1 の判別ができないため本プラグインは利用できません。<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> January 25, 2005 04:34 PM</span>
+</div>
+<div class="comments-body">
+<a name="2877"></a>
+<span class="comments-post"><a href="http://bbws.main.jp/blog/2005/01/200501241620.php" target="new" rel="nofollow nofollow">MTのスパム対策２つ</a><br />
+<b>Excerpt:</b> 結局はバカスパマーとのイタチごっこになるんだけど<br />
+<b>Weblog:</b> B.B.'sWebSpace<br />
+<b>Tracked:</b> January 25, 2005 05:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="2880"></a>
+<span class="comments-post"><a href="http://qootas.org/archives/2005/01/post_12.html" target="new" rel="nofollow nofollow">MT コメントSPAM対策プラグイン</a><br />
+<b>Excerpt:</b>  miyagawa さんが作ったMTBanASCII （SPAMに多いASCII文字列だけのコメントの場合には そのコメントを保留にするようにしたり、 そもそもコメントとして処理しないようにすること...<br />
+<b>Weblog:</b> qootas.org : sekimura's blog<br />
+<b>Tracked:</b> January 25, 2005 11:09 PM</span>
+</div>
+<div class="comments-body">
+<a name="2881"></a>
+<span class="comments-post"><a href="http://voyage.xrea.jp/mt/archives/000111.html" target="new" rel="nofollow nofollow">コメントSPAM対策</a><br />
+<b>Excerpt:</b> mt-spamstop_20041107 （04/12/03 SPAM対策プラグ...<br />
+<b>Weblog:</b> Voyage Weblog<br />
+<b>Tracked:</b> January 25, 2005 11:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="2886"></a>
+<span class="comments-post"><a href="http://kokogiko.net/m/archives/000822.html" target="new" rel="nofollow nofollow">Movable Type 脆弱性対応 及びコメントスパム対応</a><br />
+<b>Excerpt:</b> MT vulnerability Fix: blog.bulknews.netMovable Type の Comment Notification コードに validation が不十分な箇所があり、コメント通知を ON にしていて、sendmail を利用して（デフォルト）メール通知している場合に、SPAM メールの踏み台にされる脆弱性がありました...<br />
+<b>Weblog:</b> ここギコ！<br />
+<b>Tracked:</b> January 26, 2005 11:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="2888"></a>
+<span class="comments-post"><a href="http://kokogiko.net/m/archives/000822.html" target="new" rel="nofollow nofollow">Movable Type 脆弱性対応 及びコメントスパム対応</a><br />
+<b>Excerpt:</b> MT vulnerability Fix: blog.bulknews.netMovable Type の Comment Notification コードに validation が不十分な箇所があり、コメント通知を ON にしていて、sendmail を利用して（デフォルト）メール通知している場合に、SPAM メールの踏み台にされる脆弱性がありました...<br />
+<b>Weblog:</b> ここギコ！<br />
+<b>Tracked:</b> January 26, 2005 11:05 AM</span>
+</div>
+<div class="comments-body">
+<a name="2890"></a>
+<span class="comments-post"><a href="http://kokogiko.net/m/archives/000822.html" target="new" rel="nofollow nofollow">Movable Type 脆弱性対応 及びコメントスパム対応</a><br />
+<b>Excerpt:</b> MT vulnerability Fix: blog.bulknews.netMovable Type の Comment Notification コードに validation が不十分な箇所があり、コメント通知を ON にしていて、sendmail を利用して（デフォルト）メール通知している場合に、SPAM メールの踏み台にされる脆弱性がありました...<br />
+<b>Weblog:</b> ここギコ！<br />
+<b>Tracked:</b> January 26, 2005 11:05 AM</span>
+</div>
+<div class="comments-body">
+<a name="2891"></a>
+<span class="comments-post"><a href="http://www.punkfreak.com/pflog/archives/000229.html" target="new" rel="nofollow nofollow">MT スパムコメント対策</a><br />
+<b>Excerpt:</b> MT3のIPアドレスではじく機能を使っていましたが、まだ通ってしまうので、 MTBanASCII: コメントSPAM対策を MT3 に移植 を使ってASCII or Latin-1のコメントをはじくようにしました。...<br />
+<b>Weblog:</b> PunkFreak.com<br />
+<b>Tracked:</b> January 26, 2005 02:16 PM</span>
+</div>
+<div class="comments-body">
+<a name="2892"></a>
+<span class="comments-post"><a href="http://www.nekoladi.net/mt/archives/000260.html" target="new" rel="nofollow nofollow">新たなコメント対策</a><br />
+<b>Excerpt:</b> Blogコメントの対策は、ひらがな2文字以上2文節ないと拒否するという対策を施し...<br />
+<b>Weblog:</b> N e K o l a d i . n e t<br />
+<b>Tracked:</b> January 26, 2005 03:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="2895"></a>
+<span class="comments-post"><a href="http://masumin.maaya.jp/blog/archives/000176.html" target="new" rel="nofollow nofollow">MTBanASCII</a><br />
+<b>Excerpt:</b> MTBanASCIIを、「全角句読点を含まないと弾く」というPATTERNにして採用。<br />
+<b>Weblog:</b> Sky and Heart...<br />
+<b>Tracked:</b> January 26, 2005 05:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="2897"></a>
+<span class="comments-post"><a href="http://bbt.chu.jp/blog/archives/2005/01/post_284.php" target="new" rel="nofollow nofollow">コメントスパム対策のプラグイン</a><br />
+<b>Excerpt:</b> コメントスパムのプラグインを見つけたので、早速導入してみました。 プラグイン デ...<br />
+<b>Weblog:</b> BOBUTEJE-A<br />
+<b>Tracked:</b> January 26, 2005 10:54 PM</span>
+</div>
+<div class="comments-body">
+<a name="2915"></a>
+<span class="comments-post"><a href="http://as-is.net/blog/archives/000962.html" target="new" rel="nofollow nofollow">Quasi-Spam Filter Plugin</a><br />
+<b>Excerpt:</b> quasi-spamfilter.zip 0.10(2005.01.28): First Release コメントスパム投稿時のリアクションを複数サポートする、スパムフィルタプラグインです。実用にも使えますが、美しい参照実装を与えることを目的としています。自作のプラグインを作りたい、もしくは作っていると�...<br />
+<b>Weblog:</b> Ogawa::Memoranda<br />
+<b>Tracked:</b> January 29, 2005 05:40 AM</span>
+</div>
+<div class="comments-body">
+<a name="2920"></a>
+<span class="comments-post"><a href="http://kotarito.banbi.net/jp/archives/ent_000149.html" target="new" rel="nofollow nofollow">続・コメントスパム対策</a><br />
+<b>Excerpt:</b> blog.bulknews.netのmiyagawaさんが、MTBanASCII...<br />
+<b>Weblog:</b> kotarito.banbi.net<br />
+<b>Tracked:</b> January 30, 2005 02:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="2934"></a>
+<span class="comments-post"><a href="http://numb.upper.jp/blog/archives/000476.html" target="new" rel="nofollow nofollow">コメントのこと</a><br />
+<b>Excerpt:</b> 　スパムコメントの量が急増しているので制限をかけました。登録しないと投稿できない仕組みです。 　数日内にはもとに戻す予定（フィルターのプラグインを入れるつもり）なんで、よほど急がない人いがいはtypekeyの登録をする必要はないです。ちょっと待っててください。...<br />
+<b>Weblog:</b> GH's NUMBLOG<br />
+<b>Tracked:</b> February  1, 2005 12:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="2941"></a>
+<span class="comments-post"><a href="http://barca.daa.jp/archives/000440.php" target="new" rel="nofollow nofollow">Plugin</a><br />
+<b>Excerpt:</b> トラックバックスパムとかって実際受けてみないと実行に動かない私ですので挑発するわけですが・・・^^ MTサンは3.15になってもまだコアなスパマー対策ができてな...<br />
+<b>Weblog:</b> barlog  ≫＋||||≪<br />
+<b>Tracked:</b> February  1, 2005 11:22 PM</span>
+</div>
+<div class="comments-body">
+<a name="2991"></a>
+<span class="comments-post"><a href="http://wweb.zive.net/mt/archives/002305.html" target="new" rel="nofollow nofollow">コメントＳＰＡＭ対策</a><br />
+<b>Excerpt:</b> 　まだ、コメントＳＰＡＭが複数個来てしまっていたので、追加のコメントＳＰＡＭ対策を実施しました。 　そのコメントＳＰＡＭ対策とは、下記のサイトからプラグインを入手して、プラグインフォルダに入れるだけです。今まではソースの中身をいじる必要があったのですが�...<br />
+<b>Weblog:</b> 臨機応変？<br />
+<b>Tracked:</b> February  9, 2005 08:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="3310"></a>
+<span class="comments-post"><a href="http://thik.jpn.org/archives/2005/03/post_58.html" target="new" rel="nofollow nofollow">スパム対策</a><br />
+<b>Excerpt:</b> こんな辺鄙なサイトにも、トラックバックスパムが来たので、対策しました。  Bia...<br />
+<b>Weblog:</b> インプット、アウトプット<br />
+<b>Tracked:</b> March 16, 2005 07:44 PM</span>
+</div>
+<div class="comments-body">
+<a name="3362"></a>
+<span class="comments-post"><a href="http://hori-uchi.com/archives/000302.html" target="new" rel="nofollow nofollow">mt-ban-nonja-com.pl - コメントスパム対策プラグイン</a><br />
+<b>Excerpt:</b> 以前のエントリーでコメントスパム対策として「コメントにひらがながM回連続している部分がN箇所以上ない場合スパムとみなして、はじく」ということをやりましたが、これをMTプラグイン化してみました。 mt-ban-nonja-com.pl  前回...<br />
+<b>Weblog:</b> hori-uchi.com<br />
+<b>Tracked:</b> March 22, 2005 04:15 AM</span>
+</div>
+<div class="comments-body">
+<a name="3701"></a>
+<span class="comments-post"><a href="http://apollo.versus.jp/blog/archives/2005/04_06_0357.php" target="new" rel="nofollow nofollow">コメントSPAM対策ver2</a><br />
+<b>Excerpt:</b> ありがたく使わせていただきます??…後日。（ぉぃ<br />
+<b>Weblog:</b> :: miscellaneous scraps ::<br />
+<b>Tracked:</b> April  6, 2005 03:59 AM</span>
+</div>
+<div class="comments-body">
+<a name="3861"></a>
+<span class="comments-post"><a href="http://nomano.shiwaza.com/tnoma/blog/archives/001506.html" target="new" rel="nofollow nofollow">MTBanASCIIを導入</a><br />
+<b>Excerpt:</b> 最近毎日数百通のコメントスパムを受けるようになったので、以下のプラグインを導入し...<br />
+<b>Weblog:</b> のまのしわざ<br />
+<b>Tracked:</b> May  9, 2005 01:43 PM</span>
+</div>
+<div class="comments-body">
+<a name="3997"></a>
+<span class="comments-post"><a href="http://faceoff.seeds-man.com/mt/archives/002000.html" target="new" rel="nofollow nofollow">コメントSPAM対策</a><br />
+<b>Excerpt:</b> MT3にアップデートして以来、コメントSPAM対策をしていなかったのですが、今朝...<br />
+<b>Weblog:</b> ������������<br />
+<b>Tracked:</b> June  2, 2005 11:00 PM</span>
+</div>
+<div class="comments-body">
+<a name="4014"></a>
+<span class="comments-post"><a href="http://underground.velvet.jp/cgi/mt/archives/003902.php" target="new" rel="nofollow nofollow">MT3.1　コメントとトラックバックのスパム対策</a><br />
+<b>Excerpt:</b> 今までMTのスパム対策は、全てソースに直接書き加える方法を取っていたのだけれども、MT3.17にアップグレードした時に、一日400件のコメントスパムを食らってしまったので、今後そんな辛い目には遭わないように、プラグインをぶち込む方法に変えることにしました。...<br />
+<b>Weblog:</b> gigantic<br />
+<b>Tracked:</b> June 10, 2005 11:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="4015"></a>
+<span class="comments-post"><a href="http://underground.velvet.jp/cgi/mt/archives/003902.php" target="new" rel="nofollow nofollow">MT3.1　コメントとトラックバックのスパム対策</a><br />
+<b>Excerpt:</b> 今までMTのスパム対策は、全てソースに直接書き加える方法を取っていたのだけれども、MT3.17にアップグレードした時に、一日400件のコメントスパムを食らってしまったので、今後そんな辛い目には遭わないように、プラグインをぶち込む方法に変えることにしました。...<br />
+<b>Weblog:</b> gigantic<br />
+<b>Tracked:</b> June 10, 2005 11:42 PM</span>
+</div>
+<div class="comments-body">
+<a name="4025"></a>
+<span class="comments-post"><a href="http://barca.daa.jp/archives/000723.php" target="new" rel="nofollow nofollow">no follow について</a><br />
+<b>Excerpt:</b> 3.17から実装されたプラグイン。 ハイパーリンクの属性を変更してGoogle、その他などが意図的なスパムをページランクdbから除外するというモノですが、これが...<br />
+<b>Weblog:</b> barlog  ≫＋||||≪<br />
+<b>Tracked:</b> June 14, 2005 05:01 PM</span>
+</div>
+<div class="comments-body">
+<a name="4076"></a>
+<span class="comments-post"><a href="http://www.7rin.com/archives/000243.html" target="new" rel="nofollow nofollow">SPAM対策</a><br />
+<b>Excerpt:</b> あまりに大量なコメントと trackback の SPAM に、日々辟易としていたが、MT のバージョンアップついでに MTBanASCII を入れて、同様に mt-tb.cgi を hack して ASCII のみの ping をはじくようにしてみた。 コメントも trackback もメール通知を設定してあったので、日に...<br />
+<b>Weblog:</b> RYOBLOG<br />
+<b>Tracked:</b> June 24, 2005 11:10 AM</span>
+</div>
+<div class="comments-body">
+<a name="4195"></a>
+<span class="comments-post"><a href="http://seimden.com/blog/archives/2005/0709_2346.php" target="new" rel="nofollow nofollow">コメントスパム再来襲！</a><br />
+<b>Excerpt:</b> NGワードにひっかからないコメントスパムがやってきてしまいました。コメントを読む限りではごく普通のフレンドライクな文章です。しかし、サイトのurlがアヤシサ大爆...<br />
+<b>Weblog:</b> 猫派の読書空間<br />
+<b>Tracked:</b> July  9, 2005 11:46 PM</span>
+</div>
+<div class="comments-body">
+<a name="4210"></a>
+<span class="comments-post"><a href="http://dslab.dnsalias.com/blog/archives/000255.html" target="new" rel="nofollow nofollow">MT Update</a><br />
+<b>Excerpt:</b> 実は初めての MovableType の Update。 そしてついでにコメント...<br />
+<b>Weblog:</b> D's blog<br />
+<b>Tracked:</b> July 13, 2005 03:28 AM</span>
+</div>
+<div class="comments-body">
+<a name="4527"></a>
+<span class="comments-post"><a href="http://www.pc-security.jp/archives/2005/08/03111608.shtml" target="new" rel="nofollow nofollow">コメントスパム対策をしました</a><br />
+<b>Excerpt:</b> コメントスパム（迷惑コメント）が山ほど来るようになったので、対策をしました。<br />
+<b>Weblog:</b> ＰＣセキュリティ情報の小窓<br />
+<b>Tracked:</b> August  3, 2005 11:18 AM</span>
+</div>
+<div class="comments-body">
+<a name="4528"></a>
+<span class="comments-post"><a href="http://www.padmacolors.org/archives/2005/08/03_121103.php" target="new" rel="nofollow nofollow">BanNoReferTb試用中</a><br />
+<b>Excerpt:</b> 					- link -  					　「Movable Type で言及リン...<br />
+<b>Weblog:</b> padma colors<br />
+<b>Tracked:</b> August  3, 2005 12:59 PM</span>
+</div>
+<div class="comments-body">
+<a name="4679"></a>
+<span class="comments-post"><a href="http://www.padmacolors.org/archives/2005/08/18_143832.php" target="new" rel="nofollow nofollow">使っているプラグイン一覧</a><br />
+<b>Excerpt:</b> 					　現在MovableTypeにインストールしている（pluginsディ...<br />
+<b>Weblog:</b> padma colors<br />
+<b>Tracked:</b> August 18, 2005 02:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="4682"></a>
+<span class="comments-post"><a href="http://kyouju.dion.jp/mt/archives/000103.html" target="new" rel="nofollow nofollow">コメントスパム対策</a><br />
+<b>Excerpt:</b> 最近ポツリポツリとコメントスパムらしきものが来るようになったので、対策としてblog.bulknews.netで公開されていたMTBanASCIIを導入してみることに。...<br />
+<b>Weblog:</b> kyouju's log<br />
+<b>Tracked:</b> August 18, 2005 11:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="4736"></a>
+<span class="comments-post"><a href="http://cammy.ux.to/archives/000160.html" target="new" rel="nofollow nofollow">今さらながら MTBanASCII</a><br />
+<b>Excerpt:</b> 最近になって、コメントスパムが来るようになったんだけど、数が少ないから放置して毎...<br />
+<b>Weblog:</b> かみくら Weblog<br />
+<b>Tracked:</b> August 31, 2005 10:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="4740"></a>
+<span class="comments-post"><a href="http://nobita.navinavi.org/archives/2005/09/post_393.html" target="new" rel="nofollow nofollow">コメントスパム来襲</a><br />
+<b>Excerpt:</b> うわ??、僕の所にもどっさりとコメントスパムがとうとう来てしまった。グーグルで「...<br />
+<b>Weblog:</b> 馬に蹴られて<br />
+<b>Tracked:</b> September  1, 2005 12:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="4765"></a>
+<span class="comments-post"><a href="http://exo.jp/keypersonq/archives/2005/09/movable_type.html" target="new" rel="nofollow nofollow">Movable Type コメントスパム対策プラグイン</a><br />
+<b>Excerpt:</b> 最近アクセスが増加してより多くの方に利用していただけるのは嬉しい。しかし、それにともないコメントスパムがかなり多くなってきたので、プレビューをかませる簡易的なものではな...<br />
+<b>Weblog:</b> Webデザイナーが使うWebデザインのネタ帳【Key Person Q】　/WEBDESIGN/WEBDESIGNER/ウェブデザイン/ウェブデザイナー/<br />
+<b>Tracked:</b> September  3, 2005 12:14 PM</span>
+</div>
+<div class="comments-body">
+<a name="4768"></a>
+<span class="comments-post"><a href="http://0c7.net/archives/000187.html" target="new" rel="nofollow nofollow">スパム対策　for MT</a><br />
+<b>Excerpt:</b> MTBanASCII: コメントSPAM対策を MT3 に移植: blog.bulknews.net あれこれやってみたけど使い方がイマイチわからない。どうやってmモデレートすればいいのやら。...<br />
+<b>Weblog:</b> 0c7<br />
+<b>Tracked:</b> September  3, 2005 11:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="4821"></a>
+<span class="comments-post"><a href="http://honmono.ddo.jp/weblog/archives/2005/09/post_108.html" target="new" rel="nofollow nofollow">スパム対策をしてみました</a><br />
+<b>Excerpt:</b> この記事の続きです。 コメントスパムで悩んでいたのですが、解決できました。 MT...<br />
+<b>Weblog:</b> ライター気取りで Go!<br />
+<b>Tracked:</b> September  5, 2005 09:26 PM</span>
+</div>
+<div class="comments-body">
+<a name="4832"></a>
+<span class="comments-post"><a href="http://www.allnightpress.com/weblog/archives/2005/09/post_149.html" target="new" rel="nofollow nofollow">コメントスパム対策</a><br />
+<b>Excerpt:</b> 　昼に起きてブログをチェックすると、何と85件のコメントスパム書き込みがあり、荒...<br />
+<b>Weblog:</b> monologue<br />
+<b>Tracked:</b> September  6, 2005 05:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="4833"></a>
+<span class="comments-post"><a href="http://www.allnightpress.com/weblog/archives/2005/09/post_149.html" target="new" rel="nofollow nofollow">届いたスパムが５万通（？）</a><br />
+<b>Excerpt:</b> 　昼に起きてブログをチェックすると、何と85件のコメントスパム書き込みがあり、荒...<br />
+<b>Weblog:</b> monologue<br />
+<b>Tracked:</b> September  6, 2005 05:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="4844"></a>
+<span class="comments-post"><a href="http://www.nglinks.net/archives/000440.php" target="new" rel="nofollow nofollow">コメントスパム対策</a><br />
+<b>Excerpt:</b> コメントスパム対策として、 BanASCII というプラグインを入れてみました。 しかし、このプラグインは Perl 5.8 以上が必要とのことで。 うちがレンタルしてるサーバは Perl 5.6 です・・・ そ...<br />
+<b>Weblog:</b> ngLinks.net<br />
+<b>Tracked:</b> September  7, 2005 11:30 PM</span>
+</div>
+<div class="comments-body">
+<a name="4882"></a>
+<span class="comments-post"><a href="http://nomu.sakura.ne.jp/blog/archives/2005/09/post_100.html" target="new" rel="nofollow nofollow">スパム対策とりました。</a><br />
+<b>Excerpt:</b> スパムコメント、スパムトラックバックを送ってきてくれるステキポーカーサイトが毎回...<br />
+<b>Weblog:</b> のむのむ通信Blog<br />
+<b>Tracked:</b> September 10, 2005 10:56 PM</span>
+</div>
+<div class="comments-body">
+<a name="5045"></a>
+<span class="comments-post"><a href="http://blog.yasaka.com/archives/2005/09/spam_1.html" target="new" rel="nofollow nofollow">コメントSPAM対策、再び</a><br />
+<b>Excerpt:</b> movabletypeを3.2にアップグレードしてからというもの、どうもコメントSPAMが多い。もちろん、そのまま投稿されずにmoderate扱いになるのだけど、やはり以前やっていたようにASCII文字のみの�...<br />
+<b>Weblog:</b> μ memo<br />
+<b>Tracked:</b> September 22, 2005 07:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="5613"></a>
+<span class="comments-post"><a href="http://www.kuro-neko.jp/blog/archives/000549.html" target="new" rel="nofollow nofollow">コメントスパムがやってきた</a><br />
+<b>Excerpt:</b> 今日の天気でも調べようとPCの前に座ったら、なんかHDをガリガリ言う音が聞こえる。何かと思ったらサーバのHDがフル回転状態。すわナウクラック中!?　と思いきや、コメントスパムの嵐でスワップが発生してただけだった。<br />
+<b>Weblog:</b> You-ki's DS Blog style!!<br />
+<b>Tracked:</b> October 15, 2005 12:16 PM</span>
+</div>
+<div class="comments-body">
+<a name="5835"></a>
+<span class="comments-post"><a href="http://WWW.6890.net/blog/archives/2005/10/spammt-blacklis.html" target="new" rel="nofollow nofollow">対spamプラグイン（MT-Blacklist ＆ MT-Ban-Ascii）導入</a><br />
+<b>Excerpt:</b> じつは知人の依頼を受けて、こことは別に自分が設置＆監視している Movable ...<br />
+<b>Weblog:</b> ■ NOW HERE ■<br />
+<b>Tracked:</b> October 24, 2005 04:32 PM</span>
+</div>
+<div class="comments-body">
+<a name="7512"></a>
+<span class="comments-post"><a href="http://beetle.dasai.net/archives/2005/12/mt_mtbanascii_1.php" target="new" rel="nofollow nofollow">MTカスタマイズ 〔 MTBanASCII 〕</a><br />
+<b>Excerpt:</b> 　何か最近。 　海外から，スパムコメント（ Spam ）をアホ程送ってくる輩がお...<br />
+<b>Weblog:</b> BeetleBlog<br />
+<b>Tracked:</b> December  2, 2005 05:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="8134"></a>
+<span class="comments-post"><a href="http://guitar.jp/MT/archives/001030.php" target="new" rel="nofollow nofollow">MTBanASCII</a><br />
+<b>Excerpt:</b> MTBanASCII: ������SPAM�к��� MT3 �˰ܿ�: blog.bu...<br />
+<b>Weblog:</b> KANWAKYUDAI::Blog<br />
+<b>Tracked:</b> December 18, 2005 11:47 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1508" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

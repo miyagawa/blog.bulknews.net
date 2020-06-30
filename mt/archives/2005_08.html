@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: August 2005 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2005_07.html" title="July 2005" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2005_09.html" title="September 2005" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001795"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1795"
+    dc:title="MT 3.2 and StyleCatcher"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001795"
+    dc:subject="blog"
+    dc:description=" 先週の木曜になりますが、Movable Type 3.2 がリリースされました。バージョン番号こそ小さな違い (3.17 → 3.2) ですが、アーキテクチャや UI にいたるまで大幅に改良されたメジャーバージョンアップです。（日本語版はもう少しお待ちください） たくさんの機能追加や不具合の修正がありますが、その中でも注目なのがテンプレートと CSS の改善でしょう。MT 3.2 から、TypePad や LiveJournal でも最近採用された Six..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-31T16:23:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 31, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001795"></a>
+<h3 class="title">MT 3.2 and StyleCatcher</h3>
+
+<p><img alt="mt_styles_remixer_thumb.gif" src="http://blog.bulknews.net/mt/archives/mt_styles_remixer_thumb.gif" width="275" height="180" border="0" align="right" style="padding-left: 2em" /></p>
+
+<p>先週の木曜になりますが、<a href="http://www.sixapart.com/movabletype/">Movable Type 3.2</a> がリリースされました。バージョン番号こそ小さな違い (3.17 → 3.2) ですが、アーキテクチャや UI にいたるまで大幅に改良されたメジャーバージョンアップです。（日本語版はもう少しお待ちください）</p>
+
+<p><a href="http://www.sixapart.com/movabletype/news/2005/06/movable_type_32_is_comin.html">たくさんの機能追加や不具合の修正</a>がありますが、その中でも注目なのがテンプレートと CSS の改善でしょう。MT 3.2 から、TypePad や LiveJournal でも最近採用された Six Apart standard な XHTML をデフォルトテンプレートとして採用しています。今日の Everything TypePad では TypePad エンジニアの Randy のインタビューでその話が。</p>
+
+<p><a title="Everything TypePad - Just Your Style" href="http://www.sixapart.com/typepad/news/2005/08/just_your_style.html">Everything TypePad - Just Your Style</a><br />
+<blockquote> The Six Apart standard HTML was a project I started last December to fix a number of bugs in TypePad.</blockquote></p>
+
+<p>3.1x からアップグレードした場合でも、Template Refresh and Backup プラグイン（デフォルトでインストール済み）を使うことで、3.2 のテンプレートに一発で移行できます。また、このデフォルトテンプレートにすると、新プラグイン StyleCatcher （これもデフォルト） の恩恵にあずかれます。</p>
+
+<p><a title="Movable Type - News - StyleCatcher: Easy Styles for Movable Type 3.2" href="http://www.sixapart.com/movabletype/news/2005/08/stylecatcher_pu.html">Movable Type - News - StyleCatcher: Easy Styles for Movable Type 3.2</a><br />
+<blockquote>And while we're very proud of the work that goes in to making an attractive style, we realize it can still take work to apply a design to your blog. So we've reduced the work of switching styles by making StyleCatcher, a new plugin that lets you change designs with just a few clicks, any time you want.</blockquote></p>
+
+<p>StyleCatcher は、TypePad などのホスティング Blog ツールが提供するようなデザイン選択画面を CMS から提供して、簡単に CSS (theme) が切り替えられるプラグイン。これはかなりカッコイイです。デフォルトでは、TypePad で採用している <a href="http://www.sixapart.com/movabletype/styles/library">Six Apart Standard HTML 対応の Theme 一覧</a> から選ぶことができます。またレポジトリを自分でもったり公開することもできて、その仕様は qootas.org さんとこですでにハックされてますね。</p>
+
+<p><a title="qootas.org/blog - StyleCatcher build for MT3.2" href="http://qootas.org/blog/archives/2005/08/stylecatcher_build_for_mt32.html#more">qootas.org/blog - StyleCatcher build for MT3.2</a><br />
+<blockquote>StyleCatcher デフォルトでは 米Six Apart のサイトにあるテーマを探しに行きますが、 Theme or Repository URL に自分で作成したテーマやレポジトリのURL を指定することで使うこともできます</blockquote></p>
+
+<p>ということで、はやく時間を作ってこの Blog を 3.2 にアップグレードしたいところですｗ たぶん 2.51 からのアップグレードは最長記録(?) になるんだろうなあ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001795.html">04:23 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001795.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001795.html#trackbacks">TrackBack (5)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001794"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1794"
+    dc:title="Gmail で Bloglines つづき"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001794"
+    dc:subject="blog"
+    dc:description=" アカウント一時停止 とか食らってしまって利用をとりやめていた Bloglines via Gmail ですが、ちょっといじって利用を再開しました。一番のポイントは、フィードごとの更新を1つのメールで通知するオプションをつけたことで、これにより、 * 送信されるメールの数がへる * メールの Subject: をフィードのタイトルとしたので、フィードごとの更新が1つの Conversation （スレッド）として扱われ、閲覧性が大幅に向上 というメリットが得られます。ほかにもアイコン画像を右はりつけにしたり、時刻表示のタイムゾーン変更に対応したりと、こまい変更をしてますので、使ってる方は svn で svn://svn.bulknews.net/public/bloglines2email/trunk を追いかけてみてください。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-31T16:03:22+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001794"></a>
+<h3 class="title">Gmail で Bloglines つづき</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/gmail-bloglines.gif"><img src="http://blog.bulknews.net/mt/archives/gmail-bloglines-thumb.gif" width="200" height="136" border="0" align="right" /></a></p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001792.html">アカウント一時停止</a> とか食らってしまって利用をとりやめていた <a href="http://blog.bulknews.net/mt/archives/001789.html">Bloglines via Gmail</a> ですが、ちょっといじって利用を再開しました。一番のポイントは、フィードごとの更新を1つのメールで通知するオプションをつけたことで、これにより、</p>
+
+<p>* 送信されるメールの数がへる<br />
+* メールの Subject: をフィードのタイトルとしたので、フィードごとの更新が1つの Conversation （スレッド）として扱われ、閲覧性が大幅に向上</p>
+
+<p>というメリットが得られます。ほかにもアイコン画像を右はりつけにしたり、時刻表示のタイムゾーン変更に対応したりと、こまい変更をしてますので、使ってる方は svn で svn://svn.bulknews.net/public/bloglines2email/trunk を追いかけてみてください。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001794.html">04:03 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001794.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001794.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001793"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1793"
+    dc:title="Perl6 で配列操作"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001793"
+    dc:subject="perl"
+    dc:description="いやなブログ: 配列操作の比較表: Ruby, Python, JavaScript, Perl, C プログラムを書いていると、他のプログラミング言語の記憶とごっちゃになって、「配列の後ろに要素を追加するのは push だっけ、 append だっけ」などと混乱することがあります。特に Ruby, Python, JavaScript はコードの書き方が似ているので、この問題が起きがちです。 ということで perl6 (pugs) で調べてみました。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-30T08:18:15+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 30, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001793"></a>
+<h3 class="title">Perl6 で配列操作</h3>
+
+<p><a title="いやなブログ: 配列操作の比較表: Ruby, Python, JavaScript, Perl, C  " href="http://namazu.org/~satoru/blog/archives/000043.html#more">いやなブログ: 配列操作の比較表: Ruby, Python, JavaScript, Perl, C  </a>
+<blockquote>プログラムを書いていると、他のプログラミング言語の記憶とごっちゃになって、「配列の後ろに要素を追加するのは push だっけ、 append だっけ」などと混乱することがあります。特に Ruby, Python, JavaScript はコードの書き方が似ているので、この問題が起きがちです。 </blockquote></p>
+
+<p>ということで perl6 (<a href="http://pugscode.org/">pugs</a>) で調べてみました。</p>
+
+
+<style>table.perl6 td { border: 1px #888 solid; padding: 0.4em }</style>
+<p><table class="perl6" style="border-collapse: collapse">
+<tr><th>Ruby</th><th>Perl6</th></tr>
+<tr><td>a = [1, 2, 3]</td><td>@a = (1, 2, 3)</td></tr>
+<tr><td>a.length</td><td>@a.elems</td></tr>
+<tr><td>a.empty?</td><td>@a.elems == 0</td></tr>
+<tr><td>a.push(x)</td><td>@a.push($x)</td></tr>
+<tr><td>a.unshift(x)</td><td>@a.unshift($x)</td></tr>
+<tr><td>a.pop</td><td>@a.pop</td></tr>
+<tr><td>a.shift</td><td>@a.shift</td></tr>
+<tr><td>a.concat( b )</td><td>@a.push(@b)</td></tr>
+<tr><td>a.clear</td><td>@a = ()</td></tr>
+<tr><td>a.insert(i, x)</td><td>@a.splice($i, 0, $x)</td></tr>
+<tr><td>a.delete(x)</td><td></td></tr>
+<tr><td>a.delete_at(i)</td><td>@a.splice($i, 1)</td></tr>
+<tr><td>a.nitems { |e| e == x }</td><td>@a.grep({ $_ == $x })</td></tr>
+<tr><td>a.include?(x)</td><td>any(@a) == $x</td></tr>
+<tr><td>a.index(x)</td><td></td></tr>
+<tr><td>a.first</td><td>@a[0]</td></tr>
+<tr><td>a.last</td><td>@a[-1]</td></tr>
+<tr><td>a[i, l] or a.slice(i, l)</td><td>@a[$i..$i+$l-1]</td></tr>
+<tr><td>a[i..j] or a.slice(i..j)</td><td>@a[$i..$j]</td></tr>
+<tr><td>a[i...j] or a.slice(i...j)</td><td>@a[$i..$j-1]</td></tr>
+<tr><td>a.sort</td><td>@a.sort</td></tr>
+<tr><td>a.sort!</td><td>@a = @a.sort</td></tr>
+<tr><td>a.reverse</td><td>@a.reverse</td></tr>
+<tr><td>a.reverse!</td><td>@a = @a.reverse</td></tr>
+<tr><td>a.uniq</td><td>@a.uniq</td></tr>
+<tr><td>a.uniq!</td><td>@a = @a.uniq</td></tr>
+<tr><td>a.join(d)</td><td>@a.join($d)</td></tr>
+<tr><td>a.each</td><td>for @a =&gt; $x { ... }</td></tr>
+</table></p>
+
+<p><a href="http://svn.openfoundry.org/pugs/">Pugs の svn</a> からとってきた最新でためしています。 iif (any(@a) == $x) { } が perl6 っぽい。</p>
+
+<p>ここではプリミティブをオブジェクトで扱いましたが、もちろんビルトインの function をつかって、push @a, 1; って書き方もそのまま使えます。perl6 ではプリミティブデータ型とそのリファレンスの操作においての区別はほとんどなく、</p>
+
+<blockquote><code>$foo = [1, 2, 3]; $foo.push(4);</code></blockquote>
+
+<p>なんてやれば思ったとおりに動きます。ちなみに perl5 でも <a href="http://search.cpan.org/dist/autobox/">CPAN モジュールの autobox</a> を使うと、first-class object を扱えるようになるみたい。2年前の LL Saturday でこのネタしゃべった覚えが。。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001793.html">08:18 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001793.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001793.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001792"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1792"
+    dc:title="Gmail Lock Down"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001792"
+    dc:subject="tech"
+    dc:description=" Bloglines を Gmail で読む のコメントにも書いたんですが、Gmail は1つのアカウントで受信するメールが多すぎると、一時的にアカウントを停止されてしまうみたいです。僕の場合 Bloglines が 940 Feed で、bloglines -&amp;gt; Gmail のツールを使って送信されるメールが1日に 1200 通。US 西海岸時間で夜中は問題ないのですが、14 時ごろになると更新されるフィードが増えてきて、右のような画面でロックアウトされてしまいます。2時間ほどするとアクセスできるようになりますが、また時間がたたないうちにすぐに同じ現象に。 ということでなくなく..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-28T19:59:00+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 28, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001792"></a>
+<h3 class="title">Gmail Lock Down</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/gmail.gif"><img alt="gmail.gif" src="http://blog.bulknews.net/mt/archives/gmail-thumb.gif" width="200" height="105" border="0" align="right"/></a></p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001789.html">Bloglines を Gmail で読む</a> のコメントにも書いたんですが、Gmail は1つのアカウントで受信するメールが多すぎると、一時的にアカウントを停止されてしまうみたいです。僕の場合 Bloglines が 940 Feed で、bloglines -&gt; Gmail のツールを使って送信されるメールが1日に 1200 通。US 西海岸時間で夜中は問題ないのですが、14 時ごろになると更新されるフィードが増えてきて、右のような画面でロックアウトされてしまいます。2時間ほどするとアクセスできるようになりますが、また時間がたたないうちにすぐに同じ現象に。</p>
+
+<p>ということでなくなく Bloglines -> Gmail のツールの利用は一時的にやめました。フィードの更新アイテムを1つのメールにまとめるとかして、送るメールの数を減らす工夫をしないとだめかもしれません。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001792.html">07:59 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001792.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001792.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001791"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1791"
+    dc:title="内村プロデュース終了"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001791"
+    dc:subject="TV"
+    dc:description="『内Ｐ』が終わる。｜Tokyo Ochimasato Land 永い間、 御覧頂いてきました、 『内村プロデュース』 が 終了します。 うがー、マジですかぁ。。帰国したら２か月分の録画を消化するのが今の一番の楽しみだったのですが、９月の改編で終了みたいです。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-27T06:34:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 27, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001791"></a>
+<h3 class="title">内村プロデュース終了</h3>
+
+<p><a title="『内Ｐ』が終わる。｜Tokyo Ochimasato Land" href="http://ameblo.jp/tokyoochimasatoland/entry-10003796778.html">『内Ｐ』が終わる。｜Tokyo Ochimasato Land</a><br />
+<blockquote>永い間、<br />
+御覧頂いてきました、</p>
+
+<p><br />
+『内村プロデュース』</p>
+
+<p><br />
+が<br />
+終了します。</blockquote></p>
+
+<p>うがー、マジですかぁ。。帰国したら２か月分の録画を消化するのが今の一番の楽しみだったのですが、９月の改編で終了みたいです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001791.html">06:34 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001791.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001791.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001790"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1790"
+    dc:title="SVN レポジトリの公開"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001790"
+    dc:subject="tech"
+    dc:description="長らくやろうと思っていた自作のモジュールやスクリプトの SVN を公開してみました。→ svn.bulknews.net svnserve でレポジトリの read-only アクセスを公開、viewcvs でディレクトリをブラウズできるようにしてます。ここまで紆余曲折あったので、備忘録代わりにちょっとまとめておきます。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-26T17:07:51+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 26, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001790"></a>
+<h3 class="title">SVN レポジトリの公開</h3>
+
+<p>長らくやろうと思っていた自作のモジュールやスクリプトの SVN を公開してみました。→ <a title="svn.bulknews.net" href="http://svn.bulknews.net/">svn.bulknews.net</a></p>
+
+<p>svnserve でレポジトリの read-only アクセスを公開、viewcvs でディレクトリをブラウズできるようにしてます。ここまで紆余曲折あったので、備忘録代わりにちょっとまとめておきます。</p>
+
+
+<h2>CVS から Subversion へ</h2>
+
+<p>今年の2月ぐらいに、CVS から subversion に移行しました。subversion に付属している cvs2svn ツールを使ってほぼ一発で移行が完了したんですが、</p>
+
+<p>* 公開したくないディレクトリがまじっている<br />
+* ディレクトリ構造がフラット<br />
+* 認証とか面倒だなあ</p>
+
+<p>ということで公開はほったらかしていました。パッチを受け付けたり、こまいツールを公開するときは subversion レポジトリを公開しておいたほうが便利だということで、ちょっくら作業してみました。</p>
+
+<p>ちなみに CVS から Subversion 化のメリットは一言では言い切れないぐらいたくさんありますが、こうした個人のホビープロジェクトなら、どうしても、という決め手になるものはないかもしれません。ただ、仕事のほうではブランチの管理・マージやディレクトリ・ファイルのリネームやアトミックな commit/revert など、subversion でないとお話にならない感じになってきているので、仕事とプライベートで同じツールを使うというのも無駄なノウハウを避けるという意味では重要かもしれません。</p>
+
+<h2>まずは SVN 構造を整理</h2>
+
+<p>移行時に、CVS でフラットに管理していたのを svn の trunk にそのままつっこんだので、</p>
+
+<p>- trunk<br />
+-- foo<br />
+-- bar<br />
+-- baz</p>
+
+<p>という感じのディレクトリ構成になっています。とくに問題はないのですが、各プロジェクトでブランチや tag を張ることを考えると、</p>
+
+<p>- foo<br />
+-- trunk<br />
+-- branches<br />
+-- tags<br />
+- bar<br />
+-- trunk<br />
+-- branches<br />
+-- tags<br />
+...</p>
+
+<p>というディレクトリ構造が一般的。ということで、ダンプをつくって以下のように作業。</p>
+
+<p>* cd {checkoutdir}; ls > ~/modules<br />
+* ~/modules を編集して公開したくないものを削除<br />
+* svnadmin dump /path/to/repo > dump<br />
+* svndumpfilter `perl -nle 'print "trunk/$_"' ~/modules` < dump > new.dump<br />
+* perl -i -nlpe 's|Node-path: trunk/([^/]*)|Node-path: $1/trunk|' new.dump</p>
+
+<p>だんだんバッドになってきましたが、これでディレクトリ構造を入れ替えて、公開したくないディレクトリを除去したダンプができたので、</p>
+
+<p>* svnadmin create /path/to/newrepo<br />
+* svn co file:///path/to/newrepo<br />
+* cd newrepo<br />
+* for i in `cat ~/modules`; do svn mkdir $i; done<br />
+* svn ci -m "create new directories"<br />
+* svnadmin load /path/to/newrepo new.dump</p>
+
+<p>な感じで新しい SVN レポジトリができました。</p>
+
+<h2>SVN レポジトリの公開</h2>
+
+<p>で、あとは公開ですが bulknews.net のサーバでは Apache2 が走ってないので、DAV + SVN で公開するのはちょっと面倒です。基本的には自分だけコミット権をもって、anonymous で read-only という形態を考えているので、</p>
+
+<p>* svn+ssh で書き込み<br />
+* svnserve -i -r /path/to/svn を tcpserver で起動</p>
+
+<p>という感じにしました。ブラウザでの閲覧は <a href="http://search.cpan.org/dist/SVN-Web">SVN::Web</a> を使おうと思ったんですが、mod_perl 1.x ではイマイチ挙動が不審だったので <a href="http://viewcvs.sourceforge.net/">viewcvs</a> の 1.0-dev (subversion をサポート) を使うことに。</p>
+
+<p>ローカルでは <a href="http://blog.bulknews.net/mt/archives/001683.html">svk</a> を使って colinux 内にミラーを切ってあります。これでいつでもチェックアウトしたりブランチを切って ad-hoc 開発ができますね。<a href="http://www.astray.com/static/svl.pdf">svl (PDF)</a> も試してみたいなあ。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001790.html">05:07 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001790.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001790.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001789"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1789"
+    dc:title="Bloglines を Gmail で読む"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001789"
+    dc:subject="blog"
+    dc:description="UPDATE 2006/02/28: 現在このスクリプトは Plagger という名前で開発を継続しています。 Gmail as RSS reader で妄想していた、「Bloglines の未読を Gmail に転送して読む」というのをちょちょいとスクリプト書いて試してみました。（Life Hack ってヤツですね！） 予想通り、これはむちゃくちゃ便利です。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-25T16:47:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 25, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001789"></a>
+<h3 class="title">Bloglines を Gmail で読む</h3>
+
+<p><strong>UPDATE 2006/02/28</strong>: 現在このスクリプトは <a href="http://blog.bulknews.net/mt/archives/001893.html">Plagger</a> という名前で開発を継続しています。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001786.html">Gmail as RSS reader</a> で妄想していた、「Bloglines の未読を Gmail に転送して読む」というのをちょちょいとスクリプト書いて試してみました。（Life Hack ってヤツですね！）</p>
+
+<p>予想通り、これはむちゃくちゃ便利です。</p>
+
+
+<div style="float:right; padding-left:2em"><a href="http://blog.bulknews.net/mt/archives/bloglines1.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines1-thumb.gif" style="border:0" width="200" /></a><br /><br /><a href="http://blog.bulknews.net/mt/archives/bloglines2.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines2-thumb.gif" style="border:0" width="200" /></a><br /><br /><a href="http://blog.bulknews.net/mt/archives/bloglines3.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines3-thumb.gif" style="border:0" width="200" /></a></div>
+
+<p>アイデアとしては、Bloglines WebServices の API を使って Bloglines 側の未読記事を持ってきて、HTML メールに整形して Gmail アドレスに送信します。Gmail の方ではフィルタリングを使って、「Bloglines のラベルをつけ、Inbox には残さない」というフィルタをしてやるとかなり便利に使えると思われます。</p>
+
+<p>Gmail に転送することで、Bloglines のもっさりとしたインタフェースとはおさらばできて、過去のエントリを（Archive しておいた分は）全文検索もできますね。Star/Unstar でクリッピングしたり、ラベルで tag づけなんてやると del.icio.us さえもいらなくなるかも？</p>
+
+<h3>スクリプト</h3>
+
+<p>試してみたい！というチャレンジャーな方向けに、とりあえず動きますなスクリプトを subversion で公開しておきます。Movable Type をインストールできるのと同等ぐらいの権限が必要になります。svnweb は <a href="http://svn.bulknews.net/svnweb/public/browse/bloglines2email/trunk/">こちら。</a></p>
+
+<blockquote><code>svn co svn://svn.bulknews.net/public/bloglines2email/trunk bloglines2email</code></blockquote>
+
+<ul>
+<li>perl 5.8.0</li>
+<li>WebService::Bloglines (0.06 以上)</li>
+<li>XML::LibXML, XML::RSS::LibXML</li>
+<li>YAML</li>
+<li>Template-Toolkit</li>
+<li>MIME::Lite</li>
+</ul>
+
+<p>といったモジュールが必要です。libxml がどうしても入らない、という場合は WebService::Bloglines 0.06 をいれて、XML::RSS と XML::XPath の組み合わせでも大丈夫なハズ。</p>
+
+<p>アーカイブをチェックアウトしたら bloglines2email と同一のディレクトリに bloglines2email.conf というファイルを作って Bloglines のユーザ名・パスワードやや Gmail のメールなどを設定します。.sample が置いてあるのでそれを参考にしてください。あとは bloglines2email スクリプトを cron で5分間隔ぐらいで仕込めばよいでしょう。</p>
+
+<p>bloglines2email スクリプトを起動すると Bloglines の未読がクリアされます。初回にテストでやってみたい場合は、--test オプションをつけて実行すれば未読を消しません。メールサーバの設定や、送られてくるメールのテンプレートはスクリプト内に書いてあるので、気に入らない人は適当にいじってくださいませ。ライセンスは Perl と同じです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001789.html">04:47 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001789.html#comments">Comments (10)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001789.html#trackbacks">TrackBack (7)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001788"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1788"
+    dc:title="Podcasting Hacks"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001788"
+    dc:subject="tech"
+    dc:description="Podcasting Hacksposted with amazlet at 05.08.23Jack Herrington Oreilly &amp; Associates Inc (2005/11/30)売り上げランキング: 61,568Amazon.co.jp で詳細を見る やっぱりきたかという感じの Podcasting Hacks。もう amazon で予約可能になってますね。Beta Hacks..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-23T15:20:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 23, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001788"></a>
+<h3 class="title">Podcasting Hacks</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596100663/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/0596100663.09.MZZZZZZZ.jpg" alt="Podcasting Hacks" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596100663/bulknews-22" name="amazletlink" target="_blank">Podcasting Hacks</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/0596100663/bulknews-22" title="Podcasting Hacks" target="_blank">amazlet</a> at 05.08.23</div></div><div class="amazlet-detail">Jack Herrington <br />Oreilly & Associates Inc (2005/11/30)<br />売り上げランキング: 61,568<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596100663/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>やっぱりきたかという感じの Podcasting Hacks。もう amazon で予約可能になってますね。<a href="http://www.oreilly.com/catalog/podcastinghks/chapter/index.html">Beta Hacks</a> を見る限り、Podcast を聴く・作る・配信するというそれぞれの側面からの Hack がいろいろ収録されている感じで面白そう。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001788.html">03:20 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001788.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001788.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001787"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1787"
+    dc:title="Nintendogs U.S.A"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001787"
+    dc:subject="game"
+    dc:description="Nintendogs for Nintendo DS US でもようやく Nintendogs が発売。今回の出張でもってきたけど1回もプレイしていない飼い主失格なワタシですが、こっちで互換性があるんだったら遊んでみたいなあ。Six Apart のオフィスにはリアルドッグがいっぱいいるので、特に買う人すくなそうですが。こちらでは Nintendo DS より PSP の方がガジェット的に人気は高いようです。 Nintendo DS Blog やってる Mark..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-23T14:15:47+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001787"></a>
+<h3 class="title">Nintendogs U.S.A</h3>
+
+<p><a title="Nintendogs for Nintendo DS" href="http://nintendogs.com/">Nintendogs for Nintendo DS</a></p>
+
+<p>US でもようやく Nintendogs が発売。今回の出張でもってきたけど1回もプレイしていない飼い主失格なワタシですが、こっちで互換性があるんだったら遊んでみたいなあ。Six Apart のオフィスにはリアルドッグがいっぱいいるので、特に買う人すくなそうですが。こちらでは Nintendo DS より PSP の方がガジェット的に人気は高いようです。</p>
+
+<p><a href="http://ds.neologasm.org/">Nintendo DS Blog</a> やってる Mark がもしかしたら買わないかな。<a href="http://www.flickr.com/photos/bulknews/3532033/in/set-105208/">大合奏バンドブラザース</a> も持ってたし。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001787.html">02:15 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001787.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001787.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001786"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1786"
+    dc:title="Gmail as RSS reader"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001786"
+    dc:subject="tech"
+    dc:description="GMail as an RSS reader After toying around with a bunch of RSS readers I concluded that using GMail as..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-22T18:22:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 22, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001786"></a>
+<h3 class="title">Gmail as RSS reader</h3>
+
+<p><a title="GMail as an RSS reader" href="http://www.cs.utexas.edu/~karu/gmailrss/">GMail as an RSS reader</a><br />
+<blockquote>After toying around with a bunch of RSS readers I concluded that using GMail as an RSS reader is a very good option, for the following main reasons: </blockquote></p>
+
+<p>これ僕も以前考えてたんですが、Gmail を RSS リーダーとして使おうというアイデア。Bloglines より Gmail のほうがサクサクと動くし、Label や Star で管理する方がより使いやすそうな気もします。</p>
+
+<p><a href="http://search.cpan.org/~miyagawa/WebService-Bloglines-0.06/">WebService::Bloglines</a> を使って HTML メールを送信するスクリプト書いて Gmail アドレスに送っちゃえば簡単にできますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001786.html">06:22 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001786.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001786.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001785"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1785"
+    dc:title="TypePad Scratchathon Release"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001785"
+    dc:subject="blog"
+    dc:description="先週の水曜日に US TypePad がバージョンアップしました。今回のリリースは 7月に本社で行った Scratchathon で実装された機能が中心になっています。 Six Apart - News and Events So we decided to have a one-day..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-22T14:42:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001785"></a>
+<h3 class="title">TypePad Scratchathon Release</h3>
+
+<p>先週の水曜日に US TypePad がバージョンアップしました。今回のリリースは 7月に本社で行った Scratchathon で実装された機能が中心になっています。</p>
+
+<p><a title="Six Apart - News and Events" href="http://www.sixapart.com/about/news/2005/08/the_joy_of_hack.html">Six Apart - News and Events</a><br />
+<blockquote>So we decided to have a one-day hacking session that we called a Scratchathon--as in, scratching an itch. We stopped the usual project work for a day, and engineers on all of our products spent the day working on features like those described above. The focus for this session was on implementing relatively small features and/or fixes that would have a big impact for ourselves, our customers, and our support staff, and the explicit goal was to quickly channel these features into a product release.</blockquote></p>
+
+<p>Six Apart では San Francisco・東京・パリでたくさんのプロジェクトが同時に動いていますが、この作業を1日だけ停止して、全プロダクトのエンジニアがハックマラソンに集中します。今回は San Francisco オフィスだけで、TypePad, MT, LiveJournal のエンジニアが参加しました。</p>
+
+<p>この1日で実装する機能は、「長い間カスタマーが要望してきたちょっとした修正」や「誰もがほしいと思いながら実装してこなかった機能」のうち1つを選びます（社内の Wiki や FogBUGZ でリストが定期的に更新される）。その1日で実装をある程度完了できることが重要になってきます。（リリースまでには完全な QA や各国語への翻訳、ユーザにどう伝達するかのマーケティングプランやその結果のフィードバックなどを内部で経るため、実際には1ヶ月ほどかかります）</p>
+
+<p>はてなの近藤さんが <a href="http://blog.japan.cnet.com/kondo/archives/002281.html">連続的・非連続的な開発</a> ということで合宿での開発の話をよく出されていますが、こういう日常的なタスクから開放されての定期的 Hackathon はかなり効率的ですね。（はてなの場合は新プロダクトを合宿で、というケースが多いようですが、Six Apart では既存プロダクトの改善を Scratchathon でやっているところが面白い違いかもしれません） 用事のない週末は <a href="http://bulknews.typepad.com/life/2005/07/hackathon.html">Ben の家にいって Hack</a> したりしてます。</p>
+
+<p>私はこの Scratchathon の日は San Francisco にいなかったのですが、日本にいる間にブランチで開発していた Podcasting サポートをこのリリースに取り込むことができました。<a href="http://www.sixapart.com/typepad/news/2005/08/podcasting_supp.html">インタビューも掲載</a> されていますが、MP3 ファイルをエントリ中にアップロードしてリンクするだけで、RSS 2.0 が生成されて Podcast をはじめることができます。<a href="http://www.sixapart.com/typepad/news/2005/07/its_the_little-.html">ストレージや bandwidth</a> の拡張を消費するにはもってこいでしょう。そのほかの機能は <a href="http://www.sixapart.com/typepad/news/2005/08/easier_sidebar.html">Everything TypePad</a> から。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001785.html">02:42 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001785.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001785.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001784"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1784"
+    dc:title="Foo Fighters  - Everywhere But Home"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001784"
+    dc:subject="music"
+    dc:description="Everywhere But Home (Dts)posted with amazlet at 05.08.11 (2003/11/25)売り上げランキング: 1,182Amazon.co.jp で詳細を見る ふらっと San Francisco Apple Store の向かいにある Virgin MEGASTORE で見かけた..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-11T15:58:02+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 11, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001784"></a>
+<h3 class="title">Foo Fighters  - Everywhere But Home</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000E1WKD/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B0000E1WKD.09.MZZZZZZZ.jpg" alt="Everywhere But Home (Dts)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000E1WKD/bulknews-22" name="amazletlink" target="_blank">Everywhere But Home (Dts)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B0000E1WKD/bulknews-22" title="Everywhere But Home (Dts)" target="_blank">amazlet</a> at 05.08.11</div></div><div class="amazlet-detail"> (2003/11/25)<br />売り上げランキング: 1,182<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000E1WKD/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>ふらっと San Francisco Apple Store の向かいにある Virgin MEGASTORE で見かけた Foo Fighters の DVD を買ってみました。ジャケットにはリージョンが書いてなかったので店員に聞いたら「リージョン１だ」と言われたのですが、帰ってきてみるとフリーみたいですね。</p>
+
+<p>2年前の作品で、前作 One By One からの曲が多めですがかなりカッコイイですね〜。DTS サラウンドだけどこっちのレジデンスにあるしょぼテレビでは再現できないので、帰国してもっかい聴くのが楽しみ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001784.html">03:58 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001784.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001784.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001783"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1783"
+    dc:title="Google Maps on mobile devices"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001783"
+    dc:subject="tech"
+    dc:description="ほぼすべて O&apos;Reilly Make Blog か Engadget 経由。 Google Maps の画像イメージを PSP, iPod Photo, Nintendo DS から見ちゃおうというネタ。Nintendo DS は GPS とかつないじゃってますね。PSP..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-09T17:41:34+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 09, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001783"></a>
+<h3 class="title">Google Maps on mobile devices</h3>
+
+<p>ほぼすべて <a href="http://www.makezine.com/blog/">O'Reilly Make Blog</a> か <a href="http://www.engadget.com/">Engadget</a> 経由。</p>
+
+<p>Google Maps の画像イメージを PSP, iPod Photo, Nintendo DS から見ちゃおうというネタ。Nintendo DS は GPS とかつないじゃってますね。PSP だったら、WiFi のアクセスポイントつかって、<a href="http://blog.bulknews.net/msnve-locate.html">MSN Virtual Earth</a> ハックが使えそうですねえ。</p>
+
+<p><a title="Sanctum mekkanicum: Google Maps on Sony PSP" href="http://mekkaniak.blogspot.com/2005/08/google-maps-on-sony-psp.html">Sanctum mekkanicum: Google Maps on Sony PSP</a><br />
+<blockquote>Inspired by Ian Meyer's Google Maps on iPod Photo, I decided to do the same on Sony PSP.</blockquote></p>
+
+<p><a title="natrium42 - Weblog Blog Archive GPS for DS" href="http://www.natrium42.com/blog/?p=31">natrium42 - Weblog Blog Archive GPS for DS</a><br />
+<blockquote>GBAMP (GBA Movie Player) is used to store the program and data on a CompactFlash card (special thanks to chishm and DarkFader). </blockquote></p>
+
+<p><a title="Google Maps on iPod Photo" href="http://homepage.mac.com/ianmeyer/PhotoAlbum17.html">Google Maps on iPod Photo</a><br />
+<blockquote>The screen may be small, but its dern handy. Toss on a couple different zoom levels, and you can quickly go from street-level to city-wid...</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001783.html">05:41 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001783.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001783.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001782"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1782"
+    dc:title="HTML::Template::Plugin::Dot (and Class::Trigger)"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001782"
+    dc:subject="perl"
+    dc:description="Journal of rhesa (5696) He also started on HTML::Template::Plugin::Dot, which hooks into param to provide the magic-dot notation you might..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-09T17:36:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001782"></a>
+<h3 class="title">HTML::Template::Plugin::Dot (and Class::Trigger)</h3>
+
+<p><a title="Journal of rhesa (5696)" href="http://use.perl.org/~rhesa/journal/26169">Journal of rhesa (5696)</a><br />
+<blockquote>He also started on HTML::Template::Plugin::Dot, which hooks into param to provide the magic-dot notation you might know from the Template Toolkit. I am currently enhancing that to allow mixing hashes and objects and more.</blockquote></p>
+
+<p>HTML::Template の変数名に &lt;TMPL_VAR name=feed.title&gt; のように書いて Template-Toolkit 風のオブジェクトコールを実現するプラグイン HTML::Template::Plugin::Dot つーのがあるそうです。</p>
+
+<p>というか、それのベースになっている HTML::Template::Pluggable の作者の人から、プラグインシステムの仕組みとして拙作の <a href="http://search.cpan.org/dist/Class-Trigger/">Class::Trigger</a> 使ってるよということでした。Class::Trigger は Sledge のプラグインとか、Class::DBI の hook にも使われていて、<a href="http://qa.perl.org/">Perl Phalanx</a> QA Project にも選出されているすばらしいモジュールなのです。</p>
+
+<p>こういうフレームワークとか、モジュールを拡張する、とかいう用途でもない限り、なかなか自分で使うことはないですけどね。。。 しかし、こうしてたくさんの人に使ってもらっているのは単純にモチベーションとしてありがたいことです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001782.html">05:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001782.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001782.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001781"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1781"
+    dc:title="Google News added RSS and Atom"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001781"
+    dc:subject="tech"
+    dc:description="Ego Food: Google News all Feedy Like In short: Google news now has Atom and RSS 2.0 feeds for all..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-09T17:22:54+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001781"></a>
+<h3 class="title">Google News added RSS and Atom</h3>
+
+<p><a title="Ego Food: Google News all Feedy Like" href="http://egofood.blogspot.com/2005/08/google-news-all-feedy-like.html">Ego Food: Google News all Feedy Like</a><br />
+<blockquote> In short: Google news now has Atom and RSS 2.0 feeds for all the catagories and for custom news searchs. I suspect we'll see a good amount of uptake from this, especially when combined with the Maps API.</blockquote></p>
+
+<p>Google News が RSS と atom フィードをついにサポートした模様ですね。トピック別や、キーワード検索結果、カスタムニュースページにそれぞれ RSS, Atom でのフィードが追加されてます。</p>
+
+<p>これで gnews2rss-jp も（訴えられることなく）用なしになりそう。</p>
+
+<p><a href="http://news.google.com/intl/en_us/news_feed_terms.html">About Feeds and Terms of Use</a><blockquote>Google News search results feeds: You can also get a feed for any search you do on Google News. First do any search on Google News, then simply use the Atom or RSS link on the left-hand side of your search results page to generate the feed. </blockquote></p>
+
+<p>しかし、<a href="http://news.google.com/news?ned=us&topic=h&output=rss">フィードをみてみると</a> HTML コードがまじりこんで Validation エラーになっちゃってますね。すぐに直るんでしょうけど。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001781.html">05:22 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001781.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001781.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001780"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1780"
+    dc:title="GPS つき SA700iS"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001780"
+    dc:subject="tech"
+    dc:description="GPSナビ機能を搭載した「SA700iS」 GPS関連では、撮影画像に位置情報を付加できるほか、メールで友人に現在地を通知することもできる。 EXIF に位置情報入れられるのは geo blogger には萌えですね。しかし SANYO のドコモ端末は数年ぶり、ってあたりがメインに据えるにはこころもとない感じでしょうか。サブとして新しく契約するんだったら AU の方がいろいろよさそうな気もしますし。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-05T16:56:18+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 05, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001780"></a>
+<h3 class="title">GPS つき SA700iS</h3>
+
+<p><a title="GPSナビ機能を搭載した「SA700iS」" href="http://k-tai.impress.co.jp/cda/article/news_toppage/25103.html">GPSナビ機能を搭載した「SA700iS」</a><br />
+<blockquote>GPS関連では、撮影画像に位置情報を付加できるほか、メールで友人に現在地を通知することもできる。</blockquote></p>
+
+<p>EXIF に位置情報入れられるのは geo blogger には萌えですね。しかし SANYO のドコモ端末は数年ぶり、ってあたりがメインに据えるにはこころもとない感じでしょうか。サブとして新しく契約するんだったら AU の方がいろいろよさそうな気もしますし。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001780.html">04:56 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001780.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001780.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001779"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1779"
+    dc:title="Yahoo! Audio Search"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001779"
+    dc:subject="tech"
+    dc:description="Yahoo! Audio Search Search for many types of audio files from across the Web including, Popular and hard to find..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-05T16:51:54+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001779"></a>
+<h3 class="title">Yahoo! Audio Search</h3>
+
+<p><a title="Yahoo! Audio Search" href="http://audio.search.yahoo.com/audio/learnmore">Yahoo! Audio Search</a><br />
+<blockquote>Search for many types of audio files from across the Web including, <br />
+Popular and hard to find music <br />
+Podcasts <br />
+Interviews, speeches and newscasts <br />
+Stand-up comedy <br />
+Sound Effects </blockquote></p>
+
+<p>Yahoo! が Audio Search を開始。Podcasts の検索もできて、RSS 2.0 Feed を見つけた場合はそのリンクの表示もしてくれますね。素敵です。Yahoo! Web Services の方もすでに Audio Search 対応ずみ。</p>
+
+<p><a title="Audio Documentation for Yahoo! Search Web Services" href="http://developer.yahoo.net/search/audio/index.html">Audio Documentation for Yahoo! Search Web Services</a><br />
+<blockquote>Audio Searches<br />
+Yahoo Audio Search provides access to music data and audio files using structued and unstructured queries. </blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001779.html">04:51 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001779.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001779.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001777"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1777"
+    dc:title="iTunes Music Store JAPAN!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001777"
+    dc:subject="tech"
+    dc:description="とうとう iTunes Music Store の日本版が始まりましたね。普段使っているホームから Store &gt; Japan を選べば見慣れた画面に日本の音楽が出てきます。（フォントが変わっていてなんか雰囲気が違うなあという印象） 購入の方は、日本の Apple Store に登録してある ID を使えばクレジットで決済できました。US ベースのアカウントを普段つかっている人は、アカウントを使い分ければ大丈夫ですね。 iPod &amp; iTunes hacks―デジタルミュージックを自由に楽しむテクニックposted..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-04T12:29:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 04, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001777"></a>
+<h3 class="title">iTunes Music Store JAPAN!</h3>
+
+<p>とうとう iTunes Music Store の日本版が始まりましたね。普段使っているホームから Store > Japan を選べば見慣れた画面に日本の音楽が出てきます。（フォントが変わっていてなんか雰囲気が違うなあという印象）</p>
+
+<p>購入の方は、日本の Apple Store に登録してある ID を使えばクレジットで決済できました。US ベースのアカウントを普段つかっている人は、アカウントを使い分ければ大丈夫ですね。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112273/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/4873112273.09.MZZZZZZZ.jpg" alt="iPod & iTunes hacks―デジタルミュージックを自由に楽しむテクニック" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112273/bulknews-22" name="amazletlink" target="_blank">iPod & iTunes hacks―デジタルミュージックを自由に楽しむテクニック</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873112273/bulknews-22" title="iPod & iTunes hacks―デジタルミュージックを自由に楽しむテクニック" target="_blank">amazlet</a> at 05.08.04</div></div><div class="amazlet-detail">Hadley Stern エディックス <br />オライリー・ジャパン (2005/05)<br />売り上げランキング: 30,543<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873112273/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p><br />
+結構昔の曲とかも充実してる感じで、歌謡曲のディレクトリとかにいくとカラオケボックスで次何歌おうかなぁ〜という気分を味わえますね。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/itms-jp.png"><img alt="itms-jp.png" src="http://blog.bulknews.net/mt/archives/itms-jp.png" width="400" border="0" /></a><br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001777.html">12:29 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001777.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001777.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_08.html#001776"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1776"
+    dc:title="Amazon and Open Source (and Open Data)"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_08.html#001776"
+    dc:subject="perl"
+    dc:description="Amazon が Perl というネタをちょろっと先日の AWS 記事に書いてみたところ意外と知らなかった方が多いみたいで反響の大きさにちょっと驚いている次第。 Tim O&apos;Reilly が Perl の話をするときにはいつも Amazon の話を出しています。 O&apos;Reilly: Amazon and Open Source Open source..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-02T12:59:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">August 02, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001776"></a>
+<h3 class="title">Amazon and Open Source (and Open Data)</h3>
+
+<p>Amazon が Perl というネタをちょろっと先日の AWS 記事に書いてみたところ意外と知らなかった方が多いみたいで反響の大きさにちょっと驚いている次第。</p>
+
+<p>Tim O'Reilly が Perl の話をするときにはいつも Amazon の話を出しています。</p>
+
+<p><a title="O'Reilly: Amazon and Open Source" href="http://www.oreilly.com/pub/a/oreilly/ask_tim/2004/amazon_0204.html">O'Reilly: Amazon and Open Source</a><br />
+<blockquote>Open source has been a key part of the Amazon story. Linux on commodity hardware has allowed amazon.com to cut its costs by an order of magnitude since it launched, and it is a heavy user of <strong>Perl, MySQL, and Mason</strong>. </blockquote></p>
+
+<p>ただ、Tim の話でいつも出てくるのは、オープンソースもそうだけど、Open Data ってのがもっとも重要な Amazon の戦略なのだと。</p>
+
+<p><a title="Stupidfool.org: Open Data" href="http://btrott.typepad.com/typepad/2005/08/open_data.html">Stupidfool.org: Open Data</a><br />
+<blockquote>Exactly. In some sense, open data is more important than open source. Your data is more valuable than the tools you use--you can always find new tools, but if you lose access to your data, no tool in the world will give you access to it.</blockquote></p>
+
+<p>Ben もひさしぶりに Blog に書いていたのですが、Web サービスやコミュニティ全盛の時代においては、ソースがGPL か、なんてことより、データが公開されて API などでアクセス可能であることのほうがより重要だということですね。</p>
+
+<p>エクスポート機能を持たない Web のサービスは多く存在しますが、そういうサービスに重要なデータを預けるというのはなかなか勇気がいり、かつリスクがあることです。</p>
+
+<p><a title="IT Conversations: Tim O'Reilly - MySQL User's Conference" href="http://www.itconversations.com/shows/detail572.html">IT Conversations: Tim O'Reilly - MySQL User's Conference</a><br />
+<blockquote>We are moving into a new world where everything is interconnected, where the internet is the platform and where software is a service. Welcome to the new paradigm that is Web 2.0. Tim O'Reilly uses the MySQL User Conference to present another verse of his popular O'Reilly's Radar talk. Find out what the alpha geeks have been up to and why the future belongs to data. </blockquote></p>
+
+<p>Amazon と Open Data の話は Tim の最近のカンファレンススピーチで毎回でてくる話で、これを Architecture of Participation ていう風に呼んでますね。ITConversations の MySQL Conference のスピーチが集大成っぽいので、ぜひ御一聴を。（しかし MySQL Conference なのに ETech とほぼ同じ内容で、mysql の話はほとんど出てこないのが笑える）</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001776.html">12:59 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001776.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001776.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

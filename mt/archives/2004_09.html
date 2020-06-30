@@ -1,0 +1,3719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: September 2004 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2004_08.html" title="August 2004" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2004_10.html" title="October 2004" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001299"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1299"
+    dc:title="bloglines2ipod"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001299"
+    dc:subject="blog"
+    dc:description="Bloglines Web Services をつかったアプリケーション例。ということで、Bloglines の未読アイテムをとってきて、iPod の「メモ」にぶっこむスクリプトをつくってみました。"
+    dc:creator="miyagawa"
+    dc:date="2004-09-30T22:30:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 30, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001299"></a>
+<h3 class="title">bloglines2ipod</h3>
+
+<p><a href="http://www.bloglines.com/services/api">Bloglines Web Services</a> をつかったアプリケーション例。ということで、Bloglines の未読アイテムをとってきて、iPod の「メモ」にぶっこむスクリプトをつくってみました。<a href="http://bulknews.net/lib/utils/bloglines2ipod/">bloglines2ipod</a> からダウンロードできます。</p>
+
+<p>朝、家を出る前にこのスクリプトでぶっこんで、電車の中で未読アイテムを読んでしまおう、ってわけですな（電車乗らない人、車内でノートパソコン広げられる人には無意味です。。）。</p>
+
+<p>Win32 の場合は ActivePerl に、WebService::Bloglines が必要。Mac OS X では試してないですが、マウントポイントを変更するだけで動くかな？ </p>
+
+<p>マウントとかユーザアカウントの設定はファイルの先頭の方に書いてある変数をちょこちょこいじればいけます。たいしたことしてないので、WSH (JScript) でもできそうですね。TODO としては、description が 4K 以上の場合、ぶちぎらないとだめかも。</p>
+
+<p>参考:<br />
+<a href="http://bb.watch.impress.co.jp/cda/news/6286.html" title="iPodと連携できるMac OS向けRSSリーダー「NewsFan 1.4.0」">iPodと連携できるMac OS向けRSSリーダー「NewsFan 1.4.0」</a><br />
+<a href="http://naoya.dyndns.org/~naoya/mt/archives/000933.html" title="iPod で RSS を持ち歩く - selected subscription in NetNewsWire : NDO::Weblog">iPod で RSS を持ち歩く - selected subscription in NetNewsWire : NDO::Weblog</a><br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001299.html">10:30 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001299.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001299.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001298"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1298"
+    dc:title="アメーバブログの RSS"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001298"
+    dc:subject="blog"
+    dc:description="まあ News-Handler 系に共通の不具合なんですが。。 http://shibuya.ameblo.jp/ を例にすると、Syndicate this site のリンク先は http://ameblo.jp/rss.php?bid=shibuya となっていて、これだと一応問題なく表示されるんですが (channel と item の rdf:about がおかしいですけど）、 HTML 内の RSS Auto-Discovery..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-30T18:44:32+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001298"></a>
+<h3 class="title">アメーバブログの RSS</h3>
+
+<p>まあ News-Handler 系に共通の不具合なんですが。。</p>
+
+<p><a href="http://shibuya.ameblo.jp/">http://shibuya.ameblo.jp/</a> を例にすると、Syndicate this site のリンク先は <a href="http://ameblo.jp/rss.php?bid=shibuya">http://ameblo.jp/rss.php?bid=shibuya</a> となっていて、これだと一応問題なく表示されるんですが (channel と item の rdf:about がおかしいですけど）、</p>
+
+<p>HTML 内の RSS Auto-Discovery は以下のようになっていて、</p>
+
+<pre class="code">&lt;LINK title="RSS" href="http://ameblo.jp/rss.php?bid=0a5cc28ff83a27b45e61871ccb682e4c" type="application/rss+xml" rel="alternate"&gt;</pre>
+
+<p>
+実際に <a href="http://ameblo.jp/rss.php?bid=0a5cc28ff83a27b45e61871ccb682e4c">http://ameblo.jp/rss.php?bid=0a5cc28ff83a27b45e61871ccb682e4c</a> をみてみると、
+</p>
+
+<pre class="code">&lt;channel rdf:about="http://ameblo.jp/http://ameblo.jp/index.php?bid=0a5cc28ff83a27b45e61871ccb682e4c&fid=rss">
+  &lt;title>渋谷ではたらく社長のblog&lt;/title> 
+  &lt;link>http://0a5cc28ff83a27b45e61871ccb682e4c.ameblo.jp/&lt;/link> 
+</pre>
+
+<p>という具合に link がおかしくなってしまってます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001298.html">06:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001298.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001298.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001297"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1297"
+    dc:title="iPod 40G"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001297"
+    dc:subject="AV"
+    dc:description="iPod を3台目の購入（1台目は故障、2台目は 盗難）。mini もひかれたんですが、新世代の iPod 40G にしておきました。 Dock は第3世代のがそのままつかえました。40G モデルは付属しちゃってるのでDock とアダプターが余ってる状態。キャリングケースとリモコンは、買い替え組に配慮してか同梱されてない。盗まれたときにとられたものなんで買い足さなきゃ。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-30T13:45:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001297"></a>
+<h3 class="title">iPod 40G</h3>
+
+<p>iPod を3台目の購入（1台目は故障、2台目は <a href="http://blog.bulknews.net/mt/archives/001118.html">盗難</a>）。mini もひかれたんですが、新世代の iPod 40G にしておきました。</p>
+
+<p>Dock は第3世代のがそのままつかえました。40G モデルは付属しちゃってるのでDock とアダプターが余ってる状態。キャリングケースとリモコンは、買い替え組に配慮してか同梱されてない。盗まれたときにとられたものなんで買い足さなきゃ。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001297.html">01:45 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001297.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001297.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001296"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1296"
+    dc:title="パイオニアから i.LINK のデジタル録画 DVD レコーダ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001296"
+    dc:subject="AV"
+    dc:description="パイオニア、i.LINK経由のデジタル放送録画に対応したDVDレコーダなど 上位モデルの「DVR-920H-S」と「DVR-720H-S」は、i.LINK端子を装備し、同社製プラズマテレビなどと接続することで、地上/BS/110度CSデジタル放送のHDDへの録画が可能。HDD容量は920Hが400GB、720Hが250GB。 i.LINK でハイビジョン録画可能、しかも HDMI 端子つきときた（いまのプラズマには HDMI 入力があまっているのでした）。これほしくなりそー。 Panasonic の STB で i.LINK 対応できんのかな（PIONEER のプラズマオンリーとかだったらショボン）とか、DVD レコ自体の使い勝手とか、コピワンのムーブできるのかな（できないみたい↓）、とかいろいろギモンはありますが、ちょっといじってみたい感じ。 パイオニア、22万語の辞書を内蔵し録画機能を高めたHDD DVDレコーダー4モデル Digital-AV News..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-30T12:53:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001296"></a>
+<h3 class="title">パイオニアから i.LINK のデジタル録画 DVD レコーダ</h3>
+
+<p><a title="パイオニア、i.LINK経由のデジタル放送録画に対応したDVDレコーダなど" href="http://www.watch.impress.co.jp/av/docs/20040930/pioneer1.htm">パイオニア、i.LINK経由のデジタル放送録画に対応したDVDレコーダなど</a><br />
+<blockquote>上位モデルの「DVR-920H-S」と「DVR-720H-S」は、i.LINK端子を装備し、同社製プラズマテレビなどと接続することで、地上/BS/110度CSデジタル放送のHDDへの録画が可能。HDD容量は920Hが400GB、720Hが250GB。</blockquote></p>
+
+<p>i.LINK でハイビジョン録画可能、しかも HDMI 端子つきときた（いまのプラズマには HDMI 入力があまっているのでした）。これほしくなりそー。</p>
+
+<p>Panasonic の STB で i.LINK 対応できんのかな（PIONEER のプラズマオンリーとかだったらショボン）とか、DVD レコ自体の使い勝手とか、コピワンのムーブできるのかな（できないみたい↓）、とかいろいろギモンはありますが、ちょっといじってみたい感じ。</p>
+
+<p><a title="パイオニア、22万語の辞書を内蔵し録画機能を高めたHDD DVDレコーダー4モデル Digital-AV News" href="http://www.phileweb.com/news/d-av/200409/30/11348.html">パイオニア、22万語の辞書を内蔵し録画機能を高めたHDD DVDレコーダー4モデル Digital-AV News</a><br />
+<blockquote>さらに上位2モデルは、チューナーとi.Linkで接続することでデジタル放送のストリーム録画が可能。ハイビジョンも記録できる。GUIは独自のものを装備するが、通常のプログラムリストとは切り分けられ、ストリーム録画したものだけを表示する。また、録画データのムーブは行えない。 </blockquote></p>
+
+<p>HD録画できるけども、やはりムーブはできないみたいですね。ま、それはそれで妥当な判断かも。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001296.html">12:53 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001296.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001296.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001295"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1295"
+    dc:title="東芝液晶テレビ face"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001295"
+    dc:subject="AV"
+    dc:description="東芝、“デジタル頭脳”搭載の37/32V型液晶テレビ「face」 faceのデジタルチューナのハイビジョン映像を暗号化し、100BASE-TXのネットワークに接続したLAN HDDに転送して録画する。また、画質レートを変換した長時間録画も行なえ、記録モードはMPEG-2 TSのHD/SDモードに加え、XP/SP/LPの計5モードが用意される。 これアレゲでいいですね。LANDISK みたいな NAS ストレージに、そのままデジタル録画できちゃう。しかしテレビにこんな機能つけなくても、チューナー部だけ別売りしてくれたらムチャクチャうれしいんですが。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-29T19:59:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 29, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001295"></a>
+<h3 class="title">東芝液晶テレビ face</h3>
+
+<p><a title="東芝、“デジタル頭脳”搭載の37/32V型液晶テレビ「face」" href="http://www.watch.impress.co.jp/av/docs/20040928/toshiba3.htm">東芝、“デジタル頭脳”搭載の37/32V型液晶テレビ「face」</a><br />
+<blockquote>faceのデジタルチューナのハイビジョン映像を暗号化し、100BASE-TXのネットワークに接続したLAN HDDに転送して録画する。また、画質レートを変換した長時間録画も行なえ、記録モードはMPEG-2 TSのHD/SDモードに加え、XP/SP/LPの計5モードが用意される。</blockquote></p>
+
+<p>これアレゲでいいですね。<a href="http://www.iodata.jp/prod/storage/hdd/2003/hdl-u/">LANDISK</a> みたいな NAS ストレージに、そのままデジタル録画できちゃう。しかしテレビにこんな機能つけなくても、チューナー部だけ別売りしてくれたらムチャクチャうれしいんですが。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001295.html">07:59 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001295.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001295.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001294"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1294"
+    dc:title="Bloglines API on O&apos;Reilly Network"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001294"
+    dc:subject="blog"
+    dc:description="Marc Hedlund discusses newly arrived Bloglines Web Services on O&apos;Reilly Network Blog."
+    dc:creator="miyagawa"
+    dc:date="2004-09-29T02:21:18+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001294"></a>
+<h3 class="title">Bloglines API on O'Reilly Network</h3>
+
+<p><a title="O'Reilly Network: The New Bloglines Web Services" href="http://www.oreillynet.com/pub/a/network/2004/09/28/bloglines.html">O'Reilly Network: The New Bloglines Web Services</a><br />
+<blockquote>Bloglines today announced a set of new Web Services APIs, allowing developers to write applications for reading RSS and Atom feeds by drawing data directly from the Bloglines databases. </blockquote></p>
+
+<p>さっそく O'Reilly Weblogs で Bloglines Web Services の記事。Bloglines が RSS Feed のキャッシュになり、Bandwidth 節約に一役買う部分の前提知識から REST API をGroovy + Java から使用した Bloglines GUI クライアントのソースコードまでかなりよくまとまってます。</p>
+
+
+<p>最後にアイデアとして、</p>
+
+<blockquote>The Bloglines APIs would be a great basis for an offline RSS reader. If you're getting on a plane and will be offline for a while, just sync up your unread feeds, and use a desktop system to read them on the road. </blockquote>
+
+<p>長期間オフラインになっている間は、未読のフィードを一気に sync して、デスクトップの RSS リーダーで読む。</p>
+
+<blockquote>Make a better notifier. Right now, the Bloglines notifier simply alerts you to how many new articles you have to read. With the new APIs, you could present a list of new article titles, or show which feeds have updates, or more. </blockquote>
+
+<p>もっとよい Notifier をつくる。現状は Item の数しか通知してくれないけど、タイトルや更新されたフィードの数とか、いろいろ出せるはず。</p>
+
+<blockquote>Read your feeds in email....or nntp....or on your pager....or wherever. The APIs would make writing an RSS-to-anything gateway trivial. You could probably even spit out stock prices on an old ticker-tape machine.... </blockquote>
+
+<p>RSS フィードを E-mail や NNTP などで読んだり、他のシステムにつなぐのに使えるでしょうと。</p>
+
+<p>などなどいくつかアイデアがのってますね。</p>
+
+<p>とりあえず、Feed ジャンキー向けのモバイル用のゲートウェイ、それから長期間オフラインになったときにたまりまくって困らないように、未読が一定アイテム数を越えたら MIME メールで送りつける、みたいのがあるといいかもです。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001294.html">02:21 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001294.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001294.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001293"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1293"
+    dc:title="RD-X5"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001293"
+    dc:subject="AV"
+    dc:description="東芝、GR機能付きダブルチューナを搭載した「RD-X5」 　株式会社東芝は、ハイブリッドレコーダ「RDシリーズ」のフラッグシップモデル「RS-X5」を11月中旬に発売する。価格はオープンプライスだが、店頭予想価格は17万円前後の見込み。 東芝の最上位モデル RD-X5 が発表されてます。DVD-R へのコピワン録画はいいですね。HDD からのムーブも可能なのでしょうか（RD-X4 と拡張パックでもできましたが）。 ダブルチューナーは、地上波で録画しない CATV や地上デジタル派にはあまり影響ない気がしますね。 RD-XS41 相当＋ DVD-R へのコピワンムーブがあればとりあえず満足します。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-29T01:15:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001293"></a>
+<h3 class="title">RD-X5</h3>
+
+<p><a title="東芝、GR機能付きダブルチューナを搭載した「RD-X5」" href="http://www.watch.impress.co.jp/av/docs/20040928/toshiba2.htm">東芝、GR機能付きダブルチューナを搭載した「RD-X5」</a><br />
+<blockquote>　株式会社東芝は、ハイブリッドレコーダ「RDシリーズ」のフラッグシップモデル「RS-X5」を11月中旬に発売する。価格はオープンプライスだが、店頭予想価格は17万円前後の見込み。</blockquote></p>
+
+<p>東芝の最上位モデル RD-X5 が発表されてます。DVD-R へのコピワン録画はいいですね。HDD からのムーブも可能なのでしょうか（RD-X4 と拡張パックでもできましたが）。 ダブルチューナーは、地上波で録画しない CATV や地上デジタル派にはあまり影響ない気がしますね。</p>
+
+<p>RD-XS41 相当＋ DVD-R へのコピワンムーブがあればとりあえず満足します。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001293.html">01:15 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001293.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001293.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001292"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1292"
+    dc:title="WebService::Bloglines"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001292"
+    dc:subject="perl"
+    dc:description="Bloglines Web Services を Perl から簡単に使えるモジュール WebService::Bloglines をリリースしました。"
+    dc:creator="miyagawa"
+    dc:date="2004-09-28T20:08:50+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 28, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001292"></a>
+<h3 class="title">WebService::Bloglines</h3>
+
+<p><a title="Bloglines Web Service!: blog.bulknews.net" href="http://blog.bulknews.net/mt/archives/001291.html">Bloglines Web Service!: blog.bulknews.net</a><br />
+<blockquote>Bloglines がついに Web Services を提供開始。完全な REST スタイルで、OPML / RSS でリスティングや更新アイテムを取得します。エラーや Not Modified なんかは HTTP Status で表現。詳しくは API Guide をどうぞ。</blockquote></p>
+
+<p>というわけで Perl からのバインディング <a href="http://search.cpan.org/dist/WebService-Bloglines">WebService::Bloglines</a> (<a href="http://bulknews.net/lib/archives/WebService-Bloglines-0.01/">bulknews.net 上のアーカイブ</a>)をつくってみた。REST を OO でキレイに表現するのはちょっと難しいです。</p>
+
+<p>レスポンスが OPML だったり RSS だったりで統一してないので、キレイに扱えるようにしてみたかったのですが、単純なハッシュのほうが結局扱いやすいのでそちらにしてみた。</p>
+
+<p>コレをつかって Bloglines のモバイルゲートウェイをつくってみようかなと。http://www.bloglines.com/mobile は Cookie 必要だし、コンテンツやフィードリストが長すぎてもきってくれなかったりと i-mode などではちょっと使えないので。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001292.html">08:08 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001292.html#comments">Comments (5)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001292.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001291"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1291"
+    dc:title="Bloglines Web Service!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001291"
+    dc:subject="blog"
+    dc:description="Bloglines | Bloglines Services The Bloglines Web Services (BWS) let software developers access Bloglines subscription and feed data directly from..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-28T15:25:50+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001291"></a>
+<h3 class="title">Bloglines Web Service!</h3>
+
+<p><a title="Bloglines | Bloglines Services" href="http://www.bloglines.com/services/">Bloglines | Bloglines Services</a><br />
+<blockquote>The Bloglines Web Services (BWS) let software developers access Bloglines subscription and feed data directly from computer programs. Bloglines uses a RESTful API consisting of a set of URLs, which return data in RSS and OPML formats. </blockquote></p>
+
+<p><a href="http://www.bloglines.com/">Bloglines</a> がついに Web Services を提供開始。完全な REST スタイルで、OPML / RSS でリスティングや更新アイテムを取得します。エラーや Not Modified なんかは HTTP Status で表現。詳しくは <a href="http://www.bloglines.com/services/api/">API Guide</a> をどうぞ。</p>
+
+<p>もちろん一般のデベロッパー向けにも公開されていますが、きっかけとしては <a href="http://www.bloglines.com/about/pr_09282004">New Bloglines Web Services Selected by FeedDemon, NetNewsWire and Blogbot to Eliminate RSS Bandwidth Bottleneck</a> ということで、RSS リーダがフィードの更新チェックするときに、個別のクライアントがチェックするのは Bandwidth のムダが多すぎるから、Bloglines で一括してチェックしてあげましょう、ということのようです。NetNewsWire, FeedDemon, BlogBot の作者と共同で API を開発したようですね。</p>
+
+<blockquote>Bloglines Web Services Enable Synchronization for Desktop News Aggregators
+"Our customers have been looking for the ability to synchronize their feed subscriptions across multiple computers," said Nick Bradbury, founder of Bradbury Software and creator of FeedDemon, the leading RSS aggregator for Windows. "By partnering with Bloglines, we are now able to offer the rich desktop functionality FeedDemon customers have come to expect, with the flexible mobility and portability of a web service." </blockquote>
+
+<p>FeedDemon は Bloglines Sync API を使用して、複数のマシン上にインストールされた RSS リーダーで、Subscription や最終更新時刻を Bloglines 上に同期できるようになる、と。 こうなると RSS リーダーソフト自体が、Bloglines のクライアントインタフェースになる感じですね。</p>
+
+<p>こうしたサーバ型アグリゲータと、クライアントリーダとの連携はとてもエキサイティングですね。<a href="http://bulkfeeds.net/">Bulkfeeds</a> でも一部のデータを <a href="http://bulkfeeds.net/app/developer.html">Web Services API</a> として公開し、いくつかの <a href="http://bulkfeeds.net/app/applications.html">クライアントソフト (サーバサイド含む)</a> で採用されています。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001291.html">03:25 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001291.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001291.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001290"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1290"
+    dc:title="RSS はキャズムを越えるか？ (Module for New My Yahoo! Beta)"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001290"
+    dc:subject="blog"
+    dc:description="New My Yahoo Beta, Featuring RSS and Atom (Jeremy Zawodny&apos;s blog) This is clearly a different world than when My..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-28T14:30:58+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001290"></a>
+<h3 class="title">RSS はキャズムを越えるか？ (Module for New My Yahoo! Beta)</h3>
+
+<p><a title="New My Yahoo Beta, Featuring RSS and Atom (Jeremy Zawodny's blog)" href="http://jeremy.zawodny.com/blog/archives/002653.html">New My Yahoo Beta, Featuring RSS and Atom (Jeremy Zawodny's blog)</a><br />
+<blockquote>This is clearly a different world than when My Yahoo was a New Thing. Personalization on the Web is Old News. Aggregation and Syndication are some of the hottest topics around these days. But the difference between old school My Yahoo aggregation and today's RSS and Atom driven aggregation is that it's a decentralized model.</blockquote></p>
+
+<p>Yahoo! Inc. の Jeremy 氏による、My Yahoo! RSS 対応の意味。</p>
+
+<blockquote>This not only makes My Yahoo relevant in the modern wave of syndication, it does something else--something that Yahoo is in a unique position to do: <i>bring RSS to the masses.</i></blockquote>
+
+<p>Web 上のパーソナライゼーションという考え方は古い。My Yahoo! の RSS モジュール対応は、モダンな Content Syndication の波に乗っただけでなく、RSS を Mass なユーザベースに対してリーチさせるモノになる、と。</p>
+
+<blockquote>So instead of thinking that My Yahoo has morphed into a low-end RSS aggregator, think of it this way: My Yahoo has adapted to handle RSS/Atom feeds in addition to all the other content that was previously available.</blockquote>
+
+<p><a href="http://www.bloglines.com/">Bloglines</a> のようなより完全な RSS アグリゲータになるのではなく、既存の My Yahoo! のコンテンツアグリゲーションモデルに追加された 1 つとして RSS を採用した、ということ。「RSSってナニ？」というユーザ層に対しては、</p>
+
+<blockquote> To make content discovery easier, there are multiple ways to find feeds: search, a small directory, a list of popular feeds, and even some editor's picks.</blockquote>
+
+<p>ということで、既存の My Yahoo! のコンテンツ追加同様、検索、ディレクトリ、ランキング、エディターオススメという方法で探すようです。</p>
+
+<p>1つ気になるのは、My Yahoo! と契約しているコンテンツプロバイダとの関係。たとえば新聞社の HTML コンテンツをスクレイプして RSS を吐き出し、My Yahoo! アグリゲータにぶっこんでしまえば、Yahoo! と 新聞社との契約は無視されてしまうわけです。この辺りをどうやって解決していくのか興味深いところがあります。</p>
+
+<p>O'Reilly の Rael 氏 (blosxom 作者、Hacks シリーズのエディターでもある） も<a href="http://www.oreillynet.com/pub/wlg/5662">My Yahoo! comes full circle</a> というエントリで紹介しています。</p>
+
+<p>ちなみに今日は livedoor が <a href="http://blogreader.livedoor.com/">livedoor Blog リーダー</a>, goo が <a href="http://reader.goo.ne.jp/">goo RSS リーダー</a> をリリースと、RSS リーダーのリリースデイみたいな雰囲気。<a href="http://bb.watch.impress.co.jp/cda/news/6719.html">はてなも RSS 対応か</a> なんていわれてますし、RSS リーダーがマスのユーザベースに向けてアプローチする準備完了って感じでしょうか。</p>
+
+<p>ということで、ちょっとエントリタイトルをソレっぽくしてみた。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001290.html">02:30 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001290.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001290.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001289"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1289"
+    dc:title="3社目参入表明"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001289"
+    dc:subject="misc"
+    dc:description="nikkansports.com: ３社目の新規申請あった！が、却下 ３社目の申請があったことを会見で明らかにしたセ・リーグ会長の豊蔵実行委議長は「申請内容が十分でありませんでしたので」と却下の理由を説明。コミッショナー事務局のある職員はその申請書について「紙１枚で手書きで書かれていた」とだけ話し、企業名は伏せた。 売名失敗。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T23:09:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 27, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001289"></a>
+<h3 class="title">3社目参入表明</h3>
+
+<p><a href="http://www.nikkansports.com/ns/baseball/f-bb-tp0-040927-0044.html">nikkansports.com: ３社目の新規申請あった！が、却下</a><br />
+<blockquote>３社目の申請があったことを会見で明らかにしたセ・リーグ会長の豊蔵実行委議長は「申請内容が十分でありませんでしたので」と却下の理由を説明。コミッショナー事務局のある職員はその申請書について「紙１枚で手書きで書かれていた」とだけ話し、企業名は伏せた。</blockquote></p>
+
+<p>売名失敗。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001289.html">11:09 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001289.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001289.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001288"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1288"
+    dc:title="Apache2 の ACL 脆弱性"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001288"
+    dc:subject="tech"
+    dc:description="窓の杜 - 【NEWS】「Apache」v2.0.51にWebページのアクセス制限を回避される脆弱性が発見 　本脆弱性は最新版のv2.0.51のみが影響を受け、今週中の公開を目指して修正版のv2.0.52が現在開発中であるとのこと。しかし、Windows版はUNIX版などに比べてリリースが遅れる傾向にあるので、修正版が公開されるまではWebページのアクセス制限を本ソフトの機能に頼るのではなく、CGIやJavaScriptなどを活用するほうが賢明だろう。 おっと。。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T23:00:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001288"></a>
+<h3 class="title">Apache2 の ACL 脆弱性</h3>
+
+<p><a title="窓の杜 - 【NEWS】「Apache」v2.0.51にWebページのアクセス制限を回避される脆弱性が発見" href="http://www.forest.impress.co.jp/article/2004/09/24/apache2051secad.html">窓の杜 - 【NEWS】「Apache」v2.0.51にWebページのアクセス制限を回避される脆弱性が発見</a><br />
+<blockquote>　本脆弱性は最新版のv2.0.51のみが影響を受け、今週中の公開を目指して修正版のv2.0.52が現在開発中であるとのこと。しかし、Windows版はUNIX版などに比べてリリースが遅れる傾向にあるので、修正版が公開されるまではWebページのアクセス制限を本ソフトの機能に頼るのではなく、<strong>CGIやJavaScriptなどを活用するほうが賢明だろう。 </strong></blockquote></p>
+
+<p>おっと。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001288.html">11:00 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001288.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001288.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001287"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1287"
+    dc:title="Moreover が RSS フィードに広告"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001287"
+    dc:subject="blog"
+    dc:description="RSSフィードに広告を組み合わせたサービスが登場 - CNET Japan Moreover Technologiesは、ウェブ上にある各ニュースサイトから配信される記事の見出しを、ユーザーが好みに合わせて収集できるサービスを開始した。この無料サービスは広告収入によって運営される。 Moreover は Bulknews みたいなサービスをやっている会社ですが、パーソナライズされたニュースアグリゲーションに、１日１件のキーワードマッチ広告をいれることにしたようですね。 一方、Technorati の Hodder 氏がいう、「他人のふんどし」的というツッコミ、 　「単に情報を収集しているだけで、それを利益目的に利用する権利があるのだろうか」と、ブログとRSSフィード用検索エンジンのTechnoratiでウェブ製品マネージャを務めるMary Hodderは述べている。 個人的には Moreover, Technorati どちらにも類似したサービスを運営しているので、どちらの意見もよくわかる気がします。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T19:05:31+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001287"></a>
+<h3 class="title">Moreover が RSS フィードに広告</h3>
+
+<p><a title="RSSフィードに広告を組み合わせたサービスが登場 - CNET Japan" href="http://japan.cnet.com/news/media/story/0,2000047715,20074808,00.htm?ref=rss">RSSフィードに広告を組み合わせたサービスが登場 - CNET Japan</a><br />
+<blockquote>Moreover Technologiesは、ウェブ上にある各ニュースサイトから配信される記事の見出しを、ユーザーが好みに合わせて収集できるサービスを開始した。この無料サービスは広告収入によって運営される。</blockquote></p>
+
+<p>Moreover は Bulknews みたいなサービスをやっている会社ですが、パーソナライズされたニュースアグリゲーションに、１日１件のキーワードマッチ広告をいれることにしたようですね。</p>
+
+<p>一方、Technorati の Hodder 氏がいう、「他人のふんどし」的というツッコミ、</p>
+
+<blockquote>　「単に情報を収集しているだけで、それを利益目的に利用する権利があるのだろうか」と、ブログとRSSフィード用検索エンジンのTechnoratiでウェブ製品マネージャを務めるMary Hodderは述べている。 </blockquote>
+
+<p>個人的には Moreover, Technorati どちらにも類似したサービスを運営しているので、どちらの意見もよくわかる気がします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001287.html">07:05 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001287.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001287.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001286"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1286"
+    dc:title="Yahoo! Blog?"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001286"
+    dc:subject="blog"
+    dc:description="ヤフーは球団経営よりも本業のサービス充実を目指す〜ブログ提供も表明 プロ野球参入に名乗りを上げたライブドアと楽天、ブログサービスを立ち上げ、さらに音楽ダウンロード販売サービスも開始するというMSN。ポータル他社が大きな話題を振りまくのを後目に、依然としてトップを独走するYahoo! JAPANは何を考えているのか？　ヤフーのPS本部マーケティング部長兼パーソナルサービス本部企画室長である大蘿（たいら）淳司氏に、ブログを含む新サービスの予定や戦略について話を聞いた。 Yahoo! Japan のマーケティングの方へのインタビュー記事。 いずれにしても、ブログサービスへの参入時期は、タイミング重視というよりも中身を考えた上で決定する。単に日記のようなものを提供するのだったらすぐにでもできるのだろうが、トレンドに乗るために不十分なサービスを開始しても意味がない。 というのがどういうものになるのか楽しみ。blog.yahoo.com が Yahoo! Groups にリダイレクトしていたり、日本の Yahoo! グループも Blog 的機能のとりこみがみられるので、そこら辺のアプローチになったりするのかも？ 野球経営はないといってますが、ぜひ孫さんも参入とかパリーグ買収とか言い出してほしいところです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T14:37:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001286"></a>
+<h3 class="title">Yahoo! Blog?</h3>
+
+<p><a title="ヤフーは球団経営よりも本業のサービス充実を目指す〜ブログ提供も表明" href="http://internet.watch.impress.co.jp/cda/special/2004/09/27/4734.html">ヤフーは球団経営よりも本業のサービス充実を目指す〜ブログ提供も表明</a><br />
+<blockquote>プロ野球参入に名乗りを上げたライブドアと楽天、ブログサービスを立ち上げ、さらに音楽ダウンロード販売サービスも開始するというMSN。ポータル他社が大きな話題を振りまくのを後目に、依然としてトップを独走するYahoo! JAPANは何を考えているのか？　ヤフーのPS本部マーケティング部長兼パーソナルサービス本部企画室長である大蘿（たいら）淳司氏に、ブログを含む新サービスの予定や戦略について話を聞いた。 </blockquote></p>
+
+<p>Yahoo! Japan のマーケティングの方へのインタビュー記事。</p>
+
+<blockquote>いずれにしても、ブログサービスへの参入時期は、タイミング重視というよりも中身を考えた上で決定する。単に日記のようなものを提供するのだったらすぐにでもできるのだろうが、トレンドに乗るために不十分なサービスを開始しても意味がない。 </blockquote>
+
+<p>というのがどういうものになるのか楽しみ。blog.yahoo.com が Yahoo! Groups にリダイレクトしていたり、日本の Yahoo! グループも Blog 的機能のとりこみがみられるので、そこら辺のアプローチになったりするのかも？</p>
+
+<p>野球経営はないといってますが、ぜひ孫さんも参入とかパリーグ買収とか言い出してほしいところです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001286.html">02:37 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001286.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001286.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001285"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1285"
+    dc:title="NIRO サイトリニューアル"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001285"
+    dc:subject="movie"
+    dc:description="ホームシアター :: NIRO NIRO のサイトがリニューアル。相変わらず微妙なデザインですが（フォントとか）、情報がちょっと増えてよい感じです。この中では唯一見た目が許せる 1.1PRO II を買ってみようかなぁ、とおもいました。いまはリビングで音楽をまともに聴く手段がないので、こいつと DVD プレイヤーをつないで、あと AirMac Express で充実させたいなと。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T00:58:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001285"></a>
+<h3 class="title">NIRO サイトリニューアル</h3>
+
+<p><a title="ホームシアター :: NIRO" href="http://www.niro1.com/jp/m/">ホームシアター :: NIRO</a></p>
+
+<p>NIRO のサイトがリニューアル。相変わらず微妙なデザインですが（フォントとか）、情報がちょっと増えてよい感じです。この中では唯一見た目が許せる 1.1PRO II を買ってみようかなぁ、とおもいました。いまはリビングで音楽をまともに聴く手段がないので、こいつと DVD プレイヤーをつないで、あと <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002GSAO0/bulknews-22/ref=nosim">AirMac Express</a> で充実させたいなと。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001285.html">12:58 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001285.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001285.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001284"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1284"
+    dc:title="スクールオブロック見た"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001284"
+    dc:subject="movie"
+    dc:description="スクール・オブ・ロック スペシャル・コレクターズ・エディション 今日は某ゴロ宅でプラズマテレビ＋ホームシアターでスクールオブロック鑑賞。よい映画でした！ 最後のライブシーンでじわじわ感動が押し寄せる。エンディングはもう少し後日談で余韻を引っ張ってほしかったなぁと思いつつも、10点満点で9点以上は確実に僕の中でいった映画になりました。 TSUTAYA でレンタルは全部貸し出し中なので購入したわけですが何度も楽しめそうです。中に解説のシートが入っていましたが、予想通り(?) 伊藤政則でした！サントラ も買っておこう。 同じ青春音楽映画としては 青春デンデケデケデケ もオススメ。スウィングガールズもそんな感じだそうで、中学〜高校とバンドやってるような人間はこういうのに弱いんですよねぇ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-27T00:55:52+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001284"></a>
+<h3 class="title">スクールオブロック見た</h3>
+
+<table border="0" cellpadding="5" width=""><tr><td valign="top" width="80"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002HNQ8O/bulknews-22/ref=nosim/"><img src="http://images-jp.amazon.com/images/P/B0002HNQ8O.09.THUMBZZZ.jpg" border="0" /></a></td><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002HNQ8O/bulknews-22/ref=nosim/">スクール・オブ・ロック スペシャル・コレクターズ・エディション</a><br /></td></tr></table>
+
+<p>今日は某ゴロ宅でプラズマテレビ＋ホームシアターでスクールオブロック鑑賞。よい映画でした！ 最後のライブシーンでじわじわ感動が押し寄せる。エンディングはもう少し後日談で余韻を引っ張ってほしかったなぁと思いつつも、10点満点で9点以上は確実に僕の中でいった映画になりました。</p>
+
+<p>TSUTAYA でレンタルは全部貸し出し中なので購入したわけですが何度も楽しめそうです。中に解説のシートが入っていましたが、予想通り(?) 伊藤政則でした！<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0001J0D8O/bulknews-22/ref=nosim">サントラ</a> も買っておこう。</p>
+
+<p>同じ青春音楽映画としては <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00005HXXN/bulknews-22/ref=nosim">青春デンデケデケデケ</a> もオススメ。スウィングガールズもそんな感じだそうで、中学〜高校とバンドやってるような人間はこういうのに弱いんですよねぇ。</p>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001284.html">12:55 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001284.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001284.html#trackbacks">TrackBack (6)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001283"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1283"
+    dc:title="朝生に堀江さん"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001283"
+    dc:subject="TV"
+    dc:description="livedoor TV 朝まで生テレビ 出演者：テリー伊藤 野村克也 田原総一朗 長野智子 渡辺宜嗣 玉木正之 坂井保之 堀江貴文 小林至 坂本幸夫 野崎靖博 広瀬一郎 またも朝生出演！ ミッキーもでてほしい。 → なんか出てなかったですね。小林至って人の発言が終始DQNっぽかったのが気になりました。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-24T14:35:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 24, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001283"></a>
+<h3 class="title">朝生に堀江さん</h3>
+
+<p><a title="livedoor TV" href="http://tv.livedoor.com/program/detail?pid=4303545">livedoor TV</a><br />
+<blockquote>朝まで生テレビ<br />
+ 出演者：テリー伊藤 野村克也 田原総一朗 長野智子 渡辺宜嗣 玉木正之 坂井保之 堀江貴文 小林至 坂本幸夫 野崎靖博 広瀬一郎 </blockquote></p>
+
+<p>またも朝生出演！ ミッキーもでてほしい。</p>
+
+<p>→ なんか出てなかったですね。小林至って人の発言が終始DQNっぽかったのが気になりました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001283.html">02:35 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001283.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001283.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001282"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1282"
+    dc:title="eBay と PayPal でミュージックストア"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001282"
+    dc:subject="tech"
+    dc:description="オークションを宣伝に活用、eBay上にオンライン音楽ストア (MYCOM PC WEB) 米PassAlong Networksが、eBayにオンライン音楽ストアをオープンした。これまでCDやレコードを販売するeBayストアはあったが、ダウンロード方式の本格的な音楽ストアは初めて。1曲99セントで、アルバムは1枚9.99ドルを基準としている。現時点で販売曲数が約20万曲と少ないが、ポイント方式による割引システムの導入やeBayのオークションサービスの活用など、ユニークなサービスを提供している。 eBay と PayPal がインターネット上の新しい OS としての機能を担っていることがよくわかるニュースです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-24T14:18:03+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001282"></a>
+<h3 class="title">eBay と PayPal でミュージックストア</h3>
+
+<p><a title="オークションを宣伝に活用、eBay上にオンライン音楽ストア (MYCOM PC WEB)" href="http://pcweb.mycom.co.jp/news/2004/09/24/101.html">オークションを宣伝に活用、eBay上にオンライン音楽ストア (MYCOM PC WEB)</a><br />
+<blockquote>米PassAlong Networksが、eBayにオンライン音楽ストアをオープンした。これまでCDやレコードを販売するeBayストアはあったが、ダウンロード方式の本格的な音楽ストアは初めて。1曲99セントで、アルバムは1枚9.99ドルを基準としている。現時点で販売曲数が約20万曲と少ないが、ポイント方式による割引システムの導入やeBayのオークションサービスの活用など、ユニークなサービスを提供している。</blockquote></p>
+
+<p>eBay と PayPal がインターネット上の新しい OS としての機能を担っていることがよくわかるニュースです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001282.html">02:18 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001282.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001282.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001281"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1281"
+    dc:title="サイバーもプロ野球参入へ！"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001281"
+    dc:subject="blog"
+    dc:description=" 野球ＴＯＰ &gt; 野球ニュース&quot; href=&quot;http://www.nikkansports.com/ns/baseball/p-bb-tp0-040919-0016.html&quot;&gt;nikkansports.com &gt; 野球ＴＯＰ &gt; 野球ニュース 藤田社長は自身のホームページ日記（１６日付）でライブドアと楽天の球界参入に「新興インターネット企業経営者の視点から言わせてもらえば、まったく正しい戦略。知名度と信頼感を獲得するのに、何百億円と広告費を投じるよりも、プロ野球球団を運営した方がはるかに効率がよいし、確実だ。球団運営には興味がないの？　とよく聞かれるのですが、あります」と断言。ただ、具体的参入時期については「当分先になるでしょう」としている。 とりあえず Blog に「参入したい」と書いておけばとりあげてもらえるらしいです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-23T11:54:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 23, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001281"></a>
+<h3 class="title">サイバーもプロ野球参入へ！</h3>
+
+<p><a title="nikkansports.com > 野球ＴＯＰ > 野球ニュース" href="http://www.nikkansports.com/ns/baseball/p-bb-tp0-040919-0016.html">nikkansports.com > 野球ＴＯＰ > 野球ニュース</a><br />
+<blockquote>藤田社長は自身のホームページ日記（１６日付）でライブドアと楽天の球界参入に「新興インターネット企業経営者の視点から言わせてもらえば、まったく正しい戦略。知名度と信頼感を獲得するのに、何百億円と広告費を投じるよりも、プロ野球球団を運営した方がはるかに効率がよいし、確実だ。球団運営には興味がないの？　とよく聞かれるのですが、あります」と断言。ただ、具体的参入時期については「当分先になるでしょう」としている。</blockquote></p>
+
+<p>とりあえず Blog に「参入したい」と書いておけばとりあげてもらえるらしいです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001281.html">11:54 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001281.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001281.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001280"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1280"
+    dc:title="iTunes で聴いてる曲: ストリームの場合"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001280"
+    dc:subject="tech"
+    dc:description="iTunes で聴いてる曲を Blog エントリに掲載 は、ネットラジオのストリーミングだとうまくいきません。この種別は currentTrack.Kind で取得できて、 enum ITTrackKind { ITTrackKindUnknown = 0, ITTrackKindFile, ITTrackKindCD, ITTrackKindURL, ITTrackKindDevice, ITTrackKindSharedLibrary } ってな具合。なので、以下のようにコードを修正してやればよろし。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-23T10:53:50+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001280"></a>
+<h3 class="title">iTunes で聴いてる曲: ストリームの場合</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001247.html">iTunes で聴いてる曲を Blog エントリに掲載</a> は、ネットラジオのストリーミングだとうまくいきません。この種別は currentTrack.Kind で取得できて、</p>
+
+<pre>enum   ITTrackKind { 
+  ITTrackKindUnknown = 0, 
+  ITTrackKindFile, 
+  ITTrackKindCD, 
+  ITTrackKindURL, 
+  ITTrackKindDevice, 
+  ITTrackKindSharedLibrary 
+}</pre>
+
+<p>ってな具合。なので、以下のようにコードを修正してやればよろし。 </p>
+
+<pre class="code">
+// Create text for "Now Playing"
+var strNowPlaying;
+
+if (track.Kind == 3) {
+  // ITURLTrack: Stream
+  <strong>var titles = iTunes.currentStreamTitle.split(",");</strong>
+  strNowPlaying = "Now Playing: " + titles[0] + " - " + titles[1] + " (" + track.Name + ")";
+} else {
+  strNowPlaying = "Now Playing: " + track.Artist + " - " + track.Name + " (" + track.Album + ")";
+}
+</pre>
+
+<p>Club 977 だと StreamTitle にカンマ区切りでアーティスト名とタイトルがはいってるので、split してやると、↓のようになる。他のラジオ局ではフォーマットが違う可能性大。</p>
+
+<p>Now Playing: Van Halen -  Jump (Club 977)</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001280.html">10:53 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001280.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001280.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001279"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1279"
+    dc:title="近鉄が楽天に売却シナリオ？"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001279"
+    dc:subject="misc"
+    dc:description=" 野球ＴＯＰ &gt; 野球ニュース&quot; href=&quot;http://www.nikkansports.com/ns/baseball/p-bb-tp0-040923-0001.html&quot;&gt;nikkansports.com &gt; 野球ＴＯＰ &gt; 野球ニュース 一方この日、楽天の三木谷浩史社長（３９）が、本拠地を仙台とした加盟申請を明日２４日、ＮＰＢに対し行うことを表明。ライブドアとの勝負になるが、周囲の状況から楽天の参入が有力。合併を白紙に戻し近鉄を買収した上でのパ６球団存続〜の仰天構想が浮上した。 こりゃスゴイシナリオですな。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-23T09:07:24+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001279"></a>
+<h3 class="title">近鉄が楽天に売却シナリオ？</h3>
+
+<p><a title="nikkansports.com > 野球ＴＯＰ > 野球ニュース" href="http://www.nikkansports.com/ns/baseball/p-bb-tp0-040923-0001.html">nikkansports.com > 野球ＴＯＰ > 野球ニュース</a><br />
+<blockquote>一方この日、楽天の三木谷浩史社長（３９）が、本拠地を仙台とした加盟申請を明日２４日、ＮＰＢに対し行うことを表明。ライブドアとの勝負になるが、周囲の状況から楽天の参入が有力。合併を白紙に戻し近鉄を買収した上でのパ６球団存続〜の仰天構想が浮上した。</blockquote></p>
+
+<p>こりゃスゴイシナリオですな。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001279.html">09:07 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001279.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001279.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001278"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1278"
+    dc:title="iPod &amp; iTunes Hacks"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001278"
+    dc:subject="tech"
+    dc:description="Ipod And Itunes Hacks (Hacks)Hadley Stern iTunes ハックづいてるこの Blog でしたが、O&apos;Reilly からぴったりの書籍 iPod &amp; iTunes Hacks が発売されますね。O&apos;Reilly Catalog に Sample Hacks..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-23T08:34:02+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001278"></a>
+<h3 class="title">iPod & iTunes Hacks</h3>
+
+<table border="0" cellpadding="5" width=""><tr><td valign="top" width="80"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007787/bulknews-22/ref=nosim/"><img src="http://images-jp.amazon.com/images/P/0596007787.01.THUMBZZZ.jpg" border="0" /></a></td><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007787/bulknews-22/ref=nosim/">Ipod And Itunes Hacks (Hacks)</a><br />Hadley Stern<br /></td></tr></table>
+
+<p>iTunes ハックづいてるこの Blog でしたが、O'Reilly からぴったりの書籍 iPod & iTunes Hacks が発売されますね。<a href="http://www.oreilly.com/catalog/ipodtuneshks/chapter/index.html">O'Reilly Catalog</a> に Sample Hacks が掲載されてました。</p>
+
+<blockquote>
+Beta Hack 31: Build a Cheap Linux Music Server (PDF Format)<br />
+Beta Hack 38: Convert Text Files into iPod Books (PDF Format)<br />
+Beta Hack 43: Get Your Email on Your iPod (PDF Format)<br />
+Beta Hack 52: Clean Up Your ID3 Tags (PDF Format)<br />
+Beta Hack 83: Make a New iPod Playlist from Your Selections (PDF Format)<br />
+Beta Hack 94: Manipulate Audio Using the Terminal (PDF Format)<br />
+</blockquote>
+
+<p>といった辺りが、iTunes の API や DAAP で云々というハナシになっている模様。いくつか読んでみましたが、あまり API ほげほげという開発向きの内容は少なくて、それらを利用したサードパーティ向けのソフトウェアを使ってハッキング (Blog Hacks でいうところのコードを書かないハック）が中心になっているかも。そのほうが売れそうなので正解ですが。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001278.html">08:34 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001278.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001278.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001277"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1277"
+    dc:title="Green Day - American Idiot"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001277"
+    dc:subject="music"
+    dc:description="American IdiotGreen Day 今年のサマソニのライブがすばらしかった GREEN DAY の新譜 American Idiot がようやくリリース。American Idiot ってタイトルはストレートでいいですね。たしか Rock Against Bush のコンピレーションにも参加してましたし。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-23T08:02:17+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001277"></a>
+<h3 class="title">Green Day - American Idiot</h3>
+
+<table border="0" cellpadding="5" width=""><tr><td valign="top" width="80"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002OERI0/bulknews-22/ref=nosim/"><img src="http://images-jp.amazon.com/images/P/B0002OERI0.01.THUMBZZZ.jpg" border="0" /></a></td><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002OERI0/bulknews-22/ref=nosim/">American Idiot</a><br />Green Day<br /></td></tr></table>
+
+<p>今年のサマソニのライブがすばらしかった GREEN DAY の新譜 American Idiot がようやくリリース。American Idiot ってタイトルはストレートでいいですね。たしか <a href="http://www.amazon.co.jp/exec/obidos/external-search?keyword=rock%20against%20bush&mode=blended&tag=bulknews-22">Rock Against Bush</a> のコンピレーションにも参加してましたし。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001277.html">08:02 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001277.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001277.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001276"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1276"
+    dc:title="Bulknews RSS Reader Stats"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001276"
+    dc:subject="blog"
+    dc:description="Bulknews RSS Reader Stats Bulknews のアクセスログから RSS リーダーのシェアグラフを出してみました。今後毎晩 1:00 に更新します。 - GET /rss/rdf.cgi?.* を行っている User-Agent について、IP アドレスと User-Agent 名でユニーク処理 -..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T22:02:57+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 22, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001276"></a>
+<h3 class="title">Bulknews RSS Reader Stats</h3>
+
+<p><a title="Bulknews RSS Reader Stats" href="http://bulknews.net/stats/">Bulknews RSS Reader Stats</a></p>
+
+<p><a href="http://bulknews.net/">Bulknews</a> のアクセスログから RSS リーダーのシェアグラフを出してみました。今後毎晩 1:00 に更新します。</p>
+
+<p>- GET /rss/rdf.cgi?.* を行っている User-Agent について、IP アドレスと User-Agent 名でユニーク処理<br />
+- User-Agent 名は / で区切って左側を名前とする<br />
+- 直接アクセスと、MSIE によるアクセスは排除</p>
+
+<p>という条件で抽出してあります。MSIE を排除しても、Mozilla が結構あるのは Mozilla の RSS Reader Panel とかでしょうかね。</p>
+
+<p>Rabbit Ticker が意外に人気があるのにびっくりしました。自分の Blog の RSS へのアクセスをみてみたらたいした量がないので、Bulknews をデフォルトで組み込み配布しているからこのランキングになってしまっているのかもしれませんね。</p>
+
+<p>サーバ型である Bloglines は IP アドレスが1個になってしまうので、User-Agent 申告をベースにすると 500 程度となっており、ランク的には 6-7位あたりに食い込みそうな感じでしょうか。</p>
+
+<p>他にも、4年前からのアクセスログもあるので、ユーザ数の推移とかを出してみると面白いかもしれませんね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001276.html">10:02 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001276.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001276.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001275"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1275"
+    dc:title="O&apos;Reilly Village に掲載"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001275"
+    dc:subject="blog"
+    dc:description="O&apos;Reilly Japan - O&apos;Reilly Village / オラの村 『Blog Hacks』著者の宮川達彦さんが当日即席サイン会をしてくれました。これはサインをし終わったところで撮影したものです。 O&apos;Reilly の Editor 日記(?) O&apos;Reilly Village に LL Weekend の模様が公開されました。って写真しかないけど。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T17:12:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001275"></a>
+<h3 class="title">O'Reilly Village に掲載</h3>
+
+<p><a title="O'Reilly Japan -- O'Reilly Village / オラの村" href="http://www.oreilly.co.jp/editors/issue4.shtml">O'Reilly Japan -- O'Reilly Village / オラの村</a><br />
+<blockquote>『Blog Hacks』著者の宮川達彦さんが当日即席サイン会をしてくれました。これはサインをし終わったところで撮影したものです。 </blockquote></p>
+
+<p>O'Reilly の Editor 日記(?) O'Reilly Village に LL Weekend の模様が公開されました。って写真しかないけど。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001275.html">05:12 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001275.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001275.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001274"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1274"
+    dc:title="サイバーエージェントのアメブロでXSS脆弱性"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001274"
+    dc:subject="blog"
+    dc:description="アメーバブログ更新情報セキュリティ上の問題で、javascriptのご使用はご遠慮いただいております。その為、今後HTMLおよびjavascriptはプロフィール、ブログ概要、ブックマーク欄においてご使用になれません。また、既に上記箇所で、HTMLおよびjavascriptをご使用になっている方も、再編集をされると、使用箇所が無効となります。なお、2004年9月28日午後2時以降から、勝手ながら順次タグ使用箇所の無効化を行わせていただきますので、ご了承ください。 管理画面と読者画面で同じドメイン・Cookie を利用しているので、記事やコメントに JavaScript をいれておけばCMS のセッション乗っ取り放題。Google AdSense や BlogRolling などリモート JavaScript を利用するプラグインも利用できなくなっています。 こういうのは利便性とのトレードオフになるわけですが、現状では管理系とユーザがいじれるページのドメインおよび Cookie を分けておくのが鉄則でしょうね。 ちなみに現時点でもコメントや Trackback の一部で HTML のエスケープ処理がもれているようです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T16:54:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001274"></a>
+<h3 class="title">サイバーエージェントのアメブロでXSS脆弱性</h3>
+
+<p><a href="http://ameblo.jp/new.php#d">アメーバブログ更新情報</a><blockquote>セキュリティ上の問題で、javascriptのご使用はご遠慮いただいております。その為、今後HTMLおよびjavascriptはプロフィール、ブログ概要、ブックマーク欄においてご使用になれません。また、既に上記箇所で、HTMLおよびjavascriptをご使用になっている方も、再編集をされると、使用箇所が無効となります。なお、2004年9月28日午後2時以降から、勝手ながら順次タグ使用箇所の無効化を行わせていただきますので、ご了承ください。</blockquote></p>
+
+<p>管理画面と読者画面で同じドメイン・Cookie を利用しているので、記事やコメントに JavaScript をいれておけばCMS のセッション乗っ取り放題。Google AdSense や BlogRolling などリモート JavaScript を利用するプラグインも利用できなくなっています。</p>
+
+<p>こういうのは利便性とのトレードオフになるわけですが、現状では管理系とユーザがいじれるページのドメインおよび Cookie を分けておくのが鉄則でしょうね。</p>
+
+<p>ちなみに現時点でもコメントや Trackback の一部で HTML のエスケープ処理がもれているようです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001274.html">04:54 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001274.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001274.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001272"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1272"
+    dc:title="ケーブルテレビでPPV: エラボ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001272"
+    dc:subject="AV"
+    dc:description="みなとケーブル ●観たい番組だけを、選んで購入できる、デジタルコースならではのペイ･パー･ビューサービス。 ●メガヒット映画を、どのチャンネルよりも早くオン・エア。 ●ご利用登録さえ終えれば、リモコン操作だけで、いつでもカンタンに購入・予約OK。 ●オン･エア中はプレビュー画面※で確かめてから購入できるので、安心。 みなとケーブルで PPV がはじまったらしい。エラボ ってとこのを使ってるみたいです。なんか番組みたらパーフェクトチョイスの映画番組ばっかり。映画だったら WOWOW とかツタヤ、ぽすれんで借りてみればいいからなぁ。UCL とかプレミアリーグ、WWE の特番なんかを安価で提供してくれませんかね。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T15:56:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001272"></a>
+<h3 class="title">ケーブルテレビでPPV: エラボ</h3>
+
+<p><a title="みなとケーブル" href="http://www.cabletv.co.jp/minato/elabo/index.html">みなとケーブル</a><br />
+<blockquote>●観たい番組だけを、選んで購入できる、デジタルコースならではのペイ･パー･ビューサービス。<br />
+●メガヒット映画を、どのチャンネルよりも早くオン・エア。<br />
+●ご利用登録さえ終えれば、リモコン操作だけで、いつでもカンタンに購入・予約OK。<br />
+●オン･エア中はプレビュー画面※で確かめてから購入できるので、安心。</blockquote></p>
+
+<p>みなとケーブルで PPV がはじまったらしい。<a href="http://www.elabo.tv/index.html">エラボ</a> ってとこのを使ってるみたいです。なんか番組みたらパーフェクトチョイスの映画番組ばっかり。映画だったら WOWOW とかツタヤ、ぽすれんで借りてみればいいからなぁ。UCL とかプレミアリーグ、WWE の特番なんかを安価で提供してくれませんかね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001272.html">03:56 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001272.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001272.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001271"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1271"
+    dc:title="Bloglines: Related Feeds"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001271"
+    dc:subject="blog"
+    dc:description="Bloglines | News Throughout the Bloglines site, there is now a related feeds link for each feed. We look at..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T15:25:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001271"></a>
+<h3 class="title">Bloglines: Related Feeds</h3>
+
+<p><a title="Bloglines | News" href="http://www.bloglines.com/about/news">Bloglines | News</a><br />
+<blockquote>Throughout the Bloglines site, there is now a related feeds link for each feed. We look at all the Bloglines subscribers for a given feed, and calculate what other feeds may be related to that feed. This is another method for finding interesting feeds. It compliments the Bloglines Recommendations which differ in that those are personalized for each user. </blockquote></p>
+
+<p>Bloglines に Related Feeds 機能がついた。コンテンツの内容ではなくて、読者の統計で表示する Collaborative Filter の一種ですね。</p>
+
+<p>たとえばこの Blog の Related Feeds は <a href="http://www.bloglines.com/relatedfeeds?siteid=13831&inc=1">このように</a> になります。（すでに Subscribe しているものも含む設定にしてあります）</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001271.html">03:25 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001271.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001271.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001270"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1270"
+    dc:title="Tim O&apos;Reilly @ OSCON 2004"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001270"
+    dc:subject="tech"
+    dc:description="CNET Japan Blog - 梅田望夫・英語で読むITトレンド：データの重要性を指摘するO&apos;Reilly 今日も引き続き、Tim O&apos;ReillyのOpen Source Conventionでのキーノートスピーチを取り上げる。今日は5ページ目から。講演のタイトルに「Radar」とあるように、ここからはTim O&apos;Reillyのレーダーが感知した重要な事象が次々に語られていく。最初が「データの重要性」という問題。 CNET 梅田さん Blog でも3日にわたってとりあげられた Tim O&apos;Reilly のキーノートスピーチ。ITConversations というサイトで音声と Transcript がダウンロードできます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T14:41:07+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001270"></a>
+<h3 class="title">Tim O'Reilly @ OSCON 2004</h3>
+
+<p><a title="CNET Japan Blog - 梅田望夫・英語で読むITトレンド：データの重要性を指摘するO'Reilly" href="http://blog.japan.cnet.com/umeda/archives/001654.html">CNET Japan Blog - 梅田望夫・英語で読むITトレンド：データの重要性を指摘するO'Reilly</a><br />
+<blockquote>今日も引き続き、Tim O'ReillyのOpen Source Conventionでのキーノートスピーチを取り上げる。今日は5ページ目から。講演のタイトルに「Radar」とあるように、ここからはTim O'Reillyのレーダーが感知した重要な事象が次々に語られていく。最初が「データの重要性」という問題。</blockquote></p>
+
+<p>CNET 梅田さん Blog でも3日にわたってとりあげられた Tim O'Reilly のキーノートスピーチ。ITConversations というサイトで<a href="http://www.itconversations.com/shows/detail168.html">音声</a>と <a href="http://www.itconversations.com/transcripts/168/transcript-print168-1.html">Transcript</a> がダウンロードできます。</p>
+
+<p>オープンソースの上につくられたソフトウェア、そこにロックインされたデータと、それを Hack する API、といったあたりへの考察がさすが Tim という感じです。そしてこれが Open Source Conference というイベントのキーノートであるというところが時代の流れというものなのでしょうか。</p>
+
+<p>最後にオマケっぽくついてましたが、iPod から iTunes, Rendezvous (ZeroConf) そして iTunes Music Store への連携を例にして解説していた、ハンドヘルドのデバイスからサーバサイドのテクノジーへの一貫したインタフェース (networking interface) ってのも今後見逃せない UI のあり方の1つになってくるのかも。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001270.html">02:41 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001270.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001270.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001269"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1269"
+    dc:title="ビッグフィッシュ コレクターズエディション"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001269"
+    dc:subject="movie"
+    dc:description="ビッグ・フィッシュ コレクターズ・エディション 映画館でみてかなり感動した Tim Burton のビッグフィッシュの DVD が登場。Tim Burton ワールド満開、ユアンマクレガーが最高な一作です。エンドロールの Pearl Jam の曲もいい。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T11:55:58+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001269"></a>
+<h3 class="title">ビッグフィッシュ コレクターズエディション</h3>
+
+<table border="0" cellpadding="5" width=""><tr><td valign="top" width="80"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0001GY9Q4/bulknews-22/ref=nosim/"><img src="http://images-jp.amazon.com/images/P/B0001GY9Q4.09.THUMBZZZ.jpg" border="0" /></a></td><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0001GY9Q4/bulknews-22/ref=nosim/">ビッグ・フィッシュ コレクターズ・エディション</a><br /></td></tr></table>
+
+<p>映画館でみてかなり感動した Tim Burton のビッグフィッシュの DVD が登場。Tim Burton ワールド満開、ユアンマクレガーが最高な一作です。エンドロールの Pearl Jam の曲もいい。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001269.html">11:55 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001269.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001269.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001268"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1268"
+    dc:title="スクールオブロック"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001268"
+    dc:subject="movie"
+    dc:description="スクール・オブ・ロック スペシャル・コレクターズ・エディション 劇場では見る機会を逃してしまったスクール・オブ・ロックですが、DVD 発売ということで、ゲットしたいとおもいます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T11:53:51+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001268"></a>
+<h3 class="title">スクールオブロック</h3>
+
+<table border="0" cellpadding="5" width=""><tr><td valign="top" width="80"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002HNQ8O/bulknews-22/ref=nosim/"><img src="http://images-jp.amazon.com/images/P/B0002HNQ8O.09.THUMBZZZ.jpg" border="0" /></a></td><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0002HNQ8O/bulknews-22/ref=nosim/">スクール・オブ・ロック スペシャル・コレクターズ・エディション</a><br /></td></tr></table>
+
+<p>劇場では見る機会を逃してしまったスクール・オブ・ロックですが、DVD 発売ということで、ゲットしたいとおもいます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001268.html">11:53 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001268.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001268.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001267"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1267"
+    dc:title="楽天が大阪を本拠地に"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001267"
+    dc:subject="misc"
+    dc:description=" 野球ＴＯＰ &gt; 野球ニュース&quot; href=&quot;http://www.nikkansports.com/ns/baseball/f-bb-tp0-040921-0037.html&quot;&gt;nikkansports.com &gt; 野球ＴＯＰ &gt; 野球ニュース 太田房江大阪府知事は２１日の定例記者会見で、プロ野球球団経営への新規参入を目指す楽天について「動きをこれから注視し、大阪を本拠地とするならば歓迎したい」と述べた。 このオバサンも２ヶ月前はこんなこといってたわけですが。 Yahoo!ニュース - スポーツ - 共同通信 大阪府の太田房江知事は６日の記者会見で、プロ野球近鉄の買収に名乗りを上げたライブドア（東京）の堀江貴文社長に対し「買収後に大阪に本社を移すとおっしゃっているが、それくらいの意欲があるのなら（買収前に）まず大阪に移すというくらいの気概を示して」と注文を付けた。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-22T11:44:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001267"></a>
+<h3 class="title">楽天が大阪を本拠地に</h3>
+
+<p><a title="nikkansports.com > 野球ＴＯＰ > 野球ニュース" href="http://www.nikkansports.com/ns/baseball/f-bb-tp0-040921-0037.html">nikkansports.com > 野球ＴＯＰ > 野球ニュース</a><br />
+<blockquote>太田房江大阪府知事は２１日の定例記者会見で、プロ野球球団経営への新規参入を目指す楽天について「動きをこれから注視し、大阪を本拠地とするならば歓迎したい」と述べた。</blockquote></p>
+
+<p>このオバサンも２ヶ月前はこんなこといってたわけですが。</p>
+
+<p><a title="Yahoo!ニュース - スポーツ - 共同通信" href="http://headlines.yahoo.co.jp/hl?a=20040706-00000141-kyodo-spo">Yahoo!ニュース - スポーツ - 共同通信</a><br />
+<blockquote>大阪府の太田房江知事は６日の記者会見で、プロ野球近鉄の買収に名乗りを上げたライブドア（東京）の堀江貴文社長に対し「買収後に大阪に本社を移すとおっしゃっているが、それくらいの意欲があるのなら（買収前に）まず大阪に移すというくらいの気概を示して」と注文を付けた。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001267.html">11:44 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001267.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001267.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001266"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1266"
+    dc:title="ホリエモン明日デビュー"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001266"
+    dc:subject="misc"
+    dc:description="ライブドア堀江社長の持ち馬 ホリエモン が明日 9/18 の中山5R でデビューだそうです。 → 11頭中10着でした。１着からは 3秒9差。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-17T22:16:47+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 17, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001266"></a>
+<h3 class="title">ホリエモン明日デビュー</h3>
+
+<p>ライブドア堀江社長の持ち馬 ホリエモン が明日 9/18 の中山5R でデビューだそうです。</p>
+
+<p>→ 11頭中10着でした。１着からは 3秒9差。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001266.html">10:16 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001266.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001266.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001265"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1265"
+    dc:title="memcached"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001265"
+    dc:subject="tech"
+    dc:description="memcached: a distributed memory object caching system memcached is a high-performance, distributed memory object caching system, generic in nature, but..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-17T18:42:01+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001265"></a>
+<h3 class="title">memcached</h3>
+
+<p><a title="memcached: a distributed memory object caching system" href="http://www.danga.com/memcached/">memcached: a distributed memory object caching system</a><br />
+<blockquote>memcached is a high-performance, distributed memory object caching system, generic in nature, but intended for use in speeding up dynamic web applications by alleviating database load.</blockquote></p>
+
+<p><a href="http://slashdot.org/">Slashdot.org</a> や <a href="http://www.livejournal.com/">LiveJournal</a> で使用されているメモリ上にデータやオブジェクトをキャッシュし、レプリケーションも可能なデーモン memcached だそうです。</p>
+
+<p>MySQL でも MyISAM や InnoDB (ACID) でロックのオーバヘッドが若干発生しますがその辺りの解消によさげ。Linux では epoll、FreeBSD では kqueue を使うのかな。ちょっと試してみよう。オブジェクトをそのままマッピングするための Perl API もリリースされています。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001265.html">06:42 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001265.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001265.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001264"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1264"
+    dc:title="avex が CCCD からスーパーオーディオDVDへ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001264"
+    dc:subject="music"
+    dc:description="エイベックス、CCCDの採用を弾力化。現場スタッフが採用決定 エイベックス株式会社は、2002年3月より導入してきたコピーコントロールCD(CCCD)の取り組みが一定の成果を得たとして、今後はCCCDの採用をアーティスト/作家、ディレクターなどの判断に委ねながら弾力的に採用することを決定した。 avex が商品ごとに CCCD にするかどうかを判断していく、とのこと。いままでは avex で買っても（まああんまり買いませんが）、Mac の人にリッピングしてもらわないと iPod で聞けない、とかありましたからね。素直に喜ぶべきですか。 エイベックス、CCCDからスーパーオーディオCD/DVDビデオへ移行――iPod効果か? エイベックス(株)は17日、22日に発売する音楽CDから、コピーコントロール機能を施すかどうか商品ごとに弾力的に決定していくことにしたと発表した。今後、同社では、スーパーオーディオCDやDVDオーディオの採用を進め、スーパーオーディオCDはCDとの、DVDオーディオはDVDビデオとのハイブリッド仕様を採用し、5.1chサラウンド対応の音源を収録するなど、音楽コンテンツを複数の形式で提供するという。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-17T18:20:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001264"></a>
+<h3 class="title">avex が CCCD からスーパーオーディオDVDへ</h3>
+
+<p><a title="エイベックス、CCCDの採用を弾力化。現場スタッフが採用決定" href="http://www.watch.impress.co.jp/av/docs/20040917/avex.htm">エイベックス、CCCDの採用を弾力化。現場スタッフが採用決定</a><br />
+<blockquote>エイベックス株式会社は、2002年3月より導入してきたコピーコントロールCD(CCCD)の取り組みが一定の成果を得たとして、今後はCCCDの採用をアーティスト/作家、ディレクターなどの判断に委ねながら弾力的に採用することを決定した。</blockquote></p>
+
+<p>avex が商品ごとに CCCD にするかどうかを判断していく、とのこと。いままでは avex で買っても（まああんまり買いませんが）、Mac の人にリッピングしてもらわないと iPod で聞けない、とかありましたからね。素直に喜ぶべきですか。</p>
+
+<p><a title="エイベックス、CCCDからスーパーオーディオCD/DVDビデオへ移行――iPod効果か?" href="http://ascii24.com/news/i/mrkt/article/2004/09/17/651607-000.html">エイベックス、CCCDからスーパーオーディオCD/DVDビデオへ移行――iPod効果か?</a><br />
+<blockquote>エイベックス(株)は17日、22日に発売する音楽CDから、コピーコントロール機能を施すかどうか商品ごとに弾力的に決定していくことにしたと発表した。今後、同社では、スーパーオーディオCDやDVDオーディオの採用を進め、スーパーオーディオCDはCDとの、DVDオーディオはDVDビデオとのハイブリッド仕様を採用し、5.1chサラウンド対応の音源を収録するなど、音楽コンテンツを複数の形式で提供するという。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001264.html">06:20 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001264.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001264.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001263"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1263"
+    dc:title="フィードの帯域幅制限に If-Modified-Since を利用"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001263"
+    dc:subject="blog"
+    dc:description="mod_speedyfeed : NDO::Weblog Atom フィードのダウンロード速度を上昇させる Apache モジュール。仕組みはフィルタモジュールとして動作し、Content Type が application/atom xml の場合、クライアントから送られてくる If-Modified-Since ヘッダを調べて、新しい記事のフィードのみを配信するという仕組み。 これは素敵なアイデア。静的な RSS/Atom フィードでどこまで読んだか情報を表現するために If-Modified-Since を利用するんですね。 ちょうど..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-17T17:08:32+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001263"></a>
+<h3 class="title">フィードの帯域幅制限に If-Modified-Since を利用</h3>
+
+<p><a title="mod_speedyfeed : NDO::Weblog" href="http://naoya.dyndns.org/~naoya/mt/archives/001346.html">mod_speedyfeed : NDO::Weblog</a><br />
+<blockquote>Atom フィードのダウンロード速度を上昇させる Apache モジュール。仕組みはフィルタモジュールとして動作し、Content Type が application/atom xml の場合、クライアントから送られてくる If-Modified-Since ヘッダを調べて、新しい記事のフィードのみを配信するという仕組み。</blockquote></p>
+
+<p>これは素敵なアイデア。静的な RSS/Atom フィードでどこまで読んだか情報を表現するために If-Modified-Since を利用するんですね。</p>
+
+<p>ちょうど MSDN の Blog で全コンテンツフィードをやめた結果不満が増大、って記事に似てるな。</p>
+
+<p><a title="マイクロソフト、増大するブログのトラフィックに苦慮 - CNET Japan" href="http://japan.cnet.com/news/media/story/0,2000047715,20074363,00.htm">マイクロソフト、増大するブログのトラフィックに苦慮 - CNET Japan</a><br />
+<blockquote>Blogの人気が高まるなか、そのトラフィックがインターネットの帯域幅をますます多く消費するようになっていると、批判的な立場の人々が警告を発している</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001263.html">05:08 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001263.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001263.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001262"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1262"
+    dc:title="Simon Cozens off from CPAN"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001262"
+    dc:subject="perl"
+    dc:description="use Perl | Simon Cozens&apos; Modules Need New Maintainers Simon Cozens, the not-entirely-mad genius, has left for God School. He&apos;s..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-17T13:26:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001262"></a>
+<h3 class="title">Simon Cozens off from CPAN</h3>
+
+<p><a title="use Perl | Simon Cozens' Modules Need New Maintainers" href="http://use.perl.org/articles/04/09/16/2034259.shtml">use Perl | Simon Cozens' Modules Need New Maintainers</a><br />
+<blockquote>Simon Cozens, the not-entirely-mad genius, has left for God School. He's retiring from the CPAN, and leaving his legacy of Perl modules behind</blockquote></p>
+
+<p>CPAN No.1 Author であり Maypole の作者でもある Simon Cozens さんが宣教師になるということで、Perl モジュールの引き取り手を募集しています。ほとんどはすでにアサインされているみたいですが、興味ある人はどうぞ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001262.html">01:26 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001262.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001262.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001261"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1261"
+    dc:title="A9 が正式ローンチ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001261"
+    dc:subject="tech"
+    dc:description="Amazon.com の新検索サイト A9 が立ち上がりましたね。複合検索をナビゲーションバーで制御するようなイメージ。 ITmediaニュース：Amazonの新検索サイト「A9.com」正式立ち上げ A9.comではGoogleのWeb・画像検索、Amazon.comの書籍全文検索、Internet Movie Databaseの映画情報、GuruNet.comの百科事典・辞書情報を組み合わせた検索を提供。さらに、ユーザーが自分のアカウントで過去に行った検索を記録して、履歴やブックマークを参照したり、訪れたサイトについてのダイアリーを作成できる。 梅田さんの Blog にもあるように、自分の履歴を確認できる History に、クリックストリームからオススメを出す機能が特徴的でしょうか。Diary や Bookmarks など、パーソナルな情報を蓄積する口が用意されていて、これを検索結果のスコアリングや表示 UI にどう絡めてくるのか興味ありです。 CNET Japan..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-16T12:26:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 16, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001261"></a>
+<h3 class="title">A9 が正式ローンチ</h3>
+
+<p>Amazon.com の新検索サイト A9 が立ち上がりましたね。複合検索をナビゲーションバーで制御するようなイメージ。</p>
+
+<p><a title="ITmediaニュース：Amazonの新検索サイト「A9.com」正式立ち上げ" href="http://www.itmedia.co.jp/news/articles/0409/16/news008.html">ITmediaニュース：Amazonの新検索サイト「A9.com」正式立ち上げ</a><br />
+<blockquote>A9.comではGoogleのWeb・画像検索、Amazon.comの書籍全文検索、Internet Movie Databaseの映画情報、GuruNet.comの百科事典・辞書情報を組み合わせた検索を提供。さらに、ユーザーが自分のアカウントで過去に行った検索を記録して、履歴やブックマークを参照したり、訪れたサイトについてのダイアリーを作成できる。</blockquote></p>
+
+<p>梅田さんの Blog にもあるように、自分の履歴を確認できる History に、クリックストリームからオススメを出す機能が特徴的でしょうか。Diary や Bookmarks など、パーソナルな情報を蓄積する口が用意されていて、これを検索結果のスコアリングや表示 UI にどう絡めてくるのか興味ありです。</p>
+
+<p><a title="CNET Japan Blog - 梅田望夫・英語で読むITトレンド：Amazonのサーチサイトが狙うものは？" href="http://blog.japan.cnet.com/umeda/archives/001632.html">CNET Japan Blog - 梅田望夫・英語で読むITトレンド：Amazonのサーチサイトが狙うものは？</a><br />
+<blockquote>いまや、Googleも、Yahoo Search Technology(YST)も、A9も、皆、シリコンバレーに集結した。シリコンバレーはサーチ戦争のメッカへと変貌を遂げようとしている。確かにサーチはComputer Scienceにおける本筋のテーマだから、シリコンバレーが有する人材や経験の層の厚みから考えて、自然な流れと言える。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001261.html">12:26 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001261.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001261.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001260"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1260"
+    dc:title="リチャードホール"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001260"
+    dc:subject="TV"
+    dc:description="フジテレビのロバートホール、最終回かとおもいきや、冠がかわるだけみたいですね。リチャードホールって名前でそのまま存続。ワールドダウンタウンの後番組もくりいむしちゅーらしいけど、その辺り兼ね合いはどうなんでしょうねえ。 しかし笑点ネタは面白すぎます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-16T03:30:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001260"></a>
+<h3 class="title">リチャードホール</h3>
+
+<p>フジテレビのロバートホール、最終回かとおもいきや、冠がかわるだけみたいですね。リチャードホールって名前でそのまま存続。ワールドダウンタウンの後番組もくりいむしちゅーらしいけど、その辺り兼ね合いはどうなんでしょうねえ。</p>
+
+<p>しかし笑点ネタは面白すぎます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001260.html">03:30 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001260.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001260.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001259"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1259"
+    dc:title="Blog Hackers Conference"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001259"
+    dc:subject="blog"
+    dc:description="Blog Hackers Conference 無事終了しました。企画とか全然してない状態で１３０人も登録いただいて（実際１２０人ぐらいきたんじゃないかと思いますが）かなり驚きです。 会場では濃ゆいネタが展開されていましたが、またそれも刺激的ということで、よかったですかね。ご協力いただいたスピーカーの皆さん、デジハリのWさん、橋本さん、ありがとうございました！ 僕のプレゼンはちょっとアサマシネタに終始してしまいました。結構ヒミツなことも調子に乗ってしゃべってしまったので資料の公開はちょっと編集してからにさせてください。。 あと、オライリーの Blog Hacks ポスター（アキバ方面向け？）がかなりアツかったです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-16T03:02:24+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001259"></a>
+<h3 class="title">Blog Hackers Conference</h3>
+
+<p>Blog Hackers Conference 無事終了しました。企画とか全然してない状態で１３０人も登録いただいて（実際１２０人ぐらいきたんじゃないかと思いますが）かなり驚きです。</p>
+
+<p>会場では濃ゆいネタが展開されていましたが、またそれも刺激的ということで、よかったですかね。ご協力いただいたスピーカーの皆さん、デジハリのWさん、橋本さん、ありがとうございました！</p>
+
+<p>僕のプレゼンはちょっとアサマシネタに終始してしまいました。結構ヒミツなことも調子に乗ってしゃべってしまったので資料の公開はちょっと編集してからにさせてください。。</p>
+
+<p>あと、<a href="http://blog.livedoor.jp/bulknews/a5e6b835.jpg">オライリーの Blog Hacks ポスター</a>（アキバ方面向け？）がかなりアツかったです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001259.html">03:02 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001259.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001259.html#trackbacks">TrackBack (8)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001258"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1258"
+    dc:title="楽天もプロ野球参入"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001258"
+    dc:subject="misc"
+    dc:description="楽天もプロ野球参入に名乗り　週内に申請へ - asahi.com : スポーツ インターネット上の仮想商店街を運営している楽天（本社・東京）は１５日、プロ野球球団に新規参入する方針を明らかにした。今週中にも日本プロ野球組織（ＮＰＢ＝日本野球機構）に加盟申請する。本拠地は神戸市とする計画。オリックス・ブルーウェーブと大阪近鉄バファローズの合併で選手枠から漏れた選手らを獲得し、地域密着型チームとして地元の支援も仰ぐ考えだ。 楽天も名乗り！面白くなってまいりました。 「プロ野球球団は持ちません！」――楽天が2004年度第2四半期決算説明会を開催 また、この日の午前中に(株)ライブドアの代表取締役社長兼最高経営責任者の堀江貴文氏が“プロ野球球団の新規参入を表明”したこともあって、記者から「プロ野球の球団経営については?」と聞かれると、「ありません」とあっさり否定。「球団の経営が大変であろうことと、そのための時間が取れないから」とその理由を述べた。 決算説明会では、球団は持たないっていってましたが、状況をみて気が変わったんでしょうか。 一方堀江さんはシダックス志太会長とテレビ番組で会談。 Yahoo!スポーツ - ニュース - 日刊スポーツ 今後は堀江社長も利用しているというカラオケ「シダックス六本木店」での再会を約束した。 カラオケで再会。。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-15T13:30:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 15, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001258"></a>
+<h3 class="title">楽天もプロ野球参入</h3>
+
+<p><a title="楽天もプロ野球参入に名乗り　週内に申請へ - asahi.com : スポーツ" href="http://www.asahi.com/sports/update/0915/073.html?2004">楽天もプロ野球参入に名乗り　週内に申請へ - asahi.com : スポーツ</a><br />
+<blockquote>インターネット上の仮想商店街を運営している楽天（本社・東京）は１５日、プロ野球球団に新規参入する方針を明らかにした。今週中にも日本プロ野球組織（ＮＰＢ＝日本野球機構）に加盟申請する。本拠地は神戸市とする計画。オリックス・ブルーウェーブと大阪近鉄バファローズの合併で選手枠から漏れた選手らを獲得し、地域密着型チームとして地元の支援も仰ぐ考えだ。</blockquote></p>
+
+<p>楽天も名乗り！面白くなってまいりました。</p>
+
+<p><a title="「プロ野球球団は持ちません！」――楽天が2004年度第2四半期決算説明会を開催" href="http://ascii24.com/news/i/mrkt/article/2004/08/19/print/651143.html">「プロ野球球団は持ちません！」――楽天が2004年度第2四半期決算説明会を開催</a><br />
+<blockquote>また、この日の午前中に(株)ライブドアの代表取締役社長兼最高経営責任者の堀江貴文氏が“プロ野球球団の新規参入を表明”したこともあって、記者から「プロ野球の球団経営については?」と聞かれると、「ありません」とあっさり否定。「球団の経営が大変であろうことと、そのための時間が取れないから」とその理由を述べた。 </blockquote></p>
+
+<p>決算説明会では、球団は持たないっていってましたが、状況をみて気が変わったんでしょうか。</p>
+
+<p>一方堀江さんはシダックス志太会長とテレビ番組で会談。</p>
+
+<p><a title="Yahoo!スポーツ - ニュース - 日刊スポーツ" href="http://sports.yahoo.co.jp/hl?c=sports&d=20040915&a=20040915-00000009-nks-spo">Yahoo!スポーツ - ニュース - 日刊スポーツ</a><br />
+<blockquote>今後は堀江社長も利用しているというカラオケ「シダックス六本木店」での再会を約束した。</blockquote></p>
+
+<p>カラオケで再会。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001258.html">01:30 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001258.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001258.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001257"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1257"
+    dc:title="mt.cgi への自ドメイン以外からの POST を拒否する"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001257"
+    dc:subject="blog"
+    dc:description="MT などをはじめとする Cookie ベースの Web アプリケーションで、ログイン状態のセッションを利用して、危険な操作へのリンクや XSS により意図しない操作をさせられてしまう可能性がある、という問題について（長い）。 基本的には Trackback が単純な POST でおくれてしまう 場合とほぼ同様に、Referer が自ドメイン以外の POST リクエストをけってしまえば OK かと。 RewriteEngine..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-14T19:42:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 14, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001257"></a>
+<h3 class="title">mt.cgi への自ドメイン以外からの POST を拒否する</h3>
+
+<p>MT などをはじめとする Cookie ベースの Web アプリケーションで、ログイン状態のセッションを利用して、危険な操作へのリンクや XSS により意図しない操作をさせられてしまう可能性がある、という問題について（長い）。</p>
+
+<p>基本的には <a href="http://blog.bulknews.net/mt/archives/001165.html">Trackback が単純な POST でおくれてしまう</a> 場合とほぼ同様に、Referer が自ドメイン以外の POST リクエストをけってしまえば OK かと。</p>
+
+<pre class="code">
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{HTTP_REFERER} .+
+RewriteCond %{HTTP_REFERER} !^http://blog\.bulknews\.net.*
+RewriteRule /mt/mt.cgi - [F]
+</pre>
+
+<p>って GET でも削除とかできちゃうんか。これじゃだめだな。 JavaScript だとリファラきかない場合があるし。MT/App/CMS.pm でデータベースに書き込むようなメソッドは POST じゃないと実行しないように手をいれるとかでしょうかね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001257.html">07:42 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001257.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001257.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001255"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1255"
+    dc:title="iTunes で聴いてる曲に Amazon アフィリエイトしてさらに画像も"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001255"
+    dc:subject="blog"
+    dc:description="Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net Blog Hacks Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-14T18:41:31+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001255"></a>
+<h3 class="title">iTunes で聴いてる曲に Amazon アフィリエイトしてさらに画像も</h3>
+
+<a title="Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net" href="http://blog.bulknews.net/mt/archives/001247.html">Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net</a>
+<blockquote>Blog Hacks Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は COM を利用してもっとスマートにできます。</blockquote>
+
+<p>某氏からのリクエストでこれにアートワークもひろってきて Amazon アフィリエイトリンクもつけてみる。</p>
+
+
+<p>ActivePerl で Net::Amazon が必要。環境が用意できない場合は、JScript 版で開く URL を、G-Tools とか amazlet とかの検索フォームにしてしまうのが手っ取り早いかも。何ステップか増えてしまいますが。</p>
+
+<p>JScript 版と基本的にやってることは同じですね。InternetExplorer.Application のいじり方で若干はまった。CPAN にある <a href="http://search.cpan.org/dist/Win32-IE-Mechanize/">Win32::IE::Mechanize</a> がその辺を隠蔽して WWW::Mechanize とおなじ API 提供してて素敵。</p>
+
+<pre class="code">
+use strict;
+use Encode;
+use Net::Amazon;
+use Net::Amazon::Request::Keyword;
+use Win32::OLE;
+
+# Configurtaion: path to your MT script
+our $MT = "http://blog.bulknews.net/mt/mt.cgi";
+our $BlogID = 6;
+our $DeveloperToken = "YOUR-TOKEN";
+our $AssociateID    = "yourassoc-22";
+
+# Get Trackname from iTunes using COM
+my $itunes = Win32::OLE->new("iTunes.Application");
+my $track  = $itunes->CurrentTrack;
+
+# Create text for "Now Playing"
+my $now_playing = sprintf "Now Playing: %s - %s (%s)",
+  $track->Artist, $track->Name, $track->Album;
+
+# Search AWS for Artist - Album
+my $item = search_aws($track->Artist, $track->Album, "", "music");
+$item  ||= search_aws($track->Artist, $track->Album, "jp", "music-jp");
+
+if ($item) {
+  $now_playing = sprintf qq(&lt;a href="%s">&lt;img src="%s" alt="%s - %s" border="0" clear="all" />&lt;br />%s&lt;/a>),
+    $item->url, $item->ImageUrlMedium,
+    $track->Artist, $track->Album, $now_playing;
+}
+
+# Open "New Entry" page of MT in IE using COM
+my $url = $MT . "?blog_id=" . $BlogID . "&__mode=view&_type=entry";
+my $ie  = Win32::OLE->new("InternetExplorer.Application");
+$ie->{Visible} = "TRUE";
+$ie->Navigate($url);
+
+# Set "Now Playing:" text in a "exntended" textarea
+1 while $ie->Busy;
+1 while $ie->document->readyState ne "complete";
+
+$ie->Document->forms(2)->text_more->{value} = $now_playing;
+
+sub search_aws {
+    my($artist, $title, $locale, $mode) = @_;
+    warn "Searching $artist - $title on Amazon...\n";
+    my $attr;
+    $attr->{token}  = $DeveloperToken;
+    $attr->{locale} = $locale if $locale;
+    $attr->{affiliate_id} = $AssociateID;
+
+    my $ua = Net::Amazon->new(%$attr);
+
+    my $keyword = "$artist $title";
+    Encode::from_to($keyword, "Shift_JIS" => "UTF-8");
+    my $req = Net::Amazon::Request::Keyword->new(
+        keyword => $keyword,
+        mode    => $mode
+    );
+
+    my $response = $ua->request($req);
+    my $item = ($response->properties())[0];
+    return $item;
+}
+</pre>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001255.html">06:41 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001255.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001255.html#trackbacks">TrackBack (7)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001254"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1254"
+    dc:title="VAIO type R で　HD 録画"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001254"
+    dc:subject="AV"
+    dc:description="ソニー、外部チューナを利用したHD録画が行なえる「VAIO type R」 最大の特徴はデジタル放送録画HDDとして利用できること。デジタルチューナは内蔵していないが、外部の地上/BS/110度CSデジタルチューナや、2003年以降発売のWEGAなどと連携してデジタルハイビジョン放送を録画できる。同社のデジタル放送用HDDユニットチューナ用の「VRP-T5/VRP-T3」やアイ・オー・データの「Rec-Pot M」のようなD-VHSをエミュレートしたHDDユニットとしてパソコンを利用可能にするものだ。 ソニーの VAIO type R で i-Link 経由の HD 録画がサポートされるみたい。IO Data の Rec-POT M とおなじことをデスクトップ PC..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-13T17:12:58+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 13, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001254"></a>
+<h3 class="title">VAIO type R で　HD 録画</h3>
+
+<p><a title="ソニー、外部チューナを利用したHD録画が行なえる「VAIO type R」" href="http://www.watch.impress.co.jp/av/docs/20040913/sony1.htm">ソニー、外部チューナを利用したHD録画が行なえる「VAIO type R」</a><br />
+<blockquote>最大の特徴はデジタル放送録画HDDとして利用できること。デジタルチューナは内蔵していないが、外部の地上/BS/110度CSデジタルチューナや、2003年以降発売のWEGAなどと連携してデジタルハイビジョン放送を録画できる。同社のデジタル放送用HDDユニットチューナ用の「VRP-T5/VRP-T3」やアイ・オー・データの「Rec-Pot M」のようなD-VHSをエミュレートしたHDDユニットとしてパソコンを利用可能にするものだ。</blockquote></p>
+
+<p>ソニーの VAIO type R で i-Link 経由の HD 録画がサポートされるみたい。IO Data の <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0001XOVIS/bulknews-22/ref=nosim">Rec-POT M</a> とおなじことをデスクトップ PC で行えるということで、期待大ですね。このためにこの PC を買うということはない気はしますが。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001254.html">05:12 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001254.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001254.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001253"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1253"
+    dc:title="Trap-TV CSフジで再放送"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001253"
+    dc:subject="TV"
+    dc:description="広報ページ：Trap-TV この番組は、毎回、吹越満がストーリーテラーとしてミステリーを語り、吉田朝が聞き手としてそのミステリーの“なぞ解き”に挑戦していく。 1993 年に深夜番組として放送されてた不朽の名作ミステリー番組 Trap-TV が CSフジで再放送決定！ 懐かしすぎる。録画しなきゃぁー。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-13T14:11:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001253"></a>
+<h3 class="title">Trap-TV CSフジで再放送</h3>
+
+<p><a title="広報ページ：Trap-TV" href="http://www.fujitv.co.jp/cs/program/7397_022.html">広報ページ：Trap-TV</a><br />
+<blockquote>この番組は、毎回、吹越満がストーリーテラーとしてミステリーを語り、吉田朝が聞き手としてそのミステリーの“なぞ解き”に挑戦していく。</blockquote></p>
+
+<p>1993 年に深夜番組として放送されてた不朽の名作ミステリー番組 <a href="http://neo-geo-web.hp.infoseek.co.jp/">Trap-TV</a> が CSフジで再放送決定！ 懐かしすぎる。録画しなきゃぁー。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001253.html">02:11 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001253.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001253.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001252"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1252"
+    dc:title="ゴジラの挿入曲は SUM41"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001252"
+    dc:subject="music"
+    dc:description="ZAKZAK 生誕５０周年でシリーズにピリオドを打つ映画「ゴジラ　ＦＩＮＡＬ　ＷＡＲＳ」（１２月４日公開、北村龍平監督）の挿入曲をカナダ出身の４人組ロックグループ「ＳＵＭ４１（サム・フォーティワン）」が担当することになった＝写真。 サマソニにもきてた SUM41 がゴジラの挿入曲を担当。ZAKZAK の見出しに普通にでてることのほうが驚きです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-13T14:05:08+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001252"></a>
+<h3 class="title">ゴジラの挿入曲は SUM41</h3>
+
+<p><a title="ZAKZAK" href="http://www.zakzak.co.jp/gei/2004_09/g2004091304.html">ZAKZAK</a><br />
+<blockquote>生誕５０周年でシリーズにピリオドを打つ映画「ゴジラ　ＦＩＮＡＬ　ＷＡＲＳ」（１２月４日公開、北村龍平監督）の挿入曲をカナダ出身の４人組ロックグループ「ＳＵＭ４１（サム・フォーティワン）」が担当することになった＝写真。</blockquote></p>
+
+<p>サマソニにもきてた SUM41 がゴジラの挿入曲を担当。ZAKZAK の見出しに普通にでてることのほうが驚きです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001252.html">02:05 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001252.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001252.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001251"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1251"
+    dc:title="ワールドダウンタウン 9/15 最終回"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001251"
+    dc:subject="TV"
+    dc:description="Yahoo!テレビ - ワールドダウンタウン[最終回] ウワサどおり、明日で最終回です。ロバートホールもおわっちゃうみたいで残念。DVD でないかなぁ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-13T13:54:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001251"></a>
+<h3 class="title">ワールドダウンタウン 9/15 最終回</h3>
+
+<p><a title="Yahoo!テレビ - ワールドダウンタウン[最終回]" href="http://tv.yahoo.co.jp/bin/search?id=17111047&area=tokyo">Yahoo!テレビ - ワールドダウンタウン[最終回]</a></p>
+
+<p>ウワサどおり、明日で最終回です。ロバートホールもおわっちゃうみたいで残念。DVD でないかなぁ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001251.html">01:54 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001251.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001251.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001250"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1250"
+    dc:title="はてなのオープンソース"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001250"
+    dc:subject="blog"
+    dc:description="Rabbit Ticker Linux 版 オープンソース : NDO::Weblog はてなも何かオープンソース化するかあみたいな話も時々。何がいいかな、やっぱりフレームワークだろうか。でもそれは! はてなはオープンソースするより、いろんな機能を Web サービスで提供してくれるほうがうれしいかなとおもいます。今もやっていますけどね。 あともしコード公開するなら、マークアップの部分とかをモジュール化して公開すると、日記系ツールではてな記法をサポートするのがカンタンになっていいんじゃないでしょうか。（コード汚いことになってそうですが。。）..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-13T13:40:01+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001250"></a>
+<h3 class="title">はてなのオープンソース</h3>
+
+<p><a title="Rabbit Ticker Linux 版 オープンソース : NDO::Weblog" href="http://naoya.dyndns.org/~naoya/mt/archives/001337.html">Rabbit Ticker Linux 版 オープンソース : NDO::Weblog</a><br />
+<blockquote>はてなも何かオープンソース化するかあみたいな話も時々。何がいいかな、やっぱりフレームワークだろうか。でもそれは!</blockquote></p>
+
+<p>はてなはオープンソースするより、いろんな機能を Web サービスで提供してくれるほうがうれしいかなとおもいます。今もやっていますけどね。</p>
+
+<p>あともしコード公開するなら、マークアップの部分とかをモジュール化して公開すると、日記系ツールではてな記法をサポートするのがカンタンになっていいんじゃないでしょうか。（コード汚いことになってそうですが。。）</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001250.html">01:40 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001250.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001250.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001249"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1249"
+    dc:title="Netflix RSS Feeds"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001249"
+    dc:subject="blog"
+    dc:description="Nick Bradbury: Netflix RSS feeds (finally!) At long last, Netflix offers RSS feeds - including personalized ones for your queue..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-11T13:39:15+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 11, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001249"></a>
+<h3 class="title">Netflix RSS Feeds</h3>
+
+<p><a title="Nick Bradbury: Netflix RSS feeds (finally!)" href="http://nick.typepad.com/blog/2004/09/netflix_rss_fee.html">Nick Bradbury: Netflix RSS feeds (finally!)</a><br />
+<blockquote>At long last, Netflix offers RSS feeds - including personalized ones for your queue and your recommendations (via Scripting News).</blockquote></p>
+
+<p>US DVDレンタル最大手の Netflix がランキングの RSS フィードを開始しました。ユーザごとのキューも RSS で取得できるようです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001249.html">01:39 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001249.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001249.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001248"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1248"
+    dc:title="iTunes のアートワークを Amazon Web Services からとってくる"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001248"
+    dc:subject="tech"
+    dc:description="iTunes はアートワークを設定しておくと、プレイヤーの左下にアートワークが表示できます。が、１個ずつ設定するのはめんどくさすぎ。なので、Amazon Web Services からとってきて、iTunes COM つかって設定してしまいましょう、と。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-10T21:50:53+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 10, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001248"></a>
+<h3 class="title">iTunes のアートワークを Amazon Web Services からとってくる</h3>
+
+<p>iTunes はアートワークを設定しておくと、プレイヤーの左下にアートワークが表示できます。が、１個ずつ設定するのはめんどくさすぎ。なので、Amazon Web Services からとってきて、iTunes COM つかって設定してしまいましょう、と。</p>
+
+
+<p>以下のソースを fetch-artwork-aws.pl で保存して実行。ActivePerl と、それぞれモジュール、それに AWS のデベロッパトークンが必要です。さすがにこれを Pure WSH で書くのはしんどい。</p>
+
+<p>なんだか日本盤がうまくいかないなあ。日本語は Shift_JIS => UTF-8 変換をいれてみたがだめか。→ %Cache が US と JP で同じものもってたので修正。</p>
+
+<pre class="code">
+use strict;
+use Cache::FileCache;
+use Cwd;
+use Encode;
+use File::Basename;
+use File::Spec;
+use Image::Size;
+use LWP::Simple;
+use Net::Amazon;
+use Net::Amazon::Request::Keyword;
+use Win32::OLE;
+
+our $ImageDir = File::Spec->catfile(cwd, "itunes-images");
+our $DeveloperToken = "XXXXXXXXXXXX";
+
+mkdir $ImageDir, 0777 unless -e $ImageDir;
+
+my $itunes = Win32::OLE->new("iTunes.Application");
+my $playlist = $itunes->LibraryPlaylist;
+my $tracks = $playlist->Tracks;
+my $count  = $tracks->Count;
+for (my $i = 1; $i < $count; $i++) { # start from 1
+    my $track = $tracks->Item($i);
+    next if $track->Artwork->Count;
+
+    my $artist = $track->Compilation ? "" : $track->Artist;
+    my $item  = retrieve_item($artist, $track->Album, "", "music");
+    $item   ||= retrieve_item($artist, $track->Album, "jp", "music-jp");
+    if ($item) {
+        my $url = $item->ImageUrlMedium;
+        my $file = File::Spec->catfile($ImageDir, basename($url));
+        unless (-e $file) {
+            warn "fetching $url\n";
+            LWP::Simple::getstore($url => $file);
+        }
+        my($width, $height) = imgsize($file);
+        unless ($width == 1 && $height == 1) {
+            $track->AddArtworkFromFile($file);
+        }
+    }
+}
+
+my %Cache;
+
+sub retrieve_item {
+    my($artist, $title, $locale, $mode) = @_;
+    my $cache_key = join "|", $artist, $title, $locale;
+    if (exists $Cache{$cache_key}) {
+        return $Cache{$cache_key};
+    }
+    warn "Searching AWS for $artist - $title\n";
+
+    my $cache = Cache::FileCache->new({
+        cache_root => File::Spec->catfile($ENV{TMP}, "itunes-cache"),
+        default_expires_in => "60 min",
+    });
+
+    my $attr = {
+        token => $DeveloperToken,
+        cache => $cache,
+    };
+    $attr->{locale} = $locale if $locale;
+
+    my $ua = Net::Amazon->new(%$attr);
+
+    my $keyword = "$artist $title";
+    Encode::from_to($keyword, "Shift_JIS" => "UTF-8");
+    my $req = Net::Amazon::Request::Keyword->new(
+        keyword => $keyword,
+        mode    => $mode
+    );
+
+    my $response = $ua->request($req);
+    my $item = ($response->properties())[0];
+    $Cache{$cache_key} = $item;
+    return $item;
+}
+</pre>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001248.html">09:50 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001248.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001248.html#trackbacks">TrackBack (5)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001247"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1247"
+    dc:title="Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001247"
+    dc:subject="blog"
+    dc:description="Blog Hacks Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は COM を利用してもっとスマートにできます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-10T14:50:27+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001247"></a>
+<h3 class="title">Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載</h3>
+
+<p><a href="http://hacks.bloghackers.net/">Blog Hacks</a> Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は COM を利用してもっとスマートにできます。</p>
+
+
+<p>以下のコードを nowPlaying-iTunes.js として保存します。</p>
+
+<pre class="code">
+// Configurtaion: path to your MT script and blogID
+var mtUrl  = "http://blog.bulknews.net/mt/mt.cgi";
+var blogID = 6;
+
+// Get Trackname from iTunes using COM
+var iTunes = WScript.CreateObject("iTunes.Application");
+var track  = iTunes.CurrentTrack;
+
+// Create text for "Now Playing"
+var strNowPlaying = "Now Playing: " + track.Artist + " - "
+                    + track.Name + " (" + track.Album + ")";
+
+// Open "New Entry" page of MT in IE using COM
+var urlNewEntry = mtUrl + "?blog_id=" + blogID + "&__mode=view&_type=entry";
+var objIE = WScript.CreateObject("InternetExplorer.Application");
+objIE.Visible = true;
+objIE.Navigate(urlNewEntry);
+
+// Set "Now Playing:" text in the "exntended" textarea
+while (objIE.busy);
+while (objIE.document.readyState != "complete");
+objIE.document.forms[2].text_more.value = strNowPlaying;
+WScript.Quit();
+</pre>
+
+<p>iTunes で何か曲聞いている状態で nowPlaying-iTunes.js をダブルクリックすると、IE のウィンドウが開き、Extended (追記) セクションにアーティスト、曲名、アルバムが表示されるという仕掛けになってます。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001247.html">02:50 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001247.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001247.html#trackbacks">TrackBack (15)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001246"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1246"
+    dc:title="RSS よりメール"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001246"
+    dc:subject="blog"
+    dc:description="楽天、エージェントサービス“楽天スーパーエージェント”を開始 楽天(株)は9日、インターネットショッピングモール“楽天市場”において、エージェントサービス“楽天スーパーエージェント”を開始すると発表した。 検索結果をメールで配信、と。これ別に RSS で提供して RSS リーダーで読めばいいじゃんって話なのですが、まあ楽天のユーザ層考えるとまだメールなのでしょう。それは理解できます。 しかしそれ以上に、どのユーザがどの単語で検索してるか、ってログを有効活用したいと考えると、単純に RSS を配信するだけでは不十分だということもあるかもしれない。オープンすぎてデータが管理できない。こないだの RSS ではじまるマーケティングセミナー では RSS に個人データを埋め込んで広告配信、みたいのがありましたが（聞かないで帰ってきたけど）それにちょっと近い話かもしれない。 feedburner みたいにフィードのトラフィックとったりする ASP もでてきていますが、 RSS..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-09T22:29:50+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 09, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001246"></a>
+<h3 class="title">RSS よりメール</h3>
+
+<p><a title="楽天、エージェントサービス“楽天スーパーエージェント”を開始" href="http://ascii24.com/news/i/serv/article/2004/09/09/651465-000.html">楽天、エージェントサービス“楽天スーパーエージェント”を開始</a><br />
+<blockquote>楽天(株)は9日、インターネットショッピングモール“楽天市場”において、エージェントサービス“楽天スーパーエージェント”を開始すると発表した。</blockquote></p>
+
+<p>検索結果をメールで配信、と。これ別に RSS で提供して RSS リーダーで読めばいいじゃんって話なのですが、まあ楽天のユーザ層考えるとまだメールなのでしょう。それは理解できます。</p>
+
+<p>しかしそれ以上に、どのユーザがどの単語で検索してるか、ってログを有効活用したいと考えると、単純に RSS を配信するだけでは不十分だということもあるかもしれない。オープンすぎてデータが管理できない。こないだの <a href="http://blog.bulknews.net/mt/archives/001209.html">RSS ではじまるマーケティングセミナー</a> では RSS に個人データを埋め込んで広告配信、みたいのがありましたが（聞かないで帰ってきたけど）それにちょっと近い話かもしれない。</p>
+
+<p><a href="http://feedburner.com/fb/a/home">feedburner</a> みたいにフィードのトラフィックとったりする ASP もでてきていますが、 RSS の取得に認証 / Cookie を必要とするような規格も、こうした技術がビジネスに乗るためには必要になってくるのかもしれないです。SPAM フリーである、という RSS のよさとのトレードオフになってしまうのかもしれませんが。。</p>
+
+<p>と、ネタふりしてみる、誰となく。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001246.html">10:29 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001246.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001246.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001245"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1245"
+    dc:title="Apache::MP3::DAAP"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001245"
+    dc:subject="perl"
+    dc:description="というわけで iTunes まわりいじってのメモ。 Apache::MP3 っていう、ファイルシステム上の mp3 ファイルをブラウザから閲覧＆ダウンロードできるアプリがあるんですが、これを DAAP に対応させれば、iTunes のセグメント越えができるなと。Apache::MP3 と iTunes ってイマイチ再生の相性（というか使い勝手）がよくないんで、微妙かもしれませんが。。Trickster で iTunes DAAP を読むようにしたほうがいいのかなぁ。 実装としては、Apache::MP3 でファイルを読むところを Filesys::Virtual..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-09T20:55:42+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001245"></a>
+<h3 class="title">Apache::MP3::DAAP</h3>
+
+<p>というわけで iTunes まわりいじってのメモ。</p>
+
+<p><a href="http://search.cpan.org/dist/Apache-MP3/">Apache::MP3</a> っていう、ファイルシステム上の mp3 ファイルをブラウザから閲覧＆ダウンロードできるアプリがあるんですが、これを DAAP に対応させれば、iTunes のセグメント越えができるなと。Apache::MP3 と iTunes ってイマイチ再生の相性（というか使い勝手）がよくないんで、微妙かもしれませんが。。<a href="http://trickster.bulknews.net/">Trickster</a> で iTunes DAAP を読むようにしたほうがいいのかなぁ。</p>
+
+<p>実装としては、Apache::MP3 でファイルを読むところを Filesys::Virtual の API にしてしまえば、<a href="http://search.cpan.org/dist/Filesys-Virtual-DAAP">Filesys::Virtual::DAAP</a> とつなぐだけでできそう。みてみたら Apache::MP3 は<a href="http://search.cpan.org/~lds/Apache-MP3-3.05/MP3.pm#The_Apache::MP3_API">ファイル読むところがキレイな API </a>になっているみたいなので、やる気がある人はやってみて、CPAN に公開してみてはいかがでしょう（人まかせ）。</p>
+
+<p>ってか、個別にモジュールやらアプリを Filesys::Virtual に対応させるんじゃなくて、 CORE の open とかで対象とするファイルシステムを Filesys::Virtual のサブクラス群に透過できるプラグマがあったらムチャ便利な気がするけど、難しいかな。ファイルシステムのマッピングは PerlIO とは違うレイヤーっぽいし。</p>
+
+<p>iTunes の COM まわりは、<a href="http://www.audioscrobbler.com/">Audioscrobbler.com</a> あたりの再生データと連動してジュークボックスみたいのが実装できれば楽しそう。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001245.html">08:55 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001245.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001245.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001244"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1244"
+    dc:title="iTunes COM API with Perl"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001244"
+    dc:subject="perl"
+    dc:description=" DAAP と Rendezvous で iTunes の共有プロトコルをいじれることがわかったので、次はローカルにインストールされてる iTunes 自体をハック。 これは iTunes COM で公開されてる API を使用すればカンタン。言語をそろえるために Perl でやるなら、 use strict; use..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-09T20:40:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001244"></a>
+<h3 class="title">iTunes COM API with Perl</h3>
+
+<p>
+<a href="http://blog.bulknews.net/mt/archives/001241.html">DAAP と Rendezvous で</a> iTunes の共有プロトコルをいじれることがわかったので、次はローカルにインストールされてる iTunes 自体をハック。
+</p>
+<p>
+これは <a href="http://blog.bulknews.net/mt/archives/000996.html">iTunes COM</a> で公開されてる API を使用すればカンタン。言語をそろえるために Perl でやるなら、
+</p>
+
+<pre class="code">
+use strict;
+use Win32::OLE;
+
+my $itunes  = Win32::OLE->new('iTunes.Application') or die "oops\n";
+my $library = $itunes->LibraryPlaylist;
+my $tracks  = $library->Tracks;
+
+my $count = $tracks->Count;
+print "You have $count tracks.\n";
+</pre>
+
+<p>Win32::OLE 偉大なり。すべての API は iTunes COM SDK のヘルプに含まれてます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001244.html">08:40 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001244.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001244.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001243"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1243"
+    dc:title="Blog Hacks イベント"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001243"
+    dc:subject="blog"
+    dc:description="Blog Hacks 発売記念イベント Blog Hackers Conference 2004 開催！: Blog Hacks - プロが教えるテクニック &amp; ツール100選 Blog Hacks の発売を記念したイベントを開催します。 ということなので、登録よろしくデス。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-09T18:21:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001243"></a>
+<h3 class="title">Blog Hacks イベント</h3>
+
+<p><a title="Blog Hacks 発売記念イベント Blog Hackers Conference 2004 開催！: Blog Hacks - プロが教えるテクニック & ツール100選" href="http://hacks.bloghackers.net/archives/2004/09/blog_hacks_blog.html">Blog Hacks 発売記念イベント Blog Hackers Conference 2004 開催！: Blog Hacks - プロが教えるテクニック & ツール100選</a><br />
+<blockquote>Blog Hacks の発売を記念したイベントを開催します。</blockquote></p>
+
+<p>ということなので、登録よろしくデス。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001243.html">06:21 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001243.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001243.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001242"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1242"
+    dc:title="GmailFS の実装"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001242"
+    dc:subject="tech"
+    dc:description=" ちょっと興味があったので GmailFS の実装をのぞいてみた。 ファイルシステムとしての実装のベースは FUSE というフレームワークを使用している。これを Linux カーネルに組み込むことにより、その後カーネルをコンパイルしなおすことなく、プログラムなどでファイルシステムを実装することができる。具体的には、 mount -t fuse /path/to/script/or/program /path/of/mount/point [options] みたいにスクリプトを指定してマウントできるようなイメージ。このスクリプトは標準入出力か何かを利用して、ファイルの読み書きを実装すればいいのかな。GmailFS は、Python のライブラリ fuse を継承してこのフレームワークを実装している。実装の中身はというと、..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-09T00:01:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001242"></a>
+<h3 class="title">GmailFS の実装</h3>
+
+<p>
+ちょっと興味があったので <a href="http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html">GmailFS</a> の実装をのぞいてみた。
+</p>
+<p>
+ファイルシステムとしての実装のベースは <a href="http://sourceforge.net/projects/avf">FUSE</a> というフレームワークを使用している。これを Linux カーネルに組み込むことにより、その後カーネルをコンパイルしなおすことなく、プログラムなどでファイルシステムを実装することができる。具体的には、
+</p>
+
+<pre>mount -t fuse /path/to/script/or/program /path/of/mount/point [options]</pre>
+
+<p>みたいにスクリプトを指定してマウントできるようなイメージ。このスクリプトは標準入出力か何かを利用して、ファイルの読み書きを実装すればいいのかな。GmailFS は、Python のライブラリ fuse を継承してこのフレームワークを実装している。実装の中身はというと、</p>
+
+<pre class="code">
+    #@+node:getinodeMsg
+    def getinodeMsg(self,inodeNumber):
+        """
+        Get Gmail message handle for the message containing inodeNumber
+        """
+
+        folder = _getMessagesByQuery(self.ga,'subject:inodeid=__'+inodeNumber+'__')
+        if len(folder)!=1:
+          log.error("could not find inode msg with inodenumber:"+inodeNumber)
+          return None;
+        if len(folder._threads[0])!=1:
+          return None;
+        thread = folder._threads[0]
+        if not thread._messages:
+          thread._messages = thread._getMessages(thread)
+
+        return thread._messages[0]
+    #@-node:getinodeMsg
+</pre>
+
+<p>のような感じで、メールの Subject: フィールドに inode などのメタ情報を書き込み、ボディに本体をいれて自分の Gmail アカウントにメールを送信する、ってな感じなんですね。取得は普通に getMessage でよい、と。面白いけど自分で実装したくないなぁ（実装しなくていいよ）。
+</p>
+<p>
+ちなみになんでこんなん調べてたかというと、<a href="http://blog.bulknews.net/mt/archives/001241.html">iTunes がらみの Hack</a> で調べてたら、作者の <A href="http://search.cpan.org/~rclamp/">Richard Clamp</a> 氏が変態的なモジュールつくってるのいろいろ発見して、その中に <a href="http://search.cpan.org/~rclamp/Filesys-Virtual-DAAP-0.03/">Filesys::Virtual::DAAP</a> なんての発見したのがきっかけ。これ、Filesys::Virtual というフレームワークで、仮想的なファイルシステムを実装しています。これを利用したサーバアプリとして、<a href="http://search.cpan.org/~lbrocard/Net-DAV-Server-1.23/">Net::DAV::Server</a> とか <a href="http://search.cpan.org/dist/POE-Component-Server-FTP">PoCo::Server::FTP</a> なんてのがある。
+</p>
+
+<p>
+つまりまあ、DAAP (iTunes の共有) にある音楽ファイルを、DAV やら FTP でマウントしちゃえ、ってなワケなんですね。で、それぞれが抽象化されていて、プロトコル変換されてつながる、と。こういう遠〜い実装は <a href="http://module.jp/">MODULE.JP</a> の人なんかと IM でよくしゃべってるネタなんですが、ホントにやっちゃうのが気持ちいいな〜と。</p>
+
+<p>んで、Filesys::Virtual::Winny とか Filesys::Virtual::Gmail あたりをキボンヌです。</p>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001242.html">12:01 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001242.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001242.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001241"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1241"
+    dc:title="itshell - Net::DAAP::Client"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001241"
+    dc:subject="tech"
+    dc:description="MyTunes Rudex なんて iTunes の共有をダウンロードするエグいツールが出てたんで、ちょっと実装を調べてみることに。 基本的には Rendezvous をつかって mDNS にサービスを登録しておき、共有しているサーバのリストを取得。iTunes の音楽配信自体は DAAP というプロトコルで行われる、と。この辺は developer.apple.com などで詳しく解説されています。日本語だと MYCOM の記事 とか。 んで Perl..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T21:35:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 08, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001241"></a>
+<h3 class="title">itshell - Net::DAAP::Client</h3>
+
+<p><a href="http://minimalverbosity.com/">MyTunes Rudex</a> なんて iTunes の共有をダウンロードするエグいツールが出てたんで、ちょっと実装を調べてみることに。</p>
+
+<p>基本的には Rendezvous をつかって mDNS にサービスを登録しておき、共有しているサーバのリストを取得。iTunes の音楽配信自体は DAAP というプロトコルで行われる、と。この辺は <a href="http://developer.apple.com/ja/qa/qa2001/qa1312.html">developer.apple.com</a> などで詳しく解説されています。日本語だと <a href="http://pcweb.mycom.co.jp/column/osx/100/">MYCOM の記事</a> とか。
+</p>
+
+<p>
+んで Perl によるオープンな実装は CPAN で検索すると、<a href="http://search.cpan.org/~rclamp/Net-DAAP-Client/">Net::DAAP::Client</a> というそのものがあり、そこに itshell というコマンドラインツールも同梱されてる。ActivePerl から CPAN シェルでがっつりいれるとカンタンにはいりました。
+</p>
+
+<p>
+itshell は Rendezvous を調べる機能はないみたいで、サーバ名なしで起動すれば localhost をルックアップする仕様になっています。</p>
+
+<pre>
+C:\Documents ans Settings\miyagawa> itshell
+iTunes> db
+Loading database (may take a moment)
+iTunes> playlist
+1615: miyagawa(Ashlee Simpson)
+iTunes> find Ashlee
+3733 : Autobiography, Ashlee Simpson (Autobiography)
+iTunes> get 3733
+Fetching 3733 : Autobiography, Ashlee Simpson (Autobiography)
+iTunes>
+</pre>
+
+<p>こんな感じで取得できた。他のマシンは IP アドレス指定すればOK。</p>
+
+<p>んで、そもそも Rendezvous から共有されているマシンリストは、以下のような感じで取得できる。Machine Name は UTF-8 なので適宜シェルの文字コードにあわせて (Win なら cp932 あたり） 変換する必要ありです。</p>
+
+<pre class="code">
+use Net::Rendezvous;
+
+my $res = Net::Rendezvous->new("daap");
+$res->discover;
+
+for my $entry ($res->entries) {
+    printf "%s:%s (%s)\n", $entry->address, $entry->port, $entry->attribute('Machine Name');
+}
+</pre>
+
+<p>といじっているうちに、どうも1個だけ IP アドレスが正しく出てこず、しかも問い合わせがとっても長びくものがある。調べてみると iTunes の共有名に . (ドット) が含まれると split にシケる Net::Rendezvous のバグ。しかも Net::DNS::Resolver::Win32 にも影響がありそうなややこしい問題。この辺でとりあえず作者に報告して深追い終了しますか。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001241.html">09:35 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001241.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001241.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001240"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1240"
+    dc:title="Google::PageRank"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001240"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Yuri Karabank / Google-PageRank-0.01 Query google pagerank of page Google toolbar が内部でおこなってるハッシュ計算をインプリして Google にクエリ投げて PageRank を取得。限りなく黒に近いグレーですが。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T21:29:34+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001240"></a>
+<h3 class="title">Google::PageRank</h3>
+
+<p><a title="search.cpan.org: Yuri Karabank / Google-PageRank-0.01" href="http://search.cpan.org/~ykar/Google-PageRank-0.01/">search.cpan.org: Yuri Karabank / Google-PageRank-0.01</a><br />
+<blockquote>Query google pagerank of page  </blockquote></p>
+
+<p>Google toolbar が内部でおこなってるハッシュ計算をインプリして Google にクエリ投げて PageRank を取得。限りなく黒に近いグレーですが。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001240.html">09:29 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001240.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001240.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001239"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1239"
+    dc:title="いきなり事情通"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001239"
+    dc:subject="blog"
+    dc:description="ソースネクスト・ドットコム／製品情報／いきなり事情通 ソースネクストの「いきなり事情通」には Bulknews の RSS がデフォルト組み込みだそうです。そういやスクリーンショットにも写ってますね。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T20:26:53+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001239"></a>
+<h3 class="title">いきなり事情通</h3>
+
+<p><a title="ソースネクスト・ドットコム／製品情報／いきなり事情通" href="http://www.sourcenext.com/products/jijyou/">ソースネクスト・ドットコム／製品情報／いきなり事情通</a></p>
+
+<p>ソースネクストの「いきなり事情通」には Bulknews の RSS がデフォルト組み込みだそうです。そういやスクリーンショットにも写ってますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001239.html">08:26 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001239.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001239.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001238"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1238"
+    dc:title="AdSense のマッチ広告"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001238"
+    dc:subject="tech"
+    dc:description="Google AdSense の広告マッチのロジックがちょっと変わってきた感じ。 具体的には、Mediapartners が未クロールのコンテンツで、従来なら代替広告がでていたところ、サイト全体にマッチする広告がでるようになっている感じ。（どうも直近の記事ではメルマガ広告がでまくってます） 個別記事の代替広告を Amazon Web Services で Hack して遊んでいた私としてはあまりうれしくない感じです。AdSense の収入は最近復調気味なのではずすのもちょっとやだしなぁ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T14:39:20+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001238"></a>
+<h3 class="title">AdSense のマッチ広告</h3>
+
+<p>Google AdSense の広告マッチのロジックがちょっと変わってきた感じ。</p>
+
+<p>具体的には、Mediapartners が未クロールのコンテンツで、従来なら代替広告がでていたところ、サイト全体にマッチする広告がでるようになっている感じ。（どうも直近の記事ではメルマガ広告がでまくってます）</p>
+
+<p>個別記事の代替広告を Amazon Web Services で Hack して遊んでいた私としてはあまりうれしくない感じです。AdSense の収入は最近復調気味なのではずすのもちょっとやだしなぁ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001238.html">02:39 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001238.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001238.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001237"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1237"
+    dc:title="バカ日本地図"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001237"
+    dc:subject="blog"
+    dc:description="バカ日本地図〜全国のバカが考えた脳内列島MAP〜 「鳥取と取鳥、どっちが正しいかわからない」「名古屋は県名だと思っていた」「富山は山だと思っていた」……こういったバカたちの脳内地図をかきあつめてつくったのがこのバカ日本地図。ウェブサイト「借力」がはじめた「バカが思い描いている日本地図をつくる」プロジェクトがついに書籍化です。書籍版ではバカ日本地図の誕生から最終形態までの変遷地図、ユーザーの勝手な脳内日本地図投稿を多数収録 借力[CHAKURIKI] のバカ日本地図が書籍化！しかも技術評論社ってのが笑えました。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T13:23:06+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001237"></a>
+<h3 class="title">バカ日本地図</h3>
+
+<p><a title="バカ日本地図〜全国のバカが考えた脳内列島MAP〜" href="http://www.gihyo.co.jp/books/4-7741-2125-8">バカ日本地図〜全国のバカが考えた脳内列島MAP〜</a><br />
+<blockquote>「鳥取と取鳥、どっちが正しいかわからない」「名古屋は県名だと思っていた」「富山は山だと思っていた」……こういったバカたちの脳内地図をかきあつめてつくったのがこのバカ日本地図。ウェブサイト「借力」がはじめた「バカが思い描いている日本地図をつくる」プロジェクトがついに書籍化です。書籍版ではバカ日本地図の誕生から最終形態までの変遷地図、ユーザーの勝手な脳内日本地図投稿を多数収録</blockquote></p>
+
+<p><a href="http://chakuriki.net/">借力[CHAKURIKI]</a> のバカ日本地図が書籍化！しかも技術評論社ってのが笑えました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001237.html">01:23 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001237.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001237.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001236"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1236"
+    dc:title="MSN Music Feeds"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001236"
+    dc:subject="blog"
+    dc:description="Nick Bradbury: MSN Music Feeds Microsoft&apos;s MSN Music beta offers RSS feeds. As Dave Winer points out, the Top 100..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T13:21:06+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001236"></a>
+<h3 class="title">MSN Music Feeds</h3>
+
+<p><a title="Nick Bradbury: MSN Music Feeds" href="http://nick.typepad.com/blog/2004/09/msn_music.html">Nick Bradbury: MSN Music Feeds</a><br />
+<blockquote>Microsoft's MSN Music beta offers RSS feeds. As Dave Winer points out, the Top 100 songs feed has enclosures with excerpts of the songs, which means you can play them by clicking the paperclip icon in FeedDemon's newspaper.</blockquote></p>
+
+<p>MSN Music の Top 100 が RSS でフィードされてるそうです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001236.html">01:21 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001236.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001236.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001235"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1235"
+    dc:title="ソーシャルネットワーキング＋音楽配信"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001235"
+    dc:subject="tech"
+    dc:description="ITmedia ライフスタイル：“ソーシャルネット”型でDRMフリーの音楽サービス「recommuni」が開始 レコミュニは、ソーシャルネットワークのしくみを利用したP2Pによる有料音楽配信サービス「recommuni」（レコミュニ）の提供を開始する。楽曲はDRMによる制限なしに提供される。 ソーシャルネットワーキングによる信頼されたネットワーク＋レビューデータなどにもとづいた、DRM フリーな音楽配信サービス「レコミュニ」の開始がリリースされています。やはりソーシャルネットワーキングのアプリケーションはこういうところに潜在的価値があるなと思います。レコミュニも Gree や mixi といった既存SNSのユーザデータと連動できると面白いと思いますし、サービス側もデータを外部からユーザが利用可能にする仕組みをつくれば、さらにポテンシャルを発揮することが可能だとおもいます。海外では Flickr がすでに一部 API を公開していますね。 関連したところで MSN が MSN Music を開始しました。 マイクロソフト、音楽配信サービス「MSN..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T11:45:38+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001235"></a>
+<h3 class="title">ソーシャルネットワーキング＋音楽配信</h3>
+
+<p><a title="ITmedia ライフスタイル：“ソーシャルネット”型でDRMフリーの音楽サービス「recommuni」が開始" href="http://www.itmedia.co.jp/lifestyle/articles/0409/01/news050.html">ITmedia ライフスタイル：“ソーシャルネット”型でDRMフリーの音楽サービス「recommuni」が開始</a><br />
+<blockquote>レコミュニは、ソーシャルネットワークのしくみを利用したP2Pによる有料音楽配信サービス「recommuni」（レコミュニ）の提供を開始する。楽曲はDRMによる制限なしに提供される。</blockquote></p>
+
+<p>ソーシャルネットワーキングによる信頼されたネットワーク＋レビューデータなどにもとづいた、DRM フリーな音楽配信サービス「レコミュニ」の開始がリリースされています。やはりソーシャルネットワーキングのアプリケーションはこういうところに潜在的価値があるなと思います。レコミュニも Gree や mixi といった既存SNSのユーザデータと連動できると面白いと思いますし、サービス側もデータを外部からユーザが利用可能にする仕組みをつくれば、さらにポテンシャルを発揮することが可能だとおもいます。海外では Flickr がすでに一部 API を公開していますね。</p>
+
+<p>関連したところで MSN が MSN Music を開始しました。</p>
+
+<p><a title="マイクロソフト、音楽配信サービス「MSN Music」のプレビュー版公開 - CNET Japan" href="http://japan.cnet.com/news/media/story/0,2000047715,20071707,00.htm?ref=rss">マイクロソフト、音楽配信サービス「MSN Music」のプレビュー版公開 - CNET Japan</a><br />
+<blockquote>Microsoftは米国時間1日、大きな期待が寄せられているオンライン音楽ダウンロードサービスのベータ版をリリースした。同社は、盛り上がりをみせるこの市場で支配的な立場にあるApple Computerを、首位の座から引きずり下ろしたいと考えている。 </blockquote></p>
+
+<p>iTunes Music Store の日本でのサービス開始は来年とかウワサされていますが、この MSN Music も Windows Media Player との連携や iPod の以外のハードディスク音楽プレイヤーでの利用など、本サービスが開始されれば iTMS に匹敵する魅力的なものになりそうです。記事でも触れられているように、MSN Messenger で音楽を共有、といった点も視野に入っているとのことで、これは今年の頭にリリースされていた <A href="http://www.threedegrees.com/">threedegrees</a> ですでに実装されていますから、ローンチははやいのではないでしょうか。MSN Spaces といった個人コンテンツとの融合が進めばさらに脅威になると思います。</p>
+
+<p>関連サイト:<br />
+<a href="http://www.audioscrobbler.com/">Audioscrobbler</a> - iTunes などの再生ヒストリを共有<br />
+<a href="http://www.musicmobs.com/">Musicmobs.com</a> - iTunes のプレイリストを共有</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001235.html">11:45 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001235.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001235.html#trackbacks">TrackBack (6)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001234"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1234"
+    dc:title="沖縄より帰還"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001234"
+    dc:subject="misc"
+    dc:description="沖縄に夏休みで出かけていたのですが、ちょうど帰りの飛行機に台風18号がバッティングし、 飛行機とばず で2日間、帰京が遅れてしまいました。 ノートPCを持っていかなかったのでメールやBlogの未読が大変なことになってます。メールはようやくおわりましたが Bloglines の未読が 6000 アイテム以上。。どうやって処理しようかしら。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T11:35:27+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001234"></a>
+<h3 class="title">沖縄より帰還</h3>
+
+<p>沖縄に夏休みで出かけていたのですが、ちょうど帰りの飛行機に台風18号がバッティングし、 <a href="http://www.asahi.com/national/update/0906/026.html">飛行機とばず</a> で2日間、帰京が遅れてしまいました。</p>
+
+<p>ノートPCを持っていかなかったのでメールやBlogの未読が大変なことになってます。メールはようやくおわりましたが Bloglines の未読が 6000 アイテム以上。。どうやって処理しようかしら。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001234.html">11:35 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001234.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001234.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001233"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1233"
+    dc:title="Google News にみる Google IPO までの道のり"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001233"
+    dc:subject="tech"
+    dc:description="Tanakayoshikazu.com: Google News 日本版ローンチ、Google IPO 最近思うのですが、「検索」と一言で言っていたサービスの意味を再定義して、認識する必要性を強く感じています よっしーによる Google のもつテクノロジーとその IPO までのサービス展開についての考察。さすがよくまとまってます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-08T11:05:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001233"></a>
+<h3 class="title">Google News にみる Google IPO までの道のり</h3>
+
+<p><a title="Tanakayoshikazu.com: Google News 日本版ローンチ、Google IPO" href="http://www.tanakayoshikazu.com/archives/000073.html">Tanakayoshikazu.com: Google News 日本版ローンチ、Google IPO</a><br />
+<blockquote>最近思うのですが、「検索」と一言で言っていたサービスの意味を再定義して、認識する必要性を強く感じています</blockquote></p>
+
+<p>よっしーによる Google のもつテクノロジーとその IPO までのサービス展開についての考察。さすがよくまとまってます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001233.html">11:05 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001233.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001233.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001232"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1232"
+    dc:title="Google AdSense 新機能"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001232"
+    dc:subject="blog"
+    dc:description="Google AdSense 複数の広告ユニット サイト運営者様の各ウェブ ページに広告ユニットを 3 つまで設定していただけるようになりました。これにより、ユーザーの利便性が増すだけでなく、ウェブ ページから得られる広告収入も増やすことができます。 Google システムでは、追加の広告ユニットを自動的に認識して、それぞれに固有の広告を配信します。また、広告ユニットごとに異なるカラー パレット、フォーマット、代替広告 URL を設定できるため、お客様のサイトのデザインと調和した Google 広告を掲載することができます。詳細については、「よくある質問」で複数の広告ユニットに関するセクションをご覧ください。 １つのページに複数の AdSense が入れられる複数の広告ユニットや、Ads by Goooooooogle..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-02T15:09:38+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 02, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001232"></a>
+<h3 class="title">Google AdSense 新機能</h3>
+
+<p><a title="Google AdSense" href="https://www.google.com/adsense/new">Google AdSense</a><br />
+<blockquote>複数の広告ユニット <br />
+サイト運営者様の各ウェブ ページに広告ユニットを 3 つまで設定していただけるようになりました。これにより、ユーザーの利便性が増すだけでなく、ウェブ ページから得られる広告収入も増やすことができます。 Google システムでは、追加の広告ユニットを自動的に認識して、それぞれに固有の広告を配信します。また、広告ユニットごとに異なるカラー パレット、フォーマット、代替広告 URL を設定できるため、お客様のサイトのデザインと調和した Google 広告を掲載することができます。詳細については、「よくある質問」で複数の広告ユニットに関するセクションをご覧ください。 </blockquote></p>
+
+<p>１つのページに複数の AdSense が入れられる複数の広告ユニットや、Ads by Goooooooogle の謎などの新機能が公開されてました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001232.html">03:09 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001232.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001232.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001231"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1231"
+    dc:title="Blog で採用/解雇/転職"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001231"
+    dc:subject="blog"
+    dc:description="個人ブログが「やぶ蛇」に-ネット企業が社員を解雇 - CNET Japan Friendsterが米国時間8月30日、個人的に付けているBlogの内容に問題があったとして、従業員の1人を解雇した。 Friendster は、PHP や Blog 界で有名な troutgirl 氏を Blog の内容に問題があるとして解雇したそうな。Yahoo! Inc の Jeremy 氏の Blog では、Friendster..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T20:44:07+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 01, 2004</h2>
+
+
+<div class="blogbody">
+<a name="001231"></a>
+<h3 class="title">Blog で採用/解雇/転職</h3>
+
+<p><a title="個人ブログが「やぶ蛇」に--ネット企業が社員を解雇 - CNET Japan" href="http://japan.cnet.com/news/media/story/0,2000047715,20071607,00.htm?ref=rss">個人ブログが「やぶ蛇」に--ネット企業が社員を解雇 - CNET Japan</a><br />
+<blockquote>Friendsterが米国時間8月30日、個人的に付けているBlogの内容に問題があったとして、従業員の1人を解雇した。</blockquote></p>
+
+<p>Friendster は、PHP や Blog 界で有名な troutgirl 氏を Blog の内容に問題があるとして解雇したそうな。Yahoo! Inc の <a href="http://jeremy.zawodny.com/blog/archives/002498.html">Jeremy 氏の Blog</a> では、Friendster 退会キャンペーンを実施中。</p>
+
+<p><a title="サン、オープンソースのブログソフト開発者を採用 - CNET Japan" href="http://japan.cnet.com/news/ent/story/0,2000047623,20071563,00.htm">サン、オープンソースのブログソフト開発者を採用 - CNET Japan</a><br />
+<blockquote>Sun Microsystemsが、開発者や顧客とより密接な関係を築く取り組みの一環として、オープンソースソフトウェア「Roller Weblogger」の主要な開発者を採用した</blockquote></p>
+
+<p>かたや、Sun Microsystems は <a href="http://japan.cnet.com/news/ent/story/0,2000047623,20071563,00.htm">オープンソース Blog ソフト Roller Weblogger （シラネー）の開発者を採用</a>。これにどういう価値があるのかはあんまりよくわかりませんが。。</p>
+
+<p><a title="株式会社はてなに入社しました。 : NDO::Weblog" href="http://naoya.dyndns.org/~naoya/mt/archives/001321.html">株式会社はてなに入社しました。 : NDO::Weblog</a><br />
+<blockquote>昨日ニフティを退職しましたが、休みなしで間髪いれずに働きたいという希望から、本日 9 月 1 日 株式会社はてな に入社しました。</blockquote></p>
+
+<p>そして、<a href="http://hacks.bloghackers.net/">Blog Hacks</a> の共著者でもある <a href="http://naoya.dyndns.org/~naoya/mt/">伊藤直也氏</a> がニフティをやめ、はてなにジョインしたことを Blog で発表。なかなかインターネット的（って何）であります。彼とはてなの今後の発展を期待せずにはいられません。</p>
+
+<p>と、関連あるんだかないんだかな3つをまとめてみました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001231.html">08:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001231.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001231.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001230"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1230"
+    dc:title="gnews2rss-jp"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001230"
+    dc:subject="blog"
+    dc:description="gnews2rss-jp gnews2rss-jp: Google News Search to RSS まあ、そういうモノです。空気を読んでお使いください。 genfeed (まだ公開してない...) 用のパターンファイルは こちら。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T20:27:03+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001230"></a>
+<h3 class="title">gnews2rss-jp</h3>
+
+<p><a title="gnews2rss-jp" href="http://bulknews.net/syndicate/gnews2rss.cgi">gnews2rss-jp</a><br />
+<blockquote>gnews2rss-jp: Google News Search to RSS</blockquote></p>
+
+<p>まあ、そういうモノです。空気を読んでお使いください。</p>
+
+<p>genfeed (まだ公開してない...) 用のパターンファイルは <A href="http://bulknews.net/syndicate/pattern/gnews">こちら</a>。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001230.html">08:27 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001230.html#comments">Comments (5)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001230.html#trackbacks">TrackBack (15)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001229"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1229"
+    dc:title="Google ニュース日本語版"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001229"
+    dc:subject="tech"
+    dc:description="スラッシュドット ジャパン | Google日本版 「Googleニュース」 Google日本に、いつのまにかニュース機能がついた。ニュース作成方法は、610の情報元から、コンピュータアルゴリズムにより自動的に記事を集め、自動的に一覧とそのサマリーを表示しているようだ すでに各所で話題ですが、google ニュース日本語版きましたね。610 のニュースソースと契約してるとは思えないので、US と同じ方式なんでしょう。Froogle とか価格比較なんかのエンジンも楽しみです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T14:26:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001229"></a>
+<h3 class="title">Google ニュース日本語版</h3>
+
+<p><a title="スラッシュドット ジャパン | Google日本版 「Googleニュース」" href="http://slashdot.jp/article.pl?sid=04/09/01/0017206&topic=112">スラッシュドット ジャパン | Google日本版 「Googleニュース」</a><br />
+<blockquote>Google日本に、いつのまにかニュース機能がついた。ニュース作成方法は、610の情報元から、コンピュータアルゴリズムにより自動的に記事を集め、自動的に一覧とそのサマリーを表示しているようだ</blockquote></p>
+
+<p>すでに各所で話題ですが、google ニュース日本語版きましたね。610 のニュースソースと契約してるとは思えないので、US と同じ方式なんでしょう。Froogle とか価格比較なんかのエンジンも楽しみです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001229.html">02:26 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001229.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001229.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001228"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1228"
+    dc:title="GmailFS"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001228"
+    dc:subject="tech"
+    dc:description="スラッシュドット ジャパン | GmailアカウントをマウントするGmailFS takano32 曰く、 &quot;Googleが提供するWEBメイルサービスGmailのアカウントをLinuxのファイルシステムとしてマウントするGmailFSの登場が話題を呼んでいます．( これを Emacs の MUA からマウントして読んだりするのか。遠すぎ。ここまでくるとただのストレージ用途な感じなんですかね。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T14:25:01+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001228"></a>
+<h3 class="title">GmailFS</h3>
+
+<p><a title="スラッシュドット ジャパン | GmailアカウントをマウントするGmailFS" href="http://slashdot.jp/article.pl?sid=04/08/31/2049228&topic=112">スラッシュドット ジャパン | GmailアカウントをマウントするGmailFS</a><br />
+<blockquote>takano32 曰く、 "Googleが提供するWEBメイルサービスGmailのアカウントをLinuxのファイルシステムとしてマウントするGmailFSの登場が話題を呼んでいます．(</blockquote></p>
+
+<p>これを Emacs の MUA からマウントして読んだりするのか。遠すぎ。ここまでくるとただのストレージ用途な感じなんですかね。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001228.html">02:25 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001228.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001228.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001227"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1227"
+    dc:title="ルーニーがマンチェスターユナイテッドに移籍"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001227"
+    dc:subject="football"
+    dc:description="スポーツナビ | ニュース | ルーニー、マンＵ移籍固まる＝移籍金は５０億円 英ＢＢＣ 英ＢＢＣ放送は３１日、サッカーイングランド代表のエースストライカー、ウェイン・ルーニー（１８）＝エバートン＝が、イングランド・プレミアリーグの名門、マンチェスター・ユナイテッドに移籍することが固まったと報じた。 EURO で大活躍のルーニーがマンUに移籍。マンチェスターでファンニステルローイ、クリスティアーノロナウドとのコンビネーションがみれるのは楽しみっすね。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T02:40:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001227"></a>
+<h3 class="title">ルーニーがマンチェスターユナイテッドに移籍</h3>
+
+<p><a title="スポーツナビ | ニュース | ルーニー、マンＵ移籍固まる＝移籍金は５０億円 英ＢＢＣ" href="http://sportsnavi.yahoo.co.jp/soccer/eusoccer/headlines/20040831-00020765-jij-spo.html">スポーツナビ | ニュース | ルーニー、マンＵ移籍固まる＝移籍金は５０億円 英ＢＢＣ</a><br />
+<blockquote>英ＢＢＣ放送は３１日、サッカーイングランド代表のエースストライカー、ウェイン・ルーニー（１８）＝エバートン＝が、イングランド・プレミアリーグの名門、マンチェスター・ユナイテッドに移籍することが固まったと報じた。</blockquote></p>
+
+<p>EURO で大活躍のルーニーがマンUに移籍。マンチェスターでファンニステルローイ、クリスティアーノロナウドとのコンビネーションがみれるのは楽しみっすね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001227.html">02:40 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001227.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001227.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_09.html#001226"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1226"
+    dc:title="Trackback Ping からエントリを投稿"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_09.html#001226"
+    dc:subject="blog"
+    dc:description="Blog Hacks サポートページで追加情報や新 Hack の集約に使用しているスクリプトを適当に公開。Trackback Ping を受けて、その title, excerpt などを XML-RPC で Movable Type にポストしています。"
+    dc:creator="miyagawa"
+    dc:date="2004-09-01T01:38:17+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001226"></a>
+<h3 class="title">Trackback Ping からエントリを投稿</h3>
+
+<p><a href="http://hacks.bloghackers.net/">Blog Hacks サポートページ</a> で追加情報や新 Hack の集約に使用しているスクリプトを適当に公開。Trackback Ping を受けて、その title, excerpt などを XML-RPC で Movable Type にポストしています。</p>
+
+
+<pre class="code">
+#!/usr/local/bin/perl -w
+use strict;
+use CGI;
+use Jcode;
+use XMLRPC::Lite;
+
+our $BlogCharset = "utf-8";  # XML-RPC is done in UTF-8
+our %CategoryID  = <i>qw(bonus 60 hack 61)</i>;
+our $DefaultCategoryId = <i>61</i>;
+our $XmlRpcURL   = <i>"http://example.com/mt/mt-xmlrpc.cgi"</i>;
+our $BlogID      = <i>19</i>;
+our $Username    = <i>"foobar"</i>;
+our $Password    = <i>"blahblah"</i>;
+
+my $q = CGI->new();
+my $charset = $q->param('charset');
+
+my %postdata = get_postdata($q, $charset);
+
+my $category = $q->path_info() || "";
+   $category =~  s!^/!!;
+
+my $category_id = $CategoryID{$category} || $DefaultCategoryId;
+
+if ($postdata{title}) {
+    post_entry(\%postdata, $category_id);
+
+    # XXX no error handling
+    print $q->header('text/xml'), &lt;&lt;XML;
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;response>
+&lt;error>0&lt;/error>
+&lt;/response>
+XML
+    ;
+} else {
+    print $q->header('text/xml'), &lt;&lt;XML;
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;response>&lt;error>1&lt;/error>&lt;message>Invalid Trackback parameter&lt;/message>&lt;/response>
+XML
+    ;
+}
+
+# get TrackBack parameters
+sub get_postdata {
+    my($q, $charset) = @_;
+    my @keys = qw(blog_name url title excerpt);
+    return map { $_ => get_param($q, $_, $charset) } @keys;
+}
+
+# get parameter from CGI considering $charset and $BlogCharset
+sub get_param {
+    my($q, $key, $charset) = @_;
+    my $data = $q->param($key);
+    my %code = ('euc-jp' => 'euc', 'utf-8' => 'utf8', 'Shift_JIS' => 'sjis');
+    my $code = ($charset && $code{$charset}) ? $code{$charset} : Jcode::getcode($data);
+    my $outcode = $code{$BlogCharset};
+    return Jcode->new($data, $code)->$outcode;
+}
+
+# Post entry using MT XML-RPC API
+sub post_entry {
+    my($postdata, $category_id) = @_;
+
+    XMLRPC::Lite->import('trace' => 'debug');
+    my $entry_id = create_item($postdata);
+    set_category($entry_id, $category_id);
+    publish_item($entry_id);
+}
+
+sub create_item {
+    my $postdata = shift;
+
+    # create item data from Trackback data
+    my $item;
+    $item->{title} = "$postdata->{title} (via $postdata->{blog_name})";
+    $item->{description} = &lt;&lt;DATA
+&lt;blockquote>$postdata->{excerpt}&lt;/blockquote>
+&lt;p>&lt;a href="$postdata->{url}">Continue Reading "$postdata->{title}"&lt;/a>&lt;/p>
+DATA
+    ;
+
+    my $publish = 0; # no publish here
+    my @args = ($BlogID, $Username, $Password, $item, $publish);
+    return XMLRPC::Lite->proxy($XmlRpcURL)->call("metaWeblog.newPost", @args)->result;
+}
+
+sub set_category {
+    my($entry_id, $category_id) = @_;
+    my @args = ($entry_id, $Username, $Password,
+    [ { categoryId => $category_id } ]);
+    XMLRPC::Lite->proxy($XmlRpcURL)->call("mt.setPostCategories", @args);
+}
+
+sub publish_item {
+    my $entry_id = shift;
+    my @args = ($entry_id, $Username, $Password);
+    XMLRPC::Lite->proxy($XmlRpcURL)->call("mt.publishPost", @args);
+}
+</pre>
+
+<p>まあ特にコメントは必要ないかとおもいますが。XML-RPC でカテゴリをセットするためには、metaWeblog.newPost でエントリを publish=0 で作成したあと、mt.setPostCategories でカテゴリをセット、その後 mt.publishPost で公開というメンドウなステップを踏む必要ありです。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001226.html">01:38 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001226.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001226.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>PDF をブラウザで表示させない: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000712.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000711.html" title="Bloglines Updates" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000713.html" title="Bulkfeeds: News Handler 対応" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000712.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/712"
+    dc:title="PDF をブラウザで表示させない"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000712.html"
+    dc:subject=""
+    dc:description="PDF をブラウザで開くといろいろとウザイことになる（起動が遅い、タブブラウザだと終了時に固まる、etc.) のですが、Adobe Reader の環境設定→インターネット→PDFをブラウザに表示 のチェックボックスを OFF にすれば、ブラウザ内で開かないように設定可能。いいこと知りました。 これと Adobe Reader Speed Up を使うとかなりPDF生活が快適になると思われます。 [IRC で kyo さんに教えてもらいました]..."
+    dc:creator="miyagawa"
+    dc:date="2004-01-13T20:47:46+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">January 13, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">PDF をブラウザで表示させない</h1>
+
+<p>PDF をブラウザで開くといろいろとウザイことになる（起動が遅い、タブブラウザだと終了時に固まる、etc.) のですが、Adobe Reader の環境設定→インターネット→PDFをブラウザに表示 のチェックボックスを OFF にすれば、ブラウザ内で開かないように設定可能。いいこと知りました。</p>
+
+<p>これと <a href="http://www.forest.impress.co.jp/article/2004/01/13/adobereaderspeedup.html">Adobe Reader Speed Up</a> を使うとかなりPDF生活が快適になると思われます。</p>
+
+<p>[IRC で <a href="http://hail2u.net/">kyo さん</a>に教えてもらいました]</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at January 13, 2004 08:47 PM
+| <a href="http://blog.bulknews.net/mt/archives/000712.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000712.html#comments">Comments (3)</a>
+
+| <a href="#trackbacks">TrackBack(21)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000711.html\">&laquo; Bloglines Updates</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000713.html\">Bulkfeeds: News Handler 対応 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>確かに設定変更してみると、SleipnirでPDFファイルへのリンクを選択したときにダウンロードのダイアログが開くようになりました。これはちょっと嬉しいかも。ありがとうございます。</p>
+<span class="comments-post">Posted by: <a href="http://kidachi.kazuhi.to/" rel="nofollow">kazu</a> on January 13, 2004 09:45 PM</span>
+</div>
+<div class="comments-body">
+<p>試してみました。Adobe Reader Speed Upについてはすばらしい。開くまでラグを感じていたものが、すぐに開きますね。<br />
+>みかんさん<br />
+Acrobat Reader 6.0.1 + IE6.0 + .NET 1.1では、確かにダウンロードダイアログは表示しませんでした。しかし同じマシンのAcrobat Reader 5.0 + IE6.0 + .NET 1.1では確かにダウンロードダイアログは出ています。でも、前者はすぐに、IEのブラウザ内でなく、新しくAcrobat　Reader 6.0.1が立ち上がって、問題なく見れています。<br />
+状況報告のみで申し訳ありませんが。。</p>
+<span class="comments-post">Posted by: <a href="http://blog.livedoor.jp/hrak13/" rel="nofollow">hrak13</a> on January 18, 2004 05:35 PM</span>
+</div>
+<div class="comments-body">
+<p>ありがとうございます。便利ですね。</p>
+<span class="comments-post">Posted by: <a href="http://victory3104.blog75.fc2.com/" rel="nofollow">ヴィク</a> on December 24, 2007 12:26 AM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/712</div>
+
+<div class="comments-body">
+<a name="366"></a>
+<span class="comments-post"><a href="http://kidachi.kazuhi.to/blog/archives/000623.html" target="new" rel="nofollow nofollow">Adobe Reader SpeedUp</a><br />
+<b>Excerpt:</b> blog.bulknews.netの「PDFをブラウザで表示させない」で、Adobe Readerの設定によりそういう風に動作を変更できることを教わりました。早速手元の環境でやってみたところ、確かにSleipnirではダウンロードするかどうか確認するダイアログが表示されるようになったけれど、...<br />
+<b>Weblog:</b> 荀������吾��@kazuhi.to<br />
+<b>Tracked:</b> January 13, 2004 10:09 PM</span>
+</div>
+<div class="comments-body">
+<a name="367"></a>
+<span class="comments-post"><a href="http://sasapanda.com/toshi/archives/000016.html" target="new" rel="nofollow nofollow">Googleさんはブラウザから</a><br />
+<b>Excerpt:</b> 細菌系統で日本初の新「門」の認定 「未知の細菌」＝「培養されたことのない菌」なのか． 培養しきれるわけがないよな． 漫画と麻薬の共通点 コカインによる脳の発火点と漫画を読んだときの活性部位が同一という話 これって，それだけコカインが優れた麻薬だと云うことを�...<br />
+<b>Weblog:</b> Orbium<br />
+<b>Tracked:</b> January 14, 2004 12:50 AM</span>
+</div>
+<div class="comments-body">
+<a name="370"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/hrak13/archives/44290.html" target="new" rel="nofollow nofollow">PDFファイルを上手く開くこと (2004/01/14)</a><br />
+<b>Excerpt:</b> PDFファイルを開くと、ブラウザが凍ってしまう時が良くあります。それを解消し、さらに高速化出来そうな記事を、blog.bulknews.netさんのblogで見つけました。
+
+PDF をブラウザで表示させない (blog.bulknews.netさん)
+
+PDF をブラウザで開くといろいろとウザイことにな<br />
+<b>Weblog:</b> きままな写真雑記<br />
+<b>Tracked:</b> January 14, 2004 03:23 AM</span>
+</div>
+<div class="comments-body">
+<a name="372"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000062.html" target="new" rel="nofollow nofollow">PDFをブラウザで表示させない</a><br />
+<b>Excerpt:</b> いつも見ているblog.bulknews.netでPDFの記事を発見..._〆(ﾟ▽ﾟ*) IEでPDFを開く時、いつも(# ﾟДﾟ) ﾑｯｶｰっと怒りまくっていたが、解消(≧∇≦)b...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> January 14, 2004 08:24 PM</span>
+</div>
+<div class="comments-body">
+<a name="373"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000062.html" target="new" rel="nofollow nofollow">PDFをブラウザで表示させない</a><br />
+<b>Excerpt:</b> いつも見ているblog.bulknews.netでPDFの記事を発見..._〆(ﾟ▽ﾟ*) IEでPDFを開く時、いつも(# ﾟДﾟ) ﾑｯｶｰっと怒りまくっていたが、解消(≧∇≦)b...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> January 14, 2004 08:24 PM</span>
+</div>
+<div class="comments-body">
+<a name="374"></a>
+<span class="comments-post"><a href="http://www.inshu.org/Blog/SONiCS/67" target="new" rel="nofollow nofollow">小技:ウザイPDFのブラウザ起動を何とかする</a><br />
+<b>Excerpt:</b> bulknewsさんより。日々頭にきていたので早速設定変更しました。
+ついでにこれも。&amp;gt;これと Adobe Reader Speed Up を使うとかなりPDF生活が快適になると思われます。<br />
+<b>Weblog:</b> Kenalog(SONiCS Weblog)<br />
+<b>Tracked:</b> January 14, 2004 09:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="375"></a>
+<span class="comments-post"><a href="http://hail2u.net/blog/software/adobe_reader_speed-up.html" target="new" rel="nofollow nofollow">Adobe Reader Speed-Up</a><br />
+<b>Excerpt:</b> Adobe Reader Speed-Upは、Adobe Readerの起動時に読み込まれるプラグインを制限することによって、妙に起動が遅くなったAdobe Readerの起動速度を改善するアプリケーションです。設定はウィザード形式になります。起動するとSpeed-Upするかオリジナルの設定を復元するか�...<br />
+<b>Weblog:</b> hail2u.net - Weblog<br />
+<b>Tracked:</b> January 14, 2004 10:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="376"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000062.html" target="new" rel="nofollow nofollow">PDFをブラウザで表示しない</a><br />
+<b>Excerpt:</b> いつも見ているblog.bulknews.netでPDFの記事を発見..._〆(ﾟ▽ﾟ*) IEでPDFを開く時、いつも(# ﾟДﾟ) ﾑｯｶｰっと怒りまくっていたが、解消(≧∇≦)b...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> January 14, 2004 11:11 PM</span>
+</div>
+<div class="comments-body">
+<a name="377"></a>
+<span class="comments-post"><a href="http://sasapanda.com/toshi/archives/000016.html" target="new" rel="nofollow nofollow">Googleさんはブラウザから</a><br />
+<b>Excerpt:</b> 細菌系統で日本初の新「門」の認定 「未知の細菌」＝「培養されたことのない菌」なのか． 培養しきれるわけがないよな． 漫画と麻薬の共通点 コカインによる脳の発火点と漫画を読んだときの活性部位が同一という話 これって，それだけコカインが優れた麻薬だと云うことを�...<br />
+<b>Weblog:</b> Orbium<br />
+<b>Tracked:</b> January 15, 2004 02:29 AM</span>
+</div>
+<div class="comments-body">
+<a name="378"></a>
+<span class="comments-post"><a href="http://www.swanq.co.jp/blog/archives/000321.html" target="new" rel="nofollow nofollow">Acrobatとろい〜</a><br />
+<b>Excerpt:</b> 窓の杜 - 「Adobe Reader」の起動を高速化できる「Adobe Reader SpeedUp」が公開 起動時に読み込むプラグインの数を制限することで、高速に起動させるんだと。 PDF をブラウザで表示させない Acrobat4の場合は[環境設定]-[一般]-[Webブラウザに組み込み]チェックボックス�...<br />
+<b>Weblog:</b> HowSoonIsNow?<br />
+<b>Tracked:</b> January 15, 2004 03:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="379"></a>
+<span class="comments-post"><a href="http://www.swanq.co.jp/blog/archives/000321.html" target="new" rel="nofollow nofollow">Acrobatとろい〜</a><br />
+<b>Excerpt:</b> 窓の杜 - 「Adobe Reader」の起動を高速化できる「Adobe Reader SpeedUp」が公開 起動時に読み込むプラグインの数を制限することで、高速に起動させるんだと。 PDF をブラウザで表示させない &amp;gt; 環境設定→インターネット→PDFをブラウザに表示 のチェックボックスを OF...<br />
+<b>Weblog:</b> HowSoonIsNow?<br />
+<b>Tracked:</b> January 15, 2004 03:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="382"></a>
+<span class="comments-post"><a href="http://sole.upper.jp/archives/001752.html" target="new" rel="nofollow nofollow">1/15（木） の PICKUP<a></a></a><br />
+<b>Excerpt:</b> 寒い……部屋の中まで寒んむーーーい（つДT） なんでも週末には雪が降るだとかで。 東京は雪が降るようにできてないのッ！ まったくもうッ！ ● うわああああああ!?!? ガイ先生じゃんッ∩（ﾟ◇ﾟ；∩）　[ねたミシュラン]　3枚目の濃ゆいキャラをコスしてくるとは……レ...<br />
+<b>Weblog:</b> ::: FTGFOP :::<br />
+<b>Tracked:</b> January 15, 2004 09:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="386"></a>
+<span class="comments-post"><a href="http://www.ranpub.com/~ran/diary/archives/000139.html" target="new" rel="nofollow nofollow">so I like Adobe =)</a><br />
+<b>Excerpt:</b> 私はAdobe信者です(笑) だからこそ！　IEでPDF開くのは、最初は便利でしたが今はうざいです(笑) PDFをブラウザで表示させない　（ネタ元：生き生き団様） 普段はOpera7を使ってますんで、意識せず（というか必然的に）ダウンロードしてますが、たまーにIEで開いた時に起動...<br />
+<b>Weblog:</b> らんシャチョーのすちゃらか雑記<br />
+<b>Tracked:</b> January 16, 2004 04:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="387"></a>
+<span class="comments-post"><a href="http://kawa.txt-nifty.com/mmb/2004/01/pdf_.html" target="new" rel="nofollow nofollow">○PDF をブラウザで表示させない</a><br />
+<b>Excerpt:</b> /*--------------------------------------------------------- blog.bulknews.net: PDF をブラウザで表示させないより PDF をブラウザで表示させない PDF をブラウザで開くといろいろとウザイことになる （起動が遅い、タブブラウザだと終了時に固まる、etc.) のですが、...<br />
+<b>Weblog:</b> My Melancholy Blogs<br />
+<b>Tracked:</b> January 17, 2004 11:58 AM</span>
+</div>
+<div class="comments-body">
+<a name="400"></a>
+<span class="comments-post"><a href="http://zerodimension.net/mt/archives/000547.html" target="new" rel="nofollow nofollow">「Adobe Reader SpeedUp」</a><br />
+<b>Excerpt:</b> 「Adobe Reader」の起動を高速化できる「Adobe Reader SpeedUp」が公開 確かに早くなりました。 ＡｃｒｏｂａｔＲｅａｄｅｒは多く使われているのにあの起動の遅さがなんとかなればと思っていましたが、これで少しは快適に使えそうです。 実は、今のＰＣはすべてＡｃｒｏ�...<br />
+<b>Weblog:</b> Blog@ZeroDimension<br />
+<b>Tracked:</b> January 19, 2004 07:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="578"></a>
+<span class="comments-post"><a href="http://www.ringolab.com/note/daiya/archives/001066.html" target="new" rel="nofollow nofollow">PDF使いこなしテクニック</a><br />
+<b>Excerpt:</b> 会社のIR資料、学会論文、商品カタログ、電子書籍、最近は契約書までPDF化が進んでいる。PDFの資料は通常のWebページと比較して、内容が濃いことが多いと感じている。きれいに印刷しやすいし、修正しにくい形で配布する用途でも適している。そして何より広く使われている�...<br />
+<b>Weblog:</b> Passion For The Future<br />
+<b>Tracked:</b> February 26, 2004 05:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="622"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000062.html" target="new" rel="nofollow nofollow">PDFをブラウザで表示しない</a><br />
+<b>Excerpt:</b> いつも見ているblog.bulknews.netでPDFの記事を発見..._〆(ﾟ▽ﾟ*)
+IEでPDFを開く時、いつも(# ﾟДﾟ) ﾑｯｶｰっと怒りまくっていたが、解消(≧∇≦)b ...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> March 10, 2004 03:43 PM</span>
+</div>
+<div class="comments-body">
+<a name="763"></a>
+<span class="comments-post"><a href="http://r286.com/arc/283" target="new" rel="nofollow nofollow">PDF ファイルも自由に扱える時代に。#3</a><br />
+<b>Excerpt:</b> PrimoPDF は話題になった影響で導入している方もいるかと思いますが、 他にもフリーの PDF 作成ツールがあるんですね。 ...<br />
+<b>Weblog:</b> ROUTE286<br />
+<b>Tracked:</b> April  7, 2004 08:52 AM</span>
+</div>
+<div class="comments-body">
+<a name="837"></a>
+<span class="comments-post"><a href="http://gleader.air-nifty.com/blog/2004/04/adobe_reader_sp.html" target="new" rel="nofollow nofollow">Adobe Reader Speed-Upのちょっとした話</a><br />
+<b>Excerpt:</b> 　起動するのにぶっ壊れてんのか？！と思われるほど遅いので有名な
+Adobe Acrobat Reader / Adobe Readerの起動を飛躍的に高速に
+してしまう、Adobe Reader Sp<br />
+<b>Weblog:</b> 戦略的撤退blog版<br />
+<b>Tracked:</b> April 20, 2004 07:02 PM</span>
+</div>
+<div class="comments-body">
+<a name="4709"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/kugalog/archives/50061330.html" target="new" rel="nofollow nofollow">PDFのダウンロードダイアログを有効にする</a><br />
+<b>Excerpt:</b> [Adobe Reader の環境設定]→[インターネット]
+→[PDFをブラウザに表示]をOFFにする
+
+
+
+
+
+<br />
+<b>Weblog:</b> くがはら日記<br />
+<b>Tracked:</b> August 23, 2005 02:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="10340"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/rskine/archives/50541566.html" target="new" rel="nofollow nofollow">PDFをまとめて管理するアプリの巻</a><br />
+<b>Excerpt:</b> pKizzy - ピーキッジーPDFファイルをMail.appのような管理方法で管理するアプリケーション。<br />
+<b>Weblog:</b> "OSX".app's ドットアップス:Macアプリを便利、感動、面白をベースにほぼ日刊で紹介。<br />
+<b>Tracked:</b> February 16, 2006 01:41 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="712" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

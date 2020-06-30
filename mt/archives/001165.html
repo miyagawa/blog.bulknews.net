@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Trackback の脆弱性についての勧告: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001165.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001164.html" title="ウイイレ8" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001166.html" title="Net::Amazon 0.28" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001165.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1165"
+    dc:title="Trackback の脆弱性についての勧告"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001165.html"
+    dc:subject="blog"
+    dc:description="多くの Trackback サーバの実装に関して、容易に Trackback SPAM のターゲットにできる脆弱性が存在しますので、内容と回避法についてアナウンスします。..."
+    dc:creator="miyagawa"
+    dc:date="2004-08-06T16:51:15+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">August 06, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Trackback の脆弱性についての勧告</h1>
+
+<p>多くの Trackback サーバの実装に関して、容易に Trackback SPAM のターゲットにできる脆弱性が存在しますので、内容と回避法についてアナウンスします。</p>
+
+<a name="more"></a>
+<style>
+<!--
+dl { margin-left: 2em; border-width: 0 0 0 1px; border-color: #000; border-style: solid; padding-left: 0.8em }
+dt { font-weight: bold }
+dd { margin-left: 2em }
+//-->
+</style>
+<h1>Trackback を SPAM に悪用される脆弱性</h1>
+
+<h2>Author</h2>
+
+<p>Tatsuhiko Miyagawa -- miyagawa at bulknews.net</p>
+
+<h2>ChangeLog</h2>
+
+<dl>
+<dt>2004.08.11</dt><dd>MT, blosxom のパッチを削除。mod_rewrite の対策についても副作用に言及。</dd>
+<dt>2004.08.06</dt><dd>一般公開。</dd>
+<dt>2004.07.16</dt><dd>mod_rewrite を利用した回避策と、Movable Type 3.01DE、blosxom へのパッチを追加。</dd>
+<dt>2004.07.14</dt><dd>First written</dd>
+</dl>
+
+<h2>対象となるシステム</h2>
+
+<p>Trackback サーバを実装しているすべてのソフトウェア、Web サイト。</p>
+
+<h2>問題</h2>
+
+<p>悪意のあるスパマーは、ウェブサイトのビジターのマシンから javascript を使って Trackback Ping SPAM を送らせることができる (DDoS 的であると言える)。</p>
+
+<p>
+exploit は JavaScript を使用し、悪意のないビジターに SPAM ping を送らせることができるため、クライアントの IP を Ban することでは防ぐことはできない。この exploit を XSS (クロスサイトスクリプティング) 脆弱性と組み合わせると、事態はより深刻となる。
+</p>
+
+<p>
+この exploit が可能な理由は、Trackback は普通のブラウザから POST メソッドで送信でき、また Trackback 送信元のなりすましを防ぐことができないプロトコルであるためである。
+</p>
+
+<h2>Exploit</h2>
+
+<p>
+Trackback スパマーはフォームを使用して Trackback を送信する JavaScript コードを自分のウェブページ、もしくは XSS 脆弱性を持つ他のウェブページに表示させる。ビジターがこのコードを開くと、ブラウザやOSがクラッシュするまで、大量の Trackback Ping を送信しつづける。このようにして Trackback Ping はビジターのマシンから送信されるため、IP Banning は解決法にはならない。
+</p>
+
+<h2>考えられるソリューション</h2>
+
+<ol>
+<li>
+同一IPからの連続した Trackback を IP banning する。同じ IP からの重複送信については動作するが、このアタックは distributed な環境から行われる(SPAM はクライアントの IP から送られ、サーバではない) ため、完全ではない。</li>
+<li>
+$REMOTE_HOST と Ping の 'url' の整合性をチェックする。このやり方は Trackback SPAM を防ぐ汎用的な方法であるが、この2つが一致しないようなホスティングサービス (たとえば TypePad)や、Blog クライアントソフトウェア(たとえば ecto) を使用してクライアントマシンから Ping を送信する場合、これらも SPAM としてはじいてしまう。</li>
+<li>'Referer' HTTP ヘッダを持つ Trackback Ping を無視する。つまり、'Referer' ヘッダがない Trackback Ping は許可する。通常の Trackback Ping は HTML フォームで送信されることは少ないので、害にはならないだろう。（ただし Trackback Ping 送信を持たない Blog ツールなどで、フォームを利用して送信するユーザもはじいてしまうことになる）</li>
+<li>'User-Agent: Mozilla/.*' といったヘッダを持つ Trackback Ping は拒否する。これは完全ではないが、ほとんどのアタックは回避できるので実用的だろう。</li>
+<li>Trackback プロトコルのバージョンを上げて、こうした悪意のあるアタックを回避できるようにする。</li>
+</ol>
+
+<p>1. については Movable Type 2.661 以降などでは同一の IP アドレスからの短期間内の連続 Ping を拒否するオプションが用意されている。これを利用すればプロキシサーバ経由でのプログラムによる連続投稿なども(2発目以降を)拒否することができる。</p>
+
+<p>一例として 3,4 を Apache モジュールの <a href="http://httpd.apache.org/docs/mod/mod_rewrite.html">mod_rewrite</a> で実装すると以下のようになる(サンプル内の <code>mt-tb.cgi</code> は、使用しているシステムの Trackback スクリプト名に変更する必要がある)。この対策には一部のユーザからの Trackback Ping を拒否してしまう副作用があることを理解した上で利用していただきたい。</p>
+
+<pre>
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_URI} mt-tb\.cgi
+RewriteCond %{HTTP_REFERER} .+ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/
+RewriteRule (.*) - [F,L]
+</pre>
+
+<h2><a name="faq">FAQ</a></h2>
+
+<dl>
+<dt>これは普通のPOSTで投稿できるフォーム全般にいえることなので、脆弱性というのは大げさでは？</dt>
+<dd>はい、これは別に目新しいことでもなんでもなく、通常のブラクラを使った荒しとかで使われるテクニックです。なのでこれはセキュリティホールではなく、脆弱性だと表現しました。ただ掲示板の場合は Referer が自ドメインかをチェックしたり、プレビューハッシュ、パラメータ名の変更などである程度対策できますが Trackback の場合はパラメータが規格化されているのでそうはいかない問題があります。その代わり、多くの Trackback Ping はサーバサイドのツールから送信されるので、それを想定した対策をすることでブラウザを使用したアタックを回避することができます（若干の弊害も出ますが）。</dd>
+<dt>Exploit のコードを配布するのはモラル的にどうか？</dt>
+<dd>当初、公開前に Blog ツール開発者向けに連絡する際、具体的にイメージしやすいように Exploit コードを掲載しており、公開時に猶予をもたせて一般公開するように差し替えた経緯があるのですが、実際にコードがなくても手法や対策については十分意図が伝わっているようなので、コードの公開は差し控えます。</dd>
+</dl>
+
+<h2>See Also</h2>
+
+<ul>
+<li><a href="http://www.nonplus.net/software/mt/AvoidingDuplicateTrackbackPings.htm" title="MT Extensions: Avoiding Duplicate Trackback Pings 1.0">MT Extensions: Avoiding Duplicate Trackback Pings 1.0</a></li>
+<li><a href="http://www.unix-girl.com/blog/archives/001444.html" title="kasia in a nutshell: Comment spam and mod_rewrite">kasia in a nutshell: Comment spam and mod_rewrite</a></li>
+</ul>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'セキュア, セキュリティ, Blog';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at August  6, 2004 04:51 PM
+| <a href="http://blog.bulknews.net/mt/archives/001165.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001165.html#comments">Comments (15)</a>
+
+| <a href="#trackbacks">TrackBack(40)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001164.html\">&laquo; ウイイレ8</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001166.html\">Net::Amazon 0.28 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>mod_rewrite版の場合ですが、「http://blog.bulknews.net/mt/mt-tb/1165」のように「.cgi」を除外したものをTrackback URLとして利用すると、exploitできてしまうはずです。</p>
+<span class="comments-post">Posted by: <a href="http://as-is.net/blog/" rel="nofollow">(o)</a> on August  7, 2004 01:32 AM</span>
+</div>
+<div class="comments-body">
+<p>えーと、ですので mt-tb.cgi は利用しているスクリプト名に変更する必要がある、と書いているつもりですが、はずしてますか？</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on August  7, 2004 03:50 AM</span>
+</div>
+<div class="comments-body">
+<p>説明不足でした。<br />
+Options +MultiViewsとしているとき、mt-tb.cgiはmt-tbでもアクセスできる場合がありますから、<br />
+「利用しているスクリプト名」だけでは不十分な場合がある、とこういうことです。</p>
+<span class="comments-post">Posted by: <a href="http://as-is.net/blog/" rel="nofollow">(o)</a> on August  7, 2004 04:10 AM</span>
+</div>
+<div class="comments-body">
+<p>infoseek.co.jpのようにJavascriptでしかTrackback送信を利用できないサイトもあるので、３〜５の解決方法はかなり寂しいです。せっかくTrackbackを送れるサイトが増えてきているのに。<br />
+例えば１の「重複IPをチェックする方法」と「Trackback URL中に1度しか使用できない識別子を埋め込む方法」を併用してはどうでしょうか。</p>
+<span class="comments-post">Posted by: <a href="http://sweet.littlestar.jp/" rel="nofollow">MayimMayim</a> on August  8, 2004 09:05 PM</span>
+</div>
+<div class="comments-body">
+<p>今はトラックバックによる大きな問題が発生しているというよりは、コメントスパムが問題になっていて、トラックバックスパムも送られ始めているという状況と認識しております。<br />
+私も含め今既にスパム被害にあっていて、日々対策を検討していたような人にとって、いまいち良く分からないが、ブログ凄腕の人たちが問題にしている、この件については、何らかの対応をしなくてはいけないと考えるのは自然な動きと思います。<br />
+が、それに伴う弊害も多く、トラックバックを送れなくなっているところもあります。<br />
+その原因は３，４の対策がJavaScriptを使ったトラックバックをブロックしてしまう為です。<br />
+しかし、どうも調べてみると、３、４の対策をすり抜けるトラックバック送信ページが存在します。で、３，４を実装された結果、トラックバックを送れなくなった人はそういうトラックバック送信ページを使うしかなくなります。<br />
+私もそうせざるを得ないと思っております。<br />
+でも、良く考えるとなんかおかしいです。<br />
+というのは、３，４が対策にならない送信方法があるので、スパマーはそのページで採用している方法で送ればいいんですから、３、４は対策にはなっていないのではないか？という事です。<br />
+この認識は間違っているでしょうか？<br />
+まあ、３についてはまだ良く理解出来ていないけど、対策しておかないと問題ありそうな気はしますが、４は弊害の方が大きいのではないかと、そんな気がします。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://color99.hp.infoseek.co.jp/blosxom/statics/index.html" rel="nofollow">color99</a> on August  9, 2004 07:15 PM</span>
+</div>
+<div class="comments-body">
+<p>> というのは、３，４が対策にならない送信方法があるので、スパマーはそのページで採用している方法で送ればいいんですから、３、４は対策にはなっていないのではないか？という事です。<br />
+> この認識は間違っているでしょうか？</p>
+
+<p>3, 4 が対策にならない送信方法とは、tb-standalone のようなCGIスクリプトツールをサーバサイドにいれて、送信する方法です。これと同様の手法を使う場合、特定のサーバのIPから送信されることになるため IP Banning が有効になります。</p>
+
+<p>今回指摘している問題および対策方法は、JavaScript を使用して、スパマーが、そうでない人に Ping SPAM を送らせることができる、ということになるので、3, 4がその対策になります。</p>
+
+<p>Trackback 送信ができない Blog ツールあるいはホスティングサーバの場合については、ぶろっぐぴんぴんなどのソフトや、Free Trackback のようなサービスを使われるのがよいかとおもいます。(ぶろっぐぴんぴんは Mozilla を名乗るようなのでちょっと悩ましいですね。User-Agent を変更してもらうほうがよいかもしれません）</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on August  9, 2004 07:22 PM</span>
+</div>
+<div class="comments-body">
+<p>>3, 4 が対策にならない送信方法とは、tb-standalone のようなCGIスクリプトツールをサーバサイドにいれて、送信する方法です。<br />
+>これと同様の手法を使う場合、特定のサーバのIPから送信されることになるため IP Banning が有効になります。</p>
+
+<p>私はkyoさんが作られたblosxomスターターキットというのを使っております。<br />
+IP Banningというのは、特定のIPアドレスからくるものをブロックする機能だと思いますが、その機能はblosxomスターターキットには標準では無いので、<br />
+blacklistプラグインなどを導入するとかしないと３、４だけではやはり対策として不足ですね。<br />
+それはまたIPアドレスをどうやって調べるのかとか、ブログ初心者は良く分からないと思いますので、そのケアも必要でしょう。<br />
+（blosxomスターターキットでは多分何か改造しないと調べれないと思います。）</p>
+
+<p>>今回指摘している問題および対策方法は、JavaScript を使用して、スパマーが、そうでない人に Ping SPAM を送らせることができる、ということになるので、3, 4がその対策になります。</p>
+
+<p>これは、 XSS 脆弱性を持つ他のウェブページからJavaScript を使用してトラックバックを送らせるという事を言っていると思いますが、<br />
+逆に言えば、XSS 脆弱性を持たなければ３、４の対策は不要という事になりますか？<br />
+blosxomスターターキットではkyoさんが、「サニタイズ」の実装をしていらっしゃいますので、これでXSS 脆弱性が取れるなら、３，４の実装は不要？<br />
+この実装後もまだ脆弱性が取残ってたとしても、webページからJavaScriptで送る場合にはリファラが必ずついてしまう様に思うんで、３だけを実装し、<br />
+４を削除で問題ないのではないでしょうか？（実は今そういう実装にしております。）</p>
+
+<p>>Trackback 送信ができない Blog ツールあるいはホスティングサーバの場合については、ぶろっぐぴんぴんなどのソフトや、Free Trackback のようなサービスを使われるのがよいかとおもいます。(ぶろっぐぴんぴんは Mozilla を名乗るようなのでちょっと悩ましいですね。User-Agent を変更してもらうほうがよいかもしれません）</p>
+
+<p>ぶろっぐぴんぴんだけの問題なんでしょうか？<br />
+又、ぶろっぐぴんぴんには既に誰か変更要望してるんでしょうか？</p>
+
+<p>以上、いろいろ質問させていただきましたが、多分、ブログに詳しい方のご意見ですので、基本的には正しいんだと思うんですが、<br />
+素人に毛が生えた程度しか知識を持ち合わせていないと、なかなか正確に理解するのが難しいです。<br />
+多分、多くの初級〜中級ブロガーはもろ困っていると思いますので、出来るだけわかりやすく説明していただけると他の方も安心すると思いますし、<br />
+逆に正しく理解出来れば、ある程度のケアは私のようなものでも可能かと思います。</p>
+<span class="comments-post">Posted by: <a href="http://color99.hp.infoseek.co.jp/blosxom/statics/index.html" rel="nofollow">color99</a> on August  9, 2004 10:09 PM</span>
+</div>
+<div class="comments-body">
+<p>すべて正確に理解していただくには実際の攻撃コードを見ていただくしかないような気もするのですが、答えられる点だけピンポイントで。</p>
+
+<p>> IP Banningというのは、特定のIPアドレスからくるものをブロックする機能だと思いますが、その機能はblosxomスターターキットには標準では無いので、<br />
+blacklistプラグインなどを導入するとかしないと３、４だけではやはり対策として不足ですね。</p>
+
+<p>今回の指摘は Trackback そのものについての脆弱な性質についてですので、個別ツールの実装については関与していないつもりです。</p>
+
+<p>> これは、 XSS 脆弱性を持つ他のウェブページからJavaScript を使用してトラックバックを送らせるという事を言っていると思いますが、<br />
+> 逆に言えば、XSS 脆弱性を持たなければ３、４の対策は不要という事になりますか？</p>
+
+<p>XSS 脆弱性をもっているWebページは自分のドメインである必要はないので、各BlogツールのXSS脆弱性対応状況については本質的には関係ありません。</p>
+
+<p>> この実装後もまだ脆弱性が取残ってたとしても、webページからJavaScriptで送る場合にはリファラが必ずついてしまう様に思うんで、３だけを実装し、<br />
+４を削除で問題ないのではないでしょうか？（実は今そういう実装にしております。）</p>
+
+<p>これは3だけでも問題ないとおもいます。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on August 10, 2004 01:37 AM</span>
+</div>
+<div class="comments-body">
+<p>恩~はははははは、少し支持し、とても良かったし、鑑赏に値する</p>
+<span class="comments-post">Posted by: <a href="http://www.rmtsonic.jp/games/FF14RMT.html" rel="nofollow">ff14rmt</a> on December 14, 2010 03:41 PM</span>
+</div>
+<div class="comments-body">
+<p>蟻力神:www.kanpocom.com/pro/yilishen.html<br />
+イーリンシン:www.kanpocom.com/pro/yilishen.html<br />
+三便宝:www.kanpocom.com/pro/satibo-capsules.html<br />
+三便宝 通販:www.kanpocom.com/pro/satibo-capsules5.html<br />
+五便宝:www.kanpocom.com/pro/wodibo-capsules.html<br />
+威哥王:www.kanpocom.com/pro/weigewang.html<br />
+巨人倍増枸杞:www.kanpocom.com/pro/jurenbeiceng.html<br />
+中華牛鞭:www.kanpocom.com/pro/niubian.html</p>
+<span class="comments-post">Posted by: <a href="http://www.kanpocom.com/pro/yilishen.html" rel="nofollow">蟻力神</a> on March 15, 2011 02:48 PM</span>
+</div>
+<div class="comments-body">
+<p>蟻力神:www.kanpoucom.com/product/132.html<br />
+三便宝カプセル:www.kanpoucom.com/product/149.html<br />
+巨人倍増枸杞カプセル:www.kanpoucom.com/product/398.html<br />
+経口中絶薬RU486:www.kanpoucom.com/product/113.html<br />
+MaxMan:www.kanpoucom.com/product/97.html<br />
+五便宝:www.kanpoucom.com/product/157.html</p>
+<span class="comments-post">Posted by: <a href="http://www.kanpoucom.com/product/132.html" rel="nofollow">蟻力神</a> on March 15, 2011 02:51 PM</span>
+</div>
+<div class="comments-body">
+<p>結構革新的な技術であるTrackBack ブログの人と人、話題と話題を結ぶであろう魅力たっぷりの要素で誰でも簡単にできるのだが、その敷居の低さが問題に。 多くの Trackback サーバの実装に関して、容易に Trackback SPAM のターゲットにできる脆弱性が存在しますので、内...</p>
+<span class="comments-post">Posted by: <a href="http://www.okkanpo.com/product/167.html" rel="nofollow">紅蜘蛛</a> on June 27, 2011 04:01 PM</span>
+</div>
+<div class="comments-body">
+<p>紅蜘蛛 液体:www.001kanpo.com/product/43.html<br />
+御秀堂:www.001kanpo.com/product/219.html<br />
+D5 原液:www.001kanpo.com/product/231.html<br />
+男宝:www.001kanpo.com/product/409.html<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.001kanpo.com/" rel="nofollow">巨人倍増</a> on July 18, 2011 05:26 PM</span>
+</div>
+<div class="comments-body">
+<p>その前に現状のMTに入れた修正点をメモしておきます。</p>
+<span class="comments-post">Posted by: <a href="http://www.tiffanytojp.com" rel="nofollow">ティファニー</a> on August 16, 2011 07:09 PM</span>
+</div>
+<div class="comments-body">
+<p>Durant quatre d�cennies nous avons cru a la construction des relations a l'aide d'une interaction face a face, et une adh�sion a une strat�gie qualit� de gambling recommand�s, des i</p>
+<span class="comments-post">Posted by: <a href="http://www.tiffanytojp.com" rel="nofollow">tiffany</a> on August 16, 2011 07:10 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1165</div>
+
+<div class="comments-body">
+<a name="1286"></a>
+<span class="comments-post"><a href="http://kroko.maxs.jp/~kroko/mt/archives/000073.shtml" target="new" rel="nofollow nofollow">Trackback の脆弱性用パッチ</a><br />
+<b>Excerpt:</b> 　結構革新的な技術であるTrackBack ブログの人と人、話題と話題を結ぶであろう魅力たっぷりの要素で誰でも簡単にできるのだが、その敷居の低さが問題に。 多くの Trackback サーバの実装に関して、容易に Trackback SPAM のターゲットにできる脆弱性が存在しますので、内...<br />
+<b>Weblog:</b> k-MT<br />
+<b>Tracked:</b> August  6, 2004 05:20 PM</span>
+</div>
+<div class="comments-body">
+<a name="1287"></a>
+<span class="comments-post"><a href="http://tdiary.ishinao.net/20040806.html#p11" target="new" rel="nofollow nofollow">[watch] Trackback の脆弱性についての勧告 (17:30)</a><br />
+<b>Excerpt:</b> これってTrackbackに限った問題なんだろうか？　HTTP POSTで攻撃可能なすべてのWebアプリケーションに有効だったりしそうな気が。<br />
+<b>Weblog:</b> tdiary.ishinao.net<br />
+<b>Tracked:</b> August  6, 2004 05:31 PM</span>
+</div>
+<div class="comments-body">
+<a name="1288"></a>
+<span class="comments-post"><a href="http://as-is.net/blog/archives/000897.html" target="new" rel="nofollow nofollow">Trackbackの脆弱性</a><br />
+<b>Excerpt:</b> 誰もが気が付きまくっている、性善説に基づいて設計されたとしか思えない、あのTrackbackの自明な脆弱性。Exploitも超簡単です。 Trackback の脆弱性についての勧告: blog.bulknews.net 以下のようないい加減なHTMLをデバッグ用・動作試験用に使っていたのですが、ついに�...<br />
+<b>Weblog:</b> Ogawa::Memoranda<br />
+<b>Tracked:</b> August  6, 2004 07:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="1290"></a>
+<span class="comments-post"><a href="http://blog.nomadscafe.jp/archives/000115.html" target="new" rel="nofollow nofollow">Trackback の脆弱性用パッチTrackback の脆弱性用パッチ</a><br />
+<b>Excerpt:</b> Trackback の脆弱性用パッチ blog.bulknews.netさんがTrackback の脆弱性についての勧告を出している。 TrackBack Pingを JavaScript を使用して送ることができるので、それがSPAMやDDoSとして使われることがあると、いうことらしい。 Movable TypeのVersion 2.661のPatch...<br />
+<b>Weblog:</b> blog.nomadscafe.jp<br />
+<b>Tracked:</b> August  6, 2004 07:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="1291"></a>
+<span class="comments-post"><a href="http://sho.tdiary.net/20040806.html#p04" target="new" rel="nofollow nofollow">Trackback の脆弱性についての勧告</a><br />
+<b>Excerpt:</b> うぅむ。厄介なJavaScriptめ……。
+
+tDiaryのplugin/trackback/tb/rbへのパッチはこんな感じ? 最近コード書いてないから、この程度でも自信がない……(テスト環境が手元にないのである)。
+
+Index: tb.rb
+===============================================================...<br />
+<b>Weblog:</b> ただのにっき<br />
+<b>Tracked:</b> August  6, 2004 07:21 PM</span>
+</div>
+<div class="comments-body">
+<a name="1292"></a>
+<span class="comments-post"><a href="http://blog.underdone.net/log/eid181.html" target="new" rel="nofollow nofollow">ブラウザからのトラックバックスパム対応</a><br />
+<b>Excerpt:</b> blog.bulknews.net : Trackback の脆弱性についての勧告私がiBlogでBlogを書いていたときに、手動トラックバックフォームというのを設置していました。当時はトラックバックというのがまだ一般的ではなかったせいか、...<br />
+<b>Weblog:</b> UnderDone(あんでるどん)<br />
+<b>Tracked:</b> August  6, 2004 09:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="1293"></a>
+<span class="comments-post"><a href="http://hail2u.net/blog/blosxom/blosxom_starter_kit_18.html" target="new" rel="nofollow nofollow">blosxom starter kit #18</a><br />
+<b>Excerpt:</b> てなわけで(とフリもないのに)、遂に公開されたTrackback の脆弱性についての勧告ですが、とりあえずは08/13に攻撃コードが公開されてしまうので、writebackに対策コードを追加して、blosxom starter kitを1.0.2に更新しました。基本的な部分は何も変わっていないので、ア...<br />
+<b>Weblog:</b> hail2u.net - Weblog<br />
+<b>Tracked:</b> August  7, 2004 12:05 AM</span>
+</div>
+<div class="comments-body">
+<a name="1294"></a>
+<span class="comments-post"><a href="http://level.s69.xrea.com/mozilla/../index.cgi?id=20040806_TrackbackSpam" target="new" rel="nofollow nofollow">Trackback を SPAM に悪用される脆弱性</a><br />
+<b>Excerpt:</b> ごく普通の「ウェブサイトのビジターのマシン」を経由してスパムを送りつけることが出来るというのがミソなんですね。<br />
+<b>Weblog:</b> えむもじら<br />
+<b>Tracked:</b> August  7, 2004 12:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="1295"></a>
+<span class="comments-post"><a href="http://www.bean-jam.jp/archives/2004/08/06/235558.html" target="new" rel="nofollow nofollow">Trackback の脆弱性についての勧告</a><br />
+<b>Excerpt:</b> ・Trackback の脆弱性についての勧告
+
+blog.bulknews.ne...<br />
+<b>Weblog:</b> なんかいいことないかな<br />
+<b>Tracked:</b> August  7, 2004 12:35 AM</span>
+</div>
+<div class="comments-body">
+<a name="1296"></a>
+<span class="comments-post"><a href="http://uva.jp/dh/mt/archives/004397.html" target="new" rel="nofollow nofollow">Trackback の脆弱性への対策方法</a><br />
+<b>Excerpt:</b> Trackback を大量にうちつけられ...<br />
+<b>Weblog:</b> dh's memoranda<br />
+<b>Tracked:</b> August  7, 2004 02:06 AM</span>
+</div>
+<div class="comments-body">
+<a name="1300"></a>
+<span class="comments-post"><a href="http://blog.gaspanik.com/archives/002231.html" target="new" rel="nofollow nofollow">以降って含むんだっけ？</a><br />
+<b>Excerpt:</b> ホゲホゲ以降って含むんだっけかねえ（笑）。...<br />
+<b>Weblog:</b> gaspanik weblog<br />
+<b>Tracked:</b> August  7, 2004 10:20 AM</span>
+</div>
+<div class="comments-body">
+<a name="1301"></a>
+<span class="comments-post"><a href="http://www.junktest.net/zope/junya/353" target="new" rel="nofollow nofollow">Trackback の脆弱性への対応@COREBlog</a><br />
+<b>Excerpt:</b> ネタ元: blog.bulknews.net の Trackback の脆弱性についての勧告
+
+
+Trackback を受け付けるサーバアプリケーションは被害をうけるかもしれないということらしい。COREBlog も Trackback を受け付けるサーバアプリケーションなのでこれに該当するでしょう。<br />
+<b>Weblog:</b> JuNya KOBORI's Miscellaneous Impressions Page<br />
+<b>Tracked:</b> August  7, 2004 12:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="1302"></a>
+<span class="comments-post"><a href="http://catcat.boo.jp/blog/archives/001088.html" target="new" rel="nofollow nofollow">Trackbackの脆弱性</a><br />
+<b>Excerpt:</b> えむもじら様経由で Trackback の脆弱性についての勧告: blog.bulknews.net 対象となるシステム Trackback サーバを実装しているすべてのソフトウェア、Web サイト。 う〜む(^^; 意図せずにTrackback pingを送らされる機械も落ちるまで送らされることもあり得るわけですか...<br />
+<b>Weblog:</b> Kyan's BLOG<br />
+<b>Tracked:</b> August  7, 2004 01:53 PM</span>
+</div>
+<div class="comments-body">
+<a name="1303"></a>
+<span class="comments-post"><a href="http://blog.ri-on.com/archives/000678.php" target="new" rel="nofollow nofollow">trackbackの脆弱性</a><br />
+<b>Excerpt:</b> 今すぐに対応しろ！といっても時間的に無理なので、のちほどゆっくり対策方法を導入しようと思います。<br />
+<b>Weblog:</b> Another Fulcrum<br />
+<b>Tracked:</b> August  7, 2004 04:34 PM</span>
+</div>
+<div class="comments-body">
+<a name="1307"></a>
+<span class="comments-post"><a href="http://www.aradukuri.jp/site/000000109190548609264143/index.html" target="new" rel="nofollow nofollow">Trackback の脆弱性</a><br />
+<b>Excerpt:</b> Trackback の脆弱性についての勧告という記事が出ていた。&amp;lt;br /<br />
+<b>Weblog:</b> aradukuri<br />
+<b>Tracked:</b> August  8, 2004 04:09 AM</span>
+</div>
+<div class="comments-body">
+<a name="1308"></a>
+<span class="comments-post"><a href="http://sakurako.moo.jp/blog/archives/2004/08/trackback.html" target="new" rel="nofollow nofollow">Trackback の脆弱性についての勧告</a><br />
+<b>Excerpt:</b> Trackbackの脆弱性についての情報を見つけました。Trackback サーバを実装しているすべてのソフトウェア、Web サイトが対象<br />
+<b>Weblog:</b> 椿屋<br />
+<b>Tracked:</b> August  8, 2004 12:11 PM</span>
+</div>
+<div class="comments-body">
+<a name="1309"></a>
+<span class="comments-post"><a href="http://yaplog.jp/themerize/archive/14" target="new" rel="nofollow nofollow">Trackbackの脆弱性？</a><br />
+<b>Excerpt:</b> Bulknewsのひとが以下のような文章を発表している。
+
+Trackback の脆弱性についての勧告
+http://blog.bulknews.net/mt/archives/001165.html
+
+それを受けてブログ神
+http://uva.jp/dh/mt/archives/004397.html
+
+
+かいつまんで言えば、細工用のJavaScriptを埋め込...<br />
+<b>Weblog:</b> THEMERIZEの中の人記<br />
+<b>Tracked:</b> August  8, 2004 02:45 PM</span>
+</div>
+<div class="comments-body">
+<a name="1310"></a>
+<span class="comments-post"><a href="http://blue-bullet.dyndns.org/mt/archives/2004/0808162434.php" target="new" rel="nofollow nofollow">Trackback の脆弱性</a><br />
+<b>Excerpt:</b> Trackback の脆弱性についての勧告: blog.bulknews.net Trackback...<br />
+<b>Weblog:</b> BBBLOG<br />
+<b>Tracked:</b> August  8, 2004 04:29 PM</span>
+</div>
+<div class="comments-body">
+<a name="1311"></a>
+<span class="comments-post"><a href="http://cha.s57.xrea.com/blogs/index.php/2004/08/08/p37" target="new" rel="nofollow nofollow">b2evoでの「Trackback の脆弱性」対策案</a><br />
+<b>Excerpt:</b> blog.bulknews.net で Trackback の脆弱性についての勧告 という記事が出ています。
+
+悪意のあるスパマーは、ウェブサイトのビジターのマシンから javascript を使って Trackback Ping SPAM を送らせるの..<br />
+<b>Weblog:</b> 茶気抄(cha-ki-sho)<br />
+<b>Tracked:</b> August  8, 2004 06:01 PM</span>
+</div>
+<div class="comments-body">
+<a name="1313"></a>
+<span class="comments-post"><a href="http://icastle.p-dns.net/~jinn/archives/2004_08.html#000021" target="new" rel="nofollow nofollow">Trackback の脆弱性についての勧告</a><br />
+<b>Excerpt:</b> Trackback サーバを実装しているすべてのソフトウェア、Web サイトが、対象になるそうです。 チェックしておきましょう。 blog.bulknews.netさん...<br />
+<b>Weblog:</b> くろがねメモ<br />
+<b>Tracked:</b> August  9, 2004 01:13 AM</span>
+</div>
+<div class="comments-body">
+<a name="1315"></a>
+<span class="comments-post"><a href="http://yebisuya.dip.jp/yeblog/archives/a000420.html" target="new" rel="nofollow nofollow">コメントスパム対策</a><br />
+<b>Excerpt:</b> mixiのブロガーコミュにコメントスパム対策についてのトピックがあったのでそこに書かれていたURL(スパム対策 - itokoichi-blog、続々コメントスパム - きままにポロポロ)を参考にMTをいじってみました。 このためコメント書込時に一手間増えてしまいますがご容赦を。 あ�...<br />
+<b>Weblog:</b> 繧腺LOG<br />
+<b>Tracked:</b> August  9, 2004 05:17 AM</span>
+</div>
+<div class="comments-body">
+<a name="1318"></a>
+<span class="comments-post"><a href="http://spaces.msn.com/members/fumiakiy/blog/cns!1pOypexT_v9aVNXiUPs6Ve_w!115.entry" target="new" rel="nofollow nofollow">Trackback の〓E〓性につぁEfの勧告〓</a><br />
+<b>Excerpt:</b> Trackback の〓E〓性につぁEfの勧告〓<br />
+<b>Weblog:</b> <br />
+<b>Tracked:</b> August  9, 2004 08:07 PM</span>
+</div>
+<div class="comments-body">
+<a name="1320"></a>
+<span class="comments-post"><a href="http://shinshu.fm/MHz/43.55/archives/0000005628.html" target="new" rel="nofollow nofollow">trackback脆弱性対応</a><br />
+<b>Excerpt:</b> Trackback の脆弱性についての勧告
+3...<br />
+<b>Weblog:</b> Super::User<br />
+<b>Tracked:</b> August 10, 2004 03:12 AM</span>
+</div>
+<div class="comments-body">
+<a name="1321"></a>
+<span class="comments-post"><a href="http://sweet.littlestar.jp/b/index.cgi/mayim/20040810062001.htm" target="new" rel="nofollow nofollow">blosxom lolipopでトラックバック送信する方法</a><br />
+<b>Excerpt:</b> 脆弱性の勧告を受けて、今までロリポで動かなくて放置してたwikieditishのTrackback送信を調べてみました。<br />
+<b>Weblog:</b> LittleStoryホームページ<br />
+<b>Tracked:</b> August 10, 2004 06:48 AM</span>
+</div>
+<div class="comments-body">
+<a name="1326"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/001182.html" target="new" rel="nofollow nofollow">リファラつきの Trackback に確認画面</a><br />
+<b>Excerpt:</b> DDoS 的な JavaScript のアタックをはじきつつ、blosxom の Ping flavour とかから送信される（正当な？）リファラつき Trackback を確認画面を1枚はさんで受け付けられるようにしてみました。（なんか深追いっぽいですがこれが Blog ツール側のデフォルトになればよいの�...<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> August 11, 2004 08:24 PM</span>
+</div>
+<div class="comments-body">
+<a name="1331"></a>
+<span class="comments-post"><a href="http://watcher.moe-nifty.com/memo/2004/05/post_17.html" target="new" rel="nofollow nofollow">右クリックでトラックバック</a><br />
+<b>Excerpt:</b> このスクリプトを使うと、現在閲覧中のWebページがトラックバック対応ページなら、右クリック一発でトラックバック送信フォームを呼び出せるようになります。Internet Explorer 専用。<br />
+<b>Weblog:</b> 観測気球<br />
+<b>Tracked:</b> August 12, 2004 01:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="1336"></a>
+<span class="comments-post"><a href="http://masumin.maaya.jp/blog/archives/2004/08/trackback.html" target="new" rel="nofollow nofollow">Trackback の脆弱性への対応</a><br />
+<b>Excerpt:</b> Referer/User-Agentはじきで一部のツールを塞ぐのもやだったけど、やらないよりはと想ってReferer付は確認画面を出す方法を採用しようかとおもいます。<br />
+<b>Weblog:</b> Sky and Heart...<br />
+<b>Tracked:</b> August 13, 2004 06:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="1348"></a>
+<span class="comments-post"><a href="http://blog.underdone.net/log/eid372.html" target="new" rel="nofollow nofollow">続：ブラウザからのトラックバックスパム対応</a><br />
+<b>Excerpt:</b> blog.bulknews.net : Trackback の脆弱性についての勧告いつのまにやら対応方法が変わっています。というのは、ぶろっぐぴんぴんや、ブラウザからの正当なトラックバック(Blosxomのプラグインからのトラックバック)が...<br />
+<b>Weblog:</b> UnderDone(あんでるどん)<br />
+<b>Tracked:</b> August 16, 2004 07:21 PM</span>
+</div>
+<div class="comments-body">
+<a name="1361"></a>
+<span class="comments-post"><a href="http://fuktommy.s64.xrea.com/1093174064.html" target="new" rel="nofollow nofollow">TrackBackの脆弱性</a><br />
+<b>Excerpt:</b> この対策をされ〓とDCard〓らはTrackBackが送れなくな〓。<br />
+<b>Weblog:</b> ダイフク<br />
+<b>Tracked:</b> August 22, 2004 08:28 PM</span>
+</div>
+<div class="comments-body">
+<a name="1664"></a>
+<span class="comments-post"><a href="http://uva.jp/dh/mt/archives/004397.html" target="new" rel="nofollow nofollow">Trackback の脆弱性への対策方法</a><br />
+<b>Excerpt:</b> Trackback を大量にうちつけられ...<br />
+<b>Weblog:</b> dh's memoranda<br />
+<b>Tracked:</b> September 27, 2004 06:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="2893"></a>
+<span class="comments-post"><a href="http://muryou-de.com/blog/archives/000167.html" target="new" rel="nofollow nofollow">Movable Type の脆弱性と対策について</a><br />
+<b>Excerpt:</b> 当サイトのレンタルサーバーロリポップさんからこんなメールが・・・ どうやらMov...<br />
+<b>Weblog:</b> お小遣いサイト運営メモ<br />
+<b>Tracked:</b> January 26, 2005 03:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="2939"></a>
+<span class="comments-post"><a href="http://cori95.net/blosxom/11072476091.htm" target="new" rel="nofollow nofollow">今更ながらトラックバックスパムが来た。</a><br />
+<b>Excerpt:</b> というかオンタイムでガシガシ来てる。重たすぎ。とりあえず、書き込みは4回だけで食い止められたので手作業で削除するか。一応Trackback の脆弱性についての勧告: blog.bulknews.netに従って、下記をApacheモジュールのmod_rewriteで追加。確かに、今日初めてホンモノを�...<br />
+<b>Weblog:</b> cori95.net<br />
+<b>Tracked:</b> February  1, 2005 05:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="2940"></a>
+<span class="comments-post"><a href="http://a-h.parfe.jp/asmt/archives/000383.html" target="new" rel="nofollow nofollow">TBスパムボット 来襲！</a><br />
+<b>Excerpt:</b> ふとメールボックスを見ると、Blogへのトラックバックが大量に来ている。 何事かと思えば、トラックバックを利用したスパム。 しかも、同じものがご丁寧に各エントリーごとに投稿されてる。 コメントスパムは日に何十件、そしてとうとうトラックバックスパムもおいでなさ�...<br />
+<b>Weblog:</b> AUSGANG SOFT<br />
+<b>Tracked:</b> February  1, 2005 06:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="2942"></a>
+<span class="comments-post"><a href="http://mikilab.doshisha.ac.jp/~matake/bianca/archives/000569.html" target="new" rel="nofollow nofollow">BiancaのTrackBack Spam対策【トラックバックスパム対策】</a><br />
+<b>Excerpt:</b> 今日Bianca's Blog（MovableType: MT）に突然100件以...<br />
+<b>Weblog:</b> Bianca<br />
+<b>Tracked:</b> February  1, 2005 11:51 PM</span>
+</div>
+<div class="comments-body">
+<a name="3072"></a>
+<span class="comments-post"><a href="http://yebisuya.dip.jp/yeblog/archives/a000510.html" target="new" rel="nofollow nofollow">MTへの修正</a><br />
+<b>Excerpt:</b> MT-3.151が出たようなのでアップグレードしようと思ったんですが、その前に現状のMTに入れた修正点をメモしておきます。<br />
+<b>Weblog:</b> ゑBLOG<br />
+<b>Tracked:</b> February 18, 2005 09:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="4464"></a>
+<span class="comments-post"><a href="http://ohio-history.morediscounts.info" target="new" rel="nofollow nofollow">ohio history</a><br />
+<b>Excerpt:</b> ohio history<br />
+<b>Weblog:</b> ohio history<br />
+<b>Tracked:</b> July 27, 2005 07:26 PM</span>
+</div>
+<div class="comments-body">
+<a name="9025"></a>
+<span class="comments-post"><a href="http://www.hapima.com/sh/ranking/shop/" target="new" rel="nofollow nofollow">�����L���O����ڂł킩��v���X�Z���N�g</a><br />
+<b>Excerpt:</b> ���ꂩ����撣���Ă���������
+<br />
+<b>Weblog:</b> �l�C���i�Z�[����<br />
+<b>Tracked:</b> January 14, 2006 03:56 AM</span>
+</div>
+<div class="comments-body">
+<a name="14335"></a>
+<span class="comments-post"><a href="http://casinos.jeu8.com" target="new" rel="nofollow nofollow">casinos</a><br />
+<b>Excerpt:</b> Merci de votre int�r�t pour le casinos. Soumettez s'il vous plait le formulaire ci-dessous et un commercial de casinos vous contactera. Merci de votre int�r�t pour le casinos. Vous r�alisez une chose merveilleuse p...<br />
+<b>Weblog:</b> casinos<br />
+<b>Tracked:</b> April 23, 2006 10:42 AM</span>
+</div>
+<div class="comments-body">
+<a name="14357"></a>
+<span class="comments-post"><a href="http://gambling.cfr8.com" target="new" rel="nofollow nofollow">gambling</a><br />
+<b>Excerpt:</b> Durant quatre d�cennies nous avons cru a la construction des relations a l'aide d'une interaction face a face, et une adh�sion a une strat�gie qualit� de gambling recommand�s, des investissements qui ont fait leur pr�vue avec le temps. Informez-nous su...<br />
+<b>Weblog:</b> gambling<br />
+<b>Tracked:</b> April 23, 2006 02:01 PM</span>
+</div>
+<div class="comments-body">
+<a name="14576"></a>
+<span class="comments-post"><a href="http://gambling.jeu8.com" target="new" rel="nofollow nofollow">gambling</a><br />
+<b>Excerpt:</b> Durant quatre d�cennies nous avons cru a la construction des relations a l'aide d'une interaction face a face, et une adh�sion a une strat�gie qualit� de gambling recommand�s, des investissements qui ont fait leur pr�vue avec le temps. Merci de votre i...<br />
+<b>Weblog:</b> gambling<br />
+<b>Tracked:</b> April 25, 2006 04:15 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1165" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

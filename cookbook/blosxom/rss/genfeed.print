@@ -1,0 +1,377 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : genfeed - 汎用 RSS ジェネレータ</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/rss/genfeed.html">http://blog.bulknews.net/cookbook/blosxom/rss/genfeed.html</a>.
+<br /><br /><br />
+
+<h2>genfeed - 汎用 RSS ジェネレータ</h2>
+by miyagawa at Tue, 28 Oct 2003 00:29
+<p />
+
+<p />
+サイトごとにカスタマイズされた正規表現を用意すれば、HTML を容易に RSS に変換することができます。ただ、サイトを1つ追加するごとに、スクリプトを作成するのは手間です。異なるのは正規表現のパターンだけですから、これを定義ファイル化して、汎用的に RSS を生成するツールを作ってみます。
+
+<hr class="seemore">
+
+
+<p />
+先に紹介した <a href="http://blog.bulknews.net/cookbook/blosxom/rss/kanshin_rss.print">関心空間 RSS ジェネレータ</a> のうち
+<ul>
+<li>クロールする URL</li>
+<li>サイトの channel 定義(title や description)</li>
+<li>マッチさせるパターン</li>
+</ul>
+
+これらの要素以外のロジックは、サイト毎に独立です。よって汎用 RSS ジェネレータでは、これらの要素をサイト定義ファイルとして外に出してしまい、順に処理するような形とすればよいでしょう。
+
+<p />
+ここで定義ファイルのサンプルは <a href="#listing-1">List 1</a> のような形とします。ここでは <a href="http://www.asahi.com/">asahi.com</a>を例としています。定義ファイルは RFC822 ライクなヘッダ形式で、
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">title</td><td class="blosxomTableDataRight">RSS channel の title</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">link</td><td class="blosxomTableDataRight">RSS channel の link</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">description</td><td class="blosxomTableDataRight">RSS channel の description</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">match</td><td class="blosxomTableDataRight">マッチした結果が item のどの要素にマッピングされるか</td></tr>
+</table>
+
+を定義し、空行をはさんでパターンを記述します。
+
+
+<h2>サンプルコード</h2>
+
+サイトのパターン等のデータを定義ファイル化し、順に RSS 変換するプログラム gendeed は <a href="#listing-2">List 2</a> のようになります<a href="#note-1">(*1)</a>。スクリプトの大まかな流れは、
+<ol>
+<li>サイトの定義ファイルをロード</li>
+<li>HTML をローカルのキャッシュファイルに取得</li>
+<li>HTML をパターンにマッチさせて、RSS を生成</li>
+</ol>
+
+のようになります。
+
+<p />
+<pre class="scriptsSnippet">use DirHandle;
+use Encode;
+use FileHandle;
+use HTTP::Status;
+use LWP::UserAgent;
+use URI;
+use XML::RSS;
+</pre>
+
+使用するモジュールをロードします。ディレクトリからファイルを取得する<a href="http://search.cpan.org/search?m=module&q=DirHandle">DirHandle</a>、URI の相対パスを絶対 URL に変換するのに <a href="http://search.cpan.org/search?m=module&q=URI">URI</a> を使用します。
+
+<p />
+<pre class="scriptsSnippet">our $VERSION = &quot;0.01&quot;;
+our $SiteDir = &quot;sites&quot;;
+our $OutDir  = &quot;feeds&quot;;
+
+mkdir &quot;$SiteDir/cache&quot;, 0755 unless -e &quot;$SiteDir/cache&quot;;
+mkdir $OutDir, 0755          unless -e $OutDir;
+</pre>
+
+User-Agent に使用するバージョン番号 <code>$VERSION</code>、サイトの定義ファイルを格納する <code>$SiteDir</code>、RSS ファイルを出力する <code>$OutDir</code> をパッケージ変数として定義し、ディレクトリがなければ mkdir します。
+
+<p />
+<pre class="scriptsSnippet">my $ua = LWP::UserAgent-&gt;new();
+   $ua-&gt;agent(&quot;genfeed/$VERSION&quot;);
+</pre>
+
+<a href="http://search.cpan.org/search?m=module&q=LWP%3a%3aUserAgent">LWP::UserAgent</a> のオブジェクトを初期化します。User-Agent 文字列にソフトウェア名とバージョン番号を入れておきます。
+
+<p />
+<pre class="scriptsSnippet">my @sites = load_sites();
+</pre>
+
+<code>load_sites</code> でサイト定義ファイルを読み込みます。
+
+<p />
+<pre class="scriptsSnippet">sub load_sites {
+    my $dh = DirHandle-&gt;new($SiteDir) or die &quot;$SiteDir: $!&quot;;
+    my @sites;
+    for my $file (grep -f &quot;$SiteDir/$_&quot;, $dh-&gt;read) {
+        push @sites, load_site($SiteDir, $file);
+    }
+    return @sites;
+}
+</pre>
+
+<code>load_sites</code> では、<code>$SiteDir</code> に含まれるファイルから <code>load_site</code> を呼び出し、サイト定義をロードします。
+
+<p />
+<pre class="scriptsSnippet">sub load_site {
+    my($dir, $file) = @_;
+    my $fh = FileHandle-&gt;new(&quot;$dir/$file&quot;) or die &quot;$dir/$file: $!&quot;;
+    my %param;
+    while (&lt;$fh&gt;) {
+        chomp;
+        last if /^$/;
+        /^(\S+): (.*)$/ and $param{$1} = $2;
+    }
+    $param{match} = [ split / /, $param{match} ];
+    $param{pattern} = do { local $/; &lt;$fh&gt; };
+    $param{filename} = $file;
+    return \%param;
+}
+</pre>
+
+<code>load_site</code> はファイルを open し、RFC822 形式のヘッダをパースしながら、空行を見つけたら <code>$param{pattern}</code> にパターンを格納します。また <code>$param{match}</code> はスペースで区切って配列リファレンスとします。先に定義した asahi.com の場合、
+<p><pre class="inlineRaw">$site = {
+    title =&gt; 'asahi.top',
+    link  =&gt; 'http://www.asahi.com/',
+    description =&gt; 'Asahi.com',
+    match =&gt; [ 'link', 'title' ],
+    pattern =&gt; &quot;&lt;li&gt;\n&lt;a href=&quot;(.*?)&quot;&gt;(.*?)&lt;/a&gt;\(\d\d:\d\d\)&lt;/li&gt;&quot;,
+};
+</pre></p>
+のようなハッシュリファレンスとなります。
+
+<p />
+<pre class="scriptsSnippet">for my $site (@sites) {
+    crawl_site($ua, $site);
+}
+</pre>
+
+<code>load_sites</code> で読み込んだサイト定義について、<code>crawl_site</code> でクローリングします。
+
+<p />
+<pre class="scriptsSnippet">sub crawl_site {
+    my($ua, $site) = @_;
+    my $cache = &quot;$SiteDir/cache/$site-&gt;{filename}.html&quot;;
+    my $base = URI-&gt;new($site-&gt;{crawl} || $site-&gt;{link});
+    my $resp = $ua-&gt;mirror($base, $cache);
+</pre>
+
+サイトの定義ファイル名からキャッシュファイルのパスを決定<a href="#note-2">(*2)</a>し、クロール先の URL を URI オブジェクトにします。
+
+<p />
+クロール先は、<code>crawl</code> というヘッダがあればそれを優先し、なければ <code>link</code> 要素を拾います。これは、サイトのトップページ(<code>link</code>)以外に、その日の記事一覧が取得できるページ(<code>crawl</code>)があるようなニュースサイトの場合、そのページから記事をマッチさせる方が効率が良いためです。
+
+<p />
+URI とキャッシュファイルを引数にして <code>mirror</code> メソッドを実行します。これはローカルのキャッシュファイルの mtime を利用して If-Modified-Since などを HTTP リクエストヘッダに付加するため、ネットワーク資源を有効活用することができます。
+
+<p />
+<pre class="scriptsSnippet">    $resp-&gt;code == RC_NOT_MODIFIED and return;
+    $resp-&gt;is_success or do { warn &quot;Error: &quot;, $site-&gt;{title}; return };
+</pre>
+
+レスポンスのステータスが 304 Not Modified の場合、元ページが更新されていないため、RSS も更新せず return します。レスポンスが失敗した場合には、エラーを STDERR に吐き出し、次のサイトへ進みます。
+
+<p />
+<pre class="scriptsSnippet">    my $rss = XML::RSS-&gt;new(version =&gt; 0.91);
+    $rss-&gt;channel(
+        title =&gt; $site-&gt;{title},
+        link  =&gt; $site-&gt;{link},
+        description =&gt; $site-&gt;{description},
+    );
+</pre>
+
+XML::RSS オブジェクトを生成します。ここでもバージョンは 0.91 としましたが、日付が取得できるようであれば、RSS 1.0 にして <code>dc:date</code> 要素を入れた方がよいかもしれません。
+
+<p />
+<pre class="scriptsSnippet">    my $html = do { local $/; my $fh = FileHandle-&gt;new($cache); &lt;$fh&gt; };
+</pre>
+
+キャッシュファイルを open して、一気読みします。Perl の特殊変数 <code>$/</code> を undef にしておくと、ファイルの中身を一気に読み込む<a href="#note-3">(*3)</a>ことが出来ます。
+
+<p />
+<pre class="scriptsSnippet">    my $charset = extract_charset($resp, $html);
+    $html = decode($charset, $html);
+</pre>
+
+HTTP レスポンスおよび HTML からエンコーディングを取得して、<code>Encode::decode</code> します。これにより <code>$html</code> 変数が Unicode 文字列になります。
+
+<p />
+<pre class="scriptsSnippet">sub extract_charset {
+    my($resp, $html) = @_;
+    $resp-&gt;header('Content-Type') =~ /charset=([\w\-]*)/ and return $1;
+    $html =~ /&lt;meta .*?charset=&quot;([\w\-]*?)&quot;/ and return $1;
+    return guess_encoding($html);
+}
+</pre>
+
+レスポンスの Content-Type から <code>charset=utf-8</code> といった文字列をマッチさせてエンコーディングを拾います。また Content-Type に charset 指定がない場合には HTML 内の meta タグから同様の表記を拾います。それでも失敗する場合には、<code>guess_encoding</code> を呼びます。
+
+<p />
+<pre class="scriptsSnippet">sub guess_encoding {
+    require Encode::Guess;
+    Encode::Guess-&gt;set_suspects(qw/Shift_JIS euc-jp/);
+    my $data = shift;
+    my $enc  = Encode::Guess-&gt;guess($data);
+    ref($enc) or die &quot;Can't guess: $enc&quot;; # idiom
+    return $enc-&gt;name;
+}
+</pre>
+
+<code>guess_encoding</code> では、<a href="http://search.cpan.org/search?m=module&q=Encode%3a%3aGuess">Encode::Guess</a> モジュールを使用してエンコーディングの自動判定を行います。<code class="inlineRaw">Encode::Guess-&gt;set_suspects()</code> に候補のエンコーディングを渡します。ここでは日本語のページを想定しているため、Shift_JIS と euc-jp のみを指定しています。
+
+<p />
+<pre class="scriptsSnippet">    my @whole_match = $html =~ /$site-&gt;{pattern}/g;
+    my $match_num = @{$site-&gt;{match}};
+    while (my @match = splice(@whole_match, 0, $match_num)) {
+        my %data; @data{@{$site-&gt;{match}}} = @match;
+        $data{link} = URI-&gt;new_abs($data{link}, $base);
+        $rss-&gt;add_item(%data);
+    }
+</pre>
+
+デコードした HTML に対し、サイトの定義にある <code>pattern</code> でマッチをかけます。正規表現の g オプションで、すべてを1つの配列にマッチさせます。<code>match</code> 要素が2個 (たとえば <code>link</code> と <code>title</code>) の場合、すべてのマッチの前から2個ずつとっていくために、<code>$match_num</code> にその値を格納します。
+
+<p />
+<code>splice</code> 関数を使用して、マッチ配列から順に要素をとりだし、ハッシュのスライスを用いて item 要素を構築します。またマッチした <code>link</code>は相対パスとなっていることが多いため、<code>URI->new_abs</code> を利用して、クローリング元の URI からの相対リンクとして絶対 URI を構築します。
+
+<p />
+<pre class="scriptsSnippet">    my $xml = &quot;$OutDir/$site-&gt;{filename}.xml&quot;;
+    open my $out, &quot;&gt;:utf8&quot;, $xml or die &quot;$xml: $!&quot;;
+    $out-&gt;print($rss-&gt;as_string());
+</pre>
+
+最後に出力する RSS ファイルを UTF-8 モードで open し、<code>as_string</code> メソッドで文字列化して書き込みます。
+
+<h2>実行例</h2>
+
+先に紹介した asahi.com に加え、<a href="http://japan.cnet.com/">CNET Japan</a> の定義ファイル <a href="#listing-3">List 3</a> も定義しています。CNET Japan では <a href="http://japan.cnet.com/">トップページ</a>より、<a href="http://japan.cnet.com/archive/headline.htm">ヘッドラインページ</a>の方が情報を一覧で取得しやすいため、こちらを <code>crawl</code> 要素として定義しています。
+
+<p><pre class="command">% <strong>./genfeed.pl</strong>
+% <strong>ls feeds</strong>
+feeds:
+asahi.top.xml   cnet.japan.xml
+</pre></p>
+
+コマンドラインから実行すると、<code>feeds</code> ディレクトリに <code>asahi.top.xml</code> や <code>cnet.japan.xml</code> などの RSS ファイルが作成されます。
+
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: asahi.top</span></a>
+<pre class="scriptsListing">title: asahi.com
+link: http://www.asahi.com/
+description: Asahi.com
+match: link title
+
+&lt;li&gt;
+&lt;a href=&quot;(.*?)&quot;&gt;(.*?)&lt;/a&gt;\(\d\d:\d\d\)&lt;/li&gt;</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: genfeed.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# genfeed - generic RSS feed generator
+
+use strict;
+use DirHandle;
+use Encode;
+use FileHandle;
+use HTTP::Status;
+use LWP::UserAgent;
+use URI;
+use XML::RSS;
+
+our $VERSION = &quot;0.01&quot;;
+our $SiteDir = &quot;sites&quot;;
+our $OutDir  = &quot;feeds&quot;;
+
+mkdir &quot;$SiteDir/cache&quot;, 0755 unless -e &quot;$SiteDir/cache&quot;;
+mkdir $OutDir, 0755          unless -e $OutDir;
+
+my $ua = LWP::UserAgent-&gt;new();
+   $ua-&gt;agent(&quot;genfeed/$VERSION&quot;);
+
+my @sites = load_sites();
+for my $site (@sites) {
+    crawl_site($ua, $site);
+}
+
+sub load_sites {
+    my $dh = DirHandle-&gt;new($SiteDir) or die &quot;$SiteDir: $!&quot;;
+    my @sites;
+    for my $file (grep -f &quot;$SiteDir/$_&quot;, $dh-&gt;read) {
+        push @sites, load_site($SiteDir, $file);
+    }
+    return @sites;
+}
+
+sub load_site {
+    my($dir, $file) = @_;
+    my $fh = FileHandle-&gt;new(&quot;$dir/$file&quot;) or die &quot;$dir/$file: $!&quot;;
+    my %param;
+    while (&lt;$fh&gt;) {
+        chomp;
+        last if /^$/;
+        /^(\S+): (.*)$/ and $param{$1} = $2;
+    }
+    $param{match} = [ split / /, $param{match} ];
+    $param{pattern} = do { local $/; &lt;$fh&gt; };
+    $param{filename} = $file;
+    return \%param;
+}
+
+sub crawl_site {
+    my($ua, $site) = @_;
+    my $cache = &quot;$SiteDir/cache/$site-&gt;{filename}.html&quot;;
+    my $base = URI-&gt;new($site-&gt;{crawl} || $site-&gt;{link});
+    my $resp = $ua-&gt;mirror($base, $cache);
+
+    $resp-&gt;code == RC_NOT_MODIFIED and return;
+    $resp-&gt;is_success or do { warn &quot;Error: &quot;, $site-&gt;{title}; return };
+
+    my $rss = XML::RSS-&gt;new(version =&gt; 0.91);
+    $rss-&gt;channel(
+        title =&gt; $site-&gt;{title},
+        link  =&gt; $site-&gt;{link},
+        description =&gt; $site-&gt;{description},
+    );
+
+    my $html = do { local $/; my $fh = FileHandle-&gt;new($cache); &lt;$fh&gt; };
+
+    my $charset = extract_charset($resp, $html);
+    $html = decode($charset, $html);
+
+    my @whole_match = $html =~ /$site-&gt;{pattern}/g;
+    my $match_num = @{$site-&gt;{match}};
+    while (my @match = splice(@whole_match, 0, $match_num)) {
+        my %data; @data{@{$site-&gt;{match}}} = @match;
+        $data{link} = URI-&gt;new_abs($data{link}, $base);
+        $rss-&gt;add_item(%data);
+    }
+
+    my $xml = &quot;$OutDir/$site-&gt;{filename}.xml&quot;;
+    open my $out, &quot;&gt;:utf8&quot;, $xml or die &quot;$xml: $!&quot;;
+    $out-&gt;print($rss-&gt;as_string());
+}
+
+sub extract_charset {
+    my($resp, $html) = @_;
+    $resp-&gt;header('Content-Type') =~ /charset=([\w\-]*)/ and return $1;
+    $html =~ /&lt;meta .*?charset=&quot;([\w\-]*?)&quot;/ and return $1;
+    return guess_encoding($html);
+}
+
+sub guess_encoding {
+    require Encode::Guess;
+    Encode::Guess-&gt;set_suspects(qw/Shift_JIS euc-jp/);
+    my $data = shift;
+    my $enc  = Encode::Guess-&gt;guess($data);
+    ref($enc) or die &quot;Can't guess: $enc&quot;; # idiom
+    return $enc-&gt;name;
+}
+</pre>
+
+<a name="listing-3"><span class="scripsListingHeader">List 3: cnet.japan</span></a>
+<pre class="scriptsListing">title: CNET Japan
+link: http://japan.cnet.com/
+crawl: http://japan.cnet.com/archive/headline.htm
+description: CNET Japan
+match: link title
+
+&lt;li&gt;&lt;span class=&quot;j3&quot;&gt;&lt;a href=&quot;(.*?)&quot;&gt;(.*?)&lt;/a&gt;&lt;/span&gt;</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> データベースの処理等を除けば、<a href="http://bulknews.net/">Bulknews</a> で動いているエンジンと同等です。<br />
+<a href="#note-2" name="note-2">*2)</a> 定義ファイルが <code>asahi.top</code> であれば、キャッシュは <code>cache/asahi.top.html</code> となります。<br />
+<a href="#note-3" name="note-3">*3)</a> slurp といいます。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

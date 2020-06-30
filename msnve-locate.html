@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Hacking MSN VE to Locate Me</title>
+    <style>h1 { font-size: 2em } body, input { font-size: 12px; font-family: trebuchet MS } .footer { font-size: 0.8em }</style>
+    <script src="http://maps.google.com/maps?file=api&v=1&key=ABQIAAAA8RGXatIZkNkx3u0uF9McwBTxKCmd0DOAiQ1KWK8J1s7Mi5G0VBQH4TTIrc2LXz98KVWn4enfyrTgpg" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>Hacking MSN VE to Locate Me</h1>
+    <p>Hacking <a href="http://virtualearth.msn.com/">MSN Virtual Earth</a> <em>Locate Me</em> to lookup your location using IP address, and map it with <a href="http://www.google.com/apis/maps/">Google Maps API</a>. <a href="http://bulknews.typepad.com/blog/2005/07/msn_virtual_ear.html">Read More</a></p>
+    <p id="location"></p>
+    <div id="map" style="width: 600px; height: 400px"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+    function new_point(lng, lat) {
+      if (lng > 124 && lng < 146 && lat > 24 && lat < 44) {
+        return wgs_to_tokyo(lng, lat);
+      } else {
+        return new GPoint(lng, lat);
+      }
+    }
+
+    function wgs_to_tokyo(lng, lat) {
+      t_lng = lng + 0.000046047*lat + 0.000083049*lng - 0.010041;
+      t_lat = lat + 0.00010696*lat - 0.000017467*lng - 0.0046020;
+      return new GPoint(t_lng, t_lat);
+    }
+
+    var map = new GMap(document.getElementById("map"));
+    map.addControl(new GLargeMapControl());
+    map.addControl(new GMapTypeControl());
+
+    // Creates a marker whose info window displays the given number
+    function addMarker(map, lng, lat, html) {
+      var point = new_point(lng, lat);
+      var marker = new GMarker(point);
+
+      // Show this marker's index in the info window when it is clicked
+      GEvent.addListener(marker, "click", function() {
+        marker.openInfoWindowHtml(html);
+     });
+      map.addOverlay(marker);
+    }
+
+    function log(msg) {
+//      document.getElementById('log').innerHTML += msg + "<br />\n";
+    }
+
+    function SetAutoLocateViewport(lat, lng, zoom, pin, message) {
+       map.centerAndZoom(new_point(lng, lat), 1);
+       log(message + ": " + lng + ":" + lat);
+       document.getElementById('location').innerHTML = "You're located at <strong>" + lng + ":"+lat + "</strong>";
+    }
+/*
+    function AutoLocate() {
+      var wifi=GetWiFiControl();
+      if (wifi) {
+        log("WiFiScanner ActiveX Object created.");
+        try {
+          var results = wifi.GetLocation();
+          if (results&&results.length>0){eval(results);return;}
+        } catch(ex){ log(ex) }
+      } else { log("Can't create WiFiScanner. (ActiveX disabled?)") }
+        
+      log("Can't find Location via WiFi. Trying IP lookup...");
+      var s = document.createElement('script');
+      s.src = "http://virtualearth.msn.com/WiFiIPService/locate.ashx?pos=";
+      document.body.appendChild(s);
+    }
+    function GetWiFiControl(){
+      var wifi=null;try{wifi=new ActiveXObject("WiFiScanner");}catch(e){try{wifi=new ActiveXObject("Microsoft.MapPoint.WiFiScanner.1");}catch(e){try{wifi=new WiFiScanner("Microsoft.MapPoint.WiFiScanner.1");}catch(e){}}}return wifi;
+    }
+*/
+
+    //]]>
+    </script>
+<script src="http://virtualearth.msn.com/WiFiIPService/locate.ashx?pos=" type="text/javascript"></script><div id="log"></div>
+<p class="footer">2005, <a href="http://bulknews.typepad.com/">Tatsuhiko Miyagawa</a>. Powered by <a href="http://virtualearth.msn.com/">MSN Virtual Earth</a> and <a href="http://www.google.com/apis/maps/">Google Maps API</a>.</p>
+  </body>
+</html>

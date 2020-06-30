@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="blosxom/2.0rc5" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+  <channel>
+    <title>Blog Developer's Cookbook   </title>
+    <link>http://blog.bulknews.net/cookbook/blosxom</link>
+    <description>Cookbook About Programming Weblog Technologies</description>
+    <language>ja</language>
+
+<item>
+    <title>Blog Hacks 出版</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html</link>
+    <description>
+本書の内容の一部が収録された Blog Hacks がオライリー・ジャパンより発行されました.</description>
+</item>
+<item>
+    <title>Winamp で再生中の曲を Blog に</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html</link>
+    <description>
+自分のローカル MP3 プレイヤーで聞いている曲を、Blog のサイドバーに表示させたら楽しいですよね.</description>
+</item>
+<item>
+    <title>Trackback スレッド化</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html</link>
+    <description>
+Trackback Tracer では、[[Permalink]] から Trackback Ping 一覧を順々に表示するツールを実装しましたが、UI としてはフラットに表示していたため、URL を起点にして、議論がどのように拡散していったかを一目で見ることはできませんでした.</description>
+</item>
+<item>
+    <title>Trackback Auto Discovery</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html</link>
+    <description>
+Trackback をサポートしているBlog エントリには、&quot;このエントリの Trackback URL&quot; という表記がしてあります.</description>
+</item>
+<item>
+    <title>Trackback Tracer</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html</link>
+    <description>
+[[Trackback]] は Blog のエントリ間のつながりを表現することができるプロトコルです.</description>
+</item>
+<item>
+    <title>Trackback Ping を送信する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html</link>
+    <description>
+なにかのイベントや、事件などについての Blog 記事を書くとき、同じ内容について書かれている Blog エントリ同士がリンクでつながっていると、ブラウズやディスカッションの際に非常に便利です.</description>
+</item>
+<item>
+    <title>Automatic Trackback</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html</link>
+    <description>
+[[Trackback]] の Auto-Discovery と 送信 を組み合わせれば、自動で Trackback を送ることもできます.</description>
+</item>
+<item>
+    <title>Trackback Ping 一覧を RSS 出力する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html</link>
+    <description>
+受信した [[Trackback]] Ping の一覧を取得するために、RSS で Trackback 一覧を出力するという仕様があります.</description>
+</item>
+<item>
+    <title>Trackback Ping を受信する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html</link>
+    <description>
+Trackback Ping を送信する では、[[Trackback]] Ping を送信するクライアントについて解説しました.</description>
+</item>
+<item>
+    <title>WikiWikiWeb Created</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/common/wiki_created.html</link>
+    <description>
+この Blog のサポート用に Wiki を立ち上げました.</description>
+</item>
+  </channel>
+</rss>

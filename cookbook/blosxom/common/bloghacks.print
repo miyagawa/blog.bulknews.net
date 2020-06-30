@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : Blog Hacks 出版</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html">http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html</a>.
+<br /><br /><br />
+
+<h2>Blog Hacks 出版</h2>
+by miyagawa at Fri, 13 Aug 2004 20:10
+<p />
+
+<p />
+本書の内容の一部が収録された <a href="http://hacks.bloghackers.net/" title="Blog Hacks">Blog Hacks</a> がオライリー・ジャパンより発行されました! <a href="http://blog.bulknews.net/cookbook/blosxom/common/readme_first.print">当初のもくろみ</a> であった書籍化が実現したことになります。
+
+<p />
+Blog Hacks では、本 Blog で解説している Perl モジュールを通しての Blog テクノロジの理解の他、Amazon や Google、Bulkfeeds など各種 Web サービスをつかった濃い Hack もたくさん紹介されています。ぜひご覧ください。
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

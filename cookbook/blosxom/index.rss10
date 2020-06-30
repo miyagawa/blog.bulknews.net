@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF 
+  xmlns="http://purl.org/rss/1.0/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:admin="http://webns.net/mvcb/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+> 
+
+  <channel rdf:about="http://blog.bulknews.net/cookbook/blosxom">
+    <title>Blog Developer's Cookbook</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom</link>
+    <description>Cookbook About Programming Weblog Technologies</description>
+    <language>ja</language>
+    <dc:creator>Tatsuhiko Miyagawa (miyagawa@bulknews.net)</dc:creator>
+    <dc:rights>Copyright Tatsuhiko Miyagawa</dc:rights>
+    <admin:generatorAgent rdf:resource="http://www.raelity.org/apps/blosxom/?v=2.0rc5" />
+    <admin:errorReportsTo rdf:resource="mailto:miyagawa@bulknews.net"/>
+
+    <items>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/cookbook/blosxom/common/wiki_created.html" />
+
+      </rdf:Seq>
+    </items>
+
+
+  </channel>
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html">
+    <title>Blog Hacks 出版</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html</link>
+    <description>
+本書の内容の一部が収録された Blog Hacks がオライリー・ジャパンより発行されました.</description>
+    <dc:subject>Common</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2004-08-13T20:10+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/common_bloghacks" />
+    <content:encoded><![CDATA[
+<p />
+本書の内容の一部が収録された <a href="http://hacks.bloghackers.net/" title="Blog Hacks">Blog Hacks</a> がオライリー・ジャパンより発行されました! <a href="http://blog.bulknews.net/cookbook/blosxom/common/readme_first.rss10">当初のもくろみ</a> であった書籍化が実現したことになります。
+
+<p />
+Blog Hacks では、本 Blog で解説している Perl モジュールを通しての Blog テクノロジの理解の他、Amazon や Google、Bulkfeeds など各種 Web サービスをつかった濃い Hack もたくさん紹介されています。ぜひご覧ください。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html">
+    <title>Winamp で再生中の曲を Blog に</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html</link>
+    <description>
+自分のローカル MP3 プレイヤーで聞いている曲を、Blog のサイドバーに表示させたら楽しいですよね.</description>
+    <dc:subject>RSS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-10T05:08+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/rss_now_playing" />
+    <content:encoded><![CDATA[
+<p />
+自分のローカル MP3 プレイヤーで聞いている曲を、Blog のサイドバーに表示させたら楽しいですよね。今回は <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Winamp">Winamp</a> の再生中の曲を HTTP で通知し、RSS ファイルを生成してみます。
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html">
+    <title>Trackback スレッド化</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html</link>
+    <description>
+Trackback Tracer では、[[Permalink]] から Trackback Ping 一覧を順々に表示するツールを実装しましたが、UI としてはフラットに表示していたため、URL を起点にして、議論がどのように拡散していったかを一目で見ることはできませんでした.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-09T01:24+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tb_thread" />
+    <content:encoded><![CDATA[
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.rss10">Trackback Tracer</a> では、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Permalink">Permalink</a> から Trackback Ping 一覧を順々に表示するツールを実装しましたが、UI としてはフラットに表示していたため、URL を起点にして、議論がどのように拡散していったかを一目で見ることはできませんでした。今回は、表示方法を再帰的にすることで、Trackback Ping の広がりをニュースグループのスレッドのように閲覧できるツールを実装してみます。
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">
+    <title>Trackback Auto Discovery</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html</link>
+    <description>
+Trackback をサポートしているBlog エントリには、&quot;このエントリの Trackback URL&quot; という表記がしてあります.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-07T22:40+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tb_discovery" />
+    <content:encoded><![CDATA[
+<p />
+Trackback をサポートしているBlog エントリには、&quot;このエントリの Trackback URL&quot; という表記がしてあります。これをコピーすれば Trackback Ping を打つ URL がわかるというわけですが、はっきりいってメンドウです。こういうものは人手でやるのではなくて、プログラムから自動でわかるようにした方が便利です。というわけで、今回は Trackback Ping URL を自動検出する方法について解説します。
+
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">
+    <title>Trackback Tracer</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html</link>
+    <description>
+[[Trackback]] は Blog のエントリ間のつながりを表現することができるプロトコルです.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-05T03:54+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tbtrace" />
+    <content:encoded><![CDATA[
+<p />
+<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> は Blog のエントリ間のつながりを表現することができるプロトコルです。ある記事を起点にして Trackback Ping をたどれば、E-mail やニュースグループのスレッド表示のように、関連する記事を一覧でブラウズすることができます。今回は、起点となる URL から Trackback をたどっていく Web アプリケーション Trackback Tracer をつくってみます。
+
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">
+    <title>Trackback Ping を送信する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html</link>
+    <description>
+なにかのイベントや、事件などについての Blog 記事を書くとき、同じ内容について書かれている Blog エントリ同士がリンクでつながっていると、ブラウズやディスカッションの際に非常に便利です.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-05T03:54+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tb_send" />
+    <content:encoded><![CDATA[
+<p />
+なにかのイベントや、事件などについての Blog 記事を書くとき、同じ内容について書かれている Blog エントリ同士がリンクでつながっていると、ブラウズやディスカッションの際に非常に便利です。<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> は、こうしたエントリ間のつながりを、簡単な URL 呼び出しで実現するための Blog API です。今回は、この Trackback Ping の API について簡単に解説し、Trackback Ping を実際に送信するコードを記述してみます。
+
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html">
+    <title>Automatic Trackback</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html</link>
+    <description>
+[[Trackback]] の Auto-Discovery と 送信 を組み合わせれば、自動で Trackback を送ることもできます.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-04T06:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_autotrackback" />
+    <content:encoded><![CDATA[
+<p />
+<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> の <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.rss10">Auto-Discovery</a> と <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.rss10">送信</a> を組み合わせれば、自動で Trackback を送ることもできます。今回は、ある URL を渡すと、リンクしている URL に自動で Trackback 送信するスクリプトを書いてみます。
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html">
+    <title>Trackback Ping 一覧を RSS 出力する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html</link>
+    <description>
+受信した [[Trackback]] Ping の一覧を取得するために、RSS で Trackback 一覧を出力するという仕様があります.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-11-28T01:36+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tb_rss" />
+    <content:encoded><![CDATA[
+<p />
+受信した <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> Ping の一覧を取得するために、RSS で Trackback 一覧を出力するという仕様があります。今回は、<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.rss10">Trackback Ping Server</a> で作成したスクリプトに、RSS 出力機能を実装してみます。
+
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html">
+    <title>Trackback Ping を受信する</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html</link>
+    <description>
+Trackback Ping を送信する では、[[Trackback]] Ping を送信するクライアントについて解説しました.</description>
+    <dc:subject>Trackback Pings</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-11-26T23:28+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/trackback_tb_receive" />
+    <content:encoded><![CDATA[
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.rss10">Trackback Ping を送信する</a> では、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> Ping を送信するクライアントについて解説しました。今回は、受信する側の実装を解説します。
+
+<p><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html" class="seemore">See more ...</a></p>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/cookbook/blosxom/common/wiki_created.html">
+    <title>WikiWikiWeb Created</title>
+    <link>http://blog.bulknews.net/cookbook/blosxom/common/wiki_created.html</link>
+    <description>
+この Blog のサポート用に Wiki を立ち上げました.</description>
+    <dc:subject>Common</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-11-26T01:42+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/cookbook/trackback/common_wiki_created" />
+    <content:encoded><![CDATA[
+<p />
+この Blog のサポート用に <a href="/cookbook/kwiki/kwiki.cgi">Wiki</a> を立ち上げました。記事内でフォローできないコラム的な内容について Wiki 内で記述していく予定です。内容に不備や入れてほしい内容等ありましたら、随時編集していただいても構いません。
+
+<p />
+内容はそのまま書籍に反映される可能性がありますので、書き込みされる場合にはその点ご了承ください。<a href="mailto:miyagawa@bulknews.net">Email</a> にて内容をご連絡いただいても構いません。
+]]></content:encoded>
+  </item>
+
+
+</rdf:RDF>

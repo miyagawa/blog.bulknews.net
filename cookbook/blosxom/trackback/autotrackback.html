@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Automatic Trackback</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Thu, 04 Dec 2003</div>
+<div class="entry"><h1 class="title"><a name="autotrackback">Automatic Trackback</a></h1>
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> の <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Auto-Discovery</a> と <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">送信</a> を組み合わせれば、自動で Trackback を送ることもできます。今回は、ある URL を渡すと、リンクしている URL に自動で Trackback 送信するスクリプトを書いてみます。
+
+<p />
+<h2>HTML::LinkExtor</h2>
+
+HTML 内からのリンク抽出には <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aLinkExtor">HTML::LinkExtor</a> を使用します。HTML::LinkExtor は、<a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aParser">HTML::Parser</a> のサブクラスで、リンク要素が見つかった際に呼び出される callback サブルーチンを設定しておくことによって、ある HTML 内のリンク URL に対して特定のアクションを起こすことができます。
+
+<h2>サンプルコード</h2>
+
+早速コードを見てみましょう。<a href="#listing-1">List 1</a> のようなスクリプトになります。このスクリプトは、
+<ol>
+<li>URL から HTML の取得</li>
+<li>HTML からリンク URL を抽出</li>
+<li>リンク URL から Trackback Auto-Discovery</li>
+<li>見つかった場合には、Trackback Ping 送信</li>
+</ol>
+
+という流れになっています。
+
+<p />
+<pre class="scriptsSnippet">use HTML::LinkExtor;
+use HTTP::Request::Common;
+use Encode;
+use LWP::UserAgent;
+use Net::TrackBack;
+use URI;
+</pre>
+
+使用するモジュールをロードします。リンク抽出用に <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aLinkExtor">HTML::LinkExtor</a>, Trackback Discovery 用に <a href="http://search.cpan.org/search?m=module&q=Net%3a%3aTrackBack">Net::TrackBack</a> を使用しています。
+
+<p />
+<pre class="scriptsSnippet">our $IgnoreLinks   = qr/movabletype\.org/;
+our $Debug         = 1;
+</pre>
+
+<code>$IgnoreLinks</code> には、リンクとして見つかっても実際には無視するドメインを正規表現で記述しています。<code>$Debug</code> を true にしておくと、実際には Trackback Ping を送信せず、動作確認のログが流れますので、テストしてみる場合にはこれを 1 にしておくとよいでしょう。
+
+<p />
+<pre class="scriptsSnippet">my $ua = LWP::UserAgent-&gt;new();
+   $ua-&gt;agent(&quot;autotrack/$VERSION&quot;);
+my $html = fetch_content($ua, $url) or die &quot;Can't GET $url&quot;;
+</pre>
+
+LWP::UserAgent オブジェクトを new し、<code>fetch_content</code> で HTML を Unicode 文字列として取得します。エラーがあれば終了します。
+
+<p />
+<pre class="scriptsSnippet">sub fetch_content {
+    my($ua, $url) = @_;
+
+    my $request = HTTP::Request-&gt;new(GET =&gt; $url);
+    my $response = $ua-&gt;request($request);
+    return unless $response-&gt;is_success;
+
+    my $content_type = $response-&gt;header('Content-Type');
+    my $charset = ($content_type =~ /charset=([\w\-]*)/)[0] || &quot;utf-8&quot;;
+    return decode($charset, $response-&gt;content);
+}
+</pre>
+
+<code>fetch_content</code> では、HTTP レスポンスの Content-Type から charset を調べて <a href="http://search.cpan.org/search?m=module&q=Encode">Encode</a> モジュールで decode しています<a href="#note-1">(*1)</a>。
+
+<p />
+<pre class="scriptsSnippet">my @links = find_links($html, $url);
+for my $link (@links) {
+    warn &quot;[Debug] finding Ping URL in $link\n&quot; if $Debug;
+    my $ping_url = find_ping_url($link);
+    if ($ping_url) {
+        warn &quot;[Debug] Found Ping URL $ping_url\n&quot; if $Debug;
+        send_ping($ua, $ping_url, $html, $url);
+    }
+}
+</pre>
+
+<code>find_links</code> で、HTML 内のリンクを抽出し、<code>find_ping_url</code> で Trackback Ping URL を Auto-Discovery し、見つかったものについて <code>send_ping</code> で Ping を送信します。
+
+<p />
+<pre class="scriptsSnippet">sub find_links {
+    my($html, $url) = @_;
+    my $domain = URI-&gt;new($url)-&gt;host;
+
+    my @links;
+    my $cb = sub {
+        my($tag, %attr) = @_;
+        push @links, $attr{href}
+            if $tag eq 'a' &amp;&amp; $attr{href} &amp;&amp;
+               $attr{href} =~ /https?:/ &amp;&amp;
+               $attr{href} !~ /$domain/ &amp;&amp;
+               $attr{href} !~ $IgnoreLinks;
+    };
+
+    my $p = HTML::LinkExtor-&gt;new($cb);
+       $p-&gt;parse($html);
+
+    return @links;
+}
+</pre>
+
+HTML::LinkExtor モジュールで HTML からリンクを取り出します。コールバック関数 <code>$cb</code> では、
+<ol>
+<li>a タグであり</li>
+<li>href が空でなく</li>
+<li>href が絶対 URL で</li>
+<li>href が同一ドメインでなく</li>
+<li>href が <code>$IgnoreLinks</code> にマッチしない</li>
+</ol>
+
+という条件のもののみ、抽出するようにしています。
+
+<p />
+<pre class="scriptsSnippet">sub find_ping_url {
+    my $link = shift;
+    my $p = Net::TrackBack-&gt;new();
+    my @ping_url = $p-&gt;discover($link);
+    return @ping_url ? $ping_url[0] : undef;
+}
+</pre>
+
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Trackback Auto-Discovery</a> では、自前のコードで Auto-Discovery を実装しましたが、ここでは再発明を避けるため CPAN モジュール Net::TrackBack でカンタンに実装しています。
+
+<p />
+<pre class="scriptsSnippet">sub send_ping {
+    my($ua, $ping_url, $html, $url) = @_;
+    my $title = title_for($html, $url);
+    my %data = (
+        url       =&gt; $url,
+        blog_name =&gt; $title,
+        title     =&gt; $title,
+        charset   =&gt; &quot;utf-8&quot;,
+    );
+</pre>
+
+<code>send_ping</code> で実際に Ping を送信します。HTML と URL から、Ping に送信するデータ <code>%data</code> を作成しています。ここでは、<code>title_for</code> で取得したページのタイトルを blog_name と title に共用し、excerpt については送らない実装としています<a href="#note-2">(*2)</a>。
+
+<p />
+<pre class="scriptsSnippet">sub title_for {
+    my($html, $url) = @_;
+    my $title_part = ($html =~ m!&lt;title&gt;(.*)&lt;/title&gt;!is)[0];
+    return $title_part || URI-&gt;new($url)-&gt;host;
+}
+</pre>
+
+<code>title_for</code> は HTML の <code>title</code> タグを抽出しています。抽出に失敗した場合には、URL のドメイン部分で代用します。
+
+<p />
+<pre class="scriptsSnippet">    if ($Debug) {
+        print &quot;[Debug] Send ping to $ping_url with:\n&quot;;
+        print map { &quot;  $_ =&gt; $data{$_}\n&quot; } keys %data;
+    } else {
+        my $request = POST $ping_url, [ \%data ];
+        my $response = $ua-&gt;request($request);
+        my $status = $response-&gt;is_success
+            ? &quot;successful&quot; : &quot;failure&quot;;
+        print &quot;Sent ping to $ping_url: $status\n&quot;;
+    }
+</pre>
+
+<code>$Debug</code> が true の場合には、送信内容を表示するだけで、false の場合には実際に Trackback Ping を送信しています<a href="#note-3">(*3)</a>。
+
+<h2>Running the Hack</h2>
+
+<a href="http://blog.bulknews.net/mt/archives/000582.html">http://blog.bulknews.net/mt/archives/000582.html</a> を対象にして、このスクリプトを実行してみます。テストのため <code>$Debug = 1</code> のままとしておきます<a href="#note-4">(*4)</a>。
+
+<p><pre class="command">% <strong>./autotrack.pl http://blog.bulknews.net/mt/archives/000582.html</strong>
+[Debug] finding Ping URL in http://fenrir.naruoka.org/archives/000106.html
+[Debug] Found Ping URL http://fenrir.naruoka.org/mt/mt-tb.cgi/103
+[Debug] Send ping to http://fenrir.naruoka.org/mt/mt-tb.cgi/103 with:
+  blog_name =&gt; blog.bulknews.net: MT Plugin Development
+  url =&gt; http://blog.bulknews.net/mt/archives/000582.html
+  charset =&gt; utf-8
+  title =&gt; blog.bulknews.net: MT Plugin Development
+</pre></p>
+
+
+<h2>Hacking the Hack</h2>
+
+今回は URL を指定して単体で動くツールとして実装しましたが、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> や <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Blosxom">Blosxom</a> といった Blog ツールのプラグインなどとして実装する方が面白そうです。その場合、エントリの Permalink や Blog URL はツールから取得するように実装すればよいでしょう。
+
+<p />
+実際に、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?blosxom">blosxom</a> では <a href="http://www.blosxom.com/plugins/output/autotrack.htm">autotrack</a> プラグイン、また 最近のバージョンの <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> では自動で Trackback Ping URL を探して Ping するオプション<a href="#note-5">(*5)</a>がデフォルトで用意されています。
+
+<p />
+今回のコードでは、一度送信した URL に対して二度送らないなどの処理を入れていません。実際に利用する際には、キャッシュを作成するなどして、そうした面もケアする必要があるでしょう。
+
+<h2>See Also</h2>
+<ul>
+<li><a href="http://www.blosxom.com/plugins/output/autotrack.htm">blosxom: autotrack plugin</a></li>
+<li><a href="http://hail2u.net/blog/blosxom/send_tb_ping_in_blosxom.html">hail2u.net - blosxom で TrackBack ping を送信</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: autotrack.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# autotrack - Automatic Trackback Pinger
+
+use strict;
+use HTML::LinkExtor;
+use HTTP::Request::Common;
+use Encode;
+use LWP::UserAgent;
+use Net::TrackBack;
+use URI;
+
+our $VERSION       = &quot;1.0&quot;;
+our $IgnoreLinks   = qr/movabletype\.org/;
+our $Debug         = 1;
+
+my $url = shift;
+
+my $ua = LWP::UserAgent-&gt;new();
+   $ua-&gt;agent(&quot;autotrack/$VERSION&quot;);
+my $html = fetch_content($ua, $url) or die &quot;Can't GET $url&quot;;
+
+my @links = find_links($html, $url);
+for my $link (@links) {
+    warn &quot;[Debug] finding Ping URL in $link\n&quot; if $Debug;
+    my $ping_url = find_ping_url($link);
+    if ($ping_url) {
+        warn &quot;[Debug] Found Ping URL $ping_url\n&quot; if $Debug;
+        send_ping($ua, $ping_url, $html, $url);
+    }
+}
+
+sub fetch_content {
+    my($ua, $url) = @_;
+
+    my $request = HTTP::Request-&gt;new(GET =&gt; $url);
+    my $response = $ua-&gt;request($request);
+    return unless $response-&gt;is_success;
+
+    my $content_type = $response-&gt;header('Content-Type');
+    my $charset = ($content_type =~ /charset=([\w\-]*)/)[0] || &quot;utf-8&quot;;
+    return decode($charset, $response-&gt;content);
+}
+
+sub find_links {
+    my($html, $url) = @_;
+    my $domain = URI-&gt;new($url)-&gt;host;
+
+    my @links;
+    my $cb = sub {
+        my($tag, %attr) = @_;
+        push @links, $attr{href}
+            if $tag eq 'a' &amp;&amp; $attr{href} &amp;&amp;
+               $attr{href} =~ /https?:/ &amp;&amp;
+               $attr{href} !~ /$domain/ &amp;&amp;
+               $attr{href} !~ $IgnoreLinks;
+    };
+
+    my $p = HTML::LinkExtor-&gt;new($cb);
+       $p-&gt;parse($html);
+
+    return @links;
+}
+
+sub find_ping_url {
+    my $link = shift;
+    my $p = Net::TrackBack-&gt;new();
+    my @ping_url = $p-&gt;discover($link);
+    return @ping_url ? $ping_url[0] : undef;
+}
+
+sub send_ping {
+    my($ua, $ping_url, $html, $url) = @_;
+    my $title = title_for($html, $url);
+    my %data = (
+        url       =&gt; $url,
+        blog_name =&gt; $title,
+        title     =&gt; $title,
+        charset   =&gt; &quot;utf-8&quot;,
+    );
+
+    if ($Debug) {
+        print &quot;[Debug] Send ping to $ping_url with:\n&quot;;
+        print map { &quot;  $_ =&gt; $data{$_}\n&quot; } keys %data;
+    } else {
+        my $request = POST $ping_url, [ \%data ];
+        my $response = $ua-&gt;request($request);
+        my $status = $response-&gt;is_success
+            ? &quot;successful&quot; : &quot;failure&quot;;
+        print &quot;Sent ping to $ping_url: $status\n&quot;;
+    }
+}
+
+sub title_for {
+    my($html, $url) = @_;
+    my $title_part = ($html =~ m!&lt;title&gt;(.*)&lt;/title&gt;!is)[0];
+    return $title_part || URI-&gt;new($url)-&gt;host;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> 必要なら meta タグのスキャンや、Encode::Guess による自動判定も入れると、より robust になるでしょう。<br />
+<a href="#note-2" name="note-2">*2)</a> 実際には blog_name は必須でない実装が多いので送らなくても平気かもしれません。<br />
+<a href="#note-3" name="note-3">*3)</a> Net::TrackBack がらみで warning が出ますが無視して問題ありません。<br />
+<a href="#note-4" name="note-4">*4)</a> Trackback Ping は取り消すことができないため、実際にこのスクリプトで送ることはオススメしません。コードの参考程度にしておいてください。<br />
+<a href="#note-5" name="note-5">*5)</a> autodiscover_links という項目です。<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html">06:00</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback">Trackback Pings</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/trackback_autotrackback?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (1)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Automatic%20Trackback&amp;body=http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/trackback_autotrackback"
+      dc:title="Automatic Trackback"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html">Trackback Ping 一覧を RSS 出力する</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">Trackback Ping を送信する</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

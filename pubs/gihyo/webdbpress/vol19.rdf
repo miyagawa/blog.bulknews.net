@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://xmlns.com/foaf/0.1/">
+<Person>
+<name>Tatsuhiko Miyagawa</name>
+<mbox rdf:resource="mailto:miyagawa@bulknews.net" />
+<rdfs:seeAlso rdf:resource="http://blog.bulknews.net/foaf.rdf" />
+
+<publications dc:identifier="urn:isbn:4774119652" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol19/" dc:title="Web アプリケーションと文字コード (技術評論社 WEB+DB PRESS)" dc:date="2004-02-23T00:00+09:00" />
+</Person>
+</rdf:RDF>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://xmlns.com/foaf/0.1/">
+<Person>
+<name>Tatsuhiko Miyagawa</name>
+<mbox rdf:resource="mailto:miyagawa@bulknews.net" />
+<rdfs:seeAlso rdf:resource="http://blog.bulknews.net/foaf.rdf" />
+
+<publications dc:identifier="urn:isbn:4873113016" rdf:resource="http://www.oreilly.co.jp/books/4873113016/" dc:title="実践 Ajax ― Web2.0アプリケーション開発への手引き (オライリー・ジャパン)" dc:date="2006-10-04T00:00+09:00" />
+<publications rdf:resource="http://www.gihyo.co.jp/magazines/SD/archive/200610" dc:title="Plagger3分Hacking 俺流Plagger活用術  (技術評論社 Software Design)" dc:date="2006-09-17T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4873112966" rdf:resource="http://www.oreilly.co.jp/books/4873112966/" dc:title="PSP Hacks (オライリー・ジャパン)" dc:date="2006-08-30T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4844322893" rdf:resource="http://home.impress.co.jp/reference/2289.htm" dc:title="Plagger - DIY RSS/Atom Aggregation (インプレスコミュニケーションズ まるごとPerl)" dc:date="2006-08-25T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4873112273" rdf:resource="http://www.oreilly.co.jp/books/4873112273/" dc:title="iPod & iTunes Hacks (オライリー・ジャパン)" dc:date="2005-05-17T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774122645" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol25/" dc:title="Perl の極意 CPAN モジュール活用術 (技術評論社 WEB+DB PRESS)" dc:date="2005-02-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4873111749" rdf:resource="http://hacks.bloghackers.net/" dc:title="Blog Hacks (オライリー・ジャパン)" dc:date="2004-08-07T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4756144411" rdf:resource="http://www.ascii.co.jp/books/detail/4-7561/4-7561-4441-1.html" dc:title="Perl5 におけるオブジェクト指向 (ASCII LL Magazine)" dc:date="2004-03-26T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774119652" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol19/" dc:title="Web アプリケーションと文字コード (技術評論社 WEB+DB PRESS)" dc:date="2004-02-23T00:00+09:00" />
+<publications rdf:resource="http://www.unixuser.jp/magazine/2004/200403.html" dc:title="RSS 事始め - Perl で作るオンライン RSS リーダー (ソフトバンクパブリッシング UNIX USER)" dc:date="2004-02-06T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774119016" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol18/" dc:title="実践 Web サービスプログラミング - Amazon Web Services (技術評論社 WEB+DB PRESS)" dc:date="2003-12-22T00:00+09:00" />
+<publications rdf:resource="http://www.gihyo.co.jp/magazines/SD/archive/200312" dc:title="決定版! Apacheモジュールダイジェスト (技術評論社 Software Design)" dc:date="2003-11-17T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774118524" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol17/" dc:title="いますぐ使えるWebサービスプログラミング (XML-RPC / REST) (技術評論社 WEB+DB PRESS)" dc:date="2003-10-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774118087" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol16/" dc:title="MySQL徹底攻略 (技術評論社 WEB+DB PRESS)" dc:date="2003-08-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774118087" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol16/" dc:title="使ってうれしいRSS - 情報の配信と取得を効率よく  (技術評論社 WEB+DB PRESS)" dc:date="2003-08-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774117528" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol15/" dc:title="携帯サイト構築最新事情 (技術評論社 WEB+DB PRESS)" dc:date="2003-06-23T00:00+09:00" />
+<publications rdf:resource="http://bpstore.nikkeibp.co.jp/mokuji/lin046.html" dc:title="Blosxom - シンプルで手軽な Weblog 作成ツール (日経BP社 日経Linux)" dc:date="2003-06-07T00:00+09:00" />
+<publications rdf:resource="http://www.unixuser.jp/magazine/2003/200306.html" dc:title="Sledge による Web アプリケーション開発 (ソフトバンクパブリッシング UNIX USER)" dc:date="2003-05-06T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774117196" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol14/" dc:title="HTTPプロトコルを使い倒す - Webサーバのパフォーマンス向上のために  (技術評論社 WEB+DB PRESS)" dc:date="2003-04-23T00:00+09:00" />
+<publications rdf:resource="http://www.gihyo.co.jp/magazines/SD/archive/200305" dc:title="Perl ベースの Web アプリケーションフレームワーク Sledge (技術評論社 Software Design)" dc:date="2003-04-17T00:00+09:00" />
+<publications rdf:resource="http://bpstore.nikkeibp.co.jp/mokuji/lin044.html" dc:title="Sledge - Perl を用いた Web アプリの開発生産性を向上　 (日経BP社 日経Linux)" dc:date="2003-04-08T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774116718" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol13/" dc:title="Perl Web アプリケーションのセキュリティ  (技術評論社 WEB+DB PRESS)" dc:date="2003-02-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4894715589" rdf:resource="http://www.pearsoned.co.jp/washo/prog/wa_pro67-j.shtml" dc:title="Perl データマンジング (ピアソン・エデュケーション)" dc:date="2003-01-21T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774116238" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol12/" dc:title="日付処理を考える (技術評論社 WEB+DB PRESS)" dc:date="2002-12-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774115851" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol11/" dc:title="Test! Test! Test! - Perl のテスティングモジュール (技術評論社 WEB+DB PRESS)" dc:date="2002-10-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774115851" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol10/" dc:title="ハードコード禁止! - コンフィグファイルの利用 (技術評論社 WEB+DB PRESS)" dc:date="2002-08-23T00:00+09:00" />
+<publications rdf:resource="http://www.gihyo.co.jp/magazines/SD/archive/200209" dc:title="mod_perl on Apache 2.0 で新世代 Web アプリを体験 (技術評論社 Software Design)" dc:date="2002-08-17T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774115037" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol09/" dc:title="MVC の正しい分離 - テンプレートエンジンの選択 (技術評論社 WEB+DB PRESS)" dc:date="2002-06-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774114464" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol08/" dc:title="Perl で Entity Bean! - Class::DBI による永続オブジェクトの実装 (技術評論社 WEB+DB PRESS)" dc:date="2002-04-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774114057" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol07/" dc:title="Log::Dispatch::Config でロギングをする (技術評論社 WEB+DB PRESS)" dc:date="2002-02-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774113522" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol06/" dc:title="Perl によるセッション管理の実装 (技術評論社 WEB+DB PRESS)" dc:date="2001-12-23T00:00+09:00" />
+<publications rdf:resource="http://www.gihyo.co.jp/magazines/SD/archive/200112" dc:title="知っておきたいProxyサーバ活用ガイド (技術評論社 Software Design)" dc:date="2001-11-17T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774112682" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol04/" dc:title="CVSによるWebシステム開発徹底入門 (技術評論社 WEB+DB PRESS)" dc:date="2001-08-23T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774111880" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol02/" dc:title="Apacheモジュールでここまでできる! (技術評論社 WEB+DB PRESS)" dc:date="2001-04-23T00:00+09:00" />
+</Person>
+</rdf:RDF>

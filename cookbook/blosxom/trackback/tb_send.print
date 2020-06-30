@@ -1,0 +1,290 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : Trackback Ping を送信する</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html</a>.
+<br /><br /><br />
+
+<h2>Trackback Ping を送信する</h2>
+by miyagawa at Fri, 05 Dec 2003 03:54
+<p />
+
+<p />
+なにかのイベントや、事件などについての Blog 記事を書くとき、同じ内容について書かれている Blog エントリ同士がリンクでつながっていると、ブラウズやディスカッションの際に非常に便利です。<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> は、こうしたエントリ間のつながりを、簡単な URL 呼び出しで実現するための Blog API です。今回は、この Trackback Ping の API について簡単に解説し、Trackback Ping を実際に送信するコードを記述してみます。
+
+<hr class="seemore">
+
+
+<p />
+
+<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> は <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> の Ben &amp; Mena 夫妻によって考案され<a href="#note-1">(*1)</a>、Movable Type ではじめて実装された、Blog 間の言及通知のフレームワークです。
+
+<p />
+Trackback は、送信側が受信側に対して、HTTP によるメッセージを送信することによって行われます。
+
+<p />
+まず送信側は、通知したい Blog エントリやカテゴリ毎に固有の Trackback URL に対して、HTTP POST で
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><th class="blosxomTableHeader">パラメータ</th><th class="blosxomTableHeader">意味</th></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">url</td><td class="blosxomTableDataOdd">URL</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">blog_name</td><td class="blosxomTableDataEven">Blog 名</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">title</td><td class="blosxomTableDataOdd">タイトル</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">excerpt</td><td class="blosxomTableDataEven">概要</td></tr>
+</table>
+
+の情報を送信します。受信側は、これらのパラメータをローカルのDB などに保存し、レスポンスを以下のような XML で返します。
+
+<p><pre class="inlineRaw">Content-Type: text/xml
+
+&lt;?xml encoding=&quot;utf-8&quot;?&gt;
+&lt;response&gt;
+  &lt;error&gt;0&lt;/error&gt;
+  &lt;message&gt;Ping saved successfully.&lt;/message&gt;
+&lt;/response&gt;
+</pre></p>
+
+もしエラーが起こった場合には、
+
+<p><pre class="inlineRaw">Content-Type: text/xml
+
+&lt;?xml encoding=&quot;utf-8&quot;?&gt;
+&lt;response&gt;
+  &lt;error&gt;1&lt;/error&gt;
+  &lt;message&gt;Something Bad happened.&lt;/message&gt;
+&lt;/response&gt;
+</pre></p>
+
+のように <code>error</code> に 1 をセットします。
+
+<p />
+
+Trackback の API はたったこれだけです。MovableType では、各記事やカテゴリごとに Trackback の固有ID が用意されており、<code class="inlineRaw">http://example.com/mt/mt-tb.cgi/1234</code> のような URL が Trackback URL (送信先)となります<a href="#note-2">(*2)</a>。その記事やカテゴリにリンク、言及した Blog がこの Trackback URL に対し、上述のような HTTP POST リクエストを送信します。
+
+<p />
+
+ここで紹介したように、Trackback の主な利用目的は、「リンクしたよ」とか、「同じイベントにいった感想を書いたよ」という通知といえますが、他にも
+<ol>
+<li>複数の Blog サイトの特定カテゴリのエントリを集約する</li>
+<li><a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?PhotoFriday">PhotoFriday</a> や <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?FridayFive">FridayFive</a> のような、アンケートなどの結果集積所</li>
+</ol>
+
+といったような利用方法が考えられます。実際、Movable Type では、「特定のカテゴリにエントリを記述した際に、関連づいた Trackback URL に Ping を送信する」という設定を行うことができるようになっています。
+
+
+<h2>サンプルコード</h2>
+
+Trackback を送信するための簡易フォームつき CGI スクリプトを記述すると、<a href="#listing-1">List 1</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">use CGI;
+use HTTP::Request::Common;
+use LWP::UserAgent;
+</pre>
+
+使用するモジュールを use します。CGI スクリプトとして起動するため、CGI.pm を使用しています。
+
+<p />
+<pre class="scriptsSnippet">my $query = CGI-&gt;new();
+   $query-&gt;charset('utf-8');
+</pre>
+
+CGI オブジェクトを new し、<code>charset</code> メソッドで文字コードを UTF-8 としています。<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback%20%A4%CE%CA%B8%BB%FA%A5%B3%A1%BC%A5%C9">Trackback の文字コード</a>については、実際の <a href="http://www.movabletype.org/docs/mttrackback.html">Trackback規格仕様書</a>では対応方法が記述されておらず、日本語のように複数の文字エンコーディングを持つ言語での対応が若干混乱しています。執筆時点では、
+<ul>
+<li>送る文字コードは UTF-8 推奨</li>
+<li>送信する際に <code>charset</code> パラメータでエンコーディングを指定</li>
+<li>受け取り側は <code>charset</code> からデコード。ない場合は自動判定を試みる</li>
+</ul>
+
+というのが国内の各種 Blog ツールのラフコンセンサスとなっていますので、ここでは UTF-8 で送信することにします。<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?TypePad">TypePad</a> のようなホスティングサービスでも、UTF-8 で Ping を送れば文字化けすることはないようです。
+
+<p />
+<pre class="scriptsSnippet">my $mode  = $query-&gt;param('mode');
+if ($mode &amp;&amp; $mode eq 'form') {
+    show_ping_form($query);
+</pre>
+
+CGI の mode パラメータを受けとり、form であれば、送信するためのフォームを表示する <code>show_ping_form</code> を呼び出します。
+
+<p />
+<pre class="scriptsSnippet">} else {
+    my $v = $query-&gt;Vars();
+    if ($v-&gt;{ping_url} &amp;&amp; $v-&gt;{title} &amp;&amp; $v-&gt;{url}) {
+        my $message = send_ping($v);
+        show_ping_form($query, $message);
+    } else {
+        show_ping_form($query, &quot;invalid parameters&quot;);
+    }
+}
+</pre>
+
+mode がない場合には、Ping 送信モードになります。パラメータ <code>ping_url</code>, <code>title</code>, <code>url</code> が指定されているかチェックし、問題なければ <code>send_ping</code> により Trackback Ping を送信します。送信した結果は <code>$message</code> に格納されるので、フォームと同時に画面に出力します。
+<p />
+パラメータに不備がある場合も、その旨メッセージがフォームとともに表示されます。
+
+<p />
+<pre class="scriptsSnippet">sub show_ping_form {
+    my($query, $message) = @_;
+    $message ||= '';
+    print $query-&gt;header, &lt;&lt;HTML;
+&lt;html&gt;
+&lt;body&gt;
+$message
+&lt;form&gt;
+Ping URL: &lt;input type=&quot;text&quot; name=&quot;ping_url&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Title:    &lt;input type=&quot;text&quot; name=&quot;title&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Blogname: &lt;input type=&quot;text&quot; name=&quot;blog_name&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Blog URL: &lt;input type=&quot;text&quot; name=&quot;url&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Excerpt:  &lt;input type=&quot;text&quot; name=&quot;excerpt&quot; size=&quot;50&quot; /&gt;&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Send&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+HTML
+    ;
+}
+</pre>
+
+Trackback を送信するための簡易フォームを表示します。
+
+<p />
+<pre class="scriptsSnippet">sub send_ping {
+    my $v = shift;
+    my $ua = LWP::UserAgent-&gt;new();
+       $ua-&gt;agent(&quot;tb_send/1.0&quot;);
+    my $req = POST $v-&gt;{ping_url}, [
+        title     =&gt; $v-&gt;{title},
+        url       =&gt; $v-&gt;{url},
+        blog_name =&gt; $v-&gt;{blog_name},
+        excerpt   =&gt; $v-&gt;{excerpt},
+        charset   =&gt; 'utf-8',
+    ];
+    my $response = $ua-&gt;request($req);
+    unless ($response-&gt;is_success) {
+        return &quot;HTTP error: &quot; . $response-&gt;status_line;
+    }
+
+    $response-&gt;content =~ m!&lt;error&gt;(\d+).*&lt;message&gt;(.+?)&lt;/message&gt;!s;
+    return $1 ? &quot;Error: $2&quot; : &quot;Ping to $v-&gt;{ping_url} successful&quot;;
+}
+</pre>
+
+<code>send_ping</code> では、LWP::UserAgent オブジェクトを生成、CGI パラメータから POST リクエストを作成して、<code>request</code> メソッドによりリクエストを送信します。先述したように、<code>charset</code> パラメータに utf-8 をセットしていることに注意してください。
+
+<p />
+HTTP レスポンスがエラーであった場合には、ステータス行とともに return します。HTTP レスポンス自体が成功した場合は、返り値の XML 内の <code>error</code> 属性の値を調べ、1 であった場合にはエラー、0 であった場合には Ping 成功として表示します<a href="#note-3">(*3)</a>
+
+
+
+<h2>実行例</h2>
+
+このスクリプトを、CGI 実行可能なパスに設置し、ブラウザから <code>.../tb_send.cgi?mode=form</code> として呼び出してみましょう。
+
+<img src="/cookbook/images/tb_send/tb_send.gif" alt="Trackback Ping フォーム" style="inline-image" />
+
+このようなフォームが表示されます。一番上の Ping URL に、Trackback Ping 先の URL (<code>mt-tb.cgi/1234</code> など)、以下の4つには、Ping 元となるエントリ(通常は自分の Blog エントリでの記述内容) を入力し、Send のボタンを押します。
+
+<p />
+Ping が成功すれば、
+<p><blockquote class="inlineRaw">Ping to http://example.com/tb.cgi successful.<br />
+</blockquote></p>
+
+失敗した場合には、
+
+<p><blockquote class="inlineRaw">HTTP error: 500 Internal Server Error.<br />
+</blockquote></p>
+
+といったメッセージが表示されます。
+
+<h2>Hack the Hacks</h2>
+
+Trackback のリファレンス実装である <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?tb-standalone">tb-standalone</a> が MovableType サイト内でオープンソースで公開されています。このツールの中にも、Trackback を送信するモードが用意されています<note>そのままでは日本語に対応していません。<a href="http://blog.bulknews.net/mt/archives/000383.html">筆者の Blog</a> で日本語対応版を公開しています。
+
+<p />
+CPAN モジュール <a href="http://search.cpan.org/search?m=module&q=Net%3a%3aTrackBack">Net::TrackBack</a> は、リファレンス実装をモジュール化して使いやすくしたものです。
+
+<p />
+<a href="http://brutalhugs.com/trackback/">No Host Trackback</a> のように、Trackback に対応していない Blog ツール向けのホスティングサービスも用意されています。
+
+<p />
+今回用意したスクリプトを、誰でもアクセスできる場所に置くと、Trackback SPAM の踏み台にされる可能性もありますので、注意しましょう。
+
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: tb_send.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# tb_send - Send Trackback Ping
+
+use strict;
+use CGI;
+use HTTP::Request::Common;
+use LWP::UserAgent;
+
+my $query = CGI-&gt;new();
+   $query-&gt;charset('utf-8');
+
+my $mode  = $query-&gt;param('mode');
+if ($mode &amp;&amp; $mode eq 'form') {
+    show_ping_form($query);
+} else {
+    my $v = $query-&gt;Vars();
+    if ($v-&gt;{ping_url} &amp;&amp; $v-&gt;{title} &amp;&amp; $v-&gt;{url}) {
+        my $message = send_ping($v);
+        show_ping_form($query, $message);
+    } else {
+        show_ping_form($query, &quot;invalid parameters&quot;);
+    }
+}
+
+sub show_ping_form {
+    my($query, $message) = @_;
+    $message ||= '';
+    print $query-&gt;header, &lt;&lt;HTML;
+&lt;html&gt;
+&lt;body&gt;
+$message
+&lt;form&gt;
+Ping URL: &lt;input type=&quot;text&quot; name=&quot;ping_url&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Title:    &lt;input type=&quot;text&quot; name=&quot;title&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Blogname: &lt;input type=&quot;text&quot; name=&quot;blog_name&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Blog URL: &lt;input type=&quot;text&quot; name=&quot;url&quot; size=&quot;30&quot; /&gt;&lt;br /&gt;
+Excerpt:  &lt;input type=&quot;text&quot; name=&quot;excerpt&quot; size=&quot;50&quot; /&gt;&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Send&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+HTML
+    ;
+}
+
+sub send_ping {
+    my $v = shift;
+    my $ua = LWP::UserAgent-&gt;new();
+       $ua-&gt;agent(&quot;tb_send/1.0&quot;);
+    my $req = POST $v-&gt;{ping_url}, [
+        title     =&gt; $v-&gt;{title},
+        url       =&gt; $v-&gt;{url},
+        blog_name =&gt; $v-&gt;{blog_name},
+        excerpt   =&gt; $v-&gt;{excerpt},
+        charset   =&gt; 'utf-8',
+    ];
+    my $response = $ua-&gt;request($req);
+    unless ($response-&gt;is_success) {
+        return &quot;HTTP error: &quot; . $response-&gt;status_line;
+    }
+
+    $response-&gt;content =~ m!&lt;error&gt;(\d+).*&lt;message&gt;(.+?)&lt;/message&gt;!s;
+    return $1 ? &quot;Error: $2&quot; : &quot;Ping to $v-&gt;{ping_url} successful&quot;;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> <a href="http://www.movabletype.org/trackback/archives/000300.html">Feature: Trackback</a> が、Trackback をはじめて紹介しているエントリと思われます。<br />
+<a href="#note-2" name="note-2">*2)</a> もちろん他の Blog ツールでも同様に記事ごとに固有の Trackback URL が用意されていることが多いようです。<br />
+<a href="#note-3" name="note-3">*3)</a> 簡易のため正規表現で拾っています。XML::Simple などを使用してもいいですが、これだけシンプルな XML にわざわざパーサをつかうのは、鉛筆をノコギリで削るようなもので、ちょっとオーバースペックな気もします。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

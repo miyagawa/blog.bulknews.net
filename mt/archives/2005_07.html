@@ -1,0 +1,1233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: July 2005 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2005_06.html" title="June 2005" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2005_08.html" title="August 2005" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001775"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1775"
+    dc:title="Class::DBI の開発でトラブル"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001775"
+    dc:subject="perl"
+    dc:description="Class::DBI のメーリングリスト cdbi-talk やリスト外でフレーム（リリースタイミングや開発体制についての批判）があり、作者の Tony Bowden は怒って Mailing List の閉鎖とアーカイブの削除、Wiki の削除という暴挙に出てしまいました。 Catalyst チームと Class::DBI は、そのアクティブな開発スタンスのせいか Catalyst サイドの要望が強すぎるきらいがあり、リーダーの Sebastian Riedel もちょっと口が悪い（しかも..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-29T14:14:02+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 29, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001775"></a>
+<h3 class="title">Class::DBI の開発でトラブル</h3>
+
+<p>Class::DBI のメーリングリスト cdbi-talk やリスト外でフレーム（リリースタイミングや開発体制についての批判）があり、作者の Tony Bowden は怒って Mailing List の閉鎖とアーカイブの削除、Wiki の削除という暴挙に出てしまいました。</p>
+
+<p>Catalyst チームと Class::DBI は、そのアクティブな開発スタンスのせいか Catalyst サイドの要望が強すぎるきらいがあり、リーダーの Sebastian Riedel もちょっと口が悪い（しかも Native English じゃないので誤解があったと思う）ため、やな空気が漂ってはいたんですが。それにしても ML の閉鎖やコントリビュータで作った Wiki コンテンツの削除はやりすぎと言わざるを得ないですね。</p>
+
+<p>Class::DBI は Michael Schwern がメンテナンスしていた 2001 年からずっと使っていて前職ではかなりお世話になったモジュールの一つ。<a href="http://search.cpan.org/~miyagawa/">CPAN にいくつもプラグイン</a> を作っている立場からも、もう一度 Cool Down して見直してもらいたいです。</p>
+
+<p><a href="http://use.perl.org/~schwern/journal/25940">Sebastian Riedel (sri) and the Class::DBI kerfuffle</a><br />
+<a href="http://use.perl.org/~Ovid/journal/25941">Is Sebastien Riedel dishonest? </a><br />
+<a href="http://www.perlmonks.org/index.pl?node_id=479074">Class::DBI mailing list meltdown (perlmonks)</a><br />
+<a href="http://thread.gmane.org/gmane.comp.lang.perl.modules.class-dbi/">List closure (cdbi-talk archive)</a><br />
+<a href="http://use.perl.org/~sri/journal">journal of sri</a><br />
+<a href="http://cdbi-wiki.shadowcatsystems.co.uk/">cdbi wiki mirror</a></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001775.html">02:14 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001775.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001775.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001774"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1774"
+    dc:title="Alanis Morissette - Jagged Little Pill Acounstic"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001774"
+    dc:subject=""
+    dc:description="Jagged Little Pill Acousticposted with amazlet at 05.07.08Alanis Morissette Maverick (2005/07/26)売り上げランキング: 156Amazon.co.jp で詳細を見る Alanis Morissette の名盤 Jagged Little Pill が10周年ということでアコースティックの再録版が出たそうです。早速..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-28T13:44:38+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 28, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001774"></a>
+<h3 class="title">Alanis Morissette - Jagged Little Pill Acounstic</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009WFF0Y/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B0009WFF0Y.09.MZZZZZZZ.jpg" alt="Jagged Little Pill Acoustic" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009WFF0Y/bulknews-22" name="amazletlink" target="_blank">Jagged Little Pill Acoustic</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B0009WFF0Y/bulknews-22" title="Jagged Little Pill Acoustic" target="_blank">amazlet</a> at 05.07.08</div></div><div class="amazlet-detail">Alanis Morissette <br />Maverick (2005/07/26)<br />売り上げランキング: 156<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009WFF0Y/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>Alanis Morissette の名盤 Jagged Little Pill が10周年ということでアコースティックの再録版が出たそうです。早速 iTMS で買って聞いてみましたが色褪せないですね。ロックです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001774.html">01:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001774.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001774.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001773"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1773"
+    dc:title="Amazon Web Service で文字化け"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001773"
+    dc:subject="tech"
+    dc:description="以下のように Amazon ECS (AWS) がアップデートしたようですが、マルチバイトの文字列が一部文字化けするという症状がおきているみたいですね。 Amazon Web Services Blog: New ECS Release: 2005-07-27 We have rolled out a new release..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-28T12:31:26+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001773"></a>
+<h3 class="title">Amazon Web Service で文字化け</h3>
+
+<p>以下のように Amazon ECS (AWS) がアップデートしたようですが、マルチバイトの文字列が一部文字化けするという症状がおきているみたいですね。</p>
+
+<p><a title="Amazon Web Services Blog: New ECS Release: 2005-07-27" href="http://aws.typepad.com/aws/2005/07/new_ecs_release.html">Amazon Web Services Blog: New ECS Release: 2005-07-27</a><br />
+<blockquote>We have rolled out a new release of ECS today. The WSDL file is dated 2005-07-27.</blockquote></p>
+
+<p><a href="http://xml.amazon.co.jp/onca/xml3?page=1&BlendedSearch=Amazon&mode=&locale=jp&dev-t=D16F26JZ1YEJIY&type=heavy&f=xml&t=bulknews-22">生のXML</a> を見てみると Perl の Unicode フラグまわりで起こる iso-8859-1 -> UTF-8 アップグレードの化け方に似ている気がします。Amazon のフロントエンドは Perl だと知ってましたが、AWS もなのかな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001773.html">12:31 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001773.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001773.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001772"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1772"
+    dc:title="PAUL ANKA - Rock Swings"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001772"
+    dc:subject="music"
+    dc:description="Rock Swingsposted with amazlet at 05.07.26Paul Anka Verve (2005/06/07)売り上げランキング: 2,463Amazon.co.jp で詳細を見る ネットラジオでかかっていた妙に軽快な Van Halen - JUMP にひかれて検索してみたらみつかったのが、Paul Anka のカバーアルバム &quot;Rock..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-26T08:44:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 26, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001772"></a>
+<h3 class="title">PAUL ANKA - Rock Swings</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009A1BXG/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B0009A1BXG.09.MZZZZZZZ.jpg" alt="Rock Swings" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009A1BXG/bulknews-22" name="amazletlink" target="_blank">Rock Swings</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B0009A1BXG/bulknews-22" title="Rock Swings" target="_blank">amazlet</a> at 05.07.26</div></div><div class="amazlet-detail">Paul Anka <br />Verve (2005/06/07)<br />売り上げランキング: 2,463<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009A1BXG/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>ネットラジオでかかっていた妙に軽快な Van Halen - JUMP にひかれて検索してみたらみつかったのが、Paul Anka のカバーアルバム "Rock Swings"。</p>
+
+<p>これはヤバイですよ。JUMP のほかにも、Smells Like Teens Sprit (Nirvana), Wonderwall (oasis), Tears In Heaven (Eric Clapton) とか、すっかりスウィングのテイストでカバーされてる。最高！</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001772.html">08:44 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001772.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001772.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001771"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1771"
+    dc:title="MSN VE Locate Me"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001771"
+    dc:subject="tech"
+    dc:description="Microsoftが「MSN Virtual Earth」、IPアドレスで位置情報も取得可能 また、無料の専用プラグイン「Microsoft Local Finder」をインストールする必要があるが、接続しているアクセスポイントのIPアドレスから現在地を特定する機能「Locate Me」を搭載。例えば、無線LAN搭載のノートPCで公衆無線LANなどを利用している場合に、現在地がわかるという。 っと、これは誤りですね。MSN Virtual Earth の Locate Me では、 * Location Finder が Wi-Fi のアクセスポイントを探して、その..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-26T08:17:29+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001771"></a>
+<h3 class="title">MSN VE Locate Me</h3>
+
+<p><a title="Microsoftが「MSN Virtual Earth」、IPアドレスで位置情報も取得可能" href="http://internet.watch.impress.co.jp/cda/news/2005/07/25/8541.html">Microsoftが「MSN Virtual Earth」、IPアドレスで位置情報も取得可能</a><br />
+<blockquote>また、無料の専用プラグイン「Microsoft Local Finder」をインストールする必要があるが、接続しているアクセスポイントのIPアドレスから現在地を特定する機能「Locate Me」を搭載。例えば、無線LAN搭載のノートPCで公衆無線LANなどを利用している場合に、現在地がわかるという。</blockquote></p>
+
+<p>っと、これは誤りですね。MSN Virtual Earth の Locate Me では、</p>
+
+<p>* Location Finder が Wi-Fi のアクセスポイントを探して、その MAC アドレスを MSN のデータベースに問い合わせ、見つかったらそこから三角計算などをして位置情報を割り出し（なので、商用ISPのアクセスポイントにつながる必要はなく、スキャンしてシグナルの強さがわかればよい）<br />
+* データベースに見つからなければ（あるいは MS Locatoin Finder をインストールしなければ）、IP アドレスから割り出し</p>
+
+<p>ということをやってます。WiFi アクセスポイントのデータベースは US の国内をほとんどサポートしているそうで、会社でやってみたらストリート1本のずれでした。くわしくは <a href="http://channel9.msdn.com/ShowPost.aspx?PostID=91714#91714">Channel 9 のインタビュー</a> で聴けるのでそちらを参照。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001771.html">08:17 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001771.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001771.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001770"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1770"
+    dc:title="MSN Virtual Earth"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001770"
+    dc:subject="tech"
+    dc:description="MAKE: Blog: MSN Virtual Earth is out...(early) It has a feature called &quot;locate me&quot; You can install Location Finder to..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-24T16:21:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 24, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001770"></a>
+<h3 class="title">MSN Virtual Earth</h3>
+
+<p><a title="MAKE: Blog: MSN Virtual Earth is out...(early)" href="http://www.makezine.com/blog/archive/2005/07/msn_virtual_ear_1.html">MAKE: Blog: MSN Virtual Earth is out...(early)</a><br />
+<blockquote> It has a feature called "locate me" You can install Location Finder to display your current location on a Virtual Earth map by using Wi-Fi technology.</blockquote></p>
+
+<p>Google Maps の MSN 対抗 <a href="http://virtualearth.msn.com/">MSN Virtual Earth</a> のベータ版がローンチしてました。Microsoft Location Finder ってのをインストールすると Wi-Fi で住所を認識してその場所を表示してくれるのがなかなかイカしてます。</p>
+
+<p>適当に JS ファイル grep してたら WiFi や IP アドレスから位置情報返す API 発見。http://virtualearth.msn.com/WiFiIPService/locate.ashx?pos= な URL をたたくと IP アドレスから geo を返してくれる。ということで、</p>
+
+<p><a title="Hacking MSN VE to Locate Me" href="http://blog.bulknews.net/msnve-locate.html">Hacking MSN VE to Locate Me</a><br />
+<blockquote>Hacking MSN Virtual Earth Locate Me to lookup your location using IP address, and map it with Google Maps API.</blockquote></p>
+
+<p>な感じにデモコード書いてみました。日本だとプロバイダの住所になるのかな？</p>
+
+<p>WiFi のほうも、<code>wifi=new ActiveXObject("Microsoft.MapPoint.WiFiScanner.1"); var code = wifi.GetLocation();</code> ってな具合に ActiveX 経由でとれますが、MSN Virtual Earth のサイトからしか呼べないみたいなので、テストではコメントアウトしてあります。WSH とかのローカル環境からは呼び出せました。</p>
+
+<p>開発者向けサイト <a href="http://www.viavirtualearth.com/ViaVirtualEarth/Default.aspx?tabid=1">Via Virtual Earth </a>で <a href="http://www.viavirtualearth.com/ViaVirtualEarth/Default.aspx?tabid=34">API ドキュメント</a> もすでに公開されはじめてますね。<a href="http://channel9.msdn.com/ShowPost.aspx?PostID=91714#91714">Channel 9 の開発チームインタビュービデオ</a> も興味深い。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001770.html">04:21 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001770.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001770.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001769"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1769"
+    dc:title="Books - Perl Best Practices / Mapping Hacks"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001769"
+    dc:subject="perl"
+    dc:description="相変わらず肌寒い San Francisco ですが、ダウンタウンにあるよさげな書店 STACEY&apos;S というのを同僚に教えてもらって、帰りによってきました。 コンピュータ書籍には O&apos;Reilly コーナーがあって、とりあえず前から気になっていた書籍がたくさん。というわけで今日の収穫は Perl Best Practices と Mapping Hacks です。Mapping Hacks 分厚いなぁ。。 Mapping Hacks:..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-22T13:12:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 22, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001769"></a>
+<h3 class="title">Books - Perl Best Practices / Mapping Hacks</h3>
+
+<p>相変わらず肌寒い San Francisco ですが、ダウンタウンにあるよさげな書店 <a href="http://www.staceys.com/">STACEY'S</a> というのを同僚に教えてもらって、帰りによってきました。</p>
+
+<p>コンピュータ書籍には O'Reilly コーナーがあって、とりあえず前から気になっていた書籍がたくさん。というわけで今日の収穫は Perl Best Practices と Mapping Hacks です。Mapping Hacks 分厚いなぁ。。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/0596007035.09.MZZZZZZZ.jpg" alt="Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank">Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/0596007035/bulknews-22" title="Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)" target="_blank">amazlet</a> at 05.07.22</div></div><div class="amazlet-detail">Schuyler Erle Rich Gibson Jo Walsh <br />Oreilly & Associates Inc (2005/06/01)<br />売り上げランキング: 28,740<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/0596001738.09.MZZZZZZZ.jpg" alt="Perl Best Practices" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank">Perl Best Practices</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/0596001738/bulknews-22" title="Perl Best Practices" target="_blank">amazlet</a> at 05.07.22</div></div><div class="amazlet-detail">Damian Conway <br />Oreilly & Associates Inc (2005/08/01)<br />売り上げランキング: 33,873<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001769.html">01:12 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001769.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001769.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001768"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1768"
+    dc:title="XML::Atom 0.12_01"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001768"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Tatsuhiko Miyagawa / XML-Atom-0.12_01 XML::Atom に Atom 1.0 サポートを追加。また $content-&gt;body の Unicode エンティティを UTF-8 に戻すハックなどを追加して Developer Release としてリリースしました。人柱になってくれる方募集中です。..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-20T09:37:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 20, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001768"></a>
+<h3 class="title">XML::Atom 0.12_01</h3>
+
+<p><a title="search.cpan.org: Tatsuhiko Miyagawa / XML-Atom-0.12_01" href="http://search.cpan.org/~miyagawa/XML-Atom-0.12_01/">search.cpan.org: Tatsuhiko Miyagawa / XML-Atom-0.12_01</a></p>
+
+<p>XML::Atom に Atom 1.0 サポートを追加。また $content->body の Unicode エンティティを UTF-8 に戻すハックなどを追加して Developer Release としてリリースしました。人柱になってくれる方募集中です。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001768.html">09:37 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001768.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001768.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001767"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1767"
+    dc:title="CNN.com Podcasting"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001767"
+    dc:subject="blog"
+    dc:description="CNN.com - Podcasting Access one of CNN&apos;s podcast feeds to get news delivered to your desktop that is ready to..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-18T04:39:34+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 18, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001767"></a>
+<h3 class="title">CNN.com Podcasting</h3>
+
+<p><a title="CNN.com - Podcasting" href="http://www.cnn.com/services/podcasting/">CNN.com - Podcasting</a><br />
+<blockquote>Access one of CNN's podcast feeds to get news delivered to your desktop that is ready to load on your portable MP3 player. </blockquote></p>
+
+<p>iTunes が Podcasting 対応したあたりからだと思いますが CNN が Podcast 配信してるんですね。1時間に1回更新で1エピソードが2分ぐらいと聞きやすい。英語の勉強、とくに TOEIC とかの対策にはバッチリなんじゃないかなぁと思うしだい。<a href="http://www.msnbc.msn.com/id/8132577/">MSNBC</a> も先日から配信を開始したみたいだし、どんどん便利な世の中になっていきますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001767.html">04:39 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001767.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001767.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001766"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1766"
+    dc:title="MT 3.2 open beta launched!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001766"
+    dc:subject="tech"
+    dc:description="Movable Type 3.2 Beta Get in on the ground floor of the massive update to the leader in weblog publishing..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-15T16:39:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 15, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001766"></a>
+<h3 class="title">MT 3.2 open beta launched!</h3>
+
+<p><a title="Movable Type 3.2 Beta" href="http://www.sixapart.com/movabletype/beta/">Movable Type 3.2 Beta</a><br />
+<blockquote>Get in on the ground floor of the massive update to the leader in weblog publishing software. </blockquote></p>
+
+<p>MT 3.2 Open Beta がローンチしました。チャレンジしてみようという方はぜひダウンロードして、一新された UI をお楽しみください。どこが新しいの？ って方は <a href="http://www.sixapart.com/movabletype/news/2005/06/movable_type_32_is_comin.html">32 Features for 3.2</a> もチェック。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001766.html">04:39 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001766.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001766.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001765"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1765"
+    dc:title="JSAN で OO JavaScript"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001765"
+    dc:subject="tech"
+    dc:description="Lost-Season: JSANライブラリでオブジェクト指向JavaScript Prototype.js の中から Class や Object.extend が抜粋されてますね。 そのうちAjax関連も上がってくると思います。 てわけで、いくつか解説。 JSAN の Object.extend や Upgrade てなクラス関係のモジュールについての解説。JavaScript の OO は癖があるので Perl..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-15T16:36:57+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001765"></a>
+<h3 class="title">JSAN で OO JavaScript</h3>
+
+<p><a title="Lost-Season: JSANライブラリでオブジェクト指向JavaScript" href="http://www.lost-season.jp/mt/archives/2005/07/jsanjavascript.html">Lost-Season: JSANライブラリでオブジェクト指向JavaScript</a><br />
+<blockquote>Prototype.js の中から Class や Object.extend が抜粋されてますね。<br />
+そのうちAjax関連も上がってくると思います。<br />
+てわけで、いくつか解説。</blockquote></p>
+
+<p>JSAN の Object.extend や Upgrade てなクラス関係のモジュールについての解説。JavaScript の OO は癖があるので Perl になれた人向けにわかりやすくしてやろうという感じでしょうか。参考になります。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001765.html">04:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001765.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001765.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001764"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1764"
+    dc:title="RSS Secure Syndication with Greasemonkey"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001764"
+    dc:subject="tech"
+    dc:description="Joe Gregorio | BitWorking | Projects | Secure Syndication Welcome to Secure Syndication. Secure Syndication is a Greasemonkey Script that..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-15T16:35:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001764"></a>
+<h3 class="title">RSS Secure Syndication with Greasemonkey</h3>
+
+<p><a title="Joe Gregorio | BitWorking | Projects | Secure Syndication" href="http://bitworking.org/projects/securesyndication/">Joe Gregorio | BitWorking | Projects | Secure Syndication</a><br />
+<blockquote>Welcome to Secure Syndication. Secure Syndication is a Greasemonkey Script that allows you read encrypted syndication feeds in you favorite web-based news aggregator.</blockquote></p>
+
+<p>RSS の中に XML Encryption で暗号化したデータを Firefox Greasemonkey で復号しようというプロジェクト。これは画期的というか、GM の正しい使い方！な感じ。</p>
+
+<p><a title="XML.com: Secure RSS Syndication" href="http://www.xml.com/pub/a/2005/07/13/secure-rss.html">XML.com: Secure RSS Syndication</a><br />
+<blockquote>A better solution would not require me to give Bloglines my password, or some other key with which to decrypt my content. But if Bloglines isn't going to decrypt my content, who will?</blockquote></p>
+
+<p>XML.com に作者の Joe Gregorio (Atom の仕様策定にもかかわっている人） の記事が載ってます。そういえば Atom はフィードのほうに関してはもう IETF で技術レビューは終わったようで実装もほぼ GO な状態、と Tim Bray がさっきメーリングリストで言ってました。<a href="http://www.tbray.org/ongoing/When/200x/2005/07/14/Atom-1.0">Blog にもでてますね</a>。</p>
+
+<p><a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> てな namespace 用の URL もできてますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001764.html">04:35 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001764.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001764.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001763"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1763"
+    dc:title="Perl Best Practices"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001763"
+    dc:subject="perl"
+    dc:description="oreilly.com - Online Catalog: Perl Best Practices, First Edition Perl Best Practices offers a collection of 256 guidelines on the..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-15T16:32:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001763"></a>
+<h3 class="title">Perl Best Practices</h3>
+
+<p><a title="oreilly.com -- Online Catalog: Perl Best Practices, First Edition" href="http://www.oreilly.com/catalog/perlbp/">oreilly.com -- Online Catalog: Perl Best Practices, First Edition</a><br />
+<blockquote>Perl Best Practices offers a collection of 256 guidelines on the art of coding to help you write better Perl code--in fact, the best Perl code you possibly can. The guidelines cover code layout, naming conventions, choice of data and control structures, program decomposition, interface design and implementation, modularity, object orientation, error handling, testing, and debugging.</blockquote></p>
+
+<p>YAPC::NA でも見かけた <a href="http://www.flickr.com/photos/bulknews/22131561/">Damian Conway の Perl Best Practices</a>。もう発売になっているみたいですね。立ち読みしたけどかなり面白げでした。Tim O'Reilly も <a href="http://radar.oreilly.com/archives/2005/07/perl_best_pract.html">Perl Best Practices - Lovely Book</a> と大絶賛ですね。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/0596001738.09.MZZZZZZZ.jpg" alt="Perl Best Practices" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank">Perl Best Practices</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/0596001738/bulknews-22" title="Perl Best Practices" target="_blank">amazlet</a> at 05.07.15</div></div><div class="amazlet-detail">Damian Conway <br />Oreilly & Associates Inc (2005/08/01)<br />売り上げランキング: 33,222<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596001738/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001763.html">04:32 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001763.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001763.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001762"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1762"
+    dc:title="はてなマップの RSS"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001762"
+    dc:subject="tech"
+    dc:description="naoyaのはてなダイアリー - はてなマップのRSS RSS の中には RDF/XML の geoボキャブラリ を使って、 35.6511 139.6982 とこんな感じで各 item の longitude と latitude も表現してあります。どんな Hack にこれが使えるかは使い方次第ですが、宮川さんの..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-15T01:49:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001762"></a>
+<h3 class="title">はてなマップの RSS</h3>
+
+<p><a title="naoyaのはてなダイアリー - はてなマップのRSS" href="http://d.hatena.ne.jp/naoya/20050714/1121348866">naoyaのはてなダイアリー - はてなマップのRSS</a><br />
+<blockquote>RSS の中には RDF/XML の geoボキャブラリ を使って、<br />
+<geo:lat>35.6511</geo:lat> <br />
+<geo:long>139.6982</geo:long> </p>
+
+<p>とこんな感じで各 item の longitude と latitude も表現してあります。どんな Hack にこれが使えるかは使い方次第ですが、宮川さんの Hack のようなものと連携してほげほげ、というあたりがとりあえず思いつきます。</blockquote></p>
+
+<p>はてなマップが RSS 出力を開始してました。リーダーで読むというより API として利用するのがよさげ。Cool! </p>
+
+<p>ということで <a href="http://map.hatena.ne.jp/rss?maxX=139.70310866832733&maxY=35.65341353416443&minX=139.69342052936554&minY=35.64933657646179">はてなマップの RSS</a> を <a href="http://blog.bulknews.net/georss-gmaps.cgi">RSS to Google Maps</a> でも<a href="http://blog.bulknews.net/georss-gmaps.cgi?url=http%3A%2F%2Fmap.hatena.ne.jp%2Frss%3FmaxX%3D139.70310866832733%26maxY%3D35.65341353416443%26minX%3D139.69342052936554%26minY%3D35.64933657646179">表示できるように</a>なりましたよ。(Content-Type: text/xml で RSS/1.0 のフィードを入れるとフィードのバージョン判別に失敗してたので Fix）</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001762.html">01:49 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001762.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001762.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001761"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1761"
+    dc:title="Google Maps for Japan"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001761"
+    dc:subject="tech"
+    dc:description="fumiakiyの日記 もしや（衛星写真ではなく）道路地図を表示するためか？！どこかから地図を買ったのでは？mapionとかmapfanとかみんなTokyoだもんね。 Google Maps が ZENRIN の地図を買って日本の Street Map にも対応したみたいですね。しかし Maps Hacker の間で話題になっているように、なぜか日本の位置情報を送るには TOKYO 測地系に変換することが必要。。 Satellite を使うだけであれば、_SATELLITE_TYPE.japanDatumHack = false; とすれば..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-14T09:45:38+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 14, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001761"></a>
+<h3 class="title">Google Maps for Japan</h3>
+
+<p><a title="fumiakiyの日記" href="http://d.hatena.ne.jp/fumiakiy/20050713#1121219766">fumiakiyの日記</a><br />
+<blockquote>もしや（衛星写真ではなく）道路地図を表示するためか？！どこかから地図を買ったのでは？mapionとかmapfanとかみんなTokyoだもんね。</blockquote></p>
+
+<p>Google Maps が ZENRIN の地図を買って日本の Street Map にも<a href="http://maps.google.com/maps?q=%E5%85%AD%E6%9C%AC%E6%9C%A8&spn=0.003660,0.006360&hl=en">対応したみたいですね</a>。しかし Maps Hacker の間で話題になっているように、なぜか日本の位置情報を送るには TOKYO 測地系に変換することが必要。。 </p>
+
+<p>Satellite を使うだけであれば、<code>_SATELLITE_TYPE.japanDatumHack = false;</code> とすれば WGS-84 測地系のデータで大丈夫だったのですが、Street Map はどうにもいかないみたい。</p>
+
+<p>というわけで、<a href="http://blog.bulknews.net/georss-gmaps.cgi">Map geocoded RSS/Atom to Google Maps</a> では、JavaScript レベルで変換して渡すようにしました。Google Maps の js 読んでみると中で TOKYO -> WGS84 の変換しているっぽくて二重な努力の気もしますが。。。 <a href="http://blog.bulknews.net/georss-gmaps.cgi?url=http%3A%2F%2Fkanzaki.com%2Fworks%2F2004%2Fimgdsc%2Ftokyo-ls.rdf">神崎さんとこの位置情報つき RSS</a> を食わせてみても、マップと Satellite でちゃんとずれなく表示できてます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001761.html">09:45 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001761.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001761.html#trackbacks">TrackBack (8)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001760"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1760"
+    dc:title="Rails Movie"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001760"
+    dc:subject="tech"
+    dc:description=" Rails Movie Launched&quot; href=&quot;http://radar.oreilly.com/archives/2005/07/rails_movie_lau.html&quot;&gt;O&apos;Reilly Radar &gt; Rails Movie Launched OSCON keynoter David Heinemeier Hansson just launched The New Rails..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:44:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 11, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001760"></a>
+<h3 class="title">Rails Movie</h3>
+
+<p><a title="O'Reilly Radar > Rails Movie Launched" href="http://radar.oreilly.com/archives/2005/07/rails_movie_lau.html">O'Reilly Radar > Rails Movie Launched</a><br />
+<blockquote>OSCON keynoter David Heinemeier Hansson just launched The New Rails Movie. It's a walk-through of building a blog engine with Rails.</blockquote></p>
+
+<p>OSCON 2005 のキーノートも担当する 37 Signals の david 氏による Rails デモムービー。これはカッコイイなあ。どれも Catalyst / Class::DBI / Template-Toolkit でもできることではあるけど、このスムーズさと軽快さ、そしてデモをつくってというコミュニティビルドプロセスがすばらしいなあと思います。</p>
+
+<p><a title="tima thinking outloud. > Nat Nails Rails." href="http://www.timaoutloud.org/archives/000409.html">tima thinking outloud. > Nat Nails Rails.</a><br />
+<blockquote>I been fascinated and inquisitive of this surge of buzz in the past few months surrounding Rails, the Ruby code framework the 37 signals team derived from their web applications. In fact, I just finished watching the movie Nat's post links to.</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001760.html">04:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001760.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001760.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001759"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1759"
+    dc:title="Google Maps with geocoder"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001759"
+    dc:subject="tech"
+    dc:description="Google Address Translation - John Resig This is a hack that brings the power of address translation (converting a US..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:42:56+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001759"></a>
+<h3 class="title">Google Maps with geocoder</h3>
+
+<p><a title="Google Address Translation - John Resig" href="http://ejohn.org/projects/gaddress/">Google Address Translation - John Resig</a><br />
+<blockquote>This is a hack that brings the power of address translation (converting a US Postal Address into a Latitude/Longitude) to the Google Maps API - something that wasn't provided in the default distribution. </blockquote></p>
+
+<p>Google Maps API ではデフォルトで geocoding (住所の文字列から緯度経度を取得) はサポートされていませんが、<a href="http://geocoder.us/">geocoder.us</a> の REST API と組み合わせて実現する Hack。geocoder の Schyler 氏 （先日 San Francisco にきていて<a href="http://bulknews.typepad.com/life/2005/07/thai_restaurant.html">一緒に食事に行きました</a>）は O'Reilly の Mapping Hacks の作者でもありますね。しかしナイスタイミングで出版されたという感じ。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/0596007035.09.MZZZZZZZ.jpg" alt="Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank">Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/0596007035/bulknews-22" title="Mapping Hacks: Tips & Tools for Electronic Cartography (HACKS)" target="_blank">amazlet</a> at 05.07.11</div></div><div class="amazlet-detail">Schuyler Erle Rich Gibson Jo Walsh <br />Oreilly & Associates Inc (2005/06/01)<br />売り上げランキング: 53,095<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0596007035/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001759.html">04:42 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001759.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001759.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001758"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1758"
+    dc:title="del.icio.us tag for two"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001758"
+    dc:subject="tech"
+    dc:description="del.icio.us: tags for two We&apos;ve just begun rolling out support for tagging items for others. To do so, use &quot;for:username&quot;..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:39:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001758"></a>
+<h3 class="title">del.icio.us tag for two</h3>
+
+<p><a title="del.icio.us: tags for two" href="http://blog.del.icio.us/blog/2005/07/tags_for_two.html">del.icio.us: tags for two</a><br />
+<blockquote>We've just begun rolling out support for tagging items for others. To do so, use "for:username" where username is the name of the user you want to send the item to.</blockquote></p>
+
+<p>for:USERNAME というタグを打つことで他のユーザにその URL を通知。こういう tag のアノテーション拡張が簡単にできるのも folksonomy 的な感じがします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001758.html">04:39 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001758.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001758.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001757"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1757"
+    dc:title="Google Maps with Rails &amp; Ajax"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001757"
+    dc:subject="tech"
+    dc:description="map.rails2u.com 住所・郵便番号から緯度経度を取得、Google Maps API でサテライト表示、まで一気に Rails 上の Ajax で実装。Cool!..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:37:38+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001757"></a>
+<h3 class="title">Google Maps with Rails & Ajax</h3>
+
+<p><a title="map.rails2u.com" href="http://map.rails2u.com/">map.rails2u.com</a></p>
+
+<p>住所・郵便番号から緯度経度を取得、Google Maps API でサテライト表示、まで一気に Rails 上の Ajax で実装。Cool!</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001757.html">04:37 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001757.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001757.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001756"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1756"
+    dc:title="JSAN Goodies"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001756"
+    dc:subject="tech"
+    dc:description="JavaScript Archive Network : CafePress.com This store aims to support and promote JSAN, the JavaScript Archive Network. Mostly it is..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:36:29+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001756"></a>
+<h3 class="title">JSAN Goodies</h3>
+
+<p><a title="JavaScript Archive Network : CafePress.com" href="http://www.cafepress.com/jsan">JavaScript Archive Network : CafePress.com</a><br />
+<blockquote>This store aims to support and promote JSAN, the JavaScript Archive Network. Mostly it is intended as a means for you to buy cool shirts and things with the JSAN logo on them. </blockquote></p>
+
+<p>JavaScript 版 CPAN の JSAN アパレルショップ。この T シャツほしいですね。</p>
+
+<p>ところで、JSAN で Mirror Sites を募集していたので <a href="http://jsan.jp/">jsan.jp</a> を取得してミラーに参加してみました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001756.html">04:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001756.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001756.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001755"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1755"
+    dc:title="xFolk"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001755"
+    dc:subject="tech"
+    dc:description="xfolk - Microformats xFolk is a simple and open format for publishing collections of bookmarks. Social Bookmarks における Tag 表記のアノテーションを統一する..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-11T16:34:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001755"></a>
+<h3 class="title">xFolk</h3>
+
+<p><a title="xfolk - Microformats" href="http://microformats.org/wiki/xfolk">xfolk - Microformats</a><br />
+<blockquote>xFolk is a simple and open format for publishing collections of bookmarks.</blockquote></p>
+
+<p>Social Bookmarks における Tag 表記のアノテーションを統一する microformats: xFolk。Do the simple things and do it well という感じ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001755.html">04:34 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001755.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001755.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001754"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1754"
+    dc:title="Funeral For A Friend - Hours"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001754"
+    dc:subject="music"
+    dc:description="Hoursposted with amazlet at 05.07.09Funeral for a Friend Atlantic (2005/06/14)売り上げランキング: 2,005Amazon.co.jp で詳細を見る FFAF の 2nd。スクリーモ色は若干抜けている気がしますがエモさと美しいメロディは相変わらず。..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-09T15:01:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 09, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001754"></a>
+<h3 class="title">Funeral For A Friend - Hours</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009I7NP8/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B0009I7NP8.09.MZZZZZZZ.jpg" alt="Hours" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009I7NP8/bulknews-22" name="amazletlink" target="_blank">Hours</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B0009I7NP8/bulknews-22" title="Hours" target="_blank">amazlet</a> at 05.07.09</div></div><div class="amazlet-detail">Funeral for a Friend <br />Atlantic (2005/06/14)<br />売り上げランキング: 2,005<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009I7NP8/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>FFAF の 2nd。スクリーモ色は若干抜けている気がしますがエモさと美しいメロディは相変わらず。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001754.html">03:01 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001754.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001754.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001753"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1753"
+    dc:title="Microformats - location formats"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001753"
+    dc:subject="tech"
+    dc:description="location-formats - Microformats Microformats Wiki にある位置情報用のアノテーションリスト。今後の実装はともかく、現状いままでに試みられてきた実装のリストとして役立ちそう。..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-08T13:20:24+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 08, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001753"></a>
+<h3 class="title">Microformats - location formats</h3>
+
+<p><a title="location-formats - Microformats" href="http://microformats.org/wiki/location-formats">location-formats - Microformats</a></p>
+
+<p>Microformats Wiki にある位置情報用のアノテーションリスト。今後の実装はともかく、現状いままでに試みられてきた実装のリストとして役立ちそう。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001753.html">01:20 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001753.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001753.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001752"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1752"
+    dc:title="TypePad sucks"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001752"
+    dc:subject="blog"
+    dc:description="The Last Minute: Typepad Sucks Reader: So why is that the title of your post jackass? Me: I want people..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-08T13:19:21+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001752"></a>
+<h3 class="title">TypePad sucks</h3>
+
+<p><a title="The Last Minute: Typepad Sucks" href="http://thelastminute.typepad.com/blog/2005/07/typepad_sucks.html">The Last Minute: Typepad Sucks</a><br />
+<blockquote>Reader: So why is that the title of your post jackass? <br />
+Me:  I want people looking for "Typepad sucks" to find out that they don't suck. </blockquote></p>
+
+<p>タイトルは Sucks となっていますが、実際には TP のプロダクトマネージャとの対話から、すばらしいユーザエクスペリエンスだったことを解説している記事。同じ Six Apart の人間としてこの記事は素直にうれしいですね。</p>
+
+<p>タイトルに Sucks とつけて興味をひくのは、<a href="http://www.100shiki.com/archives/2004/12/_flickrsuckscom.html">flickr sucks メソッド</a> ともいえますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001752.html">01:19 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001752.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001752.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001751"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1751"
+    dc:title="Atom: The Standard of Syndication"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001751"
+    dc:subject="blog"
+    dc:description="Atom: The Standard in Syndication Early syndication and publishing protocols faced various problems related to interoperability, scalability, and extensibility. IEEE..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-08T13:15:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001751"></a>
+<h3 class="title">Atom: The Standard of Syndication</h3>
+
+<p><a title="Atom: The Standard in Syndication" href="http://dsonline.computer.org/portal/site/dsonline/menuitem.9ed3d9924aeb0dcd82ccc6716bbe36ec/index.jsp?&pName=dso_level1&path=dsonline/0507&file=w4sta.xml&xsl=article.xsl&">Atom: The Standard in Syndication</a><br />
+<blockquote>Early syndication and publishing protocols faced various problems related to interoperability, scalability, and extensibility.</blockquote></p>
+
+<p>IEEE の機関紙向け Atom フィードフォーマットのイントロダクション記事。よくまとまっています。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001751.html">01:15 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001751.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001751.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_07.html#001750"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1750"
+    dc:title="Google Maps API hacks"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_07.html#001750"
+    dc:subject="tech"
+    dc:description="Map geocoded RSS to Google Maps Uses Google Maps API to map geourl: coded RSS feeds. Google と Yahoo! がそろって..."
+    dc:creator="miyagawa"
+    dc:date="2005-07-04T23:32:21+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 04, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001750"></a>
+<h3 class="title">Google Maps API hacks</h3>
+
+<p><a title="Map geocoded RSS to Google Maps" href="http://blog.bulknews.net/georss-gmaps.cgi">Map geocoded RSS to Google Maps</a><br />
+<blockquote>Uses Google Maps API to map geourl: coded RSS feeds.</blockquote></p>
+
+<p>Google と Yahoo! がそろって Maps API を Where 2.0 で公開。というわけで JavaScript で遊べる <a href="http://www.google.com/apis/maps/">Google Maps API</a> のほうをちょろっといじってみました。</p>
+
+<p>というわけでできたのが <a href="http://blog.bulknews.net/georss-gmaps.cgi">これ</a>。geourl モジュールをつかって緯度経度がプロットしてある RSS を食わせると、そのアイテムを Google Maps にマップします。<a href="http://blog.bulknews.net/georss-gmaps.cgi?url=http%3A%2F%2Fgeourl.org%2Fnear%2F%3Fp%3Dhttp%3A%2F%2Fwww.ldodds.com%2Fblog%2F%26format%3Drss10">サンプルはこのように</a>。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001750.html">11:32 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001750.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001750.html#trackbacks">TrackBack (12)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

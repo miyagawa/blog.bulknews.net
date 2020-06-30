@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Trackback Auto Discovery</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Sun, 07 Dec 2003</div>
+<div class="entry"><h1 class="title"><a name="tb_discovery">Trackback Auto Discovery</a></h1>
+
+<p />
+Trackback をサポートしているBlog エントリには、&quot;このエントリの Trackback URL&quot; という表記がしてあります。これをコピーすれば Trackback Ping を打つ URL がわかるというわけですが、はっきりいってメンドウです。こういうものは人手でやるのではなくて、プログラムから自動でわかるようにした方が便利です。というわけで、今回は Trackback Ping URL を自動検出する方法について解説します。
+
+
+<p />
+
+ある Blog に対する Trackback Ping URL は、<a href="http://www.movabletype.org/docs/mttrackback.html">Trackback 仕様書</a> に Trackback Auto-Discovery として記述されています。
+
+<p />
+
+Trackback Auto-Discovery は、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?RDF">RDF</a> (Resource Description Format) と呼ばれるフレームワークを利用して実装されています。RDF は、Web サイトのメタデータを Machine Readable にするという&quot;セマンティックWeb&quot; のベースとなる、メタデータ記述フォーマットです。
+
+<p />
+各 Blog に関連する Trackback Ping URL を、RDF データ内に記述し、 HTML 内に埋めこみます。サンプルを見た方が理解が早いでしょう。このエントリの RDF データは以下のようになります。
+
+<p><pre class="inlineRaw">&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+         xmlns:trackback=&quot;http://madskills.com/public/xml/rss/module/trackback/&quot;&gt;
+&lt;rdf:Description
+  rdf:about=&quot;http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html&quot;
+  trackback:ping=&quot;http://blog.bulknews.net/cookbook/trackback/trackback_tb_discovery&quot;
+  dc:title=&quot;Trackback Auto Discovery&quot;
+  dc:identifier=&quot;http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html&quot; /&gt;
+&lt;/rdf:RDF&gt;
+</pre></p>
+
+
+このように rdf タグ内に Description という単一要素タグで、Blog エントリのメタデータについて記述しています。ここでは先頭の xmlns 宣言で、RDF 内に 3 つの名前空間を定義しています。
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><th class="blosxomTableHeader">名前空間</th><th class="blosxomTableHeader">URI</th><th class="blosxomTableHeader">概要</th></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">rdf</td><td class="blosxomTableDataOdd">http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td class="blosxomTableDataOdd">Resource Description Format</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">dc</td><td class="blosxomTableDataEven">http://purl.org/dc/elements/1.1/</td><td class="blosxomTableDataEven">Dublin Core 1.1</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">trackback</td><td class="blosxomTableDataOdd">http://madskills.com/public/xml/rss/module/trackback/</td><td class="blosxomTableDataOdd">Trackback Ping</td></tr>
+</table>
+
+RDF に trackback モジュールをインポートし、
+
+<p><pre class="inlineRaw">  trackback:ping=&quot;http://blog.bulknews.net/cookbook/trackback/trackback_tb_discovery&quot;
+</pre></p>
+
+の部分で、Ping URL を指定しています。ちなみに <code>dc:title</code> にはエントリのタイトル、<code>dc:identifier</code> にはエントリの Permalink を指定しています。<code>rdf:about</code> については、意味的にいろいろな指定方法が考えられますが、ここでは &quot;Trackback Ping URL についてのメタデータ&quot; であると考え、Trackback Ping URL を指定しています。
+
+<p />
+このような RDF タグを、Blog ツールのテンプレートなどを編集して HTML 内に埋めこみます<a href="#note-1">(*1)</a>。ただ、XHTML 内にこうした RDF タグを埋めこんだ場合、User-Agent によっては表示に不具合を起こす場合があるので、この RDF を HTML エスケープするのが一般的なようです<a href="#note-2">(*2)</a>。
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html">RSS Auto Discovery</a> では HTML の link タグに URL を指定していたことと比べてみると面白いですね。
+
+
+<h2>サンプルコード</h2>
+
+こうして埋めこまれた Trackback Ping URL を自動的に検出するスクリプトを書くと、<a href="#listing-1">List 1</a> のようになります。このスクリプトは <a href="http://www.movabletype.org/docs/mttrackback.html">Trackback 仕様書</a> に記述されていたサンプルコードを基に、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> の Bookmarklet 部で使用されているものを参考にして記述しています<a href="#note-3">(*3)</a>。
+
+<p />
+<pre class="scriptsSnippet">my $url      = shift;
+my $find_all = shift;
+</pre>
+
+このスクリプトは、Blog エントリ(あるいはインデクスページ) の URL を渡すと、関連した Trackback Ping URL を表示するスクリプトになっています。引数は Blog エントリの URL と、複数の Ping URL があった場合、それをすべて表示するかどうかのフラグになります。
+
+
+<p />
+<pre class="scriptsSnippet">my @pings = discover_tb($url, $find_all);
+for my $ping (@pings) {
+    print &quot;$ping-&gt;{url}\n($ping-&gt;{title})\n&quot;;
+}
+</pre>
+
+<code>discover_tb</code> で Ping URL を検出し、見つかれば Ping URL をタイトルとともに表示します。
+
+<p />
+<pre class="scriptsSnippet">sub discover_tb {
+    my($url, $find_all) = @_;
+    my $html = get($url) or die &quot;Can't GET $url\n&quot;;
+</pre>
+
+URL を <a href="http://search.cpan.org/search?m=module&q=LWP%3a%3aSimple">LWP::Simple</a> を使用して HTTP GET します。取得できなければエラー終了です。
+
+<p />
+<pre class="scriptsSnippet">    # no-anchor version for matching
+    (my $url_no_anchor = $url) =~ s/#.*$//;
+</pre>
+
+<code>$url</code> のアンカー部分を削除した <code>$url_no_anchor</code> を用意します。例えばエントリの URL が <code>http://example.com/1234.html#more</code> 等だった場合に、このアンカー部がない URL でマッチした場合にも、検出するためです。
+
+<p />
+<pre class="scriptsSnippet">    while ($html =~ m!(&lt;rdf:RDF.*?&lt;/rdf:RDF&gt;)!sg) {
+        my $rdf = $1;
+        my $ping_url;
+        my($permalink) = $rdf =~ m!dc:identifier=&quot;(.+?)&quot;!;
+</pre>
+
+HTML から RDF 部分をマッチさせ、さらにそこから <code>dc:identifier</code> を拾って Permalink となる URL を抜き出します。
+
+<p />
+<pre class="scriptsSnippet">        # Check if $pemalink matches to my $url
+        next unless $find_all || $permalink eq $url
+            || $permalink eq $url_no_anchor;
+</pre>
+
+Permalink が、引数となる URL と同じかどうかを比較します。これがマッチしない場合には、対象でないので次のマッチを処理します。<code>$find_all</code> (スクリプトの第2引数) が指定されているときは、Permalink にマッチするかどうかに関わらずすべての Trackback Ping URL を抜き出します。
+
+<p />
+<pre class="scriptsSnippet">        # find Trackback URLs, fallback to rdf:about
+        if ($rdf =~ m!trackback:ping=&quot;(.+?)&quot;!) {
+            $ping_url = $1;
+        } elsif ($rdf =~ m!about=&quot;(.+?)&quot;!) {
+            $ping_url = $1;
+        }
+</pre>
+
+<code>trackback:ping</code> 属性を抜き出して Ping URL を取得します。RDF内に trackback モジュールを宣言していない場合には、<code>rdf:about</code> で代用します。
+
+<p />
+<pre class="scriptsSnippet">        my($title) = $rdf =~ m!dc:title=&quot;(.+?)&quot;!;
+
+        push @items, { title =&gt; $title, url =&gt; $ping_url };
+        last unless $find_all;
+</pre>
+
+<code>dc:title</code> でタイトル文字列を取得します。タイトルと Ping URL をハッシュリファレンスにして <code>@items</code> に格納します。<code>$find_all</code> がある場合は、次の RDF も処理しますが、そうでない場合は1個見つかれば OK なので、ループを抜けます。
+
+<h2>実行例</h2>
+
+この Blog の最初のエントリで実行してみます。
+
+<p><pre class="command">% <strong>./tb_discovery.pl http://blog.bulknews.net/cookbook/blosxom/common/readme_first.html</strong>
+http://blog.bulknews.net/cookbook/trackback/common_readme_first
+ (About This Blog (Blog Developer's Cookbook))
+</pre></p>
+
+のように、エントリのタイトルと Ping URL が出力されます。インデクスページに対して実行すると、
+
+<p><pre class="command">% <strong>./tb_discovery.pl http://blog.bulknews.net/cookbook/</strong>
+</pre></p>
+
+のように何もマッチしませんが、2番目の引数に 1 を渡せば、
+
+<p><pre class="command">% <strong>./tb_discovery.pl http://blog.bulknews.net/cookbook/ 1 </strong>
+http://blog.bulknews.net/cookbook/trackback/trackback_tb_rss
+(Trackback Ping 一覧を RSS 出力する)
+http://blog.bulknews.net/cookbook/trackback/trackback_tb_receive
+(Trackback Ping を受信する)
+http://blog.bulknews.net/cookbook/trackback/trackback_tb_send
+(Trackback Ping を送信する)
+http://blog.bulknews.net/cookbook/trackback/common_wiki_created
+(WikiWikiWeb Created)
+http://blog.bulknews.net/cookbook/trackback/rss_rss2js
+(RSS feed を JavaScript で HTML に埋め込む)
+http://blog.bulknews.net/cookbook/trackback/rss_rss2htmlmail
+(RSS をメールで送信する (HTML メール編))
+http://blog.bulknews.net/cookbook/trackback/rss_genfeed
+(genfeed - 汎用 RSS ジェネレータ)
+http://blog.bulknews.net/cookbook/trackback/opml_blogrolling2opml
+(BlogRolling を利用して RSS 巡回先を管理 (OPML編))
+http://blog.bulknews.net/cookbook/trackback/rss_blogrolling2rss
+(BlogRolling を利用して RSS 巡回先を管理)
+http://blog.bulknews.net/cookbook/trackback/rss_rss2email
+(RSS をメールで送信する)
+</pre></p>
+
+のようにそのページ内に含まれるすべての Ping URL が取得できます<a href="#note-4">(*4)</a>。
+
+<h2>Hack the Hacks</h2>
+
+<a href="http://search.cpan.org/search?m=module&q=Net%3a%3aTrackBack">Net::TrackBack</a> では、<code>discover</code> メソッドで Trackback Ping URL の検出を行うことができます。ただし、このメソッドでは URL の抽出のみしか行うことはできず、この例のように <code>dc:title</code> も一緒に取得することはできません。
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: tb_discovery.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# tb_discovery - Trackback Auto Discovery
+
+use strict;
+use LWP::Simple;
+
+my $url      = shift;
+my $find_all = shift;
+
+my @pings = discover_tb($url, $find_all);
+for my $ping (@pings) {
+    print &quot;$ping-&gt;{url}\n($ping-&gt;{title})\n&quot;;
+}
+
+sub discover_tb {
+    my($url, $find_all) = @_;
+    my $html = get($url) or die &quot;Can't GET $url\n&quot;;
+
+    # no-anchor version for matching
+    (my $url_no_anchor = $url) =~ s/#.*$//;
+    my @items;
+    while ($html =~ m!(&lt;rdf:RDF.*?&lt;/rdf:RDF&gt;)!sg) {
+        my $rdf = $1;
+        my $ping_url;
+        my($permalink) = $rdf =~ m!dc:identifier=&quot;(.+?)&quot;!;
+
+        # Check if $pemalink matches to my $url
+        next unless $find_all || $permalink eq $url
+            || $permalink eq $url_no_anchor;
+
+        # find Trackback URLs, fallback to rdf:about
+        if ($rdf =~ m!trackback:ping=&quot;(.+?)&quot;!) {
+            $ping_url = $1;
+        } elsif ($rdf =~ m!about=&quot;(.+?)&quot;!) {
+            $ping_url = $1;
+        }
+
+        my($title) = $rdf =~ m!dc:title=&quot;(.+?)&quot;!;
+
+        push @items, { title =&gt; $title, url =&gt; $ping_url };
+        last unless $find_all;
+    }
+
+    return @items;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> ではデフォルトでこの記述がテンプレートに埋めこまれます。<br />
+<a href="#note-2" name="note-2">*2)</a> せっかく RDF に準拠しているのに、こうやって ad-hoc に回避するのは、あまり美しくないと反発する人もいるようです。<br />
+<a href="#note-3" name="note-3">*3)</a> <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> のコードは GPL 等ではないライセンスを採用しているため、そのまま引用という形にはしていません。<br />
+<a href="#note-4" name="note-4">*4)</a> UTF-8 で出力されるので、端末で表示できないかもしれません。その場合は <code>iconv -f utf-8 -t euc-jp</code> 等でフィルタするとよいでしょう。<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">22:40</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback">Trackback Pings</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/trackback_tb_discovery?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (5)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Trackback%20Auto%20Discovery&amp;body=http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/trackback_tb_discovery"
+      dc:title="Trackback Auto Discovery"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">Trackback Tracer</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html">Trackback スレッド化</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

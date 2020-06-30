@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://xmlns.com/foaf/0.1/">
+<Person>
+  <name>Tatsuhiko Miyagawa</name> 
+  <firstName>Tatsuhiko</firstName> 
+  <surname>Miyagawa</surname> 
+  <gender>male</gender> 
+  <mbox rdf:resource="mailto:miyagawa@bulknews.net" />
+  <depiction rdf:resource="http://bulknews.typepad.com/P506iC0003735833.jpg" />
+
+
+<msnChatID>miyagawa_edge@hotmail.com</msnChatID>
+<weblog rdf:resource="http://blosxom.org/blog/" dc:title="blosxom.org" />
+<weblog rdf:resource="http://blog.bulknews.net/" dc:title="blog.bulknews.net" />
+<weblog rdf:resource="http://blog.bulknews.net/cookbook/" dc:title="Blog Developer's Cookbook" />
+<weblog rdf:resource="http://blog.bulknews.net/pubs" dc:title="Tatsuhiko Miyagawa's Publications List" />
+<weblog rdf:resource="http://shibuya.pm.org/" dc:title="Shibuya Perl Mongers" />
+<interest rdf:resource="http://www.so-net.ne.jp/24/" dc:title="24 TWENTY FOUR" />
+<interest rdf:resource="http://www.arsenal.com/" dc:title="Arsenal" />
+<interest rdf:resource="http://www.ataris.com/" dc:title="The Ataris" />
+<interest rdf:resource="http://www.fcbarcelona.es/" dc:title="F.C. Barcelona" />
+<interest rdf:resource="http://www.blosxom.com/" dc:title="blosxom" />
+<interest rdf:resource="http://www.busted.com/" dc:title="Busted" />
+<interest rdf:resource="http://www.jsports.co.jp/tv/foot/" dc:title="Foot!" />
+<interest rdf:resource="http://www.apple.com/ipod/" dc:title="iPod" />
+<interest rdf:resource="http://www.bsfuji.tv/keibadaiou/" dc:title="競馬大王" />
+<interest rdf:resource="http://www.linkinpark.com/" dc:title="Linkin Park" />
+<interest rdf:resource="http://www.toysfactory.co.jp/melody/" dc:title="melody." />
+<interest rdf:resource="http://www.mysql.com/" dc:title="MySQL" />
+<interest rdf:resource="http://www.newfoundglory.com/" dc:title="New Found Glory" />
+<interest rdf:resource="http://www.perl.org/" dc:title="Perl" />
+<interest rdf:resource="http://www.so-net.ne.jp/pride/" dc:title="PRIDE" />
+<interest rdf:resource="http://www.simpleplan.com/" dc:title="Simple Plan" />
+<interest rdf:resource="http://www.fujitv.co.jp/b_hp/taikutsu/" dc:title="退屈貴族" />
+<interest rdf:resource="http://www.tv-asahi.co.jp/common/tamoriclub/" dc:title="タモリ倶楽部" />
+<interest rdf:resource="http://www.tv-asahi.co.jp/uchimura/" dc:title="内村プロデュース" />
+<currentProject rdf:resource="http://bulkfeeds.net" dc:title="Bulkfeeds" />
+<currentProject rdf:resource="http://bulknews.net/" dc:title="Bulknews" />
+<currentProject rdf:resource="http://blog.livedoor.com/" dc:title="livedoor Blog" />
+<currentProject rdf:resource="http://shibuya.pm.org/" dc:title="Shibuya.pm" />
+<currentProject rdf:resource="http://sl.edge.jp/" dc:title="Sledge" />
+<currentProject rdf:resource="http://www.gihyo.co.jp/magazines/wdpress" dc:title="WEB+DB Press" />
+<knows>
+<Person>
+  <name>Yukikazu Ariga</name>
+
+  <mbox_sha1sum>f24b362153db9884ee8ce8e5cb953b4f4658fe23</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://blog.adven.org/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Daiya Hashimoto</name>
+
+  <mbox_sha1sum>f639acfce69fe3cea77936b28812e42e9b2353ce</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.ringolab.com/note/daiya/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Daiji Hirata</name>
+
+  <mbox_sha1sum>a6c614e56ac10097c81fc750de65d60edaab1432</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://uva.jp/dh/mt/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Hiroyuki Nishimura</name>
+
+  <mbox_sha1sum>08445a31a78661b5c746feff39a9db6e4e2cc5cf</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://blog.livedoor.jp/hirox1492/foaf.rdf" />
+  <weblog rdf:resource="http://blog.livedoor.jp/hirox1492/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Ikki Ohmukai</name>
+
+  <mbox_sha1sum>3e5affa548ebc667addbc048e0e0973957d3f106</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://www-kasm.nii.ac.jp/~i2k/tmp/rna/foaf.rdf" />
+  <weblog rdf:resource="http://www.semblog.org/i2k/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Tomohiro Ikebe</name>
+
+  <mbox_sha1sum>6ad5f7ce111331eef241631b951eb563c33dfabd</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://blog.shebang.jp/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Masahide Kanzaki</name>
+
+  <mbox_sha1sum>c608c06ce564b0a00846eab72659d8f1375b880b</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://www.kanzaki.com/info/webwho.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Kengo Nonaka</name>
+
+  <mbox_sha1sum>960127fc714be5a1ac248aa671e251ff94ed3ef8</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://kengo.preston-net.com/foaf.rdf" />
+  <weblog rdf:resource="http://kengo.preston-net.com/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Kyo Nagashima</name>
+
+  <mbox_sha1sum>7c0c0932a48a86cb69d249fa1da6ec636bc0a067</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://hail2u.net/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Mamoru Shimizu</name>
+
+  <mbox_sha1sum>08445a31a78661b5c746feff39a9db6e4e2cc5cf</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://blog.livedoor.jp/yogore/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Akihiro Tsukui</name>
+  <nick>milano</nick>
+  <mbox_sha1sum>475cf36f89b0e6e6e905928808e458cf32d19870</mbox_sha1sum>
+
+  <weblog rdf:resource="http://rebecca.ac/milano/mt/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Naoya Ito</name>
+
+  <mbox_sha1sum>9af34ac32ae38c1bc33d2c7c04cab2efc6f8d05c</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://naoya.cocolog-nifty.com/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>のら DJ</name>
+  <nick>noras</nick>
+  <mbox_sha1sum>bd514b12d5dd976c0c216735e5b66071</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://wanderingdj.blogtribe.org/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Shinichiro Ooba</name>
+
+  <mbox_sha1sum>d7588220a634334528f894bd1495a77b868387ce</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://www.bricklife.com/foaf.rdf" />
+
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Hiroyuki Oyama</name>
+
+  <mbox_sha1sum>f2eb6f283ad6a574fefcc646164f039d47c854e9</mbox_sha1sum>
+
+  <weblog rdf:resource="http://module.jp/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Rael Dornafest</name>
+  <nick>rael</nick>
+  <mbox_sha1sum>69e06039141567c1d68093a7ce4fb9b8534e92ef</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.raelity.org/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Kazuhiro Taguchi</name>
+  <nick>tag</nick>
+  <mbox_sha1sum>203269fb85fc51354cc000c800003c4dc6c34249</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.rickdom.com/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Satoru Takabayashi</name>
+
+  <mbox_sha1sum>8f201480c4e5912a7deae42b466d64a0b9f04e96</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.namazu.org/~satoru/diary/" />
+  <homepage rdf:resource="http://www.namazu.org/~satoru/" />
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Simon Cozens</name>
+
+  <mbox_sha1sum>4f178efa2bac4f0167058d7d787a7bd3a05d80f6</mbox_sha1sum>
+
+  <weblog rdf:resource="http://blog.simon-cozens.org/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Gen Taguchi</name>
+
+  <mbox_sha1sum>c911e911d614795738cc9bbb34042c830d616a51</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.100shiki.com/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Takanori Kawai</name>
+  <nick>hippo2000</nick>
+  <mbox_sha1sum>dd76f55f658ec64e3529720ff79ab8b3ac5c45a1</mbox_sha1sum>
+
+
+  <homepage rdf:resource="http://www.hippo2000.info/" />
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Takafumi Horie</name>
+
+  <mbox_sha1sum>7fa97e538fd485a8b7688461de3d3132e4fd52f4</mbox_sha1sum>
+
+  <weblog rdf:resource="http://blog.livedoor.jp/takapon_jp/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Takefumi Kimura</name>
+
+  <mbox_sha1sum>abbe8b0c8474b8ef824928fc0f6a1c73939c8deb</mbox_sha1sum>
+
+  <weblog rdf:resource="http://diary.godtomato.net/takefumi/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Yoshikazu Tanaka</name>
+
+  <mbox_sha1sum>cf6486272e62e61439775c1fa3c9aa8f7c676bac</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.tanakayoshikazu.com/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Tatsuo Yamashita</name>
+
+  <mbox_sha1sum>821568d484a6e295ecd72b89e7ea7f19d01f6c48</mbox_sha1sum>
+
+  <weblog rdf:resource="http://nais.to/~yto/clog/" />
+  <homepage rdf:resource="http://nais.to/~yto/" />
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Tony Bowden</name>
+
+  <mbox_sha1sum>b57490c23ecb721b86607fe93b65570a53d94c56</mbox_sha1sum>
+
+  <weblog rdf:resource="http://www.tmtm.com/nothing/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Kotaro Yamagishi</name>
+
+  <mbox_sha1sum>616606540bccca7d7ec6a03944aad32cde970c50</mbox_sha1sum>
+
+  <weblog rdf:resource="http://blog.cnetnetworks.jp/yamagishi/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Yuichi Kawasaki</name>
+
+  <mbox_sha1sum>67046bdedf807dc5665e9b03a3f64b92b390165f</mbox_sha1sum>
+
+  <weblog rdf:resource="http://nkcp.zive.net/yublog/" />
+
+</Person>
+</knows>
+<knows>
+<Person>
+  <name>Noriyuki Yamazaki</name>
+
+  <mbox_sha1sum>ee5cfdcbe9d366f8de6e2229fbf9de1c1201f4fd</mbox_sha1sum>
+  <rdfs:seeAlso rdf:resource="http://blog.sip-ix.jp/foaf.rdf" />
+
+
+</Person>
+</knows>
+</Person>
+</rdf:RDF>

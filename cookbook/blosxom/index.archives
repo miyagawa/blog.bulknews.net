@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+<div class="entry">
+<div class="date">Archive of All Entries</div>
+Listed in reverse order, with the oldest at the bottom.
+<ul><li><a href="http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html">Blog Hacks 出版</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html">Winamp で再生中の曲を Blog に</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html">Trackback スレッド化</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Trackback Auto Discovery</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">Trackback Tracer</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">Trackback Ping を送信する</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/autotrackback.html">Automatic Trackback</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html">Trackback Ping 一覧を RSS 出力する</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_receive.html">Trackback Ping を受信する</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/common/wiki_created.html">WikiWikiWeb Created</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2js.html">RSS feed を JavaScript で HTML に埋め込む</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/genfeed.html">genfeed - 汎用 RSS ジェネレータ</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2htmlmail.html">RSS をメールで送信する (HTML メール編)</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html">BlogRolling を利用して RSS 巡回先を管理</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/opml/blogrolling2opml.html">BlogRolling を利用して RSS 巡回先を管理 (OPML編)</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.html">RSS をメールで送信する</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/kanshin_rss.html">関心空間の RSS を作成する</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html">RSS Auto Discovery</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">Weblogs.com Ping Gateway to はてなアンテナ (POE版)</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">Weblogs.com Ping Gateway to はてなアンテナ</a></li>
+
+<li><a href="http://blog.bulknews.net/cookbook/blosxom/common/readme_first.html">About This Blog (Blog Developer's Cookbook)</a></li>
+
+</div><!-- id="entry" -->
+</ul>
+</div><!-- id="content" -->
+</body>
+</html>

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Weblogs.com Ping Gateway to はてなアンテナ (POE版)</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Fri, 10 Oct 2003</div>
+<div class="entry"><h1 class="title"><a name="ping_to_hatena_poe">Weblogs.com Ping Gateway to はてなアンテナ (POE版)</a></h1>
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">前回</a>紹介した、はてなアンテナ Ping ゲートウェイには、1点問題がありました。Ping を受け取った後、HTTPリクエストを発行してレスポンスを待っているため、Ping 受信に非常に時間がかかることがあるという点です。ここに時間がかかると、Blog ツールのエントリビルド処理が待たされることになり、好ましくありません。Ping を受けとったら即座にレスポンスを返し、非同期にアンテナへのリクエストを投げる方がよいでしょう。
+<p />
+今回のレシピでは、<a href="http://poe.perl.org/">POE</a> と呼ばれるフレームワークを使用して、この処理の非同期化を行ってみます。
+
+<p />
+<h2>Perl の非同期処理</h2>
+一般に、外部へのネットワーク接続(この場合は、はてなアンテナへのHTTP接続)などによるブロッキング<a href="#note-1">(*1)</a>を避けるためには、一連の処理を個別に非同期で(asynchronously)実行する必要があります。Perl で非同期処理を行うにはいくつかの選択肢が用意されており、<ul>
+<li>fork() する</li>
+<li>スレッド (threads)を使用する</li>
+<li>POE (Persistent Object Environment) を使用する</li>
+</ul>
+といった方法があります。それぞれ簡単に概要を解説しておきましょう。
+<p />
+fork() は UNIX では一般によく利用される手法で、プロセスの複製をつくって、親プロセスと子プロセスで処理を分岐させます。Perl でも関数 <code>fork</code> を利用すれば実装は容易です。ただし、今回の場合は Web サーバ (httpd) から CGI 経由で XML-RPC サーバを動作させている都合上、あまり fork を利用するのは好ましくない<a href="#note-2">(*2)</a>気もします。
+<p />
+perl のスレッドは非常に実験的ですが、5.8.1 からはより安定して使用できるようになりました。5.8 でのスレッド実装は、スレッド1つ毎に perl インタプリタを作成する実装<a href="#note-3">(*3)</a>となっており、5.6 以前のネイティブなスレッド実装とはまったく異なります。ネイティブなスレッドに比べると速度やメモリ消費の点で劣りますが、より安全に利用/実装できる点が特長です。ただ、5.8.1 でより安定したとはいえ、インタプリタ間で変数がデフォルトでは共有されない<a href="#note-4">(*4)</a>など、注意すべき点も多いため、今回は threads の利用は避けておきます。
+<p />
+POE は Persistent Object Environment (など様々なモノ)の略で<a href="#note-5">(*5)</a>、Perl でイベントドリブンなプログラミングを行うためのフレームワークです。POE は内部で <code>select</code> や <code>alarm</code> を用いてノンブロッキングな処理を実行する仕組みを持っており、ユーザはイベントを非同期にキューイングして実行することができ、ユーザレベルでのスレッドプログラミングを簡単に行うことができます。CPAN には様々な POE Component<a href="#note-6">(*6)</a> が登録されていて、マルチタスクなアプリケーションを組むには最適といえます。コーディングのルールには多少クセがありますが、ハマるとなかなか抜け出せない魅力も同時に持っています。
+<p />
+
+<h2>サンプルコード</h2>
+
+今回は、POE を利用して、XML-RPC で Ping を受けとるタスクと、HTTP で はてなアンテナにリクエストを送信するタスクの2つを非同期に実行させます。スクリプトの実装は <a href="#listing-1">List 1</a> のようになります。
+<p />
+<pre class="scriptsSnippet">use POE qw(Component::Server::XMLRPC
+           Component::Client::HTTP
+           Component::TSTP);
+</pre>
+POE モジュールと、関連する Component モジュールを use しています。これは
+<p><pre class="inlineRaw">use POE;
+use POE::Component::Server::XMLRPC;
+...
+</pre></p>
+と書いても同じことですが、POE モジュールを use する際の import 引数に追加することにより、同時にロードすることができます。これは POE を使用する際の慣習のようなものなので、そのまま利用してください。
+
+<p />
+<pre class="scriptsSnippet">use POE::Sugar::Args;
+</pre>
+<a href="http://search.cpan.org/search?m=module&q=POE%3a%3aSugar%3a%3aArgs">POE::Sugar::Args</a> モジュールを use しています。このモジュールは、POE を使用するときに汚なくなりがちな表記を楽に書くことができる Syntactic Sugar です。よってとくに使う必要はないのですが、コードの見やすさをとるため使用してみました。
+
+<p />
+<pre class="scriptsSnippet">use HTTP::Request;
+use Sys::Hostname;
+use URI;
+</pre>
+HTTP リクエストを生成する <a href="http://search.cpan.org/search?m=module&q=HTTP%3a%3aRequest">HTTP::Request</a>、自身のホスト名を取得する <a href="http://search.cpan.org/search?m=module&q=Sys%3a%3aHostname">Sys::Hostname</a>、URI を生成する <a href="http://search.cpan.org/search?m=module&q=URI">URI</a> をロードしています。
+
+<p />
+<pre class="scriptsSnippet">our $VERSION    = &quot;1.00&quot;;
+our $HatenaURL  = &quot;http://a.hatena.ne.jp/check&quot;;
+</pre>
+後で User-Agent 文字列に使うスクリプトのバージョンと、はてなアンテナの API URL をグローバルに設定しています<a href="#note-7">(*7)</a>。
+
+<p />
+<pre class="scriptsSnippet">my $port = shift || 10080;
+</pre>
+XML-RPC サーバが listen するポート番号を指定します。コマンドラインの第1引数か、指定されていなければデフォルトで 10080 を使用します。
+
+<p />
+<pre class="scriptsSnippet"># session to trap Ctrl-Z
+POE::Component::TSTP-&gt;create();
+</pre>
+POE のプログラムは、無限ループで動作します。何も指定しない場合 Ctrl-C や Ctrl-Z を入力しても受け付けてくれません。この POE::Component::TSTP は、Ctrl-Z でサスペンドする機能をスクリプトに付加するコンポーネントです。
+
+<p />
+<pre class="scriptsSnippet"># session for XML-RPC server
+POE::Component::Server::XMLRPC-&gt;new(
+    alias =&gt; 'xmlrpc',
+    port  =&gt; $port,
+);
+</pre>
+XML-RPC サーバ用の Session (Session は POE の用語で、スレッドのようなものと考えればOKです) を起動します。それぞれの Session には名前をつけることができ、Session 間でのコミュニケーションに使用します。ここでは名前を <code>xmlrpc</code> としました。
+
+<p />
+<pre class="scriptsSnippet"># session to send pings in HTTP
+POE::Component::Client::HTTP-&gt;spawn(
+    Alias =&gt; 'ua',
+    Agent =&gt; &quot;ping2hatena/$VERSION&quot;,
+);
+</pre>
+HTTP クライアントの Session を起動します。名前は <code>ua</code> (User-Agent の意) とし、HTTP リクエストの User-Agent: に使用する文字列 <code>Agent</code> にはスクリプト名とバージョン番号をいれています。
+
+<p />
+<pre class="scriptsSnippet"># main session
+POE::Session-&gt;create(
+    inline_states =&gt; {
+        _start =&gt; \&amp;setup_service,
+        _stop  =&gt; \&amp;shutdown_service,
+        &quot;weblogUpdates.ping&quot; =&gt; \&amp;ping_handler,
+        got_response =&gt; \&amp;response_handler,
+    },
+);
+</pre>
+これらの Session に指令を出し、コントロールする Session を最後につくります。引数 <code>inline_states</code> は、ハッシュリファレンスで、key がイベント名、value がそのイベントで実行されるサブルーチンのリファレンスとなります。<code>_start</code> と <code>_stop</code> は、先頭の _ が意味する通り、特殊なイベント名で、POE プログラムが起動するときおよび終了するときに実行されるイベントです。
+
+<p />
+<pre class="scriptsSnippet">$poe_kernel-&gt;run();
+</pre>
+<code>$poe_kernel</code> は、POE のすべての処理をハンドルするカーネルです。カーネルに対して run() メソッドを呼び出すことで、すべての Session が動作を開始します。ここからプログラムは、カーネルが管理するイベントに応じて、各処理が非同期に呼び出されることになります。
+
+<p />
+<pre class="scriptsSnippet">sub setup_service {
+    my $poe = sweet_args;
+    $poe-&gt;kernel-&gt;alias_set(&quot;ping2hatena&quot;);
+    $poe-&gt;kernel-&gt;post(xmlrpc  =&gt; 'publish',
+                       ping2hatena =&gt; &quot;weblogUpdates.ping&quot;);
+    my $hostname = Sys::Hostname::hostname || 'localhost';
+    warn &quot;URI: http://$hostname:$port/?session=ping2hatena\n&quot;;
+}
+</pre>
+先ほど <code>_start</code> イベントに設定したサブルーチン <code>setup_service</code> が、まず最初に起動されます。
+<p />
+ここでは main のセッションに <code>ping2hatena</code> という別名をつけ、次に <code>xmlrpc</code> の publish() メソッドを呼び出す処理を POE カーネルにキューイングしています。publish メソッドの引数はそれぞれ、公開した XML-RPC API の処理を行う Session 名 (<code>ping2hatena</code>) と、公開するメソッド名 (= イベント名: <code>weblogUpdates.ping</code>) を表しています。
+<p />
+Sys::Hostname の <code>hostname</code> でホスト名を得た後、XML-RPC サーバの URL を warn で表示しています。URL には ?session={Session名} のクエリが必要なことに注意してください<a href="#note-8">(*8)</a>。
+
+<p />
+<pre class="scriptsSnippet">sub shutdown_service {
+    my $poe = sweet_args;
+    $poe-&gt;kernel-&gt;post(xmlrpc  =&gt; 'rescind',
+                       ping2hatena =&gt; &quot;weblogUpdates.ping&quot;);
+}
+</pre>
+<code>shutdown_service</code> では、Server::XMLRPC の C<rescind> メソッドで、API のクローズを行っています。POE::Component::Server::XMLRPC のドキュメントに記述されているため、ここにも書いておきましたが、実際には必要ないはずです。
+
+<p />
+<pre class="scriptsSnippet">sub ping_handler {
+    my $poe = sweet_args;
+    my $transaction = $poe-&gt;args-&gt;[0];
+    my($blog_name, $blog_url) = @{$transaction-&gt;params()};
+    my $url = URI-&gt;new($HatenaURL);
+       $url-&gt;query_form(url =&gt; $blog_url);
+    my $req = HTTP::Request-&gt;new(GET =&gt; $url);
+    $poe-&gt;kernel-&gt;post(ua =&gt; request =&gt; got_response =&gt; $req);
+
+    my %data = (flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 0));
+    $transaction-&gt;return(\%data);
+}
+</pre>
+実際に XML-RPC サーバに対して API がリクエストされると、先ほど publish したイベント <code>weblogUpdates.ping</code> が起動され、イベントに対応するサブルーチン <code>ping_handler</code> が呼び出されます。<code>$transaction</code> は XML-RPC のトランザクションを表わすオブジェクトで params() メソッドで API への引数を取りだします。<p />
+URI.pm を使用して、はてなアンテナの更新通知用の URL を生成します<a href="#note-9">(*9)</a>。HTTP::Request オブジェクトを new して、Client::HTTP である <code>ua</code> に、リクエストを投げる依頼をします。メソッド <code>request</code> の引数は、リクエストに対するレスポンスを受け取った際に起動されるイベント名 (<code>got_response</code>)、HTTP::Request オブジェクトです。<p />
+そして前回と同様、weblogUpdates.ping の返り値である構造体を作成して <code>$transaction</code> 経由で return しています。実際には先ほどの <code class="inlineRaw">$poe-&gt;kernel-&gt;post()</code> も <code class="inlineRaw">$transaction-&gt;return()</code> も、イベントがキューイングされるだけで、その後 POE カーネルにより非同期で実行されることに注意してください。<p />
+こうして、はてなアンテナへのリクエスト送信とレスポンス受信を待つことなく、Blog クライアントに Ping のレスポンスを返すことができます。
+
+<p />
+<pre class="scriptsSnippet">sub response_handler {
+    my $poe = sweet_args;
+    my $request  = $poe-&gt;args-&gt;[0]-&gt;[0];
+    my $response = $poe-&gt;args-&gt;[1]-&gt;[0];
+    if (defined($response-&gt;content)) {
+        warn &quot;successful request to &quot;, $request-&gt;uri();
+    } else {
+        warn &quot;error while requesting &quot;, $request-&gt;uri();
+    }
+}
+</pre>
+実際のリクエスト送信は <code>ua</code> が行います。レスポンスを受信すると <code>got_response</code> イベントが起動し、登録した <code>response_handler</code> が呼び出されます。ここでは HTTP::Response オブジェクトを取り出し、成功か失敗かを warn で表示しているだけです。
+
+<h2>実行例</h2>
+
+まずはサーバを起動します。
+
+<p><pre class="command">% <strong>./ping_to_hatena_poe.pl</strong>
+URI: http://localhost:10080/?session=ping2hatena
+</pre></p>
+
+出力された URL を、Blog ツールの Ping 通知先に指定します。
+<p />
+ここでは単体での確認のため、XML-RPCのクライアントも自作して実行してみましょう。<a href="http://search.cpan.org/search?m=module&q=XMLRPC%3a%3aLite">XMLRPC::Lite</a> を使用したクライアントスクリプトは <a href="#listing-2">List 2</a> のような簡単なものになります。引数に XML-RPC の URL, Blog名 と Blog URL を指定して実行します。
+
+<p><pre class="command">% <strong>./ping_client.pl &quot;http://localhost:10080/?session=ping2hatena&quot; \</strong>
+  &quot;Blog Developer's Cookbook&quot; &quot;http://blog.bulknews.net/cookbook/&quot;
+</pre></p>
+
+うまくいけば、まずクライアント側に
+
+<p><pre class="command">flerror=0
+</pre></p>
+
+のように返り値が表示され、時間をおいてから、サーバ側のプロンプトに、
+
+<p><pre class="command">successful request to http://a.hatena.ne.jp/check?url=http%3A%2F%2F
+blog.bulknews.net%2Fcookbook%2F at ./ping_to_hatena_poe.pl line 79.
+</pre></p>
+
+と表示され、Ping へのレスポンスと、HTTP リクエストが非同期で行われていることが確認できます。 
+
+<p />
+サーバのシャットダウンは Ctrl-Z でサスペンドし、 PID を指定して kill しましょう。
+
+<h2>まとめ</h2>
+
+POE は、とくにネットワークが絡むマルチタスクを非同期で処理するための魅力的なフレームワークです。今回は HTTP でリクエストを送信しましたが、インスタントメッセンジャーで通知したり、別の Blog にポストしたりと、様々な応用例が考えられます。2003/10/18 の <a href="http://shibuya.pm.org/blosxom/techtalks/techtalks_200310.html">Shibuya Perl Mongers テクニカルトーク #4</a> では、<a href="http://naoya.dyndns.org/">NDO::Weblog</a> の naoya 氏が、受けとった Ping を IRC チャネルにポストする bot の紹介をする予定ですのでお楽しみに。
+
+<h2>Listings</h2>
+<p />
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: ping_to_hatena_poe.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# ping_to_hatena_poe
+# - Weblogs.Com Ping Gateway to Hatena Antenna (POE)
+
+use strict;
+use POE qw(Component::Server::XMLRPC
+           Component::Client::HTTP
+           Component::TSTP);
+use POE::Sugar::Args;
+use HTTP::Request;
+use Sys::Hostname;
+use URI;
+
+our $VERSION    = &quot;1.00&quot;;
+our $HatenaURL  = &quot;http://a.hatena.ne.jp/check&quot;;
+
+my $port = shift || 10080;
+
+# session to trap Ctrl-Z
+POE::Component::TSTP-&gt;create();
+
+# session for XML-RPC server
+POE::Component::Server::XMLRPC-&gt;new(
+    alias =&gt; 'xmlrpc',
+    port  =&gt; $port,
+);
+
+# session to send pings in HTTP
+POE::Component::Client::HTTP-&gt;spawn(
+    Alias =&gt; 'ua',
+    Agent =&gt; &quot;ping2hatena/$VERSION&quot;,
+);
+
+# main session
+POE::Session-&gt;create(
+    inline_states =&gt; {
+        _start =&gt; \&amp;setup_service,
+        _stop  =&gt; \&amp;shutdown_service,
+        &quot;weblogUpdates.ping&quot; =&gt; \&amp;ping_handler,
+        got_response =&gt; \&amp;response_handler,
+    },
+);
+
+$poe_kernel-&gt;run();
+
+sub setup_service {
+    my $poe = sweet_args;
+    $poe-&gt;kernel-&gt;alias_set(&quot;ping2hatena&quot;);
+    $poe-&gt;kernel-&gt;post(xmlrpc  =&gt; 'publish',
+                       ping2hatena =&gt; &quot;weblogUpdates.ping&quot;);
+    my $hostname = Sys::Hostname::hostname || 'localhost';
+    warn &quot;URI: http://$hostname:$port/?session=ping2hatena\n&quot;;
+}
+
+sub shutdown_service {
+    my $poe = sweet_args;
+    $poe-&gt;kernel-&gt;post(xmlrpc  =&gt; 'rescind',
+                       ping2hatena =&gt; &quot;weblogUpdates.ping&quot;);
+}
+
+sub ping_handler {
+    my $poe = sweet_args;
+    my $transaction = $poe-&gt;args-&gt;[0];
+    my($blog_name, $blog_url) = @{$transaction-&gt;params()};
+    my $url = URI-&gt;new($HatenaURL);
+       $url-&gt;query_form(url =&gt; $blog_url);
+    my $req = HTTP::Request-&gt;new(GET =&gt; $url);
+    $poe-&gt;kernel-&gt;post(ua =&gt; request =&gt; got_response =&gt; $req);
+
+    my %data = (flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 0));
+    $transaction-&gt;return(\%data);
+}
+
+sub response_handler {
+    my $poe = sweet_args;
+    my $request  = $poe-&gt;args-&gt;[0]-&gt;[0];
+    my $response = $poe-&gt;args-&gt;[1]-&gt;[0];
+    if (defined($response-&gt;content)) {
+        warn &quot;successful request to &quot;, $request-&gt;uri();
+    } else {
+        warn &quot;error while requesting &quot;, $request-&gt;uri();
+    }
+}
+</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: ping_client.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# ping_client - weblogUpdates.ping client
+
+use strict;
+use XMLRPC::Lite;
+my($proxy, @args) = @ARGV;
+
+my $result = XMLRPC::Lite
+    -&gt;proxy($proxy)
+    -&gt;call(&quot;weblogUpdates.ping&quot;, @args)
+    -&gt;result;
+print &quot;flerror=$result-&gt;{flerror}\n&quot;;
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> ソケットの読み書きやファイルロックなど、外的要因で待たされる処理<br />
+<a href="#note-2" name="note-2">*2)</a> というより気持ちよくない<br />
+<a href="#note-3" name="note-3">*3)</a> interpreter based threads を略して ithreads と呼ばれます<br />
+<a href="#note-4" name="note-4">*4)</a> <cpan>threads::shared</cpan> を使用して明示的に共有する必要があります。<br />
+<a href="#note-5" name="note-5">*5)</a> 詳細は <a href="http://poe.perl.org/?What_POE_Is">What POE Is</a> を参照してください。<br />
+<a href="#note-6" name="note-6">*6)</a> しばしば POE::Component:: は PoCo:: と略されることがあります<br />
+<a href="#note-7" name="note-7">*7)</a> 前回は my で宣言して BEGIN { } で設定していました。<br />
+<a href="#note-8" name="note-8">*8)</a> POE::Component::Server::XMLRPC のドキュメントには書いていない (EXAMPLE にかろうじて書いてある) のでハマりやすいです<br />
+<a href="#note-9" name="note-9">*9)</a> 前回は URI::Escape と sprintf を使用していました。<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">23:32</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/pings">Weblogs.Com Pings</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/pings_ping_to_hatena_poe?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (3)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Weblogs.com%20Ping%20Gateway%20to%20%A4%CF%A4%C6%A4%CA%A5%A2%A5%F3%A5%C6%A5%CA%20(POE%C8%C7)&amp;body=http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/pings_ping_to_hatena_poe"
+      dc:title="Weblogs.com Ping Gateway to はてなアンテナ (POE版)"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">Weblogs.com Ping Gateway to はてなアンテナ</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html">RSS Auto Discovery</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

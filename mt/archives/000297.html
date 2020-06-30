@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Trackback: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000297.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000296.html" title="MobileAgent 0.18" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000298.html" title="SVG TT Graph" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000297.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/297"
+    dc:title="Trackback"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000297.html"
+    dc:subject="blog"
+    dc:description="今日の「やっぱイジメたいです．とことんまで．」(2003-09-02) 今の実装では受ける時はcharsetパラメタ無視してUconvやNKFの推測におまかせだけど，ちゃんとcharset見るようにした方がいいかも．どちらにしろ，MTからTrackback受けるにはUconv必須ってことになりそう．ただでさえ高い敷居がもっと高くなっちゃうね． 以下，オレ個人の意見であって，tDiary Projectとしての意見ではありません． 今回の件で思ったんだけどTrackbackってやっぱMTのモノなんだね． 座談会でこの件について議論した人達もみんなMTユーザみたい．まぁもともとMTから発生したモノなんだから，MTのモノだと言っても間違いじゃないんだけろうけど，今やTrackbackに対応してるblogや日記CGIって他にいくつもあるのにねぇ． っつーかどうして「blog座談会」なのに ... 文字コードをUTF-8にしようといいだしたのはワタシなのですが、 1. そもそも異なるBlogシステムや海外のサイト等にTrackback Ping する際、相手のサイトの文字コードが何か、日本語対応パッチがあたってるかなどを考慮するのは激しくメンドウ。「文字化けして迷惑かけたらヤだな。。」とか考えながらPingするのも本末転倒。なのでTrackback の仕様自体で、文字コードを指定するのか、UTF-8の1本にするのかどっちかがいい。 2.HTTP POST で XML 返しといういまの REST..."
+    dc:creator="miyagawa"
+    dc:date="2003-09-02T06:10:51+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">September 02, 2003</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Trackback</h1>
+
+<p><a title="今日の「やっぱイジメたいです．とことんまで．」(2003-09-02)" href="http://kitaj.no-ip.com/tdiary/20030902.html#c">今日の「やっぱイジメたいです．とことんまで．」(2003-09-02)</a><br />
+<blockquote>今の実装では受ける時はcharsetパラメタ無視してUconvやNKFの推測におまかせだけど，ちゃんとcharset見るようにした方がいいかも．どちらにしろ，MTからTrackback受けるにはUconv必須ってことになりそう．ただでさえ高い敷居がもっと高くなっちゃうね． 以下，オレ個人の意見であって，tDiary Projectとしての意見ではありません． 今回の件で思ったんだけどTrackbackってやっぱMTのモノなんだね． 座談会でこの件について議論した人達もみんなMTユーザみたい．まぁもともとMTから発生したモノなんだから，MTのモノだと言っても間違いじゃないんだけろうけど，今やTrackbackに対応してるblogや日記CGIって他にいくつもあるのにねぇ． っつーかどうして「blog座談会」なのに ...</blockquote></p>
+
+<p>文字コードをUTF-8にしようといいだしたのはワタシなのですが、</p>
+
+<p>1. そもそも異なるBlogシステムや海外のサイト等にTrackback Ping する際、相手のサイトの文字コードが何か、日本語対応パッチがあたってるかなどを考慮するのは激しくメンドウ。「文字化けして迷惑かけたらヤだな。。」とか考えながらPingするのも本末転倒。なのでTrackback の仕様自体で、文字コードを指定するのか、UTF-8の1本にするのかどっちかがいい。</p>
+
+<p>2.HTTP POST で XML 返しといういまの REST な仕様下では、文字コードをパラメータ指定するのはあんまりキレイじゃない(Content-Type: text/xml で xml encoding="" にいれるならまだしも) ←とはいえこれは趣味の問題なのであまり大した理由にはならない</p>
+
+<p>3.海外のサイトやすべてのツールに、charsetを読んで自サイトのエンコーディングに変換してもらうよう、 iconv 等をくみこんでもらうのは仕様としてオーバースペックではないか。というより1つの言語で複数のエンコーディングが存在するという状況を「UTF-8でいいじゃん」な国の人達に説得するのは大変 ;-)</p>
+
+<p>大体このあたりを根拠にして、おくる方は UTF-8 きめうちがいいとおもったわけです。とはいえ一度提案した仕様である charset=utf-8 をパラメタにつけるというのもmilanoのパッチではのこっているとおもいます。</p>
+
+<p>もちろん受け側がUTF-8 を解釈できなければならないという負担は増えるわけですが、EUC-JP <=> Shift_JIS のエンコーディング変換できるルーチンがあるぐらいなら UTF-8 もフツーできるんじゃないの？とかおもうのはスペックとして間違いですかねえ。。。</p>
+
+<p>あと座談会の件ですがわたしともう一人とおる。さんはMTの他に <a href="http://www.blosxom.com/">Blosxom</a> も使用してます。(<a href="http://shibuya.pm.org/">Shibuya.pm</a> も Blosxom でできています) というかわたしはこのBlogをはやくMTから脱却したい ;-) (移行の手間かんがえてひよってます)</p>
+
+<p>座談会の内容についてもMTに特化した話はほとんど出てなかったですよ。むしろ、tDiary やはてなダイアリー、関心空間の話とか、なつみかんアンテナとかの話もしたような気がします。。 :-)  編集でどうなるかわかりませんが。</p>
+
+<p><b>UPDATE 09/02 10:28</b><br />
+<a href="http://sho.tdiary.net/20030902.html#p01">ただのにっき</a><br />
+<blockquote>そのためには、デコードのヒントになるcharsetは、きちんと指定できるようになっていなくてはいけない。元の発想が相手に迷惑かけたくないというのであればなおのこと、charsetは指定すべきである。「外国の作者に説明するのが大変」なんてのは、これを拒否する理由にはならない。</blockquote></p>
+
+<p><a href="http://kitaj.no-ip.com/tdiary/20030902.html#p05">今日の「やっぱイジメたいです」</a><br />
+<blockquote><br />
+Ruby1.6系だと，Uconvというライブラリを持ってこないとUTF-8を使えないんですよね．その分ちと敷居は高いんではないかな．ということでこの部分は </p>
+
+<p>3.海外のサイトやすべてのツールに、charsetを読んで自サイトのエンコーディングに変換してもらうよう、 iconv 等をくみこんでもらうのは仕様としてオーバースペックではないか。 </p>
+
+<p>ここと矛盾しているような… Ruby1.8系にはiconvが標準で付いてくるので，もっとRuby1.8が普及すればtDiary側の問題はなくなると思いますが． <br />
+</blockquote></p>
+
+<p>作者に説明するのが大変、ってのは本来の理由ではないのはおっしゃる通りです。ちょっと言い訳じみてますね。すいません。</p>
+
+<p>ただ、Ping先に迷惑かけたくないから charset をおくれ、ってのは微妙に自分の認識とずれますね。迷惑かけたくないから、とりあえずUTF-8でおくろう、というのが今の自分の意識です。ASCII な人たちに、charset からの文字変換パッチ実装しろ、っていうのと、UTF-8に移行しろ、っていうのはだいぶ負担が違うかなと。(そうでもないか。。)</p>
+
+<p>素のMTやBlosxomは、Trackbackの文字コードがどうこうなんて気にしちゃいないので、受けとったものをそのまま格納して表示、です。他の海外製Blogツールも、調べてませんがそういう実装のものはおおいとおもいます。という状況でも、</p>
+
+<p>「変換ツールをくみこまなくても、Trackback を UTf-8 でおくり、相手Blogの文字コードがUTF-8なら、文字化けしない」</p>
+
+<p>というのはわかっているわけで。そういう「現状」があって一番現実的だし、かつ、charsetを指定するより実装が難しくなることはないのは、TrackbackをUTF-8限定にしてしまうことなんじゃないかな、という認識です。</p>
+
+<p>もちろん、すべてのツールの作者がこのSpecを理解して、charsetパラメタからの変換をコアにくみこんでくれればそれでも全然かまいません。問題なのは、すでに実装があるということなのかもしれませんね。。。(新しく仕様をつくるなら、最初からこの問題を考慮してつくりますから)</p>
+
+<p>複数の言語のPingを受けとっても、同一ページに混在させるときにはUTF-8等のUnicodeにおこさないといけないわけで、UTF-8強制の方が実装が楽(というか、実装すらしなくてもユーザの設定 = Blog のエンコーディングをUTF-8にする)で回避できる方が現実的なんじゃないかな、というだけのことですね。</p>
+
+<p><br />
+<b>UPDATE: 09/02 10:54</b></p>
+
+<p>ちょっと考えなおしましたが、やはりたださん、きたさんがおっしゃるような、「UTF-8をはけない、読めない環境への/からのTrackback」 については、考慮がやっぱり必要ですね。</p>
+
+<p>UTF-8を扱えるツール(A)は、</p>
+
+<p>* 送信はUTF-8 とし、charset=utf-8 をつけて送信<br />
+* 受信時は charset をみて判断。なければ UTF-8 と判断(または自動判別も可)</p>
+
+<p>UTF-8を扱えないツール(B)は、</p>
+
+<p>* 送信はcharset=euc-jp などをつけて送信<br />
+* 受信はcharsetをみて、変換できなければ捨てる、ゲタなどの処理</p>
+
+<p>そもそも国際化を考えていないツール(C)は、</p>
+
+<p>* 送信はcharsetをつけず、Blogエンコーディングのまま送信<br />
+* 受信はそのまま格納して表示</p>
+
+<p>こうなると、</p>
+
+<p>* A → A: ○<br />
+* A → B: △ <br />
+* A → C: ○ (C が UTF-8 なら)<br />
+* B → A: ○<br />
+* B → B: ○<br />
+* B → C: ×<br />
+* C → A: ○ (C が UTF-8 や latin-1 なら)<br />
+* C → B: ×<br />
+* C → C: △ (C同士が同じエンコーディングなら)</p>
+
+<p>となるのでかなり改善しそうです。</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at September  2, 2003 06:10 AM
+| <a href="http://blog.bulknews.net/mt/archives/000297.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000297.html#comments">Comments (2)</a>
+
+| <a href="#trackbacks">TrackBack(5)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000296.html\">&laquo; MobileAgent 0.18</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000298.html\">SVG TT Graph &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>はい、まさしくその通りだとおもいます。<br />
+なので今回のパッチはUTF-8を完全なデファクトスタンダード化するための第一歩かと。<br />
+これから各種ツールのメンテナさんたちにアプローチしていくとかが必要かも。</p>
+
+<p>座談会でも話題になったのは、trackback の仕様をAuthorizeしてるのは誰か、ってことなんですよね。<br />
+やはりもともとはMTということなので、ユーザベースのパッチでこういう動きをかましていくのは悪くないことだとおもってます。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on September  2, 2003 08:19 AM</span>
+</div>
+<div class="comments-body">
+<p>>oobaさん<br />
+XMLの場合はUTF-8スタンダードと言いきっていいでしょうね。そういう実装も多いですし。<br />
+Trackback の場合はこまったことに、送信するときがXMLではなくて HTTP POST のパラメータなんで。。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on September  2, 2003 09:59 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/297</div>
+
+<div class="comments-body">
+<a name="90"></a>
+<span class="comments-post"><a href="http://uva.jp/dh/mt/archives/001511.html" target="new" rel="nofollow nofollow">TrackBackのUTF-8化について</a><br />
+<b>Excerpt:</b> ミラノさんのところや、ミヤガワさんところでも話題になっていますが、TrackBack で送信するコードを UTF-8 化しようという話について。 大体わたしのいいたいこともミヤガワさんが書かれていますが、ちょっと追加。 以前、わたしのところに、台湾の方からトラックバック�...<br />
+<b>Weblog:</b> dh's memoranda<br />
+<b>Tracked:</b> September  2, 2003 10:32 AM</span>
+</div>
+<div class="comments-body">
+<a name="91"></a>
+<span class="comments-post"><a href="http://sho.tdiary.net/20030902.html" target="new" rel="nofollow nofollow">TrackBackの文字コード(2)</a><br />
+<b>Excerpt:</b> 「相手のためにcharsetを付けるべきだ」と言うのは、「相手に自分が理解できる文字コードかどう&gt;
+かを判断するヒントをあげよう」という意味。例えば(環境の問題等で)UTF-8を理解できないblogが&gt;
+、charset=UTF-8なTrackBackを受け取ったら、その時点でtitleやexcerptの情...<br />
+<b>Weblog:</b> ただのにっき<br />
+<b>Tracked:</b> September  2, 2003 11:30 AM</span>
+</div>
+<div class="comments-body">
+<a name="92"></a>
+<span class="comments-post"><a href="http://naoya.dyndns.org/~naoya/mt/archives/000450.html" target="new" rel="nofollow nofollow">Trackback の文字コードにまつわる議論についてのお話。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Trackback UTF-8を扱えるツール(A)は、 * 送信はUTF-8 とし、charset=utf-8 をつけて送信 * 受信時は charset をみて判断。なければ UTF-8 と判断(または自動判別も可) UTF-8を扱えないツール(B)は、 * 送信はcharset=euc-jp などをつけて送信 * 受信�...<br />
+<b>Weblog:</b> NDO::Weblog<br />
+<b>Tracked:</b> September  2, 2003 12:05 PM</span>
+</div>
+<div class="comments-body">
+<a name="380"></a>
+<span class="comments-post"><a href="http://f28.aaacafe.ne.jp/~nspace/mt/archives/000014.php" target="new" rel="nofollow nofollow">文字化けについて。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Trackback 文字化けについて。ばけばけ。...<br />
+<b>Weblog:</b> blog@nspace<br />
+<b>Tracked:</b> January 15, 2004 07:24 PM</span>
+</div>
+<div class="comments-body">
+<a name="381"></a>
+<span class="comments-post"><a href="http://f28.aaacafe.ne.jp/~nspace/mt/archives/000014.php" target="new" rel="nofollow nofollow">文字化けについて。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Trackback 文字化けについて。ばけばけ。...<br />
+<b>Weblog:</b> blog@nspace<br />
+<b>Tracked:</b> January 15, 2004 09:16 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="297" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

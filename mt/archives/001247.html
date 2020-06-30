@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001247.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001246.html" title="RSS よりメール" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001248.html" title="iTunes のアートワークを Amazon Web Services からとってくる" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001247.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1247"
+    dc:title="Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001247.html"
+    dc:subject="blog"
+    dc:description="Blog Hacks Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は COM を利用してもっとスマートにできます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-09-10T14:50:27+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">September 10, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載</h1>
+
+<p><a href="http://hacks.bloghackers.net/">Blog Hacks</a> Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は COM を利用してもっとスマートにできます。</p>
+
+<a name="more"></a>
+<p>以下のコードを nowPlaying-iTunes.js として保存します。</p>
+
+<pre class="code">
+// Configurtaion: path to your MT script and blogID
+var mtUrl  = "http://blog.bulknews.net/mt/mt.cgi";
+var blogID = 6;
+
+// Get Trackname from iTunes using COM
+var iTunes = WScript.CreateObject("iTunes.Application");
+var track  = iTunes.CurrentTrack;
+
+// Create text for "Now Playing"
+var strNowPlaying = "Now Playing: " + track.Artist + " - "
+                    + track.Name + " (" + track.Album + ")";
+
+// Open "New Entry" page of MT in IE using COM
+var urlNewEntry = mtUrl + "?blog_id=" + blogID + "&__mode=view&_type=entry";
+var objIE = WScript.CreateObject("InternetExplorer.Application");
+objIE.Visible = true;
+objIE.Navigate(urlNewEntry);
+
+// Set "Now Playing:" text in the "exntended" textarea
+while (objIE.busy);
+while (objIE.document.readyState != "complete");
+objIE.document.forms[2].text_more.value = strNowPlaying;
+WScript.Quit();
+</pre>
+
+<p>iTunes で何か曲聞いている状態で nowPlaying-iTunes.js をダブルクリックすると、IE のウィンドウが開き、Extended (追記) セクションにアーティスト、曲名、アルバムが表示されるという仕掛けになってます。</p>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'iTunes, iPod, WSH';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at September 10, 2004 02:50 PM
+| <a href="http://blog.bulknews.net/mt/archives/001247.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001247.html#comments">Comments (0)</a>
+
+| <a href="#trackbacks">TrackBack(15)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001246.html\">&laquo; RSS よりメール</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001248.html\">iTunes のアートワークを Amazon Web Services からとってくる &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1247</div>
+
+<div class="comments-body">
+<a name="1608"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/nipotan/archives/6677120.html" target="new" rel="nofollow nofollow">iTunes の曲で COM ﾏﾝｾｰ</a><br />
+<b>Excerpt:</b> 昨日とか今日とか、miyagawa さんが Win32 で iTunes を hack してました。
+use encoding まわりで utf16 がどうのとかいうメールが某所で流れたのも、たぶん iTunes hacks の一環なのかなと思いつつ、miyagawa さんが、なんやら「COM ﾏﾝｾｰ!!」って言ってました。
+COM <br />
+<b>Weblog:</b> にぽたん研究所<br />
+<b>Tracked:</b> September 10, 2004 03:36 PM</span>
+</div>
+<div class="comments-body">
+<a name="1609"></a>
+<span class="comments-post"><a href="http://tdiary.ishinao.net/20040910.html#p04" target="new" rel="nofollow nofollow">[Now Playing] 岡村靖幸 - ファミリーチャイム (Me Imi) (15:46)</a><br />
+<b>Excerpt:</b> なんて感じになる（最後の時刻はふつうはつかない。うちは改造しているんでtDiary（サーバーサイド）の方でつけている）。本文に!見だしじゃちょっとうざいな。フッタのサイドバー部に特定の書式で埋め込む、とかの方が実用的か。
+<br />
+<b>Weblog:</b> tdiary.ishinao.net<br />
+<b>Tracked:</b> September 10, 2004 03:49 PM</span>
+</div>
+<div class="comments-body">
+<a name="1611"></a>
+<span class="comments-post"><a href="http://kengo.preston-net.com/archives/001519.shtml" target="new" rel="nofollow nofollow">MTのエントリー作成時にiTunesで今聞いている曲を表示する方法</a><br />
+<b>Excerpt:</b> Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.netをみて面白そうだと思ったのでさっそくやってみました。 ローカルに作ったnowPlaying-iTunes.js をクリックするとIEを立ち上げて自分のMTでのエントリー作成画面になりま...<br />
+<b>Weblog:</b> Going My Way<br />
+<b>Tracked:</b> September 10, 2004 05:18 PM</span>
+</div>
+<div class="comments-body">
+<a name="1612"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/p-6299495/archives/6683522.html" target="new" rel="nofollow nofollow">COM is love</a><br />
+<b>Excerpt:</b> にぽたん研究所でPerlのWin32::OLEモジュールを使ってiTunesで再生中の曲を表示するというのをやっていた。
+
+もとネタはmiyagawaさんの
+
+blog.bulknews.net - Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載
+
+OLEが使えるって事は、以<br />
+<b>Weblog:</b> 荒堀庵<br />
+<b>Tracked:</b> September 10, 2004 08:06 PM</span>
+</div>
+<div class="comments-body">
+<a name="1619"></a>
+<span class="comments-post"><a href="http://tmy.cocolog-nifty.com/blog/2004/09/mac__itunes__bl.html" target="new" rel="nofollow nofollow">Mac でも iTunes で今聞いている曲を Blog エントリに掲載</a><br />
+<b>Excerpt:</b> Hacking the Hack #92: iTunes COM API で今聞<br />
+<b>Weblog:</b> このへんでろぐ<br />
+<b>Tracked:</b> September 11, 2004 01:26 AM</span>
+</div>
+<div class="comments-body">
+<a name="1627"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/001255.html" target="new" rel="nofollow nofollow">iTunes で聴いてる曲に Amazon アフィリエイトしてさらに画像も</a><br />
+<b>Excerpt:</b> Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net Blog Hacks Hack #92 では、Winamp とそのプラグイン amip を使用して、今聞いている曲をエントリに追記する方法を紹介していますが、iTunes の場合は<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> September 14, 2004 06:42 PM</span>
+</div>
+<div class="comments-body">
+<a name="1644"></a>
+<span class="comments-post"><a href="http://witha.jp/blog/archives/2004/09/now_playing.html" target="new" rel="nofollow nofollow">Now Playing...</a><br />
+<b>Excerpt:</b> 先のBlog Hackers Conferenceで「アサマシ」ネタで盛り上がりっていたわけですが、BlogWriteに付けられそうな何か小技はないかと思案しつつ、お昼休みに作れそうな、「Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載」、いわゆる「Now P<br />
+<b>Weblog:</b> HepCat Dev and Test<br />
+<b>Tracked:</b> September 17, 2004 08:01 PM</span>
+</div>
+<div class="comments-body">
+<a name="1650"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/001280.html" target="new" rel="nofollow nofollow">iTunes で聴いてる曲: ストリームの場合</a><br />
+<b>Excerpt:</b> iTunes で聴いてる曲を Blog エントリに掲載 は、ネットラジオのストリーミングだとうまくいきません。この種別は currentTrack.Kind で取得できて、 enum ITTrackKind { ITTrackKindUnknown = 0, ITTrackKindFile, ITTrackKindCD, ITTrackKindURL, ITTrackKindDevice, IT...<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> September 23, 2004 10:54 AM</span>
+</div>
+<div class="comments-body">
+<a name="2734"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/hayashih/20041213#p1" target="new" rel="nofollow nofollow">JavaScriptをつかってiTuneで演奏中の曲をはてなダイアリーに書き込み</a><br />
+<b>Excerpt:</b> Now Playing: BUMP OF CHICKEN - embrace (ユグドラシル)  できたー！  Hacking the Hack #92: iTunes COM API で今聞いている ...<br />
+<b>Weblog:</b> hayashihがOSをインストールする日記<br />
+<b>Tracked:</b> December 13, 2004 09:37 PM</span>
+</div>
+<div class="comments-body">
+<a name="3061"></a>
+<span class="comments-post"><a href="http://tdiary.ishinao.net/20050217.html#p02" target="new" rel="nofollow nofollow">[MM] iTunesで聴いているアルバムをMMに登録する (15:03)</a><br />
+<b>Excerpt:</b> ふと思いついたんで、「Hacking the Hack #92: iTunes COM API で今聞いている曲を Blog エントリに掲載: blog.bulknews.net」を応用して、iTunesで今聴いているアルバムをMMに登録するJavaScriptを作ってみた。
+// Get Trackname from iTunes using COM
+var iTunes = WSc...<br />
+<b>Weblog:</b> tdiary.ishinao.net<br />
+<b>Tracked:</b> February 17, 2005 03:06 PM</span>
+</div>
+<div class="comments-body">
+<a name="4749"></a>
+<span class="comments-post"><a href="http://www2.nmm.jp/hidebou/mt/archives/2005/09/mtitunes.shtml" target="new" rel="nofollow nofollow">[MT]追記にiTunesの演奏曲とアマゾンへのリンクを張る</a><br />
+<b>Excerpt:</b> いまiTunesで聴いている曲 アーティスト： 丸山ももたろう アルバム：誰想彼...<br />
+<b>Weblog:</b> 秀ボーの詩的関心事<br />
+<b>Tracked:</b> September  1, 2005 02:01 PM</span>
+</div>
+<div class="comments-body">
+<a name="5270"></a>
+<span class="comments-post"><a href="http://untitled.cocolog-nifty.com/blog/2005/09/javascriptnow_p_7aa3.html" target="new" rel="nofollow nofollow">javascript版Now playing、iTunes</a><br />
+<b>Excerpt:</b> ちょっぴり勉強もかねて書いてみた。最下段な感じで表示される。これなら嫌味がないか<br />
+<b>Weblog:</b> 名称未設定<br />
+<b>Tracked:</b> October  2, 2005 01:31 AM</span>
+</div>
+<div class="comments-body">
+<a name="6111"></a>
+<span class="comments-post"><a href="http://kaede.to/~canada/doc/itunes-mixi" target="new" rel="nofollow nofollow">iTunes��ʹ���Ƥ�ʤ�mixi�ǥ�ӥ塼</a><br />
+<b>Excerpt:</b> 	iTune��ʹ���Ƥ�ʤΥ���Х��Amazon����õ���Ƥ��Ƽ�ưŪ��mixi�Υ�ӥ塼�񤭲��̤�ɽ������JavaScript��
+
+...<br />
+<b>Weblog:</b> �������ʥ��<br />
+<b>Tracked:</b> November  1, 2005 12:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="10788"></a>
+<span class="comments-post"><a href="http://web.sfc.keio.ac.jp/~t04588hn/mt/archives/2006/03/mtduo.html" target="new" rel="nofollow nofollow">今聞いている曲をMTで表示する。</a><br />
+<b>Excerpt:</b> エントリー投稿時に、 今itunesで聞いている曲をMovable Typeで表示する。 http://blog.bulknews.net/mt/archives/001247.htmlそうです、コレが欲しかったんですよ。 作者様感謝！ デスクトップ上にjavascript�...<br />
+<b>Weblog:</b> Handicraft<br />
+<b>Tracked:</b> March  3, 2006 01:13 AM</span>
+</div>
+<div class="comments-body">
+<a name="17716"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/t_furu/archives/50512911.html" target="new" rel="nofollow nofollow">iTunesの再生中の曲名を表示するblogプラグイン - Anemone</a><br />
+<b>Excerpt:</b> mixiミュージックにインスパイヤーされて調べながら作ってみた物
+
+iTunesで再生中の曲データ(曲名,アーティスト名、アルバム名)を取得する方法
+
+iTunes COM API で今聞いている曲を Blog エン...<br />
+<b>Weblog:</b> WEBで何か作るよ(AjaxとJsp/サーブレットetc.)<br />
+<b>Tracked:</b> May 27, 2006 12:21 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1247" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

@@ -1,0 +1,284 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : BlogRolling を利用して RSS 巡回先を管理 (OPML編)</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/opml/blogrolling2opml.html">http://blog.bulknews.net/cookbook/blosxom/opml/blogrolling2opml.html</a>.
+<br /><br /><br />
+
+<h2>BlogRolling を利用して RSS 巡回先を管理 (OPML編)</h2>
+by miyagawa at Sat, 25 Oct 2003 01:35
+<p />
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.print">BlogRolling を利用して RSS の巡回先を管理</a>できることは紹介しました。実は複数の RSS をまとめて記述する方式として一般的になってきているのが、OPML という XML フォーマットです。今回は BlogRolling で作成した URL リストを OPML に変換してみます。
+
+<hr class="seemore">
+
+
+
+<h2>OPML</h2>
+
+OPML は <A href="http://www.opml.org/">opml.org</a> に仕様が規定されている XML フォーマットの1つで、基本的には Outline Processor Markup Language が示す通り、アウトラインプロセッサ向けのデータ記述言語です。
+
+<p />
+ただ、Dave Winer の主催する <a href="http://radio.userland.com/">Radio Userland</a> で自分の Subscribe している RSS リストを Export する際のフォーマットとして OPML が使用されたのがきっかけで、現在では主要な RSS Aggregator が、巡回先データを Import/Export する際のデファクトスダンダードとして OPML を利用しています。
+
+<p />
+よって、BlogRolling で講読している Blog のリストから OPML を作成できれば、RSS Aggregator への Import もごく簡単に行えるというわけです。実は前回も紹介した通り、BlogRolling それ自体が OPML での出力をサポートしています。<a href="http://rpc.blogrolling.com/opml.php?r=fd16d26c9ad1029c21a48955b8c19731">http://rpc.blogrolling.com/opml.php?r=$BlogRollingId</a> で、巡回先を OPML フォーマットで取得することができます。しかし、BlogRolling で出力される OPML は <a href="#listing-1">List 1</a> のようなフォーマットになっており<a href="#note-1">(*1)</a>、RSS と同様、各サイトのシンジケーション RSS は記述されていません。今回のスクリプトでは、RSS Auto Discovery を使って、RSS も記述された OPML を作成します。
+
+<h2>サンプルスクリプト</h2>
+
+基本的には <a href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.print">blogrolling2rss</a> の大部分が再利用できます。テキストで RSS 一覧を出力していた部分を OPML に変更するだけです。BlogRolling の RSS から、RSS 講読先 OPML を出力するスクリプトは <a href="#listing-2">List 2</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">use HTML::RSSAutodiscovery;
+use LWP::Simple;
+use Storable;
+use Template;
+use XML::RSS;
+</pre>
+
+使用するモジュールを use します。追加したのは <a href="http://search.cpan.org/search?m=module&q=Template">Template</a> モジュールのみです。
+
+<p />
+<pre class="scriptsSnippet">my $rss = XML::RSS-&gt;new();
+   $rss-&gt;parse($xml);
+
+my $title = $rss-&gt;{channel}-&gt;{title};
+</pre>
+
+OPML の <code>title</code> 属性に使用するため、RSS の <code>channel/title</code> を取得します。
+
+<p />
+<pre class="scriptsSnippet">my @sites;
+for my $item (@{$rss-&gt;{items}}) {
+    $cache-&gt;{$item-&gt;{link}} ||= discover_rss($item-&gt;{link}) or next;
+    push @sites, { title =&gt; $item-&gt;{title},
+                   link =&gt; $item-&gt;{link},
+                   rss  =&gt; $cache-&gt;{$item-&gt;{link}} };
+}
+</pre>
+
+各 item について、RSS の URL を Auto-Discovery で検索した後、<code>@sites</code> 配列にハッシュリファレンスを push します。
+
+<p />
+<pre class="scriptsSnippet">my $tt = Template-&gt;new();
+$tt-&gt;process(&quot;blogrolling2opml.tt&quot;,
+             { sites =&gt; \@sites, title =&gt; $title },
+             &quot;mySubscription.opml&quot;);
+</pre>
+
+Template オブジェクトを new し、テンプレートファイル <code>blogrolling2opml.tt</code> (<a href="#listing-3">List 3</a>) を処理します。テンプレートに渡す変数として、サイト情報の配列 <code>sites</code> と、OPML のタイトルとなる RSS channel の title をハッシュリファレンスで渡します。処理された結果は <code>mySubscription.opml</code> ファイルに出力されます<a href="#note-2">(*2)</a>。
+
+<p />
+その他の部分の処理は、blogrolling2rss と同様ですので省略し、テンプレートの中身をみてみましょう。
+
+<p />
+<pre class="scriptsSnippet">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;opml version=&quot;1.0&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;BlogRolling OPML for [% title | html %]&lt;/title&gt;
+&lt;/head&gt;
+</pre>
+
+XML 宣言を行い、<code>opml</code> 要素を開始します。<code>opml</code> の下には <code>head</code> 要素と <code>body</code> 要素がぶら下がり、<code>head</code> の中に <code>title</code> があるというツリー構造となっています<a href="#note-3">(*3)</a>。
+
+<p />
+<pre class="scriptsSnippet">&lt;body&gt;
+[% FOREACH site = sites -%]
+&lt;outline
+ title=&quot;[% site.title | html %]&quot;
+ description=&quot;Feed for [% site.title | html %] via BlogRolling&quot;
+ htmlUrl=&quot;[% site.link | html %]&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;[% site.rss | html %]&quot; /&gt;
+[% END -%]
+&lt;/body&gt;
+</pre>
+
+<code>body</code> 要素の中で、<code>sites</code> についてループして、<code>outline</code> 要素を記述します。この <code>outline</code> 要素1つに、巡回先 1サイトの情報を格納していきます。
+
+<p />
+<a href="http://www.opml.org/spec">opml.org/spec</a> には、
+
+<p><blockquote class="inlineRaw">What is an &lt;outline&gt;? <br />
+<br />
+An &lt;outline&gt; is an XML element, possibly containing one or more attributes, and containing any number of &lt;outline&gt; sub-elements.<br />
+</blockquote></p>
+
+とだけ記述されており、<code>outline</code> がどのような attribute を持つかの記述はありません。ここでは Radio Userland の OPML に記述されている、
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><th class="blosxomTableHeader">attribute</th><th class="blosxomTableHeader">意味</th></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">title</td><td class="blosxomTableDataOdd">RSS Feed 名</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">description</td><td class="blosxomTableDataEven">RSS Feed の記述</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">htmlUrl</td><td class="blosxomTableDataOdd">Blog の URL</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataEven">type</td><td class="blosxomTableDataEven">Feed タイプ(rss)</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataOdd">xmlUrl</td><td class="blosxomTableDataOdd">RSS の URL</td></tr>
+</table>
+
+を模倣して採用しています。各種 RSS Aggregator に OPML をインポートする際にも、これらの情報が埋まっていれば大概の場合は、大丈夫なようです<a href="#note-4">(*4)</a>。
+
+<h2>実行例</h2>
+
+blogrolling2opml.pl をコマンドラインから実行します。
+
+<p><pre class="command">% <strong>./blogrolling2opml.pl</strong>
+</pre></p>
+
+うまくいけば何も出力されず、<code>mySubscription.opml</code> という OPML ファイル(<a href="#listing-4">List 4</a>)が出来上がります。このファイルを、OPML からインポート可能な RSS Aggregator に食わせてみましょう。ここでは SharpReader と FeedDemon で実験してみましたが、どちらもうまくインポートできました<a href="#note-5">(*5)</a>。
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: blogrolling.opml</span></a>
+<pre class="scriptsListing">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;!--  OPML generated by Blogrolling.com --&gt; 
+&lt;opml version=&quot;1.1&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt; 
+&lt;dateModified&gt;&lt;/dateModified&gt; 
+&lt;ownerName&gt;Blogroll Owner&lt;/ownerName&gt; 
+&lt;ownerEmail&gt;opml@blogrolling.com&lt;/ownerEmail&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+&lt;outline text=&quot;HAIL 2 U !! - Weblog&quot; type=&quot;link&quot;
+ url=&quot;http://www2u.biglobe.ne.jp/%7Ekyo-n/blog/blosxom.cgi&quot;
+ lastmod=&quot;Last updated: 07:42:40 GMT on Friday, October 24&quot;
+ target=&quot;&quot;  /&gt;
+&lt;outline text=&quot;blog.bulknews.net&quot; type=&quot;link&quot;
+ url=&quot;http://blog.bulknews.net/mt/&quot;
+ lastmod=&quot;Last updated: 05:54:17 GMT on Friday, October 24&quot;
+ target=&quot;&quot;  /&gt;
+&lt;outline text=&quot;Blog Developer's Cookbook&quot; type=&quot;link&quot;
+ url=&quot;http://blog.bulknews.net/cookbook/blosxom&quot;
+ target=&quot;&quot;  /&gt;
+&lt;outline text=&quot;Shibuya Perl Mongers&quot; type=&quot;link&quot;
+ url=&quot;http://shibuya.pm.org/&quot;  target=&quot;&quot;  /&gt;
+&lt;outline text=&quot;NDO::Weblog&quot; type=&quot;link&quot;
+ url=&quot;http://naoya.dyndns.org/&quot;  target=&quot;&quot;  /&gt;
+&lt;/body&gt;
+&lt;/opml&gt;
+</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: blogrolling2opml.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# blogrolling2opml - build OPML subscription from BlogRolling
+
+use strict;
+use HTML::RSSAutodiscovery;
+use LWP::Simple;
+use Storable;
+use Template;
+use XML::RSS;
+
+our $CacheFile     = &quot;rss.cache&quot;;
+our $BlogRollingId = &quot;fd16d26c9ad1029c21a48955b8c19731&quot;;
+
+my $cache = eval { Storable::retrieve($CacheFile) } || {};
+
+my $url = &quot;http://rpc.blogrolling.com/rss.php?r=$BlogRollingId&quot;;
+my $xml = LWP::Simple::get($url);
+
+my $rss = XML::RSS-&gt;new();
+   $rss-&gt;parse($xml);
+
+my $title = $rss-&gt;{channel}-&gt;{title};
+
+my @sites;
+for my $item (@{$rss-&gt;{items}}) {
+    $cache-&gt;{$item-&gt;{link}} ||= discover_rss($item-&gt;{link}) or next;
+    push @sites, { title =&gt; $item-&gt;{title},
+                   link =&gt; $item-&gt;{link},
+                   rss  =&gt; $cache-&gt;{$item-&gt;{link}} };
+}
+
+my $tt = Template-&gt;new();
+$tt-&gt;process(&quot;blogrolling2opml.tt&quot;,
+             { sites =&gt; \@sites, title =&gt; $title },
+             &quot;mySubscription.opml&quot;);
+
+Storable::nstore($cache =&gt; $CacheFile);
+
+sub discover_rss {
+    my $url = shift;
+    my $discovery = HTML::RSSAutodiscovery-&gt;new();
+    my $rss = $discovery-&gt;parse($url);
+    unless (@$rss) {
+        warn &quot;no RSS found for $url\n&quot;;
+        return;
+    }
+    return $rss-&gt;[0]-&gt;{href};
+}
+</pre>
+
+<a name="listing-3"><span class="scripsListingHeader">List 3: blogrolling2opml.tt</span></a>
+<pre class="scriptsListing">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;opml version=&quot;1.0&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;BlogRolling OPML for [% title | html %]&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+[% FOREACH site = sites -%]
+&lt;outline
+ title=&quot;[% site.title | html %]&quot;
+ description=&quot;Feed for [% site.title | html %] via BlogRolling&quot;
+ htmlUrl=&quot;[% site.link | html %]&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;[% site.rss | html %]&quot; /&gt;
+[% END -%]
+&lt;/body&gt;
+&lt;/opml&gt;</pre>
+
+<a name="listing-4"><span class="scripsListingHeader">List 4: mySubscription.opml</span></a>
+<pre class="scriptsListing">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;opml version=&quot;1.0&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;BlogRolling OPML for blog.bulknews.net&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;outline
+ title=&quot;blog.bulknews.net&quot;
+ description=&quot;Feed for blog.bulknews.net via BlogRolling&quot;
+ htmlUrl=&quot;http://blog.bulknews.net/mt/&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;http://blog.bulknews.net/mt/index.rdf&quot; /&gt;
+&lt;outline
+ title=&quot;Blog Developer's Cookbook&quot;
+ description=&quot;Feed for Blog Developer's Cookbook via BlogRolling&quot;
+ htmlUrl=&quot;http://blog.bulknews.net/cookbook/blosxom&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;http://blog.bulknews.net/cookbook/blosxom/index.rss10&quot; /&gt;
+&lt;outline
+ title=&quot;HAIL 2 U !! - Weblog&quot;
+ description=&quot;Feed for HAIL 2 U !! - Weblog via BlogRolling&quot;
+ htmlUrl=&quot;http://www2u.biglobe.ne.jp/%7Ekyo-n/blog/blosxom.cgi&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;http://www2u.biglobe.ne.jp/%7Ekyo-n/blog/blosxom.cgi/index.rss&quot; /&gt;
+&lt;outline
+ title=&quot;Shibuya Perl Mongers&quot;
+ description=&quot;Feed for Shibuya Perl Mongers via BlogRolling&quot;
+ htmlUrl=&quot;http://shibuya.pm.org/&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;http://shibuya.pm.org/blosxom/index.rss10&quot; /&gt;
+&lt;outline
+ title=&quot;NDO::Weblog&quot;
+ description=&quot;Feed for NDO::Weblog via BlogRolling&quot;
+ htmlUrl=&quot;http://naoya.dyndns.org/&quot;
+ type=&quot;rss&quot;
+ xmlUrl=&quot;http://naoya.dyndns.org/~naoya/mt/index.rdf&quot; /&gt;
+&lt;/body&gt;
+&lt;/opml&gt;</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> 実際は <code>outline</code> 要素が1行で記述されており、横幅が長くなるため整形しました<br />
+<a href="#note-2" name="note-2">*2)</a> 第3引数を省略すれば STDOUT に出力されるため、コマンドラインのリダイレクションを使って任意のファイルに保存することも可能です。<br />
+<a href="#note-3" name="note-3">*3)</a> HTML と非常によく似ていますね。<br />
+<a href="#note-4" name="note-4">*4)</a> title, htmlUrl, xmlUrl だけでも大丈夫そうです<br />
+<a href="#note-5" name="note-5">*5)</a> SharpReader では File ⇒ Import Subscriptions、FeedDemon では File ⇒ New ⇒ New Channel Group  でインポートします。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

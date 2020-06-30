@@ -1,0 +1,27 @@
+Dim messenger
+Set messenger = WScript.CreateObject("Messenger.UIAutomation.1")
+
+Dim service
+Set service  = messenger.Services.PrimaryService
+
+Dim ie
+Set ie = CreateObject("InternetExplorer.Application")
+ie.Visible = True
+ie.Navigate("http://mixi.jp/edit_profile.pl")
+
+Do While ie.Busy = True
+Loop
+
+Do While ie.document.ReadyState <> "complete"
+Loop
+
+ie.document.forms(0).nickname.Value = service.MyFriendlyName
+ie.document.forms(0).Submit
+
+Do While ie.Busy = True
+Loop
+
+MsgBox "ニックネームを" & service.MyFriendlyName & "に設定しました。"
+
+'ie.Quit
+

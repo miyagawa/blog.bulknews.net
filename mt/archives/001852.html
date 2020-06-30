@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Authentication/Identity for Mashups: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001852.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001851.html" title="Autrijus on Shibuya.pm meeting" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001853.html" title=" Web 2.0 時代の TOEIC 900点超え英語勉強法 9ヶ条" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001852.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1851"
+    dc:title="Authentication/Identity for Mashups"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001852.html"
+    dc:subject="tech"
+    dc:description="マイミクマップ というアプリケーションがあります。 mixi に登録している自分の友達の出身地あるいは現在地を調べて Google Maps でプロットするという、典型的な Web 2.0 的アプリ。mixi のデータと Google Maps API の remix (Mashup) であり、とってきたデータを視覚的に見せる (Data Visualization)..."
+    dc:creator="miyagawa"
+    dc:date="2005-11-08T03:18:27+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">November 08, 2005</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Authentication/Identity for Mashups</h1>
+
+<p><a href="http://www.flatz.jp/var/miximap/index.php">マイミクマップ</a> というアプリケーションがあります。</p>
+
+<p>mixi に登録している自分の友達の出身地あるいは現在地を調べて Google Maps でプロットするという、典型的な Web 2.0 的アプリ。mixi のデータと Google Maps API の remix (Mashup) であり、とってきたデータを視覚的に見せる (Data Visualization) と、Web 2.0 の王道をいっている感じでグッジョブ！といいたいところなのですが、ひとつ決定的に残念なのが、</p>
+
+<blockquote>パスワードやメールアドレスを入力することに不安がある方は、一旦メールアドレス、パスワードを変更してからご利用いただき</blockquote>
+
+<p>とあるように mixi のIDとパスワードを渡してログインさせてスクリーンスクレイプしてデータをとってきているところ。これは mixi が Web API を提供していない（し、公開にも積極的でないように見える）からどうしようもないわけですが、なんとも気が抜けてしまいます。(*1)</p>
+
+<p>同じように、 API 経由で認証した機能を利用できる <a href="http://www.flickr.com/">Flickr</a> をみてみると、きちんと<a href="http://www.flickr.com/services/api/misc.userauth.html">サードパーティのアプリケーションからユーザ認証を利用する API</a> が公開されています。「Flickr 側にトークンを投げて、ユーザが ID/PW を Flickr に渡すと、認証結果をトークンとともに返す」、という仕組みで、サードパーティが ID/PW を知ることなく認証後の機能を利用することができるわけ。</p>
+
+<p>こうした認証の仕組みは Flickr 固有というわけではなくて、<a href="http://www.typekey.com/">TypeKey</a> やそれを拡張した <a href="https://www.bitcard.org/">Bitcard</a> (auth.perl.org のバックエンドで動いている Single Sign On システム。<a href="https://www.bitcard.org/apis.html">API</a> も公開） でも同じようなしくみでサードパーティが生の ID/PW を知ることなく認証機能を利用できます。</p>
+
+<p>翻って今日リリースされた <a href="http://ring.hatena.ne.jp/">はてなリング</a> を見てみたんですが、これも Authentication/Identity にはカジュアルな様子。適当なリングに URL を偽って登録したら普通に通ってしまいました。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/hatenaring.gif"><img alt="hatenaring.gif" src="http://blog.bulknews.net/mt/archives/hatenaring-thumb.gif" width="200" height="99" style="border: 0" /></a></p>
+
+<p>これを声高にセキュリティホールだ、というつもりもないですが、ここまでインフラが整っているのにカンタンに登録できちゃうのはどうなのかなぁと。<a href="http://hatena.g.hatena.ne.jp/hatenatech/20050922/1127441897">勉強会</a> をやっているぐらいだからすぐに気づくと思いますが、<a href="http://www.openid.net/">OpenID</a> はまさにこの用途のためにあるようなものだし、まだ OpenID は導入が難しい、というんであれば <a href="http://technorati.com/help/#claim">Technorati Claim</a> みたいな形でもいいと思うし。</p>
+
+<p>って、よく考えたら、はてなはすでに <a href="http://d.hatena.ne.jp/naoya/20050729/1122598831">はてな外の Web ページにアカウントを Claim する仕組み</a> を持ってましたね。なんでこれで認証しなかったんだろう？</p>
+
+<p>まぁ、こうして改善点を指摘されるのも <a href="http://blog.japan.cnet.com/kondo/archives/002422.html">50% ルール</a> / NDO メソッドなのかもしれませんがｗ</p>
+
+<p>いずれにせよ Web 2.0 / remix / Mashup なテクノロジーにおいては <a href="http://blog.bulknews.net/mt/archives/001842.html">データのオープン性</a> と同様、そのデータを外部のサービスとどう remix するかにおいて、Authentication/Identity の果たす役割は大きいんじゃないかなぁ、と思ったりしました。</p>
+
+<p>*1) ちなみにこういう部分で mixi を出し抜けるチャンスがありそうな L社は <a href="http://search.cpan.org/~sayano/WWW-Livedoor-0.11/">WWW::Livedoor</a> というスクレイピングモジュールを出していて別の意味で面白い。<a href="http://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/a666666/20051105/1131196169">中の人の意向ではない</a> みたいですが。そういえば、Livedoor Blog のコメント認証は TypeKey 互換でしたよねぇ。。</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'web 2.0, Mashup, authentication, identity';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at November  8, 2005 03:18 AM
+| <a href="http://blog.bulknews.net/mt/archives/001852.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001852.html#comments">Comments (5)</a>
+
+| <a href="#trackbacks">TrackBack(2)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001851.html\">&laquo; Autrijus on Shibuya.pm meeting</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001853.html\"> Web 2.0 時代の TOEIC 900点超え英語勉強法 9ヶ条 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>http://www.identity20.com/media/OSCON2005/ にあるプレゼンでWeb2.0時代のidentityについての話が出てましたね。</p>
+<span class="comments-post">Posted by: <a href="http://qootas.org/blog/" rel="nofollow">せきむら</a> on November  8, 2005 11:27 AM</span>
+</div>
+<div class="comments-body">
+<p>WWW::Livedoorと「中の人の意向」についてですが、ちょっと誤解があるように思います。</p>
+
+<p>「これを作った人間はプログラマではないので～」のくだりは、「robots.txtがない」という指摘に対する返答ではないでしょうか？<br />
+WWW::Livedoorについての「中の人」のコメントではないと思います（未確認ですが）</p>
+<span class="comments-post">Posted by: <a href="http://d.hatena.ne.jp/a666666/" rel="nofollow">刺身☆ブーメラン</a> on November  8, 2005 01:38 PM</span>
+</div>
+<div class="comments-body">
+<p>＞刺身ブーメランさん<br />
+いえ、WWW::Livedoor の作者はL社の人ですよ。ただ、プログラマ職ではないです、というのがそのコメントの意味でしょう。<br />
+（某SNSで経緯を知っているので、そういう意味では確認済みです）</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on November  8, 2005 02:22 PM</span>
+</div>
+<div class="comments-body">
+<p>はじめまして。マイミクマップの作者の久末です。<br />
+miyagawaさんのご指摘のとおり「決定的に残念」な点があるのは否めないのですが、どうにかならないかと考え中だったりします。</p>
+
+<p>#いつも見ているブログに自分の作ったものが紹介されるのは不思議な感じ。</p>
+<span class="comments-post">Posted by: 久末 on November  9, 2005 10:43 AM</span>
+</div>
+<div class="comments-body">
+<p>そうでしたか、それではこちらの勘違いですね。失礼しました。＞WWW::Livedoor</p>
+<span class="comments-post">Posted by: <a href="http://d.hatena.ne.jp/a666666/" rel="nofollow">刺身☆ブーメラン</a> on November  9, 2005 12:14 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1851</div>
+
+<div class="comments-body">
+<a name="7601"></a>
+<span class="comments-post"><a href="http://www.luckypines.com/mt/2005/12/flickr_mt.html" target="new" rel="nofollow nofollow">Flickr! のアカウントをMTのコメント認証で使うプラグイン</a><br />
+<b>Excerpt:</b> Flickr!の認証APIを使えば、サードパーティがアカウントのパスワードを知らずとも、認証されたという事実を利用できるって話はmiyagawaさんがこちらで解説されているとおりです。で、MTの�...<br />
+<b>Weblog:</b> Kickstart my heart<br />
+<b>Tracked:</b> December  5, 2005 12:27 AM</span>
+</div>
+<div class="comments-body">
+<a name="7709"></a>
+<span class="comments-post"><a href="http://labs.cybozu.co.jp/blog/kazuho/archives/2005/12/rss_personalization.php" target="new" rel="nofollow nofollow">RSS Feed と認証</a><br />
+<b>Excerpt:</b>  　本日 (12月8日) フィードビジネス・カンファレンスで RSS Feed ...<br />
+<b>Weblog:</b> Kazuho@Cybozu Labs<br />
+<b>Tracked:</b> December  8, 2005 03:49 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1852" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

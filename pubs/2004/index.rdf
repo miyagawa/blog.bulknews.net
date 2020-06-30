@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://xmlns.com/foaf/0.1/">
+<Person>
+<name>Tatsuhiko Miyagawa</name>
+<mbox rdf:resource="mailto:miyagawa@bulknews.net" />
+<rdfs:seeAlso rdf:resource="http://blog.bulknews.net/foaf.rdf" />
+
+<publications dc:identifier="urn:isbn:4873111749" rdf:resource="http://hacks.bloghackers.net/" dc:title="Blog Hacks (オライリー・ジャパン)" dc:date="2004-08-07T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4756144411" rdf:resource="http://www.ascii.co.jp/books/detail/4-7561/4-7561-4441-1.html" dc:title="Perl5 におけるオブジェクト指向 (ASCII LL Magazine)" dc:date="2004-03-26T00:00+09:00" />
+<publications dc:identifier="urn:isbn:4774119652" rdf:resource="http://www.gihyo.co.jp/magazines/wdpress/archive/Vol19/" dc:title="Web アプリケーションと文字コード (技術評論社 WEB+DB PRESS)" dc:date="2004-02-23T00:00+09:00" />
+<publications rdf:resource="http://www.unixuser.jp/magazine/2004/200403.html" dc:title="RSS 事始め - Perl で作るオンライン RSS リーダー (ソフトバンクパブリッシング UNIX USER)" dc:date="2004-02-06T00:00+09:00" />
+</Person>
+</rdf:RDF>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : About This Blog (Blog Developer's Cookbook)</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/common/readme_first.html">http://blog.bulknews.net/cookbook/blosxom/common/readme_first.html</a>.
+<br /><br /><br />
+
+<h2>About This Blog (Blog Developer's Cookbook)</h2>
+by miyagawa at Wed, 08 Oct 2003 16:24
+<p />
+
+<p />
+RSS, Trackback, Weblogs.com Ping, Blogger API などの Weblog コアテクノロジや、 Google API, Amazon Web Service (AWS) といった関連する Web サービスをネタにして、プログラミングテクニックを Cookbook 形式で紹介していきます。言語は主に Perl を使いますが、Ruby あたりもターゲットとして考えてます。
+<p />
+最終的には書籍化をもくろんではいますがそもそもちゃんと書けるのかどうか。いつもギリギリに書きはじめる怠惰な自分のモチベーションを保つため、Blog 形式で書籍を執筆することに挑戦したいという意味合いもあります。blosxom でコードサンプルをエントリに埋め込むプラグインとか作ったら結構書籍執筆用の Blog ツールとしては便利かもしれません。この辺の柔軟性とかも解説していきたいと思っています。
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

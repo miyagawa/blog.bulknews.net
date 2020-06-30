@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : RSS Auto Discovery</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html">http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html</a>.
+<br /><br /><br />
+
+<h2>RSS Auto Discovery</h2>
+by miyagawa at Wed, 22 Oct 2003 14:45
+<p />
+
+<p />
+あるサイトの RSS を自動で探し出すにはどのようにすればよいでしょう？ &quot;Syndicate This Site (XML)&quot; のリンクを見て探す、でしょうか。デザインをカスタマイズしていたらどうでしょう？
+<p />
+HTML の link タグを使用すると、RSS の URL を機械的に抽出することができます。今回はこの RSS Auto-Discovery と呼ばれる手法を実装してみます。
+
+<hr class="seemore">
+
+
+<h2>RSS の埋め込み</h2>
+
+「あ、このサイト便利、RSS Aggregator ソフトに追加しよう!」と思ったとき、まず必要なのは、そのサイトの RSS です。これを調べるには通常、ページ内にある [RSS] や [XML] などのアイコン、また &quot;Syndicate This Site (XML)&quot; などのテキストを探します。
+
+<p />
+
+しかしデザインをカスタマイズした Weblog だったりするとなかなか不便<a href="#note-1">(*1)</a>。数が多いときには RSS Aggregator が自動でとりこんでくれないものかな、と考えるのがエンジニア人情というものです。で、やはり考えた人がいました。
+<ul>
+<li><a href="http://mattgriffith.net/2002/05/29.html">Do any RSS aggregator use the HTML LINK Element? [matt.griffith]</a></li>
+<li><a href="http://diveintomark.org/archives/2002/05/30/rss_autodiscovery">RSS auto-discovery [diveintomark.org]</a></li>
+</ul>
+
+HTML の LINK タグ要素を使用して、その Weblog に関連づいた RSS の URL を、機械的に抽出できる仕組み RSS Auto Discovery が考案されたわけです。LINK タグの記述は、
+
+<p><pre class="inlineRaw">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;
+ title=&quot;RSS&quot; href=&quot;{URL for RSS}&quot; /&gt;
+</pre></p>
+
+のようになります<a href="#note-2">(*2)</a>。SharpReader などの RSS Aggregator, また <a href="http://blogrolling.com/">BlogRolling</a> や <A href="http://bloglines.com/">Bloglines</a> といったメタ Blog サービス<a href="#note-3">(*3)</a>では、この機能を使って URL から自動で RSS を抜き出してくれます。よってユーザが、いちいち RSS の URL を探す手間がはぶけるというわけです。
+
+<h2>サンプルコード</h2>
+
+引数に URL を指定すると、その URL の中に link タグで埋めこまれた RSS の URL を調べるコマンドラインスクリプトを作成しました。コードは <a href="#listing-1">List 1</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">
+# 特定のタグと属性を抽出する場合は HTML::Parser より HTML::TokeParser
+</pre>
+
+必要なモジュールを use します。今回は HTML のパース処理に必要な <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aTokeParser">HTML::TokeParser</a>、また URL から HTML を取得する <a href="http://search.cpan.org/search?m=module&q=LWP%3a%3aSimple">LWP::Simple</a> を使用します。
+
+<p />
+HTML のパースをする CPAN モジュールというと、<a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aParser">HTML::Parser</a> モジュールが標準的ですが、今回のように特定のタグと属性を抽出する、という目的にはあまり向きません。またこの程度の簡単な HTML 破片であれば、正規表現を使っても十分実用には耐えるとは思いますが、link タグ中の属性の順番が変わったら、など考えるといろいろやっかいですので、HTML::Parser へのトークン毎のインタフェースを提供するラッパー、 HTML::TokeParser を使用しています。
+
+<p />
+<pre class="scriptsSnippet">use LWP::Simple;
+
+my $url = shift;
+my $rss = discover_rss($url);
+
+if ($rss) {
+    print &quot;RSS for $url\n=&gt; $rss\n&quot;;
+} else {
+</pre>
+
+コマンドラインの第1引数で与えられた URL に対し、<code>discover_rss</code> を実行し、RSS の URL を取得します。取得した結果に応じて、出力結果を変えています。
+
+<p />
+<pre class="scriptsSnippet">}
+
+# URL から RSS を Auto-Discovery して返す
+# 複数の RSS Feed には未対応
+sub discover_rss {
+    my $url = shift;
+
+    # HTTP GET
+    my $html = get($url) or die &quot;Can't get $url&quot;;
+
+    # HTML::TokeParser で link タグを取得
+    my $parser = HTML::TokeParser-&gt;new(\$html);
+</pre>
+
+<code>LWP::Simple::get</code> で 取得した HTML に対し、HTML::TokeParser オブジェクトを生成します。続いて、<code>get_tag</code> メソッドで link タグを順次取得します。ここで link タグのアトリビュートは <code>$token->[1]</code> にハッシュリファレンスで格納されています。ここでは、
+<p><pre class="inlineRaw">$attr = {
+  rel =&gt; 'alternate',
+  type =&gt; 'application/rss+xml',
+  href =&gt; 'http://example.com/rss.rdf',
+  title =&gt; 'RSS',
+};
+</pre></p>
+のような値となります。よって <code>rel</code> と <code>type</code> を調べ、マッチした要素の <code>href</code> 属性が RSS の URL となります<a href="#note-4">(*4)</a>。
+
+<h2>実行例</h2>
+
+コマンドラインからいくつかの URL に対して実行してみます。
+
+<p><pre class="command">% <strong>./discover_rss.pl http://blog.bulknews.net/cookbook/</strong>
+RSS for http://blog.bulknews.net/cookbook/
+=&gt; http://blog.bulknews.net/cookbook/blosxom/index.rss10
+</pre></p>
+
+<p><pre class="command">% <strong>./discover_rss.pl http://www.movabletype.org/</strong>
+RSS for http://www.movabletype.org/
+=&gt; http://www.movabletype.org//index.xml
+</pre></p>
+
+このように Auto Discovery に対応した HTML を利用しているサイトでは、RSS 情報が機械的に抽出できます。
+
+<p />
+ちなみに Movable Type や blosxom では、デフォルトのテンプレートで、この RSS Auto Discovery に対応しています。その他のツールでも、自らテンプレートを編集することができれば、対応することができます。
+
+<h2>HTML::RSSAutodiscovery</h2>
+
+実は、このプログラムでは、車輪の再発明をしてしまいました。CPAN にある <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aRSSAutodiscovery">HTML::RSSAutodiscovery</a> を使用すれば、
+
+<p><pre class="inlineRaw">use HTML::RSSAutodiscovery;
+
+my $url  = &quot;http://www.diveintomark.org/&quot;;
+my $html = HTML::RSSAutodiscovery-&gt;new();
+print $html-&gt;parse($url)-&gt;[0]-&gt;{href}, &quot;\n&quot;;
+</pre></p>
+
+で、ほぼ同様のことが出来ます。ただ今回は、この RSS Auto Discovery の仕様を理解するために、このモジュールは使用しませんでした。
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: discover_rss.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# RSS Auto-Discovery の実装
+
+use strict;
+
+# 特定のタグと属性を抽出する場合は HTML::Parser より HTML::TokeParser
+use HTML::TokeParser;
+use LWP::Simple;
+
+my $url = shift;
+my $rss = discover_rss($url);
+
+if ($rss) {
+    print &quot;RSS for $url\n=&gt; $rss\n&quot;;
+} else {
+    print &quot;No RSS discovered for $url\n&quot;;
+}
+
+# URL から RSS を Auto-Discovery して返す
+# 複数の RSS Feed には未対応
+sub discover_rss {
+    my $url = shift;
+
+    # HTTP GET
+    my $html = get($url) or die &quot;Can't get $url&quot;;
+
+    # HTML::TokeParser で link タグを取得
+    my $parser = HTML::TokeParser-&gt;new(\$html);
+    while (my $token = $parser-&gt;get_tag(&quot;link&quot;)) {
+        my $attr = $token-&gt;[1];
+
+        # &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; href=&quot;&quot; /&gt;
+        # title 要素がないサイトもいくつかあったので甘い判定
+        if ($attr-&gt;{rel} eq 'alternate'
+            &amp;&amp; $attr-&gt;{type} eq 'application/rss+xml') {
+            return $attr-&gt;{href};
+        }
+    }
+
+    return;
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> Movable Type なら、ほとんどのユーザが Syndicate This Site (XML) を使用していますが、他のツールではそうでもありません<br />
+<a href="#note-2" name="note-2">*2)</a> 実際は1行で書くのが一般的です。<br />
+<a href="#note-3" name="note-3">*3)</a> Blog から何かの情報を抽出し、配信するサイトの総称<br />
+<a href="#note-4" name="note-4">*4)</a> <code>title</code> 属性は使用していないサイトもあるようなのでチェックしていません。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

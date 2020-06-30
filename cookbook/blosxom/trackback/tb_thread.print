@@ -1,0 +1,356 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : Trackback スレッド化</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html">http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html</a>.
+<br /><br /><br />
+
+<h2>Trackback スレッド化</h2>
+by miyagawa at Tue, 09 Dec 2003 01:24
+<p />
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.print">Trackback Tracer</a> では、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Permalink">Permalink</a> から Trackback Ping 一覧を順々に表示するツールを実装しましたが、UI としてはフラットに表示していたため、URL を起点にして、議論がどのように拡散していったかを一目で見ることはできませんでした。今回は、表示方法を再帰的にすることで、Trackback Ping の広がりをニュースグループのスレッドのように閲覧できるツールを実装してみます。
+<hr class="seemore">
+
+
+<p />
+
+<h2>スレッド表示</h2>
+
+Trackback Ping をスレッド表示するためには、<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.print">Trackback Tracer</a> で紹介したように、
+<ol>
+<li>起点となる URL から Trackback Ping URL を抽出</li>
+<li>Ping URL に <code>__mode=rss</code> を付加して RSS を取得</li>
+</ol>
+
+のアルゴリズムを再帰的に行う必要があります。今回は CGI スクリプトをノンバッファリングモード<a href="#note-1">(*1)</a>で実行し、エントリを取得しながら STDOUT に出力する方法で実装します。
+
+
+<h2>サンプルコード</h2>
+
+Permalink の URL から Trackback Ping URL を探し出し、 Ping した URL をスレッド表示するスクリプトは <a href="#listing-1">List 1</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">use CGI;
+use Encode;
+use LWP::Simple;
+use Net::TrackBack;
+use XML::RSS;
+</pre>
+
+使用するモジュールをロードします。CGI スクリプトとして動作する<note>mod_perl でも問題なく動作します。</ntoe>ため <a href="http://search.cpan.org/search?m=module&q=CGI">CGI</a>, XML の文字コード処理に <a href="http://search.cpan.org/search?m=module&q=Encode">Encode</a> を使用しています。
+
+
+<p />
+<pre class="scriptsSnippet">our $MaxLevel      = 5;    # max level of threads
+our $HackPingRSS   = 1;    # fix latin-1 response?
+</pre>
+
+設定変数として、スレッドの最大の深さを示す <code>$MaxLevel</code> と、XML の encoding 宣言が正しくない RSS を修正するかどうかを示す <code>$HackPingRSS</code> を設定しています。
+
+<p />
+<pre class="scriptsSnippet">local $| = 1;
+</pre>
+
+このスクリプトは、再帰的に Trackback Ping を取得するため実行に時間がかかります。その間でもブラウザに処理内容が表示されるよう、ノンバッファリングの設定とします。
+
+<p />
+<pre class="scriptsSnippet">print_form($q);
+if ($url) {
+    print qq(&lt;div id=&quot;tb-thread&quot;&gt;\n);
+    show_thread($q, $url, $MaxLevel, \&amp;display_item);
+    print qq(&lt;/div&gt;\n);
+}
+</pre>
+
+<code>print_form</code> でフォームを表示し、<code>$url</code> が渡されていれば <code>show_thread</code> でスレッド化した Ping ツリーを表示します。
+
+<p />
+<pre class="scriptsSnippet">sub show_thread {
+    my($q, $root, $max_level, $callback) = @_;
+
+    my $level = 1;
+    my %seen  = ($root =&gt; 1);
+</pre>
+
+スレッドの深さを表わす <code>$level</code> と、すでに処理した URL を格納しておくハッシュ <code>%seen</code> をレキシカル変数として用意します。
+
+<p />
+<pre class="scriptsSnippet">    my $finder;
+    $finder = sub {
+        my $url = shift;
+        my $rss = fetch_tb_rss($url) or return;
+        if ($level == 1) {
+            # This is root item
+            $callback-&gt;($q, $rss-&gt;channel, 0);
+        }
+
+        for my $ping (@{$rss-&gt;items}) {
+            $callback-&gt;($q, $ping, $level);
+            $level++;                   # note $level is lexical
+            $finder-&gt;($ping-&gt;{link})    # do it recursively
+                if $level &lt;= $max_level &amp;&amp; !$seen{$ping-&gt;{link}}++;
+            $level--;                   # going back
+        }
+    };
+</pre>
+
+URL を渡して、Trackback Ping を検出して表示し、再帰的に実行するサブルーチンをクロージャとして <code>$finder</code> に格納します。ここは難しいので詳しくみていきます。
+
+
+<p />
+<pre class="scriptsSnippet">    my $finder;
+    $finder = sub {
+        my $url = shift;
+<strong>        my $rss = fetch_tb_rss($url) or return;
+</strong><strong>        if ($level == 1) {
+</strong><strong>            # This is root item
+</strong><strong>            $callback-&gt;($q, $rss-&gt;channel, 0);
+</strong><strong>        }
+</strong><strong>
+</strong>        for my $ping (@{$rss-&gt;items}) {
+            $callback-&gt;($q, $ping, $level);
+            $level++;                   # note $level is lexical
+            $finder-&gt;($ping-&gt;{link})    # do it recursively
+                if $level &lt;= $max_level &amp;&amp; !$seen{$ping-&gt;{link}}++;
+            $level--;                   # going back
+        }
+    };
+</pre>
+
+前回同様、Permalink から Trackback Ping の URL を <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.print">Auto-Discovery</a> で探索し、XML::RSS にして取得 (<code>fetch_tb_rss</code>) します。<code>$level == 1</code> の場合は、起点となる URL のため、RSS の channel 要素から title, link, description を取得して表示 (<code>$callback</code>: ここでは <code>display_info</code> が実行される) します。
+
+<p />
+<pre class="scriptsSnippet">    my $finder;
+    $finder = sub {
+        my $url = shift;
+        my $rss = fetch_tb_rss($url) or return;
+        if ($level == 1) {
+            # This is root item
+            $callback-&gt;($q, $rss-&gt;channel, 0);
+        }
+
+<strong>        for my $ping (@{$rss-&gt;items}) {
+</strong><strong>            $callback-&gt;($q, $ping, $level);
+</strong><strong>            $level++;                   # note $level is lexical
+</strong><strong>            $finder-&gt;($ping-&gt;{link})    # do it recursively
+</strong><strong>                if $level &lt;= $max_level &amp;&amp; !$seen{$ping-&gt;{link}}++;
+</strong><strong>            $level--;                   # going back
+</strong><strong>        }
+</strong>    };
+</pre>
+
+RSS の item には、Trackback Ping を送信した Blog のエントリが格納されています。これについては、<code>$callback</code> で表示した後、インデント <code>$level</code> をインクリメントし、このクロージャ自身である <code>$finder</code> を再帰的に実行しています。ここで、
+<ol>
+<li><code>$level</code> が最大レベルを超えている</li>
+<li>すでに処理した (<code>%seen</code> ハッシュにエントリがある)</li>
+</ol>
+
+場合はのぞきます。
+
+<p />
+<pre class="scriptsSnippet">    $finder-&gt;($root);
+</pre>
+
+クロージャ <code>$finder</code> に、起点 URL <code>$root</code> を渡して処理が開始されます。
+
+<p />
+<pre class="scriptsSnippet">sub display_item {
+    my($q, $item, $level) = @_;
+    print &quot;&amp;nbsp;&quot; x ($level * 4); # indent
+    my $tooltip = substr($item-&gt;{description}, 0, 256);
+    print $q-&gt;a({ -href  =&gt; $item-&gt;{link},
+                  -title =&gt; _enc($tooltip) },
+                _enc($item-&gt;{title} || &quot;(no-title)&quot;)), $q-&gt;br;
+}
+</pre>
+
+<code>display_item</code> は、Ping のアイテムが見つかるたびに呼び出されるコールバックルーチンで、インデントを適切に行い、エントリにリンクしています。description の内容を a タグの title 属性にいれています (<code>$tooltip</code>) ので、Win32 上で IE を使用している場合は、マウスを載せると description をツールチップでプレビューすることができます。
+
+<p />
+<pre class="scriptsSnippet">sub _enc { Encode::encode(&quot;utf-8&quot;, shift) }
+</pre>
+
+XML::RSS 内の title や description といった変数は Unicode 文字列であるため、出力するためには <a href="http://search.cpan.org/search?m=module&q=Encode">Encode</a> の <code>encode</code> でバイト列に落とす必要があります<a href="#note-2">(*2)</a>。
+
+<p />
+<pre class="scriptsSnippet">sub fetch_tb_rss {
+    my $url = shift;
+
+    my $p = Net::TrackBack-&gt;new();
+    my($ping_url) = $p-&gt;discover($url);
+    $ping_url or return;
+
+    # strips weird &lt;response&gt; things
+    my $xml = get(&quot;$ping_url?__mode=rss&quot;);
+    $xml =~ s!&lt;response&gt;.*&lt;error&gt;.*&lt;/error&gt;!!s;
+    $xml =~ s!&lt;/response&gt;!!s;
+    $xml =~ s/iso-8859-1/utf-8/ if $HackPingRSS;
+
+    # parse it with XML::RSS
+    my $rss = XML::RSS-&gt;new();
+    eval { $rss-&gt;parse($xml) };
+
+    return $@ ? undef : $rss;
+}
+</pre>
+
+<code>fetch_tb_rss</code> については、ほぼ変更はありませんが、<code>$HackPingRSS</code> が true の場合には、RSS 文字列内の iso-8859-1 文字列を utf-8 に変更します。これは特定バージョンの <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> などに見られるバグに対処するための workaround です。
+
+<h2>Running the Hack</h2>
+
+このスクリプトを CGI で実行可能な場所に配置し、<a href="#listing-2">List 2</a> のような tb_thread.css ファイルを同一ディレクトリに置いてブラウザからアクセスします。
+
+<p />
+適当に、Trackback の多い Blog の Permalink を入力してみます。ここでは <a href="http://furukawa.cocolog-nifty.com/blog/2003/12/post_2.html">Six Apart 社</a>というエントリを選んでみました。
+
+<img src="/cookbook/images/tb_thread/tb_thread1.gif" class="inline-image" />
+
+このように Trackback のつながりをスレッド表示できました。
+
+<h2>Hacking the Hack</h2>
+
+このスクリプトは、再帰的にネットワークからデータを取得するため、エントリ数が多い場合には、実行に非常に時間がかかります。また、リロードなどを繰り返した場合には、同じ URL からのエントリを短時間に取得することになり、効率が良くないばかりか、相手先のサイトの迷惑になってしまう可能性もあります。。See Also で紹介する mt-thread のように、一度取得した URL をキャッシュするような実装を入れておくと良いでしょう。
+<p />
+また、ここでは URL の取得をシリアル<a href="#note-3">(*3)</a>で行っていますが、複数のホストについては、<a href="http://search.cpan.org/search?m=module&q=POE">POE</a> や fork などの手法を使って、並列に同時実行すればさらに高速化が見込めるでしょう。
+
+<h2>See Also</h2>
+
+<dl>
+<dt><a href="http://www.movabletype.org/news/2002_08.shtml#000568">mt-thread</a></dt>
+<dd><a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> の開発者である <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?BenTrott">BenTrott</a> によって作成された Trackback のスレッド表示スクリプトです。クレジットにもあるように、今回のスクリプトの実装にあたっては、mt-thread を大いに参考にしました。mt-thread では、ツリー内容のキャッシュも実装されています。</dd>
+
+<dt><a href="http://mylog.ishinao.net/id/399">Trackback Tracer</a></dt>
+<dd>(<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.print">フラット版</a>と同名となってしまいましたが).NET Framework で動作する、Trackback をスレッド表示するクライアントツールです。</dd>
+
+</dl>
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: tb_thread.cgi</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# tb_thread.cgi - Trackback Threading
+
+# This program is based on mt-thread by Benjamin Trott
+# &lt;http://www.movabletype.org/news/2002_08.shtml#000568&gt;
+
+use strict;
+use CGI;
+use Encode;
+use LWP::Simple;
+use Net::TrackBack;
+use XML::RSS;
+
+our $MaxLevel      = 5;    # max level of threads
+our $HackPingRSS   = 1;    # fix latin-1 response?
+
+my $q   = CGI-&gt;new();
+my $url = $q-&gt;param('url');
+
+local $| = 1;
+print_form($q);
+if ($url) {
+    print qq(&lt;div id=&quot;tb-thread&quot;&gt;\n);
+    show_thread($q, $url, $MaxLevel, \&amp;display_item);
+    print qq(&lt;/div&gt;\n);
+}
+
+sub print_form {
+    my $q = shift;
+    print $q-&gt;header('text/html; charset=utf-8'),
+        $q-&gt;start_html(-title =&gt; &quot;Trackback Threading&quot;,
+                       -style =&gt; { -src =&gt; &quot;tb_thread.css&quot; }),
+        $q-&gt;h1(&quot;Trackback Threading&quot;),
+        $q-&gt;start_form(-method =&gt; &quot;GET&quot;),
+        &quot;URL: &quot;, $q-&gt;textfield(-name =&gt; 'url', -size =&gt; 50),
+        $q-&gt;submit(-value =&gt; &quot;Show Thread&quot;), $q-&gt;end_form;
+}
+
+sub show_thread {
+    my($q, $root, $max_level, $callback) = @_;
+
+    my $level = 1;
+    my %seen  = ($root =&gt; 1);
+
+    my $finder;
+    $finder = sub {
+        my $url = shift;
+        my $rss = fetch_tb_rss($url) or return;
+        if ($level == 1) {
+            # This is root item
+            $callback-&gt;($q, $rss-&gt;channel, 0);
+        }
+
+        for my $ping (@{$rss-&gt;items}) {
+            $callback-&gt;($q, $ping, $level);
+            $level++;                   # note $level is lexical
+            $finder-&gt;($ping-&gt;{link})    # do it recursively
+                if $level &lt;= $max_level &amp;&amp; !$seen{$ping-&gt;{link}}++;
+            $level--;                   # going back
+        }
+    };
+    $finder-&gt;($root);
+}
+
+sub display_item {
+    my($q, $item, $level) = @_;
+    print &quot;&amp;nbsp;&quot; x ($level * 4); # indent
+    my $tooltip = substr($item-&gt;{description}, 0, 256);
+    print $q-&gt;a({ -href  =&gt; $item-&gt;{link},
+                  -title =&gt; _enc($tooltip) },
+                _enc($item-&gt;{title} || &quot;(no-title)&quot;)), $q-&gt;br;
+}
+
+sub _enc { Encode::encode(&quot;utf-8&quot;, shift) }
+
+sub fetch_tb_rss {
+    my $url = shift;
+
+    my $p = Net::TrackBack-&gt;new();
+    my($ping_url) = $p-&gt;discover($url);
+    $ping_url or return;
+
+    # strips weird &lt;response&gt; things
+    my $xml = get(&quot;$ping_url?__mode=rss&quot;);
+    $xml =~ s!&lt;response&gt;.*&lt;error&gt;.*&lt;/error&gt;!!s;
+    $xml =~ s!&lt;/response&gt;!!s;
+    $xml =~ s/iso-8859-1/utf-8/ if $HackPingRSS;
+
+    # parse it with XML::RSS
+    my $rss = XML::RSS-&gt;new();
+    eval { $rss-&gt;parse($xml) };
+
+    return $@ ? undef : $rss;
+}
+</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: tb_thread.css</span></a>
+<pre class="scriptsListing">#tb-thread  {
+  line-height: 1.4em;
+}
+
+a, a:link {
+  color: #246;
+}
+
+a:active, a:hover {
+  color: #468;
+}
+
+a:visited {
+  color: #224;
+}</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> CGI の場合 nph (Non-Parsed Header) スクリプトとして実行する必要があります。<br />
+<a href="#note-2" name="note-2">*2)</a> 今回は、XML 以外の文字列が ASCII であるため問題は起こりませんが、マルチバイトの場合、Sv の自動アップグレードによって文字化けが発生してしまいます。<br />
+<a href="#note-3" name="note-3">*3)</a> 直列に、順番を待ちながら実行するという意味<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

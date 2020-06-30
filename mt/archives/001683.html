@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>colinux with SVK: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001683.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001682.html" title="Vimeo" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001684.html" title="YAPC::NA Schedule" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001683.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1683"
+    dc:title="colinux with SVK"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001683.html"
+    dc:subject="tech"
+    dc:description="最近開発をノートPC (ThinkPad X40) 上でやるようになってきてます。 といっても、Win32 で Apache と ActivePerl、なんてのではなくて、coLinux という &quot;Windows 内で動く Linux&quot; を使っています。昔からある VMWare のようなものと考えてもらえれば OK。 coLinuxのメモ - coLinuxのインストール..."
+    dc:creator="miyagawa"
+    dc:date="2005-04-27T13:00:43+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">April 27, 2005</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">colinux with SVK</h1>
+
+<p>最近開発をノートPC (ThinkPad X40) 上でやるようになってきてます。</p>
+
+<p>といっても、Win32 で Apache と ActivePerl、なんてのではなくて、<a href="http://www.colinux.org/">coLinux</a> という "Windows 内で動く Linux" を使っています。昔からある VMWare のようなものと考えてもらえれば OK。</p>
+
+<p><a title="coLinuxのメモ - coLinuxのインストール" href="http://scratchpad.fc2web.com/colinux/install/">coLinuxのメモ - coLinuxのインストール</a> あたりを参考に、Debian の入ったファイルシステムをダウンロードして、apt-get dist-upgrade してごにょごにょやれば、あっという間に Linux 環境が手に入ります。Windows からは Putty などの SSH を利用して接続すれば、普通の Linux サーバと同じ感覚で使えて便利。最初はブリッジ接続でつかっていたのですが、ホテルなどにいくたび IP を変更するのが面倒だったので（DHCP でもいいんだけど）、現在は NAT にして利用しています。快適。</p>
+
+<p>で、Subversion を使って開発するわけですが、svn diff とか merge なんかをするときに、いちいちネットワーク接続があって（しかも svn あんま使いやすくないし）ムカツク、ということで <a href="http://svk.elixus.org/">SVK</a> という subversion のラッパーを使ってみています。Subversion のリポジトリをローカルにミラーして、ローカルにブランチをきって相互に楽にマージしたりと、かなりベンリ。</p>
+
+<p>coLinux と SVK さえあれば飛行機でも、お手軽にハック！というわけで、かなりオススメです（エコノミーではバッテリーが持ちませんが。。）。</p>
+
+<p>ちなみに SVK は現在 v1.0.0 RC3 ということで、Wiki 上ではドキュメントがいまいちアップデートしてない（追いついてない）感じもありますが、今後こちらにちょくちょく Tips をポストしていこうとおもいます。</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'colinux, svk';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+//  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at April 27, 2005 01:00 PM
+| <a href="http://blog.bulknews.net/mt/archives/001683.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001683.html#comments">Comments (45)</a>
+
+| <a href="#trackbacks">TrackBack(1)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001682.html\">&laquo; Vimeo</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001684.html\">YAPC::NA Schedule &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>そこでUltrabayにバッテリーを。。。<br />
+って働きすぎは体に悪いですよ</p>
+<span class="comments-post">Posted by: Ryosuke on April 28, 2005 02:24 AM</span>
+</div>
+<div class="comments-body">
+<p>סוככי זרועות<br />
+סוכך  זרועות הוא סוכך המכסה שטחים גדולים באופן דקורטיבי, ללא תמיכת עמודים וללא צורך בהכנת תשתית מיוחדת כדי להרכיבו, ללא צורך רשיונות וכו'. הוא אינו תופס נפח, אינו משאיר אחריו קונסטרוקציה משהוא מקופל וסגור. שילדת סוכך  הזרועות עשויה מאלומיניום אל-חלד בציפוי אפוקסי לבן או שנהב בהשגחת מכון התקנים.</p>
+
+<p>ניתן לקפל או לפתוח את סוכך הזרועות בקלות, ע"י לחיצת כפתור בהפעלת מנוע חשמלי, או ע"י תמסורת ידנית וארכובה (מנואלה), ניתן לשלוט בשטח הפתיחה הרצוי.</p>
+
+<p>את הסוכך ניתן להזמין במידות שונות ובדגמים שונים, בהתאמה לאופי המקום ועל פי דרישותיו של הלקוח. סוכך הזרועות מיועד לבתים פרטיים, דירות גג, פנטהאוזים, מרפסות, חלונות ובתי עסק שונים.</p>
+
+<p>סוכך הזרועות מיועד בעיקר לשימוש בקיץ. בחורף מומלץ לסגור אותו ולשלוף את הוולן כדי שלא יתבלה מהרוחות של החורף. הוא מגן מפני שמש, חום, לחות, אבק ומפני עיניים סקרניות של השכנים. כיסוי הסוכך עשוי בעיקר מבדי דרלון אבל גם מבדי שמשונית (PVC)<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.hasharon-awnings.co.il/" rel="nofollow">shilo</a> on June 26, 2007 05:24 AM</span>
+</div>
+<div class="comments-body">
+<p>סוככי זרועות<br />
+סוכך  זרועות הוא סוכך המכסה שטחים גדולים באופן דקורטיבי, ללא תמיכת עמודים וללא צורך בהכנת תשתית מיוחדת כדי להרכיבו, ללא צורך רשיונות וכו'. הוא אינו תופס נפח, אינו משאיר אחריו קונסטרוקציה משהוא מקופל וסגור. שילדת סוכך  הזרועות עשויה מאלומיניום אל-חלד בציפוי אפוקסי לבן או שנהב בהשגחת מכון התקנים.</p>
+
+<p>ניתן לקפל או לפתוח את סוכך הזרועות בקלות, ע"י לחיצת כפתור בהפעלת מנוע חשמלי, או ע"י תמסורת ידנית וארכובה (מנואלה), ניתן לשלוט בשטח הפתיחה הרצוי.</p>
+
+<p>את הסוכך ניתן להזמין במידות שונות ובדגמים שונים, בהתאמה לאופי המקום ועל פי דרישותיו של הלקוח. סוכך הזרועות מיועד לבתים פרטיים, דירות גג, פנטהאוזים, מרפסות, חלונות ובתי עסק שונים.</p>
+
+<p>סוכך הזרועות מיועד בעיקר לשימוש בקיץ. בחורף מומלץ לסגור אותו ולשלוף את הוולן כדי שלא יתבלה מהרוחות של החורף. הוא מגן מפני שמש, חום, לחות, אבק ומפני עיניים סקרניות של השכנים. כיסוי הסוכך עשוי בעיקר מבדי דרלון אבל גם מבדי שמשונית (PVC)<br />
+</p>
+<span class="comments-post">Posted by: shilo on June 26, 2007 05:25 AM</span>
+</div>
+<div class="comments-body">
+<p>אתר הלבשה תחתונה ולבני נשים המוביל בישראל</p>
+<span class="comments-post">Posted by: <a href="http://www.shopo.co.il" rel="nofollow">הלבשה תחתונה</a> on August  4, 2009 03:15 PM</span>
+</div>
+<div class="comments-body">
+<p>חנות מקוונת המתמחה בשיווק הלבשה תחתונה, הלבשה סקסית, הלבשה תחתונה סקסית, מוצרי ספא ומתנות רומנטיות. קולקצייה מרהיבה, מגוונת ואיכותית של בייבידולים, מחוכים, סטים, בגדי גוף, שמלות סקסיות, מידות גדולות ועוד ועו ד.</p>
+<span class="comments-post">Posted by: <a href="http://www.4us2.co.il" rel="nofollow">הלבשה תחתונה</a> on April 24, 2010 08:36 PM</span>
+</div>
+<div class="comments-body">
+<p>חנות מקוונת המתמחה בשיווק הלבשה תחתונה, הלבשה סקסית, הלבשה תחתונה סקסית, מוצרי ספא ומתנות רומנטיות. קולקצייה מרהיבה, מגוונת ואיכותית של בייבידולים, מחוכים, סטים, בגדי גוף, שמלות סקסיות, מידות גדולות ועוד ועו ד.</p>
+<span class="comments-post">Posted by: <a href="http://www.4us2.co.il" rel="nofollow">הלבשה סקסית</a> on April 24, 2010 08:38 PM</span>
+</div>
+<div class="comments-body">
+<p>Great site</p>
+<span class="comments-post">Posted by: <a href="http://www.panelal.co.il/light.php" rel="nofollow">בניה קלה</a> on July 15, 2010 04:36 PM</span>
+</div>
+<div class="comments-body">
+<p>מקלחונים הינם פתרון נהדר לכל מי שמחפש לעשות מקלחת מהירה ואפילו מפנקת <br />
+ההמלצה שלי - מקלחונים.</p>
+<span class="comments-post">Posted by: <a href="http://www.zagagim.co.il/%D7%9E%D7%A7%D7%9C%D7%97%D7%95%D7%A0%D7%99%D7%9D" rel="nofollow">מקלחונים</a> on August  4, 2010 09:30 PM</span>
+</div>
+<div class="comments-body">
+<p>Great</p>
+<span class="comments-post">Posted by: <a href="http://www.persite.co.il/" rel="nofollow">בניית אתרים לעסקים</a> on January  6, 2011 03:38 AM</span>
+</div>
+<div class="comments-body">
+<p>great port</p>
+<span class="comments-post">Posted by: <a href="http://www.magicvisa.co.il/" rel="nofollow">ויזה לארה"ב</a> on January 25, 2011 06:11 PM</span>
+</div>
+<div class="comments-body">
+<p>thank u . was very good</p>
+<span class="comments-post">Posted by: <a href="http://www.iphone-5.co.il/" rel="nofollow">אייפון 5</a> on January 25, 2011 06:11 PM</span>
+</div>
+<div class="comments-body">
+<p>פורים כבר מתדפק על דלתנו ורבים רצים לבחור תחפושת חדשה שתעלה לנו לא מעט כסף.  אך האם לא כדאי היה לשמור את התחפושת הישנה ולחסוך מזומנים לצרכים אחרים?<br />
+רכזנו לפניכם מספר עצות כיצד ניתן לשמור על תחפושת הפורים משנה שעברה כך שתראה כמו חדשה.<br />
+לפני שאתם עומדים לרחוץ את התחפושת, זכרו כי תחפושות פורים עשויות מחומרים  עדינים וכי התפירה שלהם בדרך כלל אינה חזקה ולכן עלינו לכבס אותן רק ביד. באם ישנם הוראות כביסה על התחפושת עדיף כי תנהגו לפיהן. יש לזכור כי גם כביסה עדינה ביד יכולה להרוס תחפושת שמצויין עליה כי היא נועדה לניקוי יבש בלבד. במקרה כזה  התחפושת יכולה להתכווץ במידה גדולה, לדהות או באם יש עליה הדפס הוא יכול לההרס. באם בכל זאת אין הוראות כנגד כביסה ביד  הרי לפני הכביסה יש להפוך את התחפושת כך שצידה הפנימי יצא החוצה, לכבס בכיור נקי במים בעזרת מים קרים ולהשתמש באבקת כביסה ומרכך רכים ועדינים במיוחד. לאחר הכביסה להפוך את התחפושת חזרה  זהירות ולתלות אותה ליבוש. חשוב לזכור כי אין לסחוט את המים מהתחפושת ואין ליבשה במייבש כביסה.<br />
+לאחר ייבוש קרוב לוודאי תמצא כי התחפושת התקמטה ולכן יש לגהץ אותה. יש לזכור כי תחפושות עשויות בדרך כלל מחומרים אקריליים ופוליאסטר שאינם מגיבים טוב לחום לכן לפני הגיהוץ להתיז מים על התחפושת ולגהצה בחום לא גבוה במיוחד. לאחר הגיהוץ יש לתלות את התחפושת כדי שלא תתפוס קמטים חדשים. ניתן גם להעזר בתרסיס לישור קמטים במידת הצורך.<br />
+לשמירה על תחפושות לטווח ארוך לאחר השימוש אין לזרוק או לדחוס אותן לתוך מגירה או ארגז.  יש לתלותן בארון ולכסותן בכיסוי ניילון כדי למנוע צבירת אבק על התחפושת. את האביזרים מגיעים עם התחפושת יש לעטוף בנייר ולאפסן בארגז נפרד. כאשר יש לשים דגש כי אביזרים כמו כנפיים לא יתקפלו ובאביזרים כמו כובעים יש לדחוס נייר על מנת שלא יאבדו את צורתם.<br />
+אנו מקווים כי בעזרת מגוון עצות אלו תוכלו לחסוך לא מעט כסף על תחפושות הפורים שלכם.<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.nikita.co.il/100165/%D7%AA%D7%97%D7%A4%D7%95%D7%A9%D7%95%D7%AA" rel="nofollow">תחפושות</a> on February 17, 2011 09:18 AM</span>
+</div>
+<div class="comments-body">
+<p>בירכונים סקסים ובשמלת מיני אדומה בוהקת לא נראה שכיפה אדומה נושאת את פעמיה לבית סבתה. פיה שנראה כי היא עושה שופינג ב"פיתויים"  ושילגייה שהחצאית שלה בגודל של מפית שולחן.<br />
+אם עקבתם בשנים האחרונות אחרי אופנת תחפושות הפורים, הרי מראות אלו מוכרים לכם.  נשים ונערות רבות יותר ויותר נוטשות את התחפושות המסורתיות ובוחרות בחג הזה להתהדר בבגד סקסי שלעולם לא ילבשו בכל יום אחר.<br />
+מה מניע את הנשים הימינו לאחר כל המהפכות הפמיניסטיות לבחור יותר דווקא בתחפושות הסקסיות ופחות  בתחפושות נייטראליות?<br />
+אם נשווה את תחפושות הגברים הפופולאריות לתחפושות הנשים נמצא כי הגברים לוקחים את התחפושות  לכיוון של המגוחך והגרוטסקי כגון תחפושות של פחית בירה או גורילה או באם הגברים בוחרים בתחפושת מסורתית כגון שוטר או כבאי, תחפושות אלו נראות כמו הדבר האמיתי והגבר הלובש אותן מידמה לבעל המקצוע שהתחפש אליו, זאת  בעוד תחפושות מקבילות אצל נשים תהיינה  תמיד סקסיות ונועזות כפי ששום שוטרת או אחות לא תלבש בחיי היום יום.<br />
+אנו עדים לכך שיותר נשים כיום מנצלות את האפשרות של חג הפורים להציג לראווה את חיטוביהן שנקנו בעמל כה רב בחדר הכושר. החג העליז והתחפושות הסקסיות נותנים  להן את הלגיטימציה  לבטא את עצמן בצורה סקסית דבר החסר בשגרת היום יום האפורה.<br />
+כמו כן השמלות הקצרות, הממלות והדמויות המוכרות מן האגדות כגון עליסה וסינדרלה מאפשרות לשדר מסר צעיר וקוקטיות של לוליטה גם לנשים בוגרות יותר .<br />
+סיבה נוספת לפופולאריות של התחפושות הסקסיות בפורים יכולה להיות ההומור הגלום בהן שכן לוקחים דמויות מוכרות מספרי ילדים ועושים להם טוויסט בלתי צפוי. ההומור מקל על הנשים להראות סקסיות בשל חוסר המחויבות של האישה לדמות שהתחפשה אליה.<br />
+לסיכום אנו רואים כי יותר ויותר נשים אינן חוששות להראות סקסיות ונועזות בתחפושת ומרגישות כי הדגשת נשיותן החיצונית אינה סימן חולשה כי אם מדגישה את עצמאותן ואת כוחן.  יתכן כי החלון הזה הנפתח קיצונית בפורים יאפשר לנשים הרגשה יותר נוחה עם נשיותן גם בשאר ימות השנה <br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.nikita.co.il/100165/%D7%AA%D7%97%D7%A4%D7%95%D7%A9%D7%95%D7%AA" rel="nofollow">תחפושות</a> on February 17, 2011 09:19 AM</span>
+</div>
+<div class="comments-body">
+<p> לאיזה חברת ניהול תיקי השקעות יש את התוכנה והאנליסטים הכי טובים שיעזור לנו ליישם את אסטרטגית המסחר הכי טובה עבורך , ואולי הכי חשוב – איזה חברה מציעת תמיכה ועזרה בצעדים הראשונים שלך לניהול תיקים.<br />
+יש כמה חברות גדולות בשוק ניהול תיקי השקעות וכולם מחפשים לקוחות , איך נמצא את הפלטפורמה המתאימה לנו? מהו האתר הכי מומלץ?</p>
+<span class="comments-post">Posted by: <a href="http://www.nostro.co.il" rel="nofollow">ניהול תיקי השקעות</a> on February 18, 2011 06:59 PM</span>
+</div>
+<div class="comments-body">
+<p>בוולנטיינ'ס דיי או בחג האהבה העברי מתנות קטנות לאוהבים, גם אז ניתן להחזיר אהבה אבודה או אהבה שלא מומשה על ידי מתנה שתקלע בדיוק איפה שצריך. העטיפה למתנה גם מסמלת משהו עבור המקבל ומסמלת משהו </p>
+<span class="comments-post">Posted by: <a href="http://www.presentsimple.co.il" rel="nofollow">מתנות</a> on February 18, 2011 07:00 PM</span>
+</div>
+<div class="comments-body">
+<p>אצל נשים מבוגרות יש כמעט סבירות כפולה לבריחת לעומת גברים קשישים. עבור קשישים המתגוררים במתקן דיור מוגן, השכיחות של בריחת שתן גדל מאוד, יותר ממחצית מכל הקשישים שנמצאים מרותקים לבית סובלים מבריחת שתן , גם במקרה זה חיתולים למבוגרים הוא הפתרון האופטימאל</p>
+<span class="comments-post">Posted by: <a href="http://www.goldpharm.co.il" rel="nofollow">חיתולים למבוגרים</a> on February 18, 2011 07:03 PM</span>
+</div>
+<div class="comments-body">
+<p>פרקט שרמת שחיקה שלו היא AC3  והוא בעובי של  6 או 7 מ"מ (שאלה הפרקטים הכי דקים ונחותים שקיימים)  פשוט אינו מומלץ, גם אם הוא מחברה ידועה וטובה. לכל חברת פרקטים יש פרקטים בעובי שונה ובאיכות שונה, החל מהפרקטים הכי נחותים שהם בעובי 6 ו- 7 מ"מ, דרך פרקטים רגילים וטובים בעובי 8 מ"מ, ועד לפרקטים יוקרתיים מאד בעובי 12 מ"מ. הפרקטים הטובים בעולם רק של חברת "איקס" או אולי הפרקט הטוב בעולם הוא רק של חברת "פרקטים עולמיים"  וכך ישנם מספר חברות פרקטים שמצהירות כי רק הפרקטים שלהם הכי טובים בעולם.</p>
+<span class="comments-post">Posted by: <a href="http://www.shtichen.co.il" rel="nofollow">פרקטים</a> on February 18, 2011 07:05 PM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה תחתונה</p>
+<span class="comments-post">Posted by: <a href="http://www.4us2.co.il" rel="nofollow">משה לוי</a> on February 26, 2011 10:22 AM</span>
+</div>
+<div class="comments-body">
+<p>[url=http://www.4win.co.il//]מכרז[/url]</p>
+<span class="comments-post">Posted by: <a href="http://www.4win.co.il" rel="nofollow">משה לוי</a> on February 26, 2011 10:23 AM</span>
+</div>
+<div class="comments-body">
+<p>[*http://www.4win.co.il מכרזים]</p>
+<span class="comments-post">Posted by: <a href="http://www.4win.co.il" rel="nofollow">משה לוי</a> on February 26, 2011 10:24 AM</span>
+</div>
+<div class="comments-body">
+<p>הלוחש לתריסים תיקון תריסים חשמליים<br />
+ http://www.shuttersfix.co.il/</p>
+<span class="comments-post">Posted by: <a href="http://www.shuttersfix.co.il" rel="nofollow">הלוחש לתריסים</a> on April 26, 2011 10:50 PM</span>
+</div>
+<div class="comments-body">
+<p>הלוחש לתריסים תיקון תריסים חשמליים</p>
+<span class="comments-post">Posted by: <a href="http://www.shuttersfix.co.il" rel="nofollow">הלוחש לתריסים</a> on April 26, 2011 10:52 PM</span>
+</div>
+<div class="comments-body">
+<p>ממליץ בחום על חברת סוככים שעשתה לי עבודה יוצאת דופן בבית<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.awnings.co.il/" rel="nofollow">סוככים</a> on June 13, 2011 05:02 PM</span>
+</div>
+<div class="comments-body">
+<p>מלא ספאם פה</p>
+<span class="comments-post">Posted by: <a href="http://www.bluehost.co.il/" rel="nofollow">אחסון אתרים</a> on July 20, 2011 12:20 AM</span>
+</div>
+<div class="comments-body">
+<p>נכון מלא ספאם</p>
+<span class="comments-post">Posted by: <a href="http://www.shuttersfix.co.il" rel="nofollow">תיקון תריסים תל אביב</a> on September 24, 2011 04:10 PM</span>
+</div>
+<div class="comments-body">
+<p>近宮川さんの</p>
+<span class="comments-post">Posted by: <a href="http://www.nemashim-baby.com/" rel="nofollow">nulli</a> on October  3, 2011 02:18 AM</span>
+</div>
+<div class="comments-body">
+<p>GOOD SITE</p>
+<span class="comments-post">Posted by: <a href="http://www.4us2.co.il/shop/shopdisplayproducts.asp?id=37&cat=%D7%AA%D7%97%D7%A4%D7%95%D7%A9%D7%95%D7%AA+%D7%A1%D7%A7%D7%A1%D7%99%D7%95%D7%AA" rel="nofollow">תחפושות סקסיות</a> on October 27, 2011 08:26 AM</span>
+</div>
+<div class="comments-body">
+<p>LOVE THIS SITE</p>
+<span class="comments-post">Posted by: <a href="http://www.4us2.co.il/shop/shopdisplayproducts.asp?id=37&cat=%D7%AA%D7%97%D7%A4%D7%95%D7%A9%D7%95%D7%AA+%D7%A1%D7%A7%D7%A1%D7%99%D7%95%D7%AA" rel="nofollow">תחפושות למבוגרים</a> on October 27, 2011 08:27 AM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה תחתונה </p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com" rel="nofollow">הלבשה תחתונה</a> on December 25, 2011 04:03 AM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה תחתונה סקסית</p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com/184511/88" rel="nofollow">תחתון לגבר</a> on December 25, 2011 04:04 AM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה תחתונה סקסית</p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com/184511/88" rel="nofollow">הלבשה תחתונה סקסית</a> on December 25, 2011 04:07 AM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה תחתונה סקסית</p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com" rel="nofollow">הלבשה תחתונה סקסית</a> on December 25, 2011 04:08 AM</span>
+</div>
+<div class="comments-body">
+<p>הלבשה סקסית תחתונה</p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com" rel="nofollow">הלבשה סקסית</a> on December 25, 2011 04:08 AM</span>
+</div>
+<div class="comments-body">
+<p>חוטיני לגבר</p>
+<span class="comments-post">Posted by: <a href="http://www.usexy2.com/184511/%D7%94%D7%9C%D7%91%D7%A9%D7%94%D7%A1%D7%A7%D7%A1%D7%99%D7%AA%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D" rel="nofollow">חוטיני לגבר</a> on December 25, 2011 04:09 AM</span>
+</div>
+<div class="comments-body">
+<p>הדברה ירוקה</p>
+<span class="comments-post">Posted by: <a href="http://www.aminuthadbara.co.il" rel="nofollow">הדברה ירוקה</a> on December 25, 2011 04:12 AM</span>
+</div>
+<div class="comments-body">
+<p>הדברת גוקים</p>
+<span class="comments-post">Posted by: <a href="http://www.aminuthadbara.co.il/?page_id=181" rel="nofollow">הדברת ג`וקים</a> on December 25, 2011 04:13 AM</span>
+</div>
+<div class="comments-body">
+<p>מסגריה</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il" rel="nofollow">מסגריה</a> on December 25, 2011 04:14 AM</span>
+</div>
+<div class="comments-body">
+<p>סורגים</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il/?page_id=5" rel="nofollow">סורגים</a> on December 25, 2011 04:16 AM</span>
+</div>
+<div class="comments-body">
+<p>מעקות פנים</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il/?page_id=7" rel="nofollow">מעקות פנים</a> on December 25, 2011 04:16 AM</span>
+</div>
+<div class="comments-body">
+<p>שערים חשמליים</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il/?p=1" rel="nofollow">שערים חשמליים</a> on December 25, 2011 04:17 AM</span>
+</div>
+<div class="comments-body">
+<p>רפואה סינית  ברמה </p>
+<span class="comments-post">Posted by: <a href="http://www.daniel-eliyahu.co.il" rel="nofollow">רפואה סינית</a> on January  2, 2012 06:34 AM</span>
+</div>
+<div class="comments-body">
+<p>רפואה סינית </p>
+<span class="comments-post">Posted by: <a href="http://www.daniel-eliyahu.co.il" rel="nofollow">רפואה סינית</a> on January 24, 2012 05:12 AM</span>
+</div>
+<div class="comments-body">
+<p>דיקור סיני מסין</p>
+<span class="comments-post">Posted by: <a href="http://www.daniel-eliyahu.co.il/?page_id=193" rel="nofollow">דיקור סיני</a> on January 24, 2012 05:13 AM</span>
+</div>
+<div class="comments-body">
+<p>הסורגים המעוצבים</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il/?page_id=5" rel="nofollow">סורגים</a> on January 24, 2012 05:14 AM</span>
+</div>
+<div class="comments-body">
+<p>מסגריה</p>
+<span class="comments-post">Posted by: <a href="http://www.masgeriya-sp.co.il" rel="nofollow">מסגריה</a> on January 24, 2012 05:16 AM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1683</div>
+
+<div class="comments-body">
+<a name="3915"></a>
+<span class="comments-post"><a href="http://walf443.raindrop.jp/blog/archives/2005/05/vi.html" target="new" rel="nofollow nofollow">viの使い方</a><br />
+<b>Excerpt:</b> 最近宮川さんの「colinux with SVK」とか、伊藤さんの「coLinux でウェブアプリケーション開発環境構築」に触発されて、開発をcolinuxでやっていたりします。もともとlinuxに詳...<br />
+<b>Weblog:</b> I sort my thought...<br />
+<b>Tracked:</b> May 20, 2005 12:45 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1683" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

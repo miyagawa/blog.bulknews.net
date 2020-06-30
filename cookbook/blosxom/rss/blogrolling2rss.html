@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : BlogRolling を利用して RSS 巡回先を管理</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Sat, 25 Oct 2003</div>
+<div class="entry"><h1 class="title"><a name="blogrolling2rss">BlogRolling を利用して RSS 巡回先を管理</a></h1>
+
+<p />
+RSS は Aggregator で読むだけではなく、様々な使用方法があります。お気に入りの RSS リスト(巡回先) が肥大してくると、この管理もなかなか大変です。今回は <a href="http://blogrolling.com/">BlogRolling</a> というサービスを使用して、RSS 巡回先の管理を行ってみます。
+
+
+<h2>BlogRolling</h2>
+
+RSS Aggregator に登録した Blog サイトの巡回先が肥大化してくると、以下のような問題が生じます。
+<ul>
+<li>Aggregator のソフトを移行するときに登録しなおし</li>
+<li>自宅の PC と職場の PC で不整合が発生</li>
+</ul>
+
+これは Web ブラウザの Bookmark を自宅と職場で同期したいという要望に非常によく似ています。オンラインでブックマーク管理できる各種オンラインブックマークサービスが登場したのと同様に<a href="#note-1">(*1)</a>、自分の巡回する Blog サイトのリストを Web 上で管理できるサービスが、<a href="http://blogrolling.com/">BlogRolling</a> です。
+
+<p />
+BlogRolling は、<a href="http://weblogs.com/">Weblogs.Com</a> の <a href="http://www.weblogs.com/changes.xml">changes.xml</a> に掲載されている更新情報をもとにして<a href="#note-2">(*2)</a>、自分の巡回する Blog リストを更新順に並べかえてくれるサービスです。BlogRolling の URL リストは JavaScript で HTML 出力する機能を持っているため、巡回リストを更新時間順に<a href="#note-3">(*3)</a>ソートして、自分の Blog の SideBar などに張りつけることができます。ちょうど <a href="http://d.hatena.ne.jp/">はてなダイアリー</a> のサイドバーに <A href="http://a.hatena.ne.jp/">はてなアンテナ</a> のアンテナを張りつけるのに似ていますね。
+
+<p />
+こうして巡回先リストを Web 上の BlogRolling に保持しておくことで、
+<ul>
+<li>自宅の PC</li>
+<li>職場の PC</li>
+<li>Blog サイト上のサイドバー</li>
+</ul>
+
+のように各所で利用している「巡回リスト」が BlogRolling で一括管理できるようになります。
+
+<p />
+BlogRolling はブラウザから 1-Click で登録する Bookmarklet や &quot;BlogRoll Me&quot; <a href="#note-4">(*4)</a> などの簡易登録インタフェースも用意しているため、「お、このサイトいいな」と思った際に、すぐに追加できるのも便利なところです。
+
+<h2>BlogRolling に登録したサイトの RSS 一覧を取得</h2>
+
+BlogRolling の巡回結果は JavaScript 以外にも RSS や OPML<a href="#note-5">(*5)</a> での出力もサポートしています。RSS での出力は <a href="#listing-1">List 1</a> のようになっており、更新時刻順に Blog サイトのタイトルや URL が <code>item</code> の要素に出力されています。
+
+<p />
+このように、BlogRolling で管理した巡回先マスタ(RSS)から Blog リストを抽出して、<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.html">RSS の更新情報をメールで送信</a> などのアプリケーションに渡すようにすれば、Web で管理した Blog リストについて、メーラで更新情報を取得できるという大層なアプリケーションが簡単に作成できます。
+
+<p />
+注意すべきは、BlogRolling の出力する RSS には、サイト毎の RSS の URL は含まれていないことです。<a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss_auto_discovery.html">RSS Auto Discovery</a> を利用して RSS のリストを作成してあげればよいでしょう。
+
+<h2>サンプルコード</h2>
+
+BlogRolling の BlogRoll <a href="#note-6">(*6)</a> から RSS リストを抽出するスクリプトは <a href="#listing-2">List 2</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">use HTML::RSSAutodiscovery;
+use LWP::Simple;
+use Storable;
+use XML::RSS;
+</pre>
+
+使用するモジュールを use します。データのキャッシュに <a href="http://search.cpan.org/search?m=module&q=Storable">Storable</a>、また RSS Auto Discovery 用に <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aRSSAutodiscovery">HTML::RSSAutodiscovery</a> を使用します。
+
+<p />
+<pre class="scriptsSnippet">our $CacheFile     = &quot;rss.cache&quot;;
+our $BlogRollingId = &quot;fd16d26c9ad1029c21a48955b8c19731&quot;;
+</pre>
+
+設定項目を our で格納します。ここでは URL から RSS へのマッピングを保存するキャッシュファイルのパス、また BlogRolling のアカウント ID <a href="#note-7">(*7)</a> を設定します。
+
+<p />
+<pre class="scriptsSnippet">my $cache = eval { Storable::retrieve($CacheFile) } || {};
+</pre>
+
+Storable 形式で保存されたキャッシュをロードします。ファイルがない場合は例外が投げられるので, eval でトラップして初期化します。
+
+<p />
+<pre class="scriptsSnippet">my $url = &quot;http://rpc.blogrolling.com/rss.php?r=$BlogRollingId&quot;;
+my $xml = LWP::Simple::get($url);
+</pre>
+
+RSS を出力する RPC に、自分の BlogRolling ID を付加して RSS ファイルを HTTP GET します。
+
+<p />
+<pre class="scriptsSnippet">my $rss = XML::RSS-&gt;new();
+   $rss-&gt;parse($xml);
+
+for my $item (@{$rss-&gt;{items}}) {
+    $cache-&gt;{$item-&gt;{link}} ||= discover_rss($item-&gt;{link}) or next;
+    print $cache-&gt;{$item-&gt;{link}}, &quot;\n&quot;;
+}
+</pre>
+
+いつものように、XML::RSS でパースして、各 item について処理します。item の <code>link</code> に Blog の URL が格納されています。キャッシュを lookup して、存在しなければ <code>discover_rss</code> で、その URL への RSS を探します。見つかれば標準出力に <code>print</code> します。
+
+<p />
+<pre class="scriptsSnippet">sub discover_rss {
+    my $url = shift;
+    my $discovery = HTML::RSSAutodiscovery-&gt;new();
+    my $rss = $discovery-&gt;parse($url);
+    unless (@$rss) {
+        warn &quot;no RSS found for $url\n&quot;;
+        return;
+    }
+    return $rss-&gt;[0]-&gt;{href};
+}
+</pre>
+
+今回は HTML::RSSAutodiscovery を使用して RSS の自動探索を行っています。マッチした結果は配列リファレンスで取得できます。自動探索に失敗すると要素が 0個の配列となるため、warning を出力し return します。マッチした場合には 1つめのエントリの <code>href</code> 要素を RSS の URL として返します。
+
+<p />
+<pre class="scriptsSnippet">Storable::nstore($cache =&gt; $CacheFile);
+</pre>
+
+最後にキャッシュした結果をファイルに書き出します。これによって1つの URL に対して複数回 RSS の自動探索を行うことが防げます<a href="#note-8">(*8)</a>。
+
+<h2>実行例</h2>
+
+コマンドラインで実行すれば、RSS の URL 一覧が STDOUT に出力されます。
+
+<p><pre class="command">% <strong>./blogrolling2rss.pl</strong>
+http://www2u.biglobe.ne.jp/%7Ekyo-n/blog/blosxom.cgi/index.rss
+http://blog.bulknews.net/cookbook/blosxom/index.rss10
+http://blog.bulknews.net/mt/index.rdf
+http://shibuya.pm.org/blosxom/index.rss10
+http://naoya.dyndns.org/~naoya/mt/index.rdf
+</pre></p>
+
+この結果をファイルに格納するようにして、
+
+<p><pre class="command">% <strong>./blogrolling2rss.pl &gt; blogrolling.txt</strong>
+</pre></p>
+
+このファイル内の RSS を <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2email.html">rss2email</a> に食わせれば、前述したようなメールによる Blog サイト Aggregator の出来上がりです。しかも巡回先リストの管理画面つき (BlogRolling のサイトで行えます)です。 
+
+<h2>See Also</h2>
+<ul>
+<li><a href="http://naoya.dyndns.org/~naoya/rssrolling/">RssRolling</a> は、BlogRolling の巡回リストから RSS を抽出し、取得したエントリをさらにマージして HTML や RSS 等にして配布しているサービスです。</li>
+</ul>
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: sample.xml</span></a>
+<pre class="scriptsListing">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!-- RSS generation done by 'Blogrolling.com'--&gt;
+&lt;rss version=&quot;0.92&quot;&gt;
+&lt;channel&gt;
+&lt;title&gt;blog.bulknews.net&lt;/title&gt;
+&lt;link&gt;blog.bulknews.net&lt;/link&gt;
+&lt;description&gt;Blogrolling.com RSS Feed&lt;/description&gt;
+&lt;lastBuildDate&gt;Thu, 23 Oct 2003 11:52:08 GMT&lt;/lastBuildDate&gt;
+&lt;docs&gt;http://www.blogrolling.com/&lt;/docs&gt;
+&lt;webMaster&gt;rss@blogrolling.com (Blogrolling RSS Generator)&lt;/webMaster&gt;
+&lt;item&gt;
+&lt;title&gt;HAIL 2 U !! - Weblog&lt;/title&gt;
+&lt;link&gt;http://www2u.biglobe.ne.jp/%7Ekyo-n/blog/blosxom.cgi&lt;/link&gt;
+&lt;description&gt;Last updated: 12:08:48 GMT on Thursday, October 23&lt;/description&gt;
+&lt;/item&gt;
+&lt;item&gt;
+&lt;title&gt;Blog Developer's Cookbook&lt;/title&gt;
+&lt;link&gt;http://blog.bulknews.net/cookbook/blosxom&lt;/link&gt;
+&lt;description&gt;http://blog.bulknews.net/cookbook/blosxom&lt;/description&gt;
+&lt;/item&gt;
+&lt;item&gt;
+&lt;title&gt;blog.bulknews.net&lt;/title&gt;
+&lt;link&gt;http://blog.bulknews.net/mt/&lt;/link&gt;
+&lt;description&gt;http://blog.bulknews.net/mt/&lt;/description&gt;
+&lt;/item&gt;
+&lt;item&gt;
+&lt;title&gt;Shibuya Perl Mongers&lt;/title&gt;
+&lt;link&gt;http://shibuya.pm.org/&lt;/link&gt;
+&lt;description&gt;http://shibuya.pm.org/&lt;/description&gt;
+&lt;/item&gt;
+&lt;item&gt;
+&lt;title&gt;NDO::Weblog&lt;/title&gt;
+&lt;link&gt;http://naoya.dyndns.org/&lt;/link&gt;
+&lt;description&gt;http://naoya.dyndns.org/&lt;/description&gt;
+&lt;/item&gt;
+&lt;/channel&gt;
+&lt;/rss&gt;</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: blogrolling2rss.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# blogrolling2rss - extract RSS feeds from BlogRolling URL list
+
+use strict;
+use HTML::RSSAutodiscovery;
+use LWP::Simple;
+use Storable;
+use XML::RSS;
+
+our $CacheFile     = &quot;rss.cache&quot;;
+our $BlogRollingId = &quot;fd16d26c9ad1029c21a48955b8c19731&quot;;
+
+my $cache = eval { Storable::retrieve($CacheFile) } || {};
+
+my $url = &quot;http://rpc.blogrolling.com/rss.php?r=$BlogRollingId&quot;;
+my $xml = LWP::Simple::get($url);
+
+my $rss = XML::RSS-&gt;new();
+   $rss-&gt;parse($xml);
+
+for my $item (@{$rss-&gt;{items}}) {
+    $cache-&gt;{$item-&gt;{link}} ||= discover_rss($item-&gt;{link}) or next;
+    print $cache-&gt;{$item-&gt;{link}}, &quot;\n&quot;;
+}
+
+Storable::nstore($cache =&gt; $CacheFile);
+
+sub discover_rss {
+    my $url = shift;
+    my $discovery = HTML::RSSAutodiscovery-&gt;new();
+    my $rss = $discovery-&gt;parse($url);
+    unless (@$rss) {
+        warn &quot;no RSS found for $url\n&quot;;
+        return;
+    }
+    return $rss-&gt;[0]-&gt;{href};
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> そうしたサービスがすべて廃れていることには目をつむりましょう ;-)<br />
+<a href="#note-2" name="note-2">*2)</a> BlogRolling 独自に Ping を受けつける RPC Interface も公開しています。<br />
+<a href="#note-3" name="note-3">*3)</a> 設定で更新時間順以外のソートも可能です。<br />
+<a href="#note-4" name="note-4">*4)</a> Blog サイトが、自サイトを BlogRolling リストに追加させるためのリンク<br />
+<a href="#note-5" name="note-5">*5)</a> Outline Processor Markup Language: 今回は扱いません<br />
+<a href="#note-6" name="note-6">*6)</a> BlogRolling の用語で巡回リストのこと<br />
+<a href="#note-7" name="note-7">*7)</a> BlogRolling にログインして &quot;Get Code&quot; で取得できます。<br />
+<a href="#note-8" name="note-8">*8)</a> RSS が見つからないときだけは、何度も引きにいってしまいます。これを防ぐ場合には、見つからないときでも 0 や '' などの結果を入れて <code>defined</code> で判別するように変更します。<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html">23:05</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/rss">RSS</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/rss_blogrolling2rss?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (1)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=BlogRolling%20%A4%F2%CD%F8%CD%D1%A4%B7%A4%C6%20RSS%20%BD%E4%B2%F3%C0%E8%A4%F2%B4%C9%CD%FD&amp;body=http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/rss_blogrolling2rss"
+      dc:title="BlogRolling を利用して RSS 巡回先を管理"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/rss/blogrolling2rss.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/opml/blogrolling2opml.html">BlogRolling を利用して RSS 巡回先を管理 (OPML編)</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2htmlmail.html">RSS をメールで送信する (HTML メール編)</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

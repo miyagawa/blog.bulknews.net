@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: September 2007 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2007_08.html" title="August 2007" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2007_10.html" title="October 2007" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2007_09.html#002222"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2138"
+    dc:title="ブログの画像からカメラ携帯の機種を調べてみる"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2007_09.html#002222"
+    dc:subject=""
+    dc:description="某チャンネルで「ブログにのってる写真のEXIFをみれば使ってる携帯機種わかるね」という感じで盛り上がったので、さくっとスクリプトかいてみました。 What cameraphone do they use? (bookmarklet) 仕組みは単純で、ブログに埋め込まれている JPEG ファイルを探して、EXIF データがあればその Model, Make をみてメーカー・機種名を出しています。アメブロなどの芸能人サイトでやると結構面白い結果が。 若槻千夏: DoCoMo SH903i インリンオブジョイトイ: DoCoMo SH903i..."
+    dc:creator="miyagawa"
+    dc:date="2007-09-03T11:52:21+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 03, 2007</h2>
+
+
+<div class="blogbody">
+<a name="002222"></a>
+<h3 class="title">ブログの画像からカメラ携帯の機種を調べてみる</h3>
+
+<p>某チャンネルで「ブログにのってる写真のEXIFをみれば使ってる携帯機種わかるね」という感じで盛り上がったので、さくっとスクリプトかいてみました。</p>
+
+<p><a href="http://blog.bulknews.net/blog-cameraphone.cgi">What cameraphone do they use?</a> <a href='javascript:(function(){w=window.open("http://blog.bulknews.net/blog-cameraphone.cgi?url="+location.href,"wcdtu","width=400,height=340,resizable=1");setTimeout(function() { w.focus() }, 10)})();'>(bookmarklet)</a></p>
+
+<p><br />
+仕組みは単純で、ブログに埋め込まれている JPEG ファイルを探して、EXIF データがあればその Model, Make をみてメーカー・機種名を出しています。アメブロなどの芸能人サイトでやると結構面白い結果が。</p>
+
+<p><a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Fwakatsuki">若槻千夏: DoCoMo SH903i</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fblog.livedoor.jp%2Fyinlingofjoytoy%2F">インリンオブジョイトイ: DoCoMo SH903i</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Ftokunao">徳澤直子: KDDI-SN W42S</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Fmoemode">押切もえ: DoCoMo SH904i</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fyaplog.jp%2Fstrawberry2">しょこたん: DoCoMo SH902i</a></p>
+
+<p>という感じで、やっぱりドコモのSHシリーズが人気ありますね。押切もえはソニーエリクソンのキャンペーンに出ていたとおもいますがこれはきっとマネージャーの携帯かなんかですねそうですね。ほかにも EOS やら IXY なんかのデジカメ・デジタル一眼を使っている人も。</p>
+
+<p><a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Fmc-at">mc-at: Canon EOS 10D</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Fken-naoko">研ナオコ: Canon EOS-1Ds Mark II</a><br />
+<a href="http://blog.bulknews.net/blog-cameraphone.cgi?url=http%3A%2F%2Fameblo.jp%2Foshio-manabu">押尾学: Canon IXY DIGITAL 1000</a></p>
+
+<p>ほかにも意外なものとかあったらブクマなんかで教えてもらえると面白いかもです。</p>
+
+<p>原理上相手サーバに負荷をかけるので、このサービスをAPIとして利用するのは当面ご遠慮ください。</p>
+
+<p><strong>UPDATE:</strong> といいつつなんとなく興味があったので、アメブロの<a href="http://blog.ameba.jp/content/notable/notable_kana.jsp?kanaId=1">五十音順インデックス</a>から総当りで調べてみました。</p>
+
+
+<p>このデータは一般に入手できるファイルから抽出しているので、ライセンスはパブリックドメイン、データの整合性などは無保証ということで。ていうか半分以上知らない人だったりしますがｗ </p>
+
+<p>やっぱりDoCoMo のSH90xi が人気ですね。キャリアでいうとドコモがauの倍くらい。ソフトバンクは EXIF にキャリア名が入らないようなので、単純に比較はできないですが。。</p>
+
+<pre class="code">
+http://ameblo.jp/aika-reo/	DoCoMo D903i	愛可
+http://ameblo.jp/aikawa-moe/	KDDI-TS W41T	愛川萌
+http://ameblo.jp/yuzuponpon/	DoCoMo SH903i	愛川ゆず季
+http://ameblo.jp/10804904/	KDDI-KC W42K	相澤このみ
+http://aizawa-sayo.ameblo.jp/	KDDI-MA W52P	相沢紗世
+http://ameblo.jp/aizawa-hideyoshi/	KDDI-ST W42SA	相澤秀禎（サンミュージック会長）
+http://ameblo.jp/aida-misaki/	KDDI-SA W52SA	相田美咲
+http://ameblo.jp/ire/	KDDI-CA W43CA	IRE
+http://ameblo.jp/naoko-de/	DoCoMo D904i	青木直子
+http://ameblo.jp/aoki-marsa/	KDDI-SN W51S	青木真麻
+http://ameblo.jp/nydiary/	NIKON E7900	青木礼子
+http://ameblo.jp/thelma-aoyama/	KDDI-SN W51S	青山テルマ
+http://ameblo.jp/aoyamareiko/	DoCoMo F703i	青山玲子
+http://ameblo.jp/ai-akagi/	TOSHIBA 910T	あかぎあい
+http://ameblo.jp/yuuki-akane/	KDDI-SN W51S	あかね佑紀
+http://ameblo.jp/agatha-blog/	KDDI-SH W51SH	Agatha
+http://ameblo.jp/agarita-aki/	DoCoMo SH903iTV	揚田.あき
+http://ameblo.jp/yuuki-akimoto	DoCoMo SH903i	秋本祐希
+http://ameblo.jp/affection-party/	DoCoMo SH903i	浅田好未
+http://ameblo.jp/ashida-marie/	KDDI-SN W52S	芦田 万莉恵
+http://ameblo.jp/aja-blog/	DoCoMo SH903i	あじゃ
+http://ameblo.jp/azusa-mayuko/	DoCoMo N903i	梓真悠子
+http://ameblo.jp/junko-de/	SHARP 904SH	阿部純子
+http://ameblo.jp/abeyoshiharu/	DoCoMo SO903iTV	阿部義晴
+http://ameblo.jp/amino-natsumi/	KDDI-TS W44T	網野なつみ
+http://ameblo.jp/ara-blog	SONY DSC-T10	Ara
+http://ameblo.jp/shota-arisaka	DoCoMo SH903i	有坂翔太
+http://ameblo.jp/alice-syou/	KDDI-SN W43S	アリス九號　将
+http://ameblo.jp/alice-nao/	KDDI-SN W51S	アリス九號　Nao
+http://ameblo.jp/alice-hiroto/	KDDI-KC W52K	アリス九號　ヒロト
+http://ameblo.jp/ando-seiko/	DoCoMo SO903i	安藤成子
+http://ameblo.jp/yuumi-blog/	DoCoMo SH903i	安藤悠美
+http://ameblo.jp/sayuri-de/	DoCoMo SH903i	飯島さゆり
+http://ameblo.jp/ikeda-sd/	KDDI-TS W44T	池田光咲
+http://ameblo.jp/naoko-ikoma/	DoCoMo SH904i	生駒尚子
+http://ameblo.jp/amiishii/	DoCoMo F904i	石井あみ
+http://ameblo.jp/happygirl-sato/	KDDI-HI W43H	石井里弥
+http://ameblo.jp/corals/	KDDI-TS A5506T	石井強
+http://ameblo.jp/ishikawa-saori/	DoCoMo SH903i	石川沙織
+http://ameblo.jp/kaori-de/	Canon Canon EOS 5D	石嶋香織
+http://ameblo.jp/isseiishida/	KDDI-SN W44S	いしだ壱成
+http://ameblo.jp/ishiyama-aiko/	DoCoMo SH903i	石山愛子
+http://ameblo.jp/mitsuki-de/	DoCoMo N904i	井田光紀
+http://ameblo.jp/ichikawa-aoi/	DoCoMo F904i	市川葵
+http://ameblo.jp/y-ichijyo/	DoCoMo SH903i	一条優美
+http://ameblo.jp/hajime-ito/	SONY DSC-T100	伊藤ハジメ
+http://ameblo.jp/ito-yuko/	DoCoMo SH903i	伊藤裕子
+http://ameblo.jp/ito-rie/	DoCoMo N903i	伊藤里絵
+http://ameblo.jp/inagaki-mika/	DoCoMo SH903i	稲垣実花
+http://ameblo.jp/rina-de/	DoCoMo SH903i	稲垣梨奈
+http://ameblo.jp/mikitan1003/	DoCoMo SH903i	稲生美紀
+http://ameblo.jp/ino-yumi/	DoCoMo SH903i	井上由美子
+http://ameblo.jp/inoue-nami/	DoCoMo N904i	井上奈美
+http://ameblo.jp/imai-rica/	KDDI-SH W52SH	今井りか
+http://ameblo.jp/imajuku/	KYOCERA CONTAX U4R	今宿麻美
+http://ameblo.jp/youichi-imamura/	CASIO COMPUTER CO.,LTD EX-Z57	今村洋一
+http://ameblo.jp/irifunekasumi/	DoCoMo SH903i	入船加澄実
+http://ameblo.jp/natsuhi0713/	DoCoMo D903i	上野なつひ
+http://ameblo.jp/misa-ueha/	DoCoMo SH904i	上葉みさ
+http://ameblo.jp/n-star-light/	DoCoMo N703imyu	内田仁菜
+http://ameblo.jp/umeda-yoko/	FUJIFILM FinePix F440	梅田陽子
+http://ameblo.jp/a-puri/	Samsung 707SC	江川曜子
+http://ameblo.jp/hiromi-blog/	DoCoMo SH904i	江口ヒロミ
+http://ameblo.jp/ezaki-yukiko/	DoCoMo SH903i	江崎友基子
+http://ameblo.jp/ejiri-shintaro/	TOSHIBA 814T	江尻慎太郎
+http://ameblo.jp/enomoto1/	NIKON CORPORATION NIKON D80	榎本充
+http://ameblo.jp/emiuchi-saki/	DoCoMo SH903i	映見内咲
+http://ameblo.jp/mc-at/	Canon Canon EOS 10D	m.c.A・Ｔ
+http://ameblo.jp/tokyo-amazon/	DoCoMo F903iX	EL AMAZON
+http://ameblo.jp/endo-hitomi/	DoCoMo SH903i	遠藤比登美
+http://ameblo.jp/enrique-s/	SHARP 910SH	エンリケ
+http://ameblo.jp/treasure-aile/	KDDI-HI W43H	Aile
+http://ameblo.jp/ogami-izumi/	DoCoMo SO703i	大神いずみ
+http://ameblo.jp/okubo-mariko/	DoCoMo SH904i	大久保麻梨子
+http://ameblo.jp/sanae-okura/	DoCoMo F903i	大倉さなえ
+http://ameblo.jp/oshima-mizuki/	DoCoMo SH903i	大島みづき
+http://ameblo.jp/oshima-sd/	KDDI-HI W43H	大島江里奈
+http://ameblo.jp/miwaohshiro/	DoCoMo SH903i	大城美和
+http://ameblo.jp/fpwoman-ohtake/	SONY DSC-T10	大竹のり子
+http://ameblo.jp/tetsuyaota/	DoCoMo P701iD	太田哲也
+http://ameblo.jp/miyukiode2007/	DoCoMo SH903i	大出美幸
+http://ameblo.jp/miho-ohwada/	DoCoMo SH903i	大和田美帆
+http://ameblo.jp/hikariokada/	DoCoMo D903i	岡田ひかり
+http://ameblo.jp/hitomi-okada/	DoCoMo SH904i	岡田ひとみ
+http://ameblo.jp/millie-okada/	DoCoMo N903i	岡田美里
+http://ameblo.jp/bellezzafemminile	RICOH GR Digital	岡西敦恵
+http://ameblo.jp/okamoto-kanami/	DoCoMo SH903i	岡本果奈美
+http://ameblo.jp/okamoto-tao/	FUJIFILM FinePix Z1	岡本多緒
+http://ameblo.jp/ogawaserina	DoCoMo SH903i	小川瀬里奈
+http://ameblo.jp/win-dom/	SONY PictureGear	小川充
+http://ameblo.jp/ogawa-yuka/	DoCoMo N903i	小川友佳
+http://ameblo.jp/ogino-nao/	DoCoMo D904i	荻野なお
+http://ameblo.jp/okuda-ayako/	KDDI-SA W33SA	奥田絢子
+http://ameblo.jp/koi-tsumugi/	KDDI-KC W42K	奥村初音
+http://ameblo.jp/okuyama-yoshie/	KDDI-CA W42CA	奥山佳恵
+http://ameblo.jp/ogune/	DoCoMo F904i	小椋ケンイチ
+http://ameblo.jp/ogurajun/	KDDI-SH W52SH	小倉淳
+http://ameblo.jp/ogura-haruka/	DoCoMo SO903i	小倉遥
+http://ameblo.jp/ozaki-nana/	KDDI-TS W47T	尾崎ナナ
+http://ameblo.jp/oshio-manabu/	Canon Canon IXY DIGITAL 1000	押尾学
+http://moemode.ameblo.jp/	DoCoMo SH904i	押切もえ
+http://ameblo.jp/hitomixxxx/	KDDI-HI W43H	小田ひとみ
+http://ameblo.jp/elly-go-round/	DoCoMo SH903i	乙黒えり
+http://ameblo.jp/otohappy/	DoCoMo SH703i	乙葉
+http://ameblo.jp/ono-kensyo/	KDDI-CA W51CA	小野賢章
+http://ameblo.jp/yukari-obata/	Panasonic DMC-FX9	小畑由香里
+http://ameblo.jp/goith/	Canon Canon EOS 20D	All Japan Goith
+http://ameblo.jp/kaito-mari/	DoCoMo P902i	海藤まり
+http://ameblo.jp/kaede-poco/	DoCoMo SH903iTV	kaede
+http://ameblo.jp/kaoreal/	DoCoMo SH903i	香穂里
+http://ameblo.jp/kagurazaka-megumi/	Fujitsu 	神楽坂 恵
+http://ameblo.jp/kasai-nana/	DoCoMo SH903i	華彩なな
+http://ameblo.jp/kashiwagi-misato/	DoCoMo SH903iTV	柏木美里
+http://ameblo.jp/kajitaniemi/	DoCoMo SH903i	鍛冶谷恵美
+http://ameblo.jp/oniyome2/	KDDI-SA W52SA	カズマ
+http://ameblo.jp/yugure/	KDDI-SA W52SA	カズマ
+http://ameblo.jp/megblog-1/	KDDI-TS W46T	勝乘恵美
+http://ameblo.jp/asami-katsura/	KDDI-CA W51CA	桂亜沙美
+http://ameblo.jp/natsukiblog/	DoCoMo D703i	加藤夏希
+http://ameblo.jp/kato-rubi/	DoCoMo F904i	加藤 瑠美
+http://ameblo.jp/kana-de/	DoCoMo SH903i	蟹沢可名
+http://ameblo.jp/erichama/	DoCoMo F903i	金子絵里
+http://ameblo.jp/eri-kaneko/	KDDI-CA W51CA	金子絵里
+http://ameblo.jp/kaneko-takatoshi/	DoCoMo SH904i	金子貴俊
+http://ameblo.jp/kanesaki-kentaro/	DoCoMo SH904i	兼崎健太郎
+http://ameblo.jp/k-carolina/	SONY DSC-T1	兼田カロリナ
+http://ameblo.jp/kaneda-mika/	DoCoMo SH903i	金田美香
+http://ameblo.jp/kanondiary/	SONY CYBERSHOT	カノン
+http://ameblo.jp/kamijiyusuke/	DoCoMo F903i	上地雄輔
+http://ameblo.jp/kamitamika/	KDDI-TS W52T	カミタミカ
+http://ameblo.jp/kawai-hitomi/	DoCoMo N904i	かわい瞳
+http://ameblo.jp/ryu-no-suke/	DoCoMo SH703i	河合龍之介
+http://ameblo.jp/daijiro-kawaoka/	DoCoMo SO902iWP+	川岡大次郎
+http://ameblo.jp/kawakami-takeshi/	KDDI-HI W41H	川上たけし
+http://ameblo.jp/joyante/	DoCoMo SH903i	川崎貴子
+http://ameblo.jp/kawashima-umika/	Samsung 709SC	川島 海荷
+http://ameblo.jp/eiji-kawashima/	Canon Canon IXY DIGITAL 800 IS	川島永嗣
+http://ameblo.jp/chiecokawabe/	OLYMPUS IMAGING CORP. u770SW,S770SW	カワベチエコ
+http://ameblo.jp/hanakawamoto/	DoCoMo D903i	川本華
+http://ameblo.jp/kanjiya/	NIKON E5200	貫地谷しほり
+http://ameblo.jp/sayaka-kanda/	KDDI-SN W42S	神田沙也加
+http://ameblo.jp/garan-ai/	FUJIFILM FinePix Z5fd	加覧愛
+http://ameblo.jp/kisaragi-nel/	DoCoMo N904i	如月音流
+http://ameblo.jp/shokizaki/	FUJIFILM FinePix F30	輝咲翔
+http://ameblo.jp/zino-kishida/	KYOCERA CONTAX U4R	LEON元編集長　岸田一郎
+http://ameblo.jp/akihiro-kitamura/	FUJIFILM FinePix Z5fd	北村昭博
+http://ameblo.jp/ayumi-kito/	Canon Canon IXY DIGITAL 600	鬼頭あゆみ
+http://ameblo.jp/kinoshita-coco/	DoCoMo F703i	木下ココ
+http://ameblo.jp/kinoshita-houka/	CASIO COMPUTER CO.,LTD EX-S3	木下ほうか
+http://ameblo.jp/akemikimura/	KDDI-CA W43CA	木村朱美
+http://ameblo.jp/kirishima-blog/	DoCoMo SH903i	桐島優介
+http://ameblo.jp/renn-kiriyama/	DoCoMo N901iS	桐山漣
+http://ameblo.jp/kujira-ism/	DoCoMo N703imyu	鯨井康介
+http://ameblo.jp/kuzuoka-midori/	KDDI-CA W31CA	葛岡碧
+http://ameblo.jp/kudo-asagi/	KDDI-SN W41S	工藤あさぎ
+http://ameblo.jp/kuniritsu/	OLYMPUS IMAGING CORP. u725SW,S725SW	国井律子
+http://ameblo.jp/kubokawakatsuya/	LEICA digilux zoom	窪川勝哉
+http://ameblo.jp/kubotayuki/	DoCoMo SH903i	久保田友紀
+http://ameblo.jp/kumazawa-eriko/	DoCoMo D903i	熊澤枝里子
+http://ameblo.jp/kurana-rin/	DoCoMo F703i	くらなりん
+http://ameblo.jp/natsuki-kirari/	Fujitsu 	倉本夏希
+http://ameblo.jp/kurimayu/	DoCoMo N900iS	栗原まゆ
+http://ameblo.jp/erikonail-official/	FUJIFILM FinePix Z1	黒崎えり子
+http://ameblo.jp/growproject/	DoCoMo SH903i	growproject
+http://ameblo.jp/katie-happy/	KDDI-CA W43CA	KATIE
+http://ameblo.jp/kra-yasuno/	KDDI-SN W43S	Kra　靖乃
+http://ameblo.jp/ken-naoko/	Canon Canon EOS-1Ds Mark II	研ナオコ
+http://ameblo.jp/ako-koizumi/	SONY DSC-N2	小泉亜子
+http://ameblo.jp/roys999/	DoCoMo N903i	甲田英司
+http://ameblo.jp/kengo-kora/	DoCoMo SH903i	髙良健吾
+http://ameblo.jp/koshinaka/	OLYMPUS OPTICAL CO.,LTD u10D,S300D,u300D	越中詩郎
+http://ameblo.jp/kojikana-blog/	KDDI-SA W43SA	小島可奈子
+http://ameblo.jp/kojima-michi/	KDDI-CA W41CA	小島未知
+http://ameblo.jp/kotoblog/	Canon Canon IXY DIGITAL L2	KOTO
+http://kobayashi-mao.ameblo.jp/	DoCoMo SH903i	小林麻央
+http://ameblo.jp/kobayashi-yoko/	DoCoMo SH903i	小林陽子
+http://ameblo.jp/princesslisa/	SONY DSC-T20	駒田理沙
+http://ameblo.jp/gomyo-yuko/	DoCoMo SH903i	五明祐子
+http://ameblo.jp/sigh-live/	DoCoMo N703imyu	SIGH
+http://ameblo.jp/ami-de/	CASIO COMPUTER CO.,LTD. EX-M1	斎藤亜美　
+http://ameblo.jp/saitokei/	DoCoMo F703i	斎藤恵
+http://ameblo.jp/saito-keita/	DoCoMo SH903i	斉藤慶太
+http://ameblo.jp/saito-shota/	DoCoMo SH903i	斉藤祥太
+http://ameblo.jp/saito-yua/	OLYMPUS IMAGING CORP. FE-130,X-720	齊藤夢愛
+http://ameblo.jp/gogoyuki/	DoCoMo SO903i	斎藤友紀
+http://ameblo.jp/love-saeko-doll/	DoCoMo SH903i	サエコ
+http://ameblo.jp/saori-dicha/	DoCoMo SH903i	砂央里
+http://ameblo.jp/emi-de/	KDDI-TS W46T	坂本恵美
+http://ameblo.jp/suzukasakurai/	DoCoMo SH903i	桜井涼夏
+http://ameblo.jp/kozuesakurai/	NIKON COOLPIX S5	桜井梢
+http://ameblo.jp/sakurai-takashi/	DoCoMo SH903i	櫻井貴史
+http://ameblo.jp/yumiko-and-piko/	DoCoMo SH903i	桜井悠美子
+http://ameblo.jp/sakura-ken/	Canon Canon IXY DIGITAL 1000	桜倉ケン
+http://ameblo.jp/sarumania-sazanami/	KDDI-SA W33SA	漣ケンタロウ
+http://ameblo.jp/satake-uki/	DoCoMo SH903i	佐武 宇綺
+http://ameblo.jp/kaorinclub/	DoCoMo SH903i	佐藤かおり
+http://ameblo.jp/tamao-blog/	KDDI-KC W44K	さとう珠緒
+http://ameblo.jp/sanomiku/	DoCoMo D904i	佐野光来
+http://ameblo.jp/saburo-blog/	DoCoMo SH903i	サブロー
+http://ameblo.jp/sava3/	DoCoMo SH903i	ＳＡＭ☆Girls
+http://ameblo.jp/tfunk/	SHARP 910SH	鮫島巧
+http://ameblo.jp/sayumi-blog/	DoCoMo SH903i	さゆみ
+http://ameblo.jp/saramary/	MSM6250 Omni-vision OV9655-SXGA	紗羅マリー
+http://ameblo.jp/sarina-violin/	Canon Canon IXY DIGITAL L	SARINA
+http://ameblo.jp/intimejours/	CASIO COMPUTER CO.,LTD EX-Z3	沢樹舞
+http://ameblo.jp/shiona-mikage/	DoCoMo SH904i	科女みかげ
+http://ameblo.jp/misako-shioyama/	DoCoMo SH903i	塩山みさこ
+http://ameblo.jp/ippeishigeyama/	Canon Canon IXY DIGITAL 800 IS	茂山逸平
+http://ameblo.jp/shibata-kayoko/	DoCoMo SH903i	柴田かよこ
+http://ameblo.jp/shiba-show/	DoCoMo SH904i	芝田翔生子
+http://ameblo.jp/shibano-mariko/	KDDI-CA W43CA	しばのまり子
+http://ameblo.jp/kotono-shibuya/	KDDI-SH W41SH	渋谷琴乃
+http://ameblo.jp/kyousuke-shima/	Fujitsu 	嶋恭輔
+http://ameblo.jp/maiko-de/	DoCoMo D903i	島本麻衣子
+http://ameblo.jp/tomonobu-shimizu/	KDDI-CA W21CA	清水智信
+http://ameblo.jp/shimokawa-mikuni/	DoCoMo SH903i	下川みくに
+http://ameblo.jp/shimogaki-madoka/	KDDI-TS W52T	下垣 真香
+http://ameblo.jp/shuse/	DoCoMo P902i	SHUSE
+http://ameblo.jp/show-a/	DoCoMo N900iG	照英
+http://ameblo.jp/shirai-eri/	DoCoMo N900iS	白井絵莉
+http://ameblo.jp/shirasawa-risa/	FUJIFILM FinePix F10	白沢璃沙
+http://ameblo.jp/shindo-akane/	KDDI-ST W42SA	進藤茜
+http://ameblo.jp/jadeandstevei/	Panasonic DMC-FX7	Jade&SteveI.
+http://ameblo.jp/jazztronik-blog/	KDDI-CA W53CA	Jazztronik
+http://ameblo.jp/jyukaitoikumichi/	KDDI-TS W47T	樹海
+http://ameblo.jp/gmg-george/	SHARP 910SH	ジョージ・ウィリアムス
+http://ameblo.jp/sueyoshi-rika/	RICOH GR Digital	末吉里花
+http://ameblo.jp/suga-sd/	DoCoMo SH903i	菅聡美
+http://ameblo.jp/sugawara-saki/	RICOH Caplio R6	菅原沙樹
+http://ameblo.jp/sugihara-anri/	KDDI-CA W53CA	杉原杏璃
+http://ameblo.jp/suzuki-akie/	DoCoMo SH903i	鈴木あきえ
+http://ameblo.jp/anne-al/	KDDI-KC W52K	鈴木杏
+http://ameblo.jp/suzuki-sachi/	KDDI-SN W51S	鈴木サチ
+http://ameblo.jp/thmlues/	KDDI-TS W52T	スムルース
+http://ameblo.jp/sekiguchi-honoka/	DoCoMo SH903iTV	関口帆香
+http://ameblo.jp/ayaka-beside	DoCoMo N903i	関根綾佳
+http://ameblo.jp/kaoring0202/	DoCoMo SH903i	瀬戸香織
+http://ameblo.jp/senoo-yurie/	KDDI-TS W47T	妹尾友里江
+http://ameblo.jp/lovesenri/	DoCoMo SH904i	千里愛風
+http://ameblo.jp/yukari-sonohara/	MSM6250 Omni-vision OV9655-SXGA	園原ゆかり
+http://ameblo.jp/tainakasachi/	SHARP 904SH	タイナカサチ
+http://ameblo.jp/natsuki-taira/	DoCoMo F904i	平菜都季
+http://ameblo.jp/takagaki-reiko/	KDDI-CA W53CA	高垣麗子
+http://ameblo.jp/takagi-azusa/	DoCoMo F904i	高木梓
+http://ameblo.jp/takagi-chikako/	DoCoMo SO903i	高樹千佳子
+http://ameblo.jp/takahashi-ayumi/	KDDI-SH W52SH	高橋亜弓
+http://ameblo.jp/takahashi-hiroki/	LEICA D-LUX 3	高橋ヒロキ
+http://ameblo.jp/taka-yu/	KDDI-SN W44S	高橋優
+http://ameblo.jp/takamoto-aya/	Minolta Co., Ltd. DiMAGE A1	高本彩
+http://ameblo.jp/takamotoaya-photo/	NIKON CORPORATION NIKON D50	高本彩
+http://ameblo.jp/takiguchi-sd/	DoCoMo SH904i	滝口幸広
+http://ameblo.jp/takeuchi-junko/	DoCoMo SH903i	竹内順子
+http://ameblo.jp/nozomi-takeuchi/	SHARP 904SH	竹内のぞみ
+http://ameblo.jp/takeda-kouhei/	KDDI-CA W41CA	武田航平
+http://ameblo.jp/maris-style/	DoCoMo SH904i	武田真理子
+http://ameblo.jp/sug-takeru/	Vodafone V902T	武瑠
+http://ameblo.jp/tada-mizuho/	KDDI-HI W43H	多田瑞穂
+http://ameblo.jp/tachibana-kana/	DoCoMo SH903i	橘佳奈
+http://ameblo.jp/tachibana-keita/	DoCoMo SO903i	橘慶太
+http://ameblo.jp/cinemanohanazono/	Canon Canon IXY DIGITAL 70	立田敦子
+http://ameblo.jp/tatemaki/	OLYMPUS IMAGING CORP. FE180/X745	TATE＆MARKIE
+http://ameblo.jp/tanaka-yumi/	DoCoMo SH903i	田中ゆみ
+http://ameblo.jp/ryoooko/	DoCoMo SH903i	田中涼子
+http://ameblo.jp/tani-asami/	DoCoMo SH903i	谷麻紗美
+http://ameblo.jp/nagi-tamura/	KDDI-SH W51SH	田村渚
+http://ameblo.jp/tamoto-soran/	KDDI-SA W31SA	タモト清嵐
+http://ameblo.jp/kimiko-date/	SHARP 814SH	伊達公子
+http://ameblo.jp/dande-blog/	KDDI-KC W41K	ダンデライオン
+http://ameblo.jp/chiba-miku/	DoCoMo N703iD	千葉みく
+http://ameblo.jp/chu-aichi	DoCoMo SH903i	chu!☆Lips あいち
+http://ameblo.jp/chu-tokko/	DoCoMo SH904i	chu!☆Lips トッコ
+http://ameblo.jp/chu-nattin/	DoCoMo SH904i	chu!☆Lips なっちん
+http://ameblo.jp/chu-pitch/	DoCoMo SH903i	chu!☆Lips ピッチ
+http://ameblo.jp/chu-rio/	KDDI-TS W44T	chu!☆Lips りお
+http://ameblo.jp/tsukijikanade/	DoCoMo N703iD	月路奏
+http://ameblo.jp/hongwanji/	DoCoMo F904i	築地本願寺　輪番
+http://ameblo.jp/tsukimi-shiori/	KDDI-TS W54T	月見栞
+http://ameblo.jp/tsushima-ayuko/	DoCoMo SH903i	津島亜由子
+http://ameblo.jp/ayu1130ayu/	KDDI-TS W43T	辻あゆみ
+http://ameblo.jp/h-tuji/	DoCoMo SH904i	辻口博啓
+http://ameblo.jp/trenders/	KDDI-KC W52K	経沢香保子
+http://ameblo.jp/kibatsu/	DoCoMo SH903i	椿隆之
+http://ameblo.jp/tsubasa-saito/	KDDI-TS W43T	ツバサ
+http://ameblo.jp/ts883/	KDDI-KC A5526K	つよし（太陽族）
+http://ameblo.jp/teshigawara-ikue/	DoCoMo SH903i	勅使川原郁恵
+http://ameblo.jp/http-teji-jp-blog17/	DoCoMo SO903i	手嶌智
+http://ameblo.jp/deaimasayuki/	KDDI-KC W44K	出合正幸
+http://ameblo.jp/dj-tatsuta/	KDDI-TS W45T	DJ TATSUTA
+http://ameblo.jp/dee-chika	SHARP 812SH	DEE CHIKA
+http://ameblo.jp/minaerose/	DoCoMo SH903i	出村美苗
+http://ameblo.jp/toutou-toutou/	DoCoMo N903i	toutou
+http://ameblo.jp/reiko-tokita/	DoCoMo SH903iTV	土岐田麗子
+http://ameblo.jp/tokunao/	KDDI-SN W42S	徳澤直子
+http://ameblo.jp/tokuda-izumi/	KDDI-TS W47T	徳田いずみ
+http://ameblo.jp/toda-rei/	CASIO COMPUTER CO.,LTD. EX-Z700	戸田れい
+http://ameblo.jp/tomihira/	DoCoMo N703iD	富平辰文
+http://ameblo.jp/katamari2007tamasi/	DoCoMo N903i	知華
+http://ameblo.jp/iroha-nihoheto/	DoCoMo SH903iTV	鳳山雅姫
+http://ameblo.jp/dronz-ishimoto/	KDDI-TS W47T	ドロンズ石本
+http://ameblo.jp/daughtercopa/	KDDI-SN W43S	ドーター・コパ
+http://ameblo.jp/satsuki-bhttp://ameblo.jp/hi-dhi-d/	DoCoMo SO903i	HI-D
+http://ameblo.jp/hagiwara-sd/	KDDI-ST A5519SA	萩原汐希
+http://ameblo.jp/hashimotoshiho/	Sony Corporation TLib	橋本志穂
+http://ameblo.jp/kizuna-chatty/	SHARP 811SH	橋本英郎
+http://ameblo.jp/hasuda-sd/	KDDI-TS W42T	荷田麻彩
+http://ameblo.jp/ai-beside/	Canon Canon EOS 5D	長谷川愛
+http://ameblo.jp/hasegawayouko35/	Canon Canon IXY DIGITAL 10	長谷川洋子
+http://ameblo.jp/hachiya-yuki/	DoCoMo SH903i	蜂矢有紀
+http://ameblo.jp/hatta-ayako/	SHARP 705SH	八田亜矢子
+http://ameblo.jp/hanai-miri/	KDDI-SN W43S	花井美理
+http://ameblo.jp/taiyouzoku/	KDDI-CA A5513CA	花男(太陽族)
+http://ameblo.jp/hanakiiyo/	DoCoMo D904i	花木衣世
+http://ameblo.jp/hama-jun/	SONY DSC-T9	浜口順子
+http://ameblo.jp/problemsd/	DoCoMo N703iD	濱田岳
+http://ameblo.jp/hayashi-yuka/	KDDI-SA W31SA	林由香
+http://ameblo.jp/hayato88-10/	KDDI-TS W47T	HAYATΦ
+http://ameblo.jp/harisujapan/	SONY CYBERSHOT	ハリス
+http://ameblo.jp/haruno-idea/	KDDI-SN W52S	陽乃
+http://ameblo.jp/back-on/	KDDI-TS W54T	BACK-ON
+http://ameblo.jp/nippon-sayuri/	DoCoMo N904i	檜垣さゆり
+http://ameblo.jp/higashihara-aki/	DoCoMo SH903i	東原亜希
+http://ameblo.jp/mikaringojuice/	Canon Canon IXY DIGITAL 10	肘井美佳
+http://ameblo.jp/hinouchiemi/	KDDI-CA W53CA	日之内エミ
+http://ameblo.jp/hiraiyoshimi/	DoCoMo N703iD	平井喜美
+http://ameblo.jp/pwjafghanistan/	Canon Canon EOS DIGITAL REBEL	平井礼子
+http://ameblo.jp/kyoko-hirakata/	KDDI-HI W43H	平方恭子
+http://ameblo.jp/nana-navi/	DoCoMo SH903i	平塚奈菜
+http://ameblo.jp/yuki-beside/	DoCoMo SH904i	平野由希
+http://ameblo.jp/remi-hirabayashi/	SONY PictureGear Studio	平林玲美
+http://ameblo.jp/pistolvalve/	KDDI-KC W44K	ピストルバルブ
+http://ameblo.jp/shiina-megu/	DoCoMo F904i	P's
+http://ameblo.jp/fumido/	KDDI-CA A5513CA	風味堂
+http://ameblo.jp/yuuki-fukasawa/	DoCoMo N703iD	深澤優希
+http://ameblo.jp/rinaf/	DoCoMo F904i	深澤里奈
+http://ameblo.jp/yukari-hukui/	DoCoMo SH704i	福井裕佳梨
+http://ameblo.jp/tinkpink-ayano	DoCoMo SH903i	福王寺彩野
+http://ameblo.jp/fukuda-akiko/	KDDI-SN A1404S2	福田明子
+http://ameblo.jp/china-fukunaga/	DoCoMo SH904i	福永ちな
+http://ameblo.jp/mie-de/	KDDI-TS W44T	福山美恵
+http://ameblo.jp/yakyukozo/	DoCoMo SH903i	藤井秀悟
+http://ameblo.jp/kiyomifujiwara/	SONY DSC-R1	藤原清美
+http://ameblo.jp/fujiwara-mayuka/	Samsung 706SC	藤原まゆか
+http://ameblo.jp/futenou/	DoCoMo N904i	普天王
+http://ameblo.jp/miho-funatsu/	DoCoMo SH903i	船津未帆
+http://ameblo.jp/furuseeri/	SHARP 811SH	古瀬絵理
+http://ameblo.jp/mimiandroger/	SONY DSC-T7	ブレンダ
+http://ameblo.jp/bremen-ohshima/	Canon Canon EOS 5D	ブレーメン大島
+http://ameblo.jp/princess-tenko/	Nokia 6630	プリンセス天功
+http://ameblo.jp/hoshino-kana/	DoCoMo SH903i	星野加奈
+http://ameblo.jp/hoshino-natsuko/	DoCoMo SH903i	星野奈津子
+http://ameblo.jp/yossy-in-nangoku/	DoCoMo SH903i	細田よしひこ
+http://ameblo.jp/horiuchi-yoko/	KDDI-HI W41H	堀内葉子
+http://ameblo.jp/yoshimi-honda/	DoCoMo SH903i	本田よしみ
+http://ameblo.jp/micronstuff/	DoCoMo N703imyu	MICRON'STUFF
+http://ameblo.jp/maisaka-yukiko/	DoCoMo D703i	舞坂ゆき子
+http://ameblo.jp/maekawa-mina	DoCoMo F703i	前川美奈
+http://ameblo.jp/makai-k/	SONY DSC-T9	MAKAI
+http://ameblo.jp/makise-riho/	DoCoMo D903i	牧瀬里穂
+http://ameblo.jp/maggy-shinji/	DoCoMo SH903i	マギー審司
+http://ameblo.jp/matsuichinatsu/	MSM6250 Omni-vision OV9655-SXGA	松井千夏
+http://ameblo.jp/matsui-ryoko/	KDDI-SN W51S	松井涼子
+http://ameblo.jp/sachiko-de/	DoCoMo N904i	松浦紗知子
+http://ameblo.jp/maxmatsuura/	Canon Canon EOS 5D	avex 松浦勝人
+http://ameblo.jp/yokomatsugane/	DoCoMo N703imyu	松金洋子
+http://ameblo.jp/gofreego/	DoCoMo SH903i	松下幸司
+http://ameblo.jp/matsushimasu/	KDDI-TS W52T	松嶋初音
+http://ameblo.jp/kenji-matsuda/	DoCoMo N703imyu	松田賢二
+http://ameblo.jp/sonoko-matsuda/	TOSHIBA 911T	松田園子
+http://ameblo.jp/m-erika-de/	DoCoMo D903i	松野恵梨香
+http://ameblo.jp/matsubayashi-nanami/	DoCoMo SH904i	松林菜々見
+http://ameblo.jp/matsubara-shiori/	KDDI-SA W51SA	松原汐織
+http://ameblo.jp/matuhoshi	DoCoMo SH903i	松星あき
+http://ameblo.jp/sayusayu-mode/	DoCoMo D904i	松本彩友美
+http://ameblo.jp/matsumoto-marika/	DoCoMo SH903i	松本まりか
+http://ameblo.jp/r-e-i-n-a/	DoCoMo SH704i	松本玲奈
+http://ameblo.jp/matton26/	KDDI-KC W42K	的場直樹
+http://ameblo.jp/knowles-maya/	FUJI PHOTO FILM CO., LTD. SP-2000	麻耶
+http://ameblo.jp/mari-de/	DoCoMo N903i	MARI
+http://ameblo.jp/mali-diary/	DoCoMo F903i	ＭＡＬＩ（池田麻理子）
+http://ameblo.jp/ma-kiss/	KDDI-TS W46T	Ma-Kiss
+http://ameblo.jp/daisuke18/	KDDI-TS W54T	三浦大輔
+http://ameblo.jp/miura-aoi/	DoCoMo SH903i	三浦葵
+http://ameblo.jp/miura-emi/	DoCoMo SH904i	三浦絵美
+http://ameblo.jp/miura-ryosuke/	DoCoMo SH903i	三浦涼介
+http://ameblo.jp/mio-lespros/	KDDI-SN W44S	ミオ
+http://ameblo.jp/miwon/	KDDI-SN W43S	美元
+http://ameblo.jp/yuka-mizushima/	DoCoMo N904i	水嶋友香
+http://ameblo.jp/mizuta-fumiko/	KDDI-KC W44K	水田芙美子
+http://ameblo.jp/yukari-mizuno/	KDDI-HI W42H	水野由加里
+http://ameblo.jp/asamixx/	DoCoMo SH904i	水牧あさ実
+http://ameblo.jp/mizrock/	DoCoMo N703imyu	Mizrock
+http://ameblo.jp/blog-misono/	DoCoMo SH903i	misono
+http://ameblo.jp/mitsushima-hikari/	DoCoMo SH704i	満島ひかり
+http://ameblo.jp/yoko355/	DoCoMo N703imyu	三津谷葉子
+http://ameblo.jp/sug-mitsuru/	DoCoMo SH903i	mitsuru
+http://ameblo.jp/kentaro1up/	SONY DSC-T10	皆川賢太郎
+http://ameblo.jp/minami-keisuke/	DoCoMo SH904i	南圭介
+http://ameblo.jp/mizusa-de/	DoCoMo D904i	南瑞彩
+http://ameblo.jp/minami-yoshiko/	KONICA MINOLTA ALPHA SWEET DIGITAL	美波喜子
+http://ameblo.jp/iona-beside/	NIKON CORPORATION NIKON D70	三原伊織奈
+http://ameblo.jp/mimika-blog/	DoCoMo N903i	mimika
+http://ameblo.jp/miyake-ai/	Canon Canon IXY DIGITAL 30	宮家あい
+http://ameblo.jp/shoko-miyake/	DoCoMo D903i	三宅梢子
+http://ameblo.jp/galleria-miyazaki/	Panasonic DMC-FX30	宮崎陽子
+http://ameblo.jp/miyashita-sd/	KDDI-TS W47T	宮下舞花
+http://ameblo.jp/miyajimao/	KDDI-SN W52S	宮地真緒
+http://ameblo.jp/minbu/	DoCoMo SH903i	民部良子
+http://ameblo.jp/osamu-labo/	DoCoMo SH903i	向井理
+http://ameblo.jp/sa-ya38-blog603/	DoCoMo SH903i	村岡沙耶香
+http://ameblo.jp/saorizm/	DoCoMo SH904i	村上沙織
+http://ameblo.jp/misako-littleberry/	DoCoMo SH903i	村上実沙子
+http://ameblo.jp/muraguchi-fumiko/	DoCoMo N703imyu	村口史子
+http://ameblo.jp/ayako-murata/	DoCoMo SH904i	村田綾子
+http://ameblo.jp/mochizuki-rie/	DoCoMo SH903i	望月理恵
+http://ameblo.jp/blog-mori/	KDDI-KC W52K	森
+http://ameblo.jp/mori-erika/	KDDI-CA W41CA	森絵里香
+http://ameblo.jp/morisaki-mami/	FUJIFILM FinePix Z5fd	森崎まみ
+http://ameblo.jp/tsurizaomorita/	CASIO COMPUTER CO.,LTD. EX-Z500	森田釣竿
+http://ameblo.jp/kuma8-j2/	KDDI-CA W42CA	森野熊八
+http://ameblo.jp/mori-maria/	KDDI-SN W44S	森マリア
+http://ameblo.jp/makiko-moro/	DoCoMo SH903i	茂呂真紀子
+http://ameblo.jp/yaginuma-junko/	DoCoMo SH903iTV	柳沼淳子
+http://ameblo.jp/yashiro-rinne/	KDDI-CA W51CA	社りんね
+http://ameblo.jp/sayuri-yajima/	DoCoMo SH904i	やじまさゆり
+http://ameblo.jp/misanna/	DoCoMo N904i	安田美沙子
+http://ameblo.jp/junko-yano/	FUJIFILM FinePix Z1	矢野絢子
+http://ameblo.jp/yano-azuma/	DoCoMo SH903i	矢野東
+http://ameblo.jp/yamaoka-midori/	KDDI-CA W41CA	山岡みどり
+http://ameblo.jp/mai-yamagishi/	KDDI-CA W52CA	山岸舞彩
+http://ameblo.jp/hikariyamaguchi/	DoCoMo SH903i	山口ひかり
+http://ameblo.jp/moeriyamashita/	DoCoMo SH903i	山下萌梨
+http://ameblo.jp/yamashita-kumiko/	KDDI-KC W44K	山下久美子
+http://ameblo.jp/yamada-maiko/	KDDI-KC W44K	山田麻衣子
+http://ameblo.jp/yamada-mio/	DoCoMo SH903i	山田みお
+http://ameblo.jp/yuri-yamano/	DoCoMo SH903i	山野ゆり
+http://ameblo.jp/yamamotoeiji/	DoCoMo SH903i	アンバランス山本栄治
+http://ameblo.jp/diningandstyle/	SONY DSC-P100	山本侑貴子
+http://ameblo.jp/sayayuki/	KDDI-CA W52CA	悠城早矢
+http://ameblo.jp/yukiyu/	KDDI-CA A5512CA	ゆうきゆう
+http://ameblo.jp/yukawa-sd/	DoCoMo SH904i	湯川舞
+http://ameblo.jp/yukino-tomoyo/	DoCoMo SH903i	雪野智世
+http://ameblo.jp/yuzuki-miho/	KDDI-TS W53T	柚月美穂
+http://ameblo.jp/yunotomo/	KDDI-KC W44K	湯之上知子
+http://ameblo.jp/yuri-hana/	KDDI-SA W43SA	有里
+http://ameblo.jp/makoto-de/	KDDI-SA W32SA	横須賀真琴
+http://ameblo.jp/sakura-yokomine/	MSM6250 Omni-vision OV9655-SXGA	横峯さくら
+http://ameblo.jp/mylife65/	Canon Canon IXY DIGITAL 55	吉岡舞留
+http://ameblo.jp/saonyan/	Sony PictureGear	吉川さおり
+http://ameblo.jp/eijinho/	Canon Canon EOS Kiss Digital N	吉崎エイジーニョ
+http://ameblo.jp/yoshida-mai/	KDDI-SH W51SH	吉田 茉以
+http://ameblo.jp/yoshino-kimika/	Canon Canon EOS 20D	吉野公佳
+http://ameblo.jp/youn-a/	Samsung 709SC	ヨンア
+http://ameblo.jp/ragfair-hikichi/	KDDI-SH W52SH	RAGFAIR（引地）
+http://ameblo.jp/ramja-official/	KDDI-HI W43H	RAMJA
+http://ameblo.jp/leahdizon/	DoCoMo N903i	リア・ディゾン
+http://ameblo.jp/rie-idea/	KDDI-SN W43S	理絵
+http://ameblo.jp/littlelenz/	KDDI-SA W51SA	リトル☆レンズ
+http://ameblo.jp/remarkspirits/	Nokia N73	Remark Spirits
+http://ameblo.jp/luna67/	KDDI-MA W52P	luna
+http://ameblo.jp/rurukakutani/	DoCoMo SH903i	ルルゴールド
+http://ameblo.jp/lou-oshiba/	SONY DSC-W50	ルー大柴
+http://ameblo.jp/lp-reina/	DoCoMo SO903i	れいな
+http://ameblo.jp/rena-selection/	DoCoMo SH903i	RENA
+http://ameblo.jp/levilimit/	DoCoMo SO903i	LEVIN
+http://ameblo.jp/wyolica-blog/	KDDI-SN W31S	wyolica
+http://ameblo.jp/wakatsuki/	DoCoMo SH903i	若槻千夏
+http://ameblo.jp/wakabayashifumie/	KDDI-HI W43H	若林史江
+http://ameblo.jp/emiskate/	CASIO COMPUTER CO.,LTD. EX-S600	渡部絵美
+http://ameblo.jp/hisae-blog/	DoCoMo SH903iTV	渡辺久江
+http://ameblo.jp/suivre/	Panasonic DMC-FX30	渡辺佳恵
+http://ameblo.jp/warabino-tomoya/	DoCoMo SH904i	蕨野友也
+</pre>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002222.html">11:52 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002222.html#comments">Comments (27)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002222.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

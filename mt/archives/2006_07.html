@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: July 2006 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2006_06.html" title="June 2006" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2006_08.html" title="August 2006" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_07.html#002058"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2005"
+    dc:title="svk でオフラインコミット"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_07.html#002058"
+    dc:subject="perl"
+    dc:description=" 30日に OSCON から帰国しました。 Plagger のプレゼンもまずまずうまくいったし、Dojo project の Alex, Open ID の人、それにもちろん YAPC でもおなじみの Perl コミュニティのみんなと再会できたので楽しかったです。Six Apart がシルバースポンサーだったのもあって Ben, Anil,..."
+    dc:creator="miyagawa"
+    dc:date="2006-07-30T23:23:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 30, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002058"></a>
+<h3 class="title">svk でオフラインコミット</h3>
+
+<div class="section">
+	<p>30日に OSCON から帰国しました。</p>
+	
+	<p><a href="http://junior.vox.com/library/post/talk-4-plagger.html">Plagger のプレゼン</a>もまずまずうまくいったし、Dojo project の Alex, Open ID の人、それにもちろん YAPC でもおなじみの Perl コミュニティのみんなと再会できたので楽しかったです。Six Apart がシルバースポンサーだったのもあって Ben, Anil, Artur をはじめとして大きなプレゼンスをアピールできたのもいい感じでした。</p>
+	
+	<p>行きと帰りの飛行機では svk を使ってオフラインハック。オフラインになったところで svk cp && svk switch</p>
+	
+	<pre class="hatena-super-pre">
+svk cp //mirror/plagger/trunk //local/plagger-trunk
+svk switch //local/plagger-trunk/plagger
+</pre>
+	
+	<p>これで //local にうつったのでガンガンコミットできる。オンラインになったところで、svk push</p>
+	
+	<pre class="hatena-super-pre">
+svk push --verbatim
+</pre>
+	
+	<p>この例ではオンラインで1個ずつcommit したのとほとんど同じになる。まとめてコミットしたければ -l を利用。svk++!</p>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002058.html">11:23 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002058.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002058.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_07.html#002057"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2004"
+    dc:title="Rabin Karp アルゴリズムでコード重複の検出"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_07.html#002057"
+    dc:subject="perl"
+    dc:description="YAPC::NA で会った Fotango の Norman Nunley がつくってる Algorithm::RabinKarp モジュールが面白げです。 Rabin Karp 文字列探索アルゴリズム (wikipedia) を使って文字列のハッシュ（ダイジェスト）をチェックし、同一の値を示す部分を重複しているとみなしてレポートしてくれます。つまり、プロジェクト内のコードのコピーペーストを検出するツールとして使えるというわけ。 ためしに Plagger で試してみた結果は rabin.txt のようになりました。プラグインの register_hook..."
+    dc:creator="miyagawa"
+    dc:date="2006-07-10T16:28:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 10, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002057"></a>
+<h3 class="title">Rabin Karp アルゴリズムでコード重複の検出</h3>
+
+<p>YAPC::NA で会った <a href="http://www.fotango.com/">Fotango</a> の <a href="http://search.cpan.org/~nnunley/">Norman Nunley</a> がつくってる <a href="http://search.cpan.org/~nnunley/Algorithm-RabinKarp/">Algorithm::RabinKarp</a> モジュールが面白げです。</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Rabin-Karp_string_search_algorithm">Rabin Karp 文字列探索アルゴリズム (wikipedia)</a> を使って文字列のハッシュ（ダイジェスト）をチェックし、同一の値を示す部分を重複しているとみなしてレポートしてくれます。つまり、プロジェクト内のコードのコピーペーストを検出するツールとして使えるというわけ。</p>
+
+<p>ためしに <a href="http://plagger.org/">Plagger</a> で試してみた結果は <a href="http://bulknews.net/tmp/rabin.txt">rabin.txt</a> のようになりました。プラグインの register_hook や CustomFeed での Feed オブジェクトの生成など、イディオム的に使う部分が大半になってしまっていますが、いくつか実際コピペで再利用しているコードが検出できています。</p>
+
+<p>cpan Algorithm::RabinKarp でインストールすると、rabin.pl というコマンドラインツールがインストールされるので、 rabin.pl \*.pm dir のように実行します。Enjoy!</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002057.html">04:28 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002057.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002057.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_07.html#002056"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2003"
+    dc:title="YAPC::NA 2006 Chicago に行ってきました"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_07.html#002056"
+    dc:subject="perl"
+    dc:description=" 6/26-28 とシカゴの IIT （イリノイ工科大学）で行われた YAPC::NA 2006 に参加してきました。 カンファレンスは IIT のキャンパスで行われて、シカゴ在住以外の参加者のほとんどが IIT 学生用宿舎にステイ。というわけで朝から晩まで Perl 漬けな日々が送れます。これは去年のトロントでも、会場がホテルになっていて同じような感じでしたけど。 NY と カリフォルニア以外の州に行くのは初めてだったんですが、やっぱりなんか雰囲気が違いますね。chicagocrime.org: Chicago crime..."
+    dc:creator="miyagawa"
+    dc:date="2006-07-07T11:35:33+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">July 07, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002056"></a>
+<h3 class="title">YAPC::NA 2006 Chicago に行ってきました</h3>
+
+<div class="section">
+	<p>6/26-28 とシカゴの IIT （イリノイ工科大学）で行われた YAPC::NA 2006 に参加してきました。</p>
+	
+	<p>カンファレンスは IIT のキャンパスで行われて、シカゴ在住以外の参加者のほとんどが IIT 学生用宿舎にステイ。というわけで朝から晩まで Perl 漬けな日々が送れます。これは去年のトロントでも、会場がホテルになっていて同じような感じでしたけど。</p>
+	
+	<p>NY と カリフォルニア以外の州に行くのは初めてだったんですが、やっぱりなんか雰囲気が違いますね。<a href="http://www.chicagocrime.org/">chicagocrime.org: Chicago crime database</a> なんてサイトもあるくらいで、場所によっては1人で出歩くのはちょっと危険な雰囲気です。nothingmuch が "I survived YAPC::Chicago" Tシャツをつくろうとか言ってたけど、かなりホシイ。</p>
+	
+	<p>カンファレンスでは、</p>
+	
+	<ul>
+		<li> <a href="http://www.yapcchicago.org/the-schedule/monday/m-abstracts#lm1640">Hacking iTunes from Perl<a/></li>
+		<li> <a href="http://www.yapcchicago.org/the-schedule/tuesday/t-abstracts#bt1615">Plagger: DIY RSS/Atom Aggregation</a></li>
+		<li> XML::Liberal (Lightning Talk) </li>
+	</ul>
+	
+	<p>な感じにプレゼンしてきました。資料は <a href="http://www.yapcchicago.org/wiki/index.cgi?YAPCSlides">YAPC Chicago の Wiki</a> からたどれます。音声・ビデオは準備中とのことなのでしばらく待ちましょう。</p>
+	
+	<p>プレゼンに準備した時間は、Hacking iTunes (3時間), Plagger (2時間), XML::Liberal (30分) という感じですが、やっぱり LT で一番でかい会場なので XML::Liberal が一番反響がよかった。Plagger は1日のセッションの最後であまり参加率がよくなかったですが、参加してくれた人からはよいフィードバックをもらってます。2週間後の OSCON 2006 でも同じ話をしますが、いいリハーサルになったかな。</p>
+	
+	<p><a href="http://www.transformedplanet.com/blog/tech/yapcna2006/day2.html">TransformedPlanet</a></p>
+	<blockquote>
+		<p>Plagger is very cool piece of tech. I actually have written a couple of utilities to aggregate RSS feeds to create websites (like Transformed Planet), so I was surprised that there was a project like Plagger on the 'Net. </p>
+	</blockquote>
+	
+	<p><a href="http://radar.oreilly.com/archives/2006/06/a_week_in_chicago_with_rails_p.html">O'Reilly Radar &gt; A Week in Chicago with Rails, Perl, and Django</a></p>
+	<blockquote>
+		<p> The Goo is amusingly weird, and Miyagawa's plagger is genius.</p>
+	</blockquote>
+	
+	<p><a href="http://use.perl.org/~perrin/journal/30102">Journal of perrin (4270)</a></p>
+	<blockquote>
+		<p> One was on Plagger, a tool for doing things with RSS. It had</p>
+		<p>all kinds of plugins for turning various things into feeds, filtering them, and generating different kinds of output. There's an example at <a href="http://planet.yapcchicago.org/."><a href="http://planet.yapcchicago.org/." title="http://planet.yapcchicago.org/.">http://planet.yapcchicago.org/.</a></a></p>
+	</blockquote>
+	
+	<p><a href="http://use.perl.org/~david.romano/journal/30161">Journal of david.romano (6556)</a></p>
+	<blockquote>
+		<p>I had only heard mention of Plagger here and there, but didn't really have an understanding of what it actually did. Basically, it allows data munging from different sources in different ways to many outputs. Like a RSS/Atom aggregator on steriods. For instance, it allows you to have an RSS feed be munged in a particular way and sent to an e-mail address all by downloading the right plugins and setting a few configuration options. But that's not even the half of it. There are many different configuration options to choose from. Definitely piqued my interest.</p>
+	</blockquote>
+	
+	<p>Larry, Damian, Audrey, Jesse, Ingy, clkao, Dave と YAPC::Asia 組とももちろん再会。それ以外にも Michael Schwern, Mark Jason Dominus, pudge (Chris Nandor), chromatic, briand d foy, Perrin Harkins, nothingmuch (Yuval), Marcus Ramberg とか久々な人も含めてあえてやっぱり Perl Community is People なのがうれしい。</p>
+	
+	<p>Lightning Talks では Audrey の <a href="http://www.youtube.com/watch?v=RZw9k4H6IJo">ppencode</a> プレゼンが大ウケ。YAPC::Asia の takesako さんのプレゼンが元ですが、もうこのプレゼンをするのは4度目らしい。芸人ネタになってます。</p>
+	
+	<p>カンファレンス終了後は IIT キャンパスで Hackathon。 Plagger の Planet リファクタリングとかにちょっと手をつけましたが、思ったよりはすすまなかったかも。。もう少し時間をまとめてとる必要があるかな。</p>
+	
+	<p>その後 Boston, NY とまわってプチ観光。YAPC も含めた写真は、<a href="http://www.flickr.com/photos/bulknews/sets/">Flickr</a> にアップロードしてあります。</p>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002056.html">11:35 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002056.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002056.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

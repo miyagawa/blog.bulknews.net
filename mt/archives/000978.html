@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>jscache 0.02: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000978.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000977.html" title="RT Atom API" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000979.html" title="Winny 作者逮捕" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000978.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/978"
+    dc:title="jscache 0.02"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000978.html"
+    dc:subject="blog"
+    dc:description="Outside of mind で、設置しながら気づきましたが。このまま設置しておくと他人からも使用される可能性があります。というか使えます。=他人の鯖のキャッシュがたまる。 世の中あくどい人が居ますので（ぉ、他人の設置できましたーってのを見に行ってソースからURIを見れば『このURLね。フフーン。（￣ー￣）ニヤリッ』と思って使う人が出てこないとも限りません。 ということなのでリファラチェック用変数を追加して jscache 0.02 をリリースしました。 47 行目の @allow_url に、自分のサーバのURL（部分マッチします）をいれればOKです。複数のURL で利用する場合には、配列にして複数入れれば大丈夫のはず。..."
+    dc:creator="miyagawa"
+    dc:date="2004-05-09T14:36:02+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">May 09, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">jscache 0.02</h1>
+
+<p><a title="Outside of mind" href="http://run.main.jp/index.cgi/blog/bulkfeedhack.html">Outside of mind</a><br />
+<blockquote>で、設置しながら気づきましたが。このまま設置しておくと他人からも使用される可能性があります。というか使えます。=他人の鯖のキャッシュがたまる。 <br />
+世の中あくどい人が居ますので（ぉ、他人の設置できましたーってのを見に行ってソースからURIを見れば『このURLね。フフーン。（￣ー￣）ニヤリッ』と思って使う人が出てこないとも限りません。 </blockquote></p>
+
+<p>ということなのでリファラチェック用変数を追加して <a href="http://bulknews.net/lib/archives/jscache-0.02">jscache 0.02</a> をリリースしました。</p>
+
+<p>47 行目の <code>@allow_url</code> に、自分のサーバのURL（部分マッチします）をいれればOKです。複数のURL で利用する場合には、配列にして複数入れれば大丈夫のはず。</p>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at May  9, 2004 02:36 PM
+| <a href="http://blog.bulknews.net/mt/archives/000978.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000978.html#comments">Comments (3)</a>
+
+| <a href="#trackbacks">TrackBack(13)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000977.html\">&laquo; RT Atom API</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000979.html\">Winny 作者逮捕 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>jscache便利に使っています。みやがわさん、いつもありがとうございます。自分自身がリファラを送らないようにしているので、私のサイトtextfile.orgでは、リファラチェックをしないことにしました。自分で見たときにjscache: invalid refererと出るのは悲しいので(^_^)。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.hyuki.com/tf/" rel="nofollow">結城浩</a> on May 10, 2004 07:21 AM</span>
+</div>
+<div class="comments-body">
+<p>結城さん:</p>
+
+<p>なるほどリファラを出さない設定の人もいますか。<br />
+    if (!$referer or $referer !~ /$match/) {<br />
+を<br />
+    if ($referer && $referer !~ /$match/) {</p>
+
+<p>にすれば、リファラなしは通し、他サイトのリファラははじくようになります。そっちの方がいいですかねー。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on May 10, 2004 02:18 PM</span>
+</div>
+<div class="comments-body">
+<p>あ、みやがわさん、ありがとうございます。</p>
+
+<p>> リファラなしは通し、他サイトのリファラははじく</p>
+
+<p>にゃるほど。この設定が私は好きです。さっそくtextfile.orgは直しました。感謝します。みやがわさんはいつもさくさくいろんなものをお作りになるので、勉強になります。(^_^)<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.hyuki.com/tf/" rel="nofollow">結城浩</a> on May 10, 2004 10:50 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/978</div>
+
+<div class="comments-body">
+<a name="916"></a>
+<span class="comments-post"><a href="http://www.hyuki.com/tf/20040507205355.html" target="new" rel="nofollow nofollow">Use jscache!</a><br />
+<b>Excerpt:</b> <br />
+<b>Weblog:</b> www.textfile.org<br />
+<b>Tracked:</b> May  9, 2004 04:00 PM</span>
+</div>
+<div class="comments-body">
+<a name="918"></a>
+<span class="comments-post"><a href="http://www.his.kanazawa-it.ac.jp/~idurumi/blog/archives/001058.html" target="new" rel="nofollow nofollow">jscache 設置で MD5</a><br />
+<b>Excerpt:</b> 何となく jscache 0.02 使ってみる。
+ただURIエスケープだとファイル名が長くなってしまうのでMD5に変更してみた。<br />
+<b>Weblog:</b> ������<br />
+<b>Tracked:</b> May  9, 2004 09:21 PM</span>
+</div>
+<div class="comments-body">
+<a name="919"></a>
+<span class="comments-post"><a href="http://a-tak.com/blog/archives/000310.html" target="new" rel="nofollow nofollow">jscache 0.02</a><br />
+<b>Excerpt:</b>  blog.bulknews.net: jscache 0.02 で、設置しながら気づきましたが。このまま設置しておくと他人からも使用される可能性があります。というか使えます。=他人の鯖のキャッシュがたまる。 世の中あくどい人が居ますので（ぉ、他人の設置できましたーってのを見に行ってソ�...<br />
+<b>Weblog:</b> A-tak on PC Weblog<br />
+<b>Tracked:</b> May  9, 2004 10:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="920"></a>
+<span class="comments-post"><a href="http://fumika.jp/nikki/2004/05/jscache002.html" target="new" rel="nofollow nofollow">jscache0.02リリースと、キャッシュエラー回避策</a><br />
+<b>Excerpt:</b>  先日取り上げた、JavaScript をキャッシュする CGI &quot;jscache&quot; ですが、早くもjscache 0.02 が登場しました。変更点は、外部サイトからの無断利用を防止するリファラーチェック機能の追加と、Content-Type を設定可能になった点です。さっそく入れ替えました。 さて、jsca...<br />
+<b>Weblog:</b> 津田ふみかの日記<br />
+<b>Tracked:</b> May  9, 2004 10:55 PM</span>
+</div>
+<div class="comments-body">
+<a name="921"></a>
+<span class="comments-post"><a href="http://mput.dip.jp/mput/?date=20040510" target="new" rel="nofollow nofollow">[tDiary] Similarity Search プラグイン更新 00:31</a><br />
+<b>Excerpt:</b> [tDiary] Similarity Search プラグイン更新 00:31
+
+というわけで、プラグイン側で自前でキャッシュ持つようにしました( secure モードでは従来通り)。
+
+
+
+ similarity_search.txt
+
+
+
+設定画面などは互換なのでそのままです。
+
+
+これで tDiary 側でキャッシュしたら #p02 ...<br />
+<b>Weblog:</b> mputの日記。<br />
+<b>Tracked:</b> May 10, 2004 12:31 AM</span>
+</div>
+<div class="comments-body">
+<a name="922"></a>
+<span class="comments-post"><a href="http://tiger.air-nifty.com/tigers_logs/2004/05/jscache_002.html" target="new" rel="nofollow nofollow">jscache 0.02、リリース</a><br />
+<b>Excerpt:</b> 盗用禁止処置を施したバージョンだそうです (^^;
+
+リファラチェック用変数を追加して jscache 0.02 をリリースしました。
+詳細は [ blog.b<br />
+<b>Weblog:</b> あそびをせんとやうまれけむ<br />
+<b>Tracked:</b> May 10, 2004 12:17 PM</span>
+</div>
+<div class="comments-body">
+<a name="923"></a>
+<span class="comments-post"><a href="http://underdone.visithp.jp/mt/archives/000070.html" target="new" rel="nofollow nofollow">中継君JSVer.1.1.0リリース</a><br />
+<b>Excerpt:</b> 中継君JSをバージョンアップしました。 このCGIは jscacheと同じく Jacascript を出力するサービスのキャッシュをします。 こうすることによって、サービスを提供しているアプリケーションサーバへの負荷を軽減し、 たとえば、blogpeopleやbulkfeedsがアクセス過多で応答�...<br />
+<b>Weblog:</b> UnderDone<br />
+<b>Tracked:</b> May 10, 2004 02:40 PM</span>
+</div>
+<div class="comments-body">
+<a name="926"></a>
+<span class="comments-post"><a href="http://www.cakesjun.net/mvbg/archives/001428.html" target="new" rel="nofollow nofollow">jscache と中継君</a><br />
+<b>Excerpt:</b> Similarity Search の負荷軽減・2。<br />
+<b>Weblog:</b> チェリオメアリー<br />
+<b>Tracked:</b> May 10, 2004 11:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="938"></a>
+<span class="comments-post"><a href="http://tiger.air-nifty.com/tigers_logs/2004/05/jscache_js.html" target="new" rel="nofollow nofollow">jscache と中継君JSの比較レポート</a><br />
+<b>Excerpt:</b> これは直感的な分、分かりやすいですね (^^)
+
+Javascript 式サービス軽量化作戦。
+
+あんでるどんさんから、中継君のバージョンアップを教えてもらいま<br />
+<b>Weblog:</b> あそびをせんとやうまれけむ<br />
+<b>Tracked:</b> May 12, 2004 08:50 AM</span>
+</div>
+<div class="comments-body">
+<a name="939"></a>
+<span class="comments-post"><a href="http://www.rhein-strasse.de/archives/2004/0512-jscache-for-php-001.php" target="new" rel="nofollow nofollow">Bulkfeedsさんの jscache を PHP に埋め込んではどうだろうか</a><br />
+<b>Excerpt:</b> Bulkfeedsさんの Similarity Search の負荷軽減に jscache からトラックバックいただきました。 確かに、自分のサーバでキャッシュしてやれば、Bulkfeedsさんのサーバへの負荷を軽減できそうですね。 ということで、早速導入させていただきました。 ・・・が、Indivisual ...<br />
+<b>Weblog:</b> Rhein-strasse - ライン川のほとりから -<br />
+<b>Tracked:</b> May 13, 2004 05:37 AM</span>
+</div>
+<div class="comments-body">
+<a name="971"></a>
+<span class="comments-post"><a href="http://kengo.preston-net.com/archives/001323.shtml" target="new" rel="nofollow nofollow">BulkfeedsのSimilarity Searchへの負荷軽減にjscache</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Similarity Search の負荷軽減に jscacheで紹介されていたjscache 0.02を設置しました。BulkfeedsのSimilarity Searchを個別のエントリーの下の方に表示していますが、 毎回Bulkfeedsに読みに行くのではなく指定した時間までは自分のサーバー内でキャ�...<br />
+<b>Weblog:</b> Going My Way<br />
+<b>Tracked:</b> May 16, 2004 08:46 PM</span>
+</div>
+<div class="comments-body">
+<a name="1019"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000406.html" target="new" rel="nofollow nofollow">jscache と 中継君 を試用してみた</a><br />
+<b>Excerpt:</b> トップページで告知しているように、自分も本格的にサーバが落ちたり高負荷になった時の対策として javascript をキャッシュする jscache と 中継君 をどちらも試用してみた。是非とも Amazon Search や Google Similar にもどちらかをお使い頂きたいのですが、ちょっと使...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> May 19, 2004 10:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="1350"></a>
+<span class="comments-post"><a href="http://ideatech.zive.net/blog/archives/000215.php" target="new" rel="nofollow nofollow">Windows Server 上での jscache 動作不具合の修正方法</a><br />
+<b>Excerpt:</b> 先日、Similarity Search の高速化で利用した jscache ですが、Win + IIS で実行しようとすると、パラメータが多い場合に動作しなくなると言う不具合を発見しました。暫定ながら jscache の 68 行目（0.01/0.02両Ver.とも同じです）を以下のように変更すると修正できます�...<br />
+<b>Weblog:</b> Idea&amp;&amp;Technology-&gt;Blog<br />
+<b>Tracked:</b> August 18, 2004 07:09 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="978" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

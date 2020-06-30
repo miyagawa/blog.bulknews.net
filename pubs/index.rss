@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF 
+  xmlns="http://purl.org/rss/1.0/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:admin="http://webns.net/mvcb/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+> 
+
+  <channel rdf:about="http://blog.bulknews.net/pubs">
+    <title>Tatsuhiko Miyagawa's Publications List</title>
+    <link>http://blog.bulknews.net/pubs</link>
+    <description>宮川達彦の執筆した書籍・雑誌記事・ムック記事のリストです。</description>
+    <language>ja</language>
+    <dc:creator>Tatsuhiko Miyagawa (miyagawa@bulknews.net)</dc:creator>
+    <dc:rights>Copyright Tatsuhiko Miyagawa</dc:rights>
+    <admin:generatorAgent rdf:resource="http://www.blosxom.com/?v=2.0" />
+    <admin:errorReportsTo rdf:resource="mailto:miyagawa@bulknews.net"/>
+
+    <items>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/oreilly/pragmaticajax.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/sd/200610.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/oreilly/psphacks.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/impress/marugotoperl/vol1.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/oreilly/ituneshacks.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol25.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/oreilly/bloghacks.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/ascii/llmagazine/vol1.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol19.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/softbankpub/unixuser/200403.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol18.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/sd/200312.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol17.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16-mysql.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol15.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200307.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/softbankpub/unixuser/200306.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol14.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/sd/200305.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200305.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol13.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/pearson/data_munging_with_perl.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol12.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol11.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol10.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/sd/200209.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol09.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol08.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol07.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol06.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/sd/200112.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol04.html" />
+        <rdf:li rdf:resource="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol02.html" />
+
+      </rdf:Seq>
+    </items>
+
+
+  </channel>
+  <item rdf:about="http://blog.bulknews.net/pubs/oreilly/pragmaticajax.html">
+    <title>実践 Ajax ― Web2.0アプリケーション開発への手引き</title>
+    <link>http://blog.bulknews.net/pubs/oreilly/pragmaticajax.html</link>
+    <description>具体的なコードを用いて、Ajaxによって新たに広がった技術的な展望への理解を深めながら、Ajaxが機能する仕組みを掘り下げます...</description>
+    <dc:subject>オライリー・ジャパン</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2006-10-04T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/oreilly_pragmaticajax" />
+    <content:encoded><![CDATA[
+具体的なコードを用いて、Ajaxによって新たに広がった技術的な展望への理解を深めながら、Ajaxが機能する仕組みを掘り下げます。DHTMLやJavaScript、XmlHttpRequestなどAjaxの基礎からはじめて、既存のアプリケーションやサービスをAjax化するためのテクニックや、Web2.0なアプリケーションを新たに開発するための設計方法のほか、Ajaxによって開かれた現在の先に見えつつある技術的な将来展望についても議論しています。Webアプリケーション開発に必須の技術となるAjaxを基礎から理解し、応用するためのアイデアとテクニックをまとめた開発者のための実践ガイドです。Justin Gehtland, Ben Galbraith, Dion Almaer　著 宮川 達彦　監訳 加藤 慶彦　訳
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/sd/200610.html">
+    <title>Plagger3分Hacking 俺流Plagger活用術 </title>
+    <link>http://blog.bulknews.net/pubs/gihyo/sd/200610.html</link>
+    <description>俺流Plagger活用術」と題し，Plaggerを徹底的に使いこなすためのノウハウを伝授します．「それPlaggerで」と言われて，何だろう？と思った方，Plaggerに興味はあるけど調べる時間が…という方，もっともっとPlaggerを知りたいという方に朗報です．Plaggerのしくみ，使い方，応用サンプル，Plaggerのこれから，etc. Plaggerな方々による徹底解説をお届けします！ 共著: 竹迫良範ほか</description>
+    <dc:subject>技術評論社 Software Design</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2006-09-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_sd_200610" />
+    <content:encoded><![CDATA[
+俺流Plagger活用術」と題し，Plaggerを徹底的に使いこなすためのノウハウを伝授します．「それPlaggerで」と言われて，何だろう？と思った方，Plaggerに興味はあるけど調べる時間が…という方，もっともっとPlaggerを知りたいという方に朗報です．Plaggerのしくみ，使い方，応用サンプル，Plaggerのこれから，etc. Plaggerな方々による徹底解説をお届けします！ 共著: 竹迫良範ほか
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/oreilly/psphacks.html">
+    <title>PSP Hacks</title>
+    <link>http://blog.bulknews.net/pubs/oreilly/psphacks.html</link>
+    <description>バージョン2.0以降に追加されたさまざまな新機能を中心としたPSPの便利な使い方やハックを紹介...</description>
+    <dc:subject>オライリー・ジャパン</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2006-08-30T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/oreilly_psphacks" />
+    <content:encoded><![CDATA[
+バージョン2.0以降に追加されたさまざまな新機能を中心としたPSPの便利な使い方やハックを紹介。写真や音楽、動画などのマルチメディアファイルの活用や、インターネットなどネットワークの使いこなしの他、PSPを自力で拡張する荒技など、なるほど納得のハックから、おもわずうなるそこまでやるか！なアイデアまで、充実のハックを満載しました。もはやゲーム機にはとどまらない、モバイルプラットフォームとしてのPSPの魅力を、使えるハックを通して引出してみせます。 
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/impress/marugotoperl/vol1.html">
+    <title>Plagger - DIY RSS/Atom Aggregation</title>
+    <link>http://blog.bulknews.net/pubs/impress/marugotoperl/vol1.html</link>
+    <description>YAPC::Asia 2006 Tokyo のスピーカー陣がほとんど参加しているまるごとPerlなムック...</description>
+    <dc:subject>インプレスコミュニケーションズ まるごとPerl</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2006-08-25T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/impress_marugotoperl_vol1" />
+    <content:encoded><![CDATA[
+<a href="http://tokyo.yapcasia.org/">YAPC::Asia 2006 Tokyo</a> のスピーカー陣がほとんど参加しているまるごとPerlなムック。Plagger を利用した RSS/Atom フィードの加工法について、導入からサンプルレシピまで詳しく解説。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/oreilly/ituneshacks.html">
+    <title>iPod & iTunes Hacks</title>
+    <link>http://blog.bulknews.net/pubs/oreilly/ituneshacks.html</link>
+    <description>デジタルミュージックのスタンダード「iPod」と「iTunes」は登場以来、数多くのハッカーたちによってハッキングされてきました...</description>
+    <dc:subject>オライリー・ジャパン</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2005-05-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/oreilly_ituneshacks" />
+    <content:encoded><![CDATA[
+デジタルミュージックのスタンダード「iPod」と「iTunes」は登場以来、数多くのハッカーたちによってハッキングされてきました。その成果を一冊にまとめたのが、本書『iPod & iTunes Hacks』です。本書の特徴はiTunes（とiTunes以外のデジタルミュージックを扱う方法）に関するハッキングを多く取り上げていること。これにより、これまで思いもしなかった方法でデジタルミュージックを楽しむことが可能になります。他に本書では、iPodのバッテリーを入れ替えるための分解方法、iPodのリモコンのハッキング、iTunes Music Storeのメタデータの入手方法、LinuxマシンでiPodを使う方法、現在聴いている曲をネットに公開する方法など、他の本では読めない情報を数多く収録しました。さらに日本語版では宮川達彦氏（Bulknews）による、iTunesのスクリプティングAPIを使った高度なHackを付録として追加しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol25.html">
+    <title>Perl の極意 CPAN モジュール活用術</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol25.html</link>
+    <description>「これぞ、実践モジュール」として Class::DBI, HTML::Template といった実践的 CPAN モジュールの利用法の紹介や、Search.CPAN.org を使いこなすためのTips を解説しています...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2005-02-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol25" />
+    <content:encoded><![CDATA[
+「これぞ、実践モジュール」として Class::DBI, HTML::Template といった実践的 CPAN モジュールの利用法の紹介や、Search.CPAN.org を使いこなすためのTips を解説しています。「CPAN しゃべり場」では、CPAN モジュールを企業でどう使うか、Perl モジュールのクオリティは、といった話題を座談会で議論しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/oreilly/bloghacks.html">
+    <title>Blog Hacks</title>
+    <link>http://blog.bulknews.net/pubs/oreilly/bloghacks.html</link>
+    <description>Blogの楽しさは、日々のBloggingそのものに加えて、Hackする楽しさがあってこそです...</description>
+    <dc:subject>オライリー・ジャパン</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2004-08-07T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/oreilly_bloghacks" />
+    <content:encoded><![CDATA[
+Blogの楽しさは、日々のBloggingそのものに加えて、Hackする楽しさがあってこそです。Bloggingにかかる手間を減らすためのちょっとした工夫、自分のBlogサイトを充実させるための小技、そしてコードをHackして思い通りにカスタマイズする。それらHackの集大成がここにあります（はじめにより）――本書は、Blogテクノロジを利用したHackを網羅的に解説した書籍です。読者は、Blogを支えるさまざまなテクノロジを体系的に理解し、それらテクノロジを駆使したHackのエッセンスを存分に味わうことができるでしょう。 
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/ascii/llmagazine/vol1.html">
+    <title>Perl5 におけるオブジェクト指向</title>
+    <link>http://blog.bulknews.net/pubs/ascii/llmagazine/vol1.html</link>
+    <description>Lightweight Language Saturday のスピーカー陣がほとんど参加している LL のためのムック...</description>
+    <dc:subject>ASCII LL Magazine</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2004-03-26T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/ascii_llmagazine_vol1" />
+    <content:encoded><![CDATA[
+<a href="http://ll.jus.or.jp/">Lightweight Language Saturday</a> のスピーカー陣がほとんど参加している LL のためのムック。Perl5 におけるオブジェクト指向の実践のキホンを解説。また応用的テクニックへのポインタも紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol19.html">
+    <title>Web アプリケーションと文字コード</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol19.html</link>
+    <description>キャラクタセットとエンコーディングの違いなど文字コードの基本から、リレーショナルデータベースにおける文字コードなど、Web アプリケーション開発における様々な文字コードの処理方法を解説...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2004-02-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol19" />
+    <content:encoded><![CDATA[
+キャラクタセットとエンコーディングの違いなど文字コードの基本から、リレーショナルデータベースにおける文字コードなど、Web アプリケーション開発における様々な文字コードの処理方法を解説。また Perl 5.8 での Unicode 処理の Tips もあわせて紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/softbankpub/unixuser/200403.html">
+    <title>RSS 事始め - Perl で作るオンライン RSS リーダー</title>
+    <link>http://blog.bulknews.net/pubs/softbankpub/unixuser/200403.html</link>
+    <description>LWP, XML::RSS, XML::Simple などの CPAN モジュールを駆使して、Perl で簡単な RSS アグリゲータソフトウェアを作成する方法を紹介しています。</description>
+    <dc:subject>ソフトバンクパブリッシング UNIX USER</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2004-02-06T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/softbankpub_unixuser_200403" />
+    <content:encoded><![CDATA[
+LWP, XML::RSS, XML::Simple などの CPAN モジュールを駆使して、Perl で簡単な RSS アグリゲータソフトウェアを作成する方法を紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol18.html">
+    <title>実践 Web サービスプログラミング - Amazon Web Services</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol18.html</link>
+    <description>使える Web サービスプログラミングの実践として Amazon Web Services の仕組みを紹介...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-12-22T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol18" />
+    <content:encoded><![CDATA[
+使える Web サービスプログラミングの実践として <a href="http://www.amazon.co.jp/exec/obidos/subst/associates/join/webservices.html">Amazon Web Services</a> の仕組みを紹介。また AWS の REST API を Perl から利用するためのラッパークラスの作成、など。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/sd/200312.html">
+    <title>決定版! Apacheモジュールダイジェスト</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/sd/200312.html</link>
+    <description>社内イントラとしての Web サーバや、個人の自宅サーバでコンテンツを公開する際に Apache 運用に便利な Apache モジュールとして mod_log_config や mod_userdir などを紹介しています...</description>
+    <dc:subject>技術評論社 Software Design</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-11-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_sd_200312" />
+    <content:encoded><![CDATA[
+社内イントラとしての Web サーバや、個人の自宅サーバでコンテンツを公開する際に Apache 運用に便利な Apache モジュールとして mod_log_config や mod_userdir などを紹介しています。特集では他に、認証の統合やシングルサインオンに関する情報、アクセス制限、リソース制限といった管理者が知って得する情報が掲載されています。共著: <a href="http://module.jp/">小山浩之</a> <a href="http://blog.shebang.jp/">池邉智洋</a>
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol17.html">
+    <title>いますぐ使えるWebサービスプログラミング (XML-RPC / REST)</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol17.html</link>
+    <description>実用的 Web サービスプログラミングとして XML-RPC と REST のアーキテクチャを紹介...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-10-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol17" />
+    <content:encoded><![CDATA[
+実用的 Web サービスプログラミングとして XML-RPC と REST のアーキテクチャを紹介。SOAP や EJB との比較や、Perl / Ruby / PHP による XML-RPC や REST の実装など。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16-mysql.html">
+    <title>MySQL徹底攻略</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16-mysql.html</link>
+    <description>世界最速データベースと言われる MySQL について、その特長などの基本と SQL の使い方、また MySQL による Web アプリケーション開発と運用の事例を紹介...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-08-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol16-mysql" />
+    <content:encoded><![CDATA[
+世界最速データベースと言われる MySQL について、その特長などの基本と SQL の使い方、また MySQL による Web アプリケーション開発と運用の事例を紹介。共著: <a href="http://blog.shebang.jp/">池邉智洋</a> <a href="http://module.jp/">小山浩之</a> 藤原研作
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16.html">
+    <title>使ってうれしいRSS - 情報の配信と取得を効率よく </title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol16.html</link>
+    <description>最近話題の Weblog などでも使用されている情報配信と集約のためのフォーマット RSS (RDF Site Summary / Really Simple Syndication) についての導入記事...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-08-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol16" />
+    <content:encoded><![CDATA[
+最近話題の Weblog などでも使用されている情報配信と集約のためのフォーマット RSS (RDF Site Summary / Really Simple Syndication) についての導入記事。RSS の歴史やアプリケーション、サーバサイドサービスの紹介、Perl / PHP / Ruby で RSS をプログラムから扱う方法など。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol15.html">
+    <title>携帯サイト構築最新事情</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol15.html</link>
+    <description>進化著しい携帯端末向けのWeb サイト構築について紹介しています...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-06-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol15" />
+    <content:encoded><![CDATA[
+進化著しい携帯端末向けのWeb サイト構築について紹介しています。各キャリアの仕様で気をつけるべき点の概要や、マルチキャリア対応の Web アプリケーション制作のキホンについて。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200307.html">
+    <title>Blosxom - シンプルで手軽な Weblog 作成ツール</title>
+    <link>http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200307.html</link>
+    <description>シンプルで手軽に利用できる Weblog ツール Blosxom の紹介...</description>
+    <dc:subject>日経BP社 日経Linux</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-06-07T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/nikkeibp_nikkei-linux_200307" />
+    <content:encoded><![CDATA[
+シンプルで手軽に利用できる Weblog ツール <a href="http://www.blosxom.com/">Blosxom</a> の紹介。インストールから日本語化、実際の Blog 記事の作成、プラグイン導入までを解説。&quot;特選フリーソフトウェア&quot;コーナー内。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/softbankpub/unixuser/200306.html">
+    <title>Sledge による Web アプリケーション開発</title>
+    <link>http://blog.bulknews.net/pubs/softbankpub/unixuser/200306.html</link>
+    <description>Perl による Web アプリケーションフレームワーク Sledge の解説記事...</description>
+    <dc:subject>ソフトバンクパブリッシング UNIX USER</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-05-06T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/softbankpub_unixuser_200306" />
+    <content:encoded><![CDATA[
+Perl による Web アプリケーションフレームワーク <a href="http://sl.edge.jp/">Sledge</a> の解説記事。インストール、アーキテクチャ紹介からショッピングカートの実装、プラグインの導入まで。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol14.html">
+    <title>HTTPプロトコルを使い倒す - Webサーバのパフォーマンス向上のために </title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol14.html</link>
+    <description>Web デベロッパーとして最低限必要な HTTP プロトコルの知識について紹介し、それをWeb サイトのパフォーマンス向上にどう役立てるかについて解説しています...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-04-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol14" />
+    <content:encoded><![CDATA[
+Web デベロッパーとして最低限必要な HTTP プロトコルの知識について紹介し、それをWeb サイトのパフォーマンス向上にどう役立てるかについて解説しています。Apache モジュールによる HTTP ヘッダカスタマイズ方法など。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/sd/200305.html">
+    <title>Perl ベースの Web アプリケーションフレームワーク Sledge</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/sd/200305.html</link>
+    <description>Perl による Web アプリケーションフレームワーク Sledge の解説記事...</description>
+    <dc:subject>技術評論社 Software Design</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-04-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_sd_200305" />
+    <content:encoded><![CDATA[
+Perl による Web アプリケーションフレームワーク <a href="http://sl.edge.jp/">Sledge</a> の解説記事。Sledge のアーキテクチャからサンプルコード、開発事例などを紹介。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200305.html">
+    <title>Sledge - Perl を用いた Web アプリの開発生産性を向上　</title>
+    <link>http://blog.bulknews.net/pubs/nikkeibp/nikkei-linux/200305.html</link>
+    <description>Perl による Web アプリケーションフレームワーク Sledge について、インストール方法からサンプルコードまで...</description>
+    <dc:subject>日経BP社 日経Linux</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-04-08T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/nikkeibp_nikkei-linux_200305" />
+    <content:encoded><![CDATA[
+Perl による Web アプリケーションフレームワーク <a href="http://sl.edge.jp/">Sledge</a> について、インストール方法からサンプルコードまで。&quot;特選フリーソフトウェア&quot;コーナー内。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol13.html">
+    <title>Perl Web アプリケーションのセキュリティ </title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol13.html</link>
+    <description>Perl によってセキュアな Web アプリケーションを開発することを目標とし、Perl言語自身に備わっているセキュリティ機構や、一般的なWeb アプリケーション構築におけるセキュリティ向上の定石について、いくつかの例を通して解説しています。</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-02-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol13" />
+    <content:encoded><![CDATA[
+Perl によってセキュアな Web アプリケーションを開発することを目標とし、Perl言語自身に備わっているセキュリティ機構や、一般的なWeb アプリケーション構築におけるセキュリティ向上の定石について、いくつかの例を通して解説しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/pearson/data_munging_with_perl.html">
+    <title>Perl データマンジング</title>
+    <link>http://blog.bulknews.net/pubs/pearson/data_munging_with_perl.html</link>
+    <description>Perl 言語の、中・上級者向け解説書...</description>
+    <dc:subject>ピアソン・エデュケーション</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2003-01-21T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/pearson_data_munging_with_perl" />
+    <content:encoded><![CDATA[
+Perl 言語の、中・上級者向け解説書。構造化されていないデータ、レコード指向データ、固定長データ、バイナリデータ、独自パーサ構築、日付と数値のフォーマットなど、Perl を武器にあらゆるデータと闘う方法を伝授。原著 <a href="http://www.manning.com/cross/">Data Munging with Perl</a> (Dave Cross, Manning Publications Co.)
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol12.html">
+    <title>日付処理を考える</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol12.html</link>
+    <description>日付の扱いを行うための、Perl におけるスタンダードなモジュールを紹介し、またそれらを利用して実際に誕生日データベースのアプリケーションを作成しています。</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-12-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol12" />
+    <content:encoded><![CDATA[
+日付の扱いを行うための、Perl におけるスタンダードなモジュールを紹介し、またそれらを利用して実際に誕生日データベースのアプリケーションを作成しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol11.html">
+    <title>Test! Test! Test! - Perl のテスティングモジュール</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol11.html</link>
+    <description>Perl における Test First Programming の話題を紹介...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-10-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol11" />
+    <content:encoded><![CDATA[
+Perl における Test First Programming の話題を紹介。Perl でのテスティングの基礎から、種々のモジュールのリファレンス、また実際のアプリケーションやモジュールに対するテスティングの実践など。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol10.html">
+    <title>ハードコード禁止! - コンフィグファイルの利用</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol10.html</link>
+    <description>アプリケーションの設定ファイルをテーマに、CPAN モジュールを使ったソリューションから、Web アプリケーションにおけるコンフィグファイル利用の Tips までを紹介...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-08-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol10" />
+    <content:encoded><![CDATA[
+アプリケーションの設定ファイルをテーマに、CPAN モジュールを使ったソリューションから、Web アプリケーションにおけるコンフィグファイル利用の Tips までを紹介。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/sd/200209.html">
+    <title>mod_perl on Apache 2.0 で新世代 Web アプリを体験</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/sd/200209.html</link>
+    <description>Apache 2.0 の API を Perl から触ることができるモジュール、mod_perl 2.0 について、インストールや設定から、サンプルアプリケーションの作成までを紹介しています...</description>
+    <dc:subject>技術評論社 Software Design</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-08-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_sd_200209" />
+    <content:encoded><![CDATA[
+Apache 2.0 の API を Perl から触ることができるモジュール、mod_perl 2.0 について、インストールや設定から、サンプルアプリケーションの作成までを紹介しています。特集では他に、Apache2 の新機能やパフォーマンス検証について掲載しています。共著: やまだあきら 村田哲也 宮本久仁男
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol09.html">
+    <title>MVC の正しい分離 - テンプレートエンジンの選択</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol09.html</link>
+    <description>「デザインとロジックの分離」という、Web 制作現場で必ず問題になるテーマについて、Perl モジュールによるテンプレートエンジンを用いたソリューションを紹介しています。</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-06-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol09" />
+    <content:encoded><![CDATA[
+「デザインとロジックの分離」という、Web 制作現場で必ず問題になるテーマについて、Perl モジュールによるテンプレートエンジンを用いたソリューションを紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol08.html">
+    <title>Perl で Entity Bean! - Class::DBI による永続オブジェクトの実装</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol08.html</link>
+    <description>大規模 Web アプリケーション開発においてしばしば問題になる、データベース処理をうまく切り分けるテクニックについて、Class::DBI を利用したソリューションを紹介しています。</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-04-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol08" />
+    <content:encoded><![CDATA[
+大規模 Web アプリケーション開発においてしばしば問題になる、データベース処理をうまく切り分けるテクニックについて、Class::DBI を利用したソリューションを紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol07.html">
+    <title>Log::Dispatch::Config でロギングをする</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol07.html</link>
+    <description>主に Web アプリケーションでのロギングをおこなうにあたっての基本的なポイントから、それを便利におこなうことができるモジュールの利用法までをサンプルをまじえて解説しています。</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2002-02-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol07" />
+    <content:encoded><![CDATA[
+主に Web アプリケーションでのロギングをおこなうにあたっての基本的なポイントから、それを便利におこなうことができるモジュールの利用法までをサンプルをまじえて解説しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol06.html">
+    <title>Perl によるセッション管理の実装</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol06.html</link>
+    <description>Perl Web アプリケーションでのセッション管理について解説...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2001-12-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol06" />
+    <content:encoded><![CDATA[
+Perl Web アプリケーションでのセッション管理について解説。様々なセッション管理実装の基礎知識から、実際に Perl モジュールを使用したセッション管理の実装までを紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/sd/200112.html">
+    <title>知っておきたいProxyサーバ活用ガイド</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/sd/200112.html</link>
+    <description>Apache mod_proxy を利用したプロキシサーバの作成方法や、mod_perl によるカスタマイズについて紹介しています...</description>
+    <dc:subject>技術評論社 Software Design</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2001-11-17T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_sd_200112" />
+    <content:encoded><![CDATA[
+Apache mod_proxy を利用したプロキシサーバの作成方法や、mod_perl によるカスタマイズについて紹介しています。特集では他に、知っているようで実はよく知られていない Proxy サーバの多彩な働きと、delegate や Squid などフリーの Proxy サーバの設定やさまざまな活用法を網羅して紹介しています。共著: 相澤俊幸 やまだあきら 山森丈範
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol04.html">
+    <title>CVSによるWebシステム開発徹底入門</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol04.html</link>
+    <description>ソースコード管理システム CVS についての記事...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2001-08-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol04" />
+    <content:encoded><![CDATA[
+ソースコード管理システム CVS についての記事。CVS を Webアプリケーション開発で効率よく利用する手法について、基本から応用 Tips までを紹介しています。
+]]></content:encoded>
+  </item>
+
+  <item rdf:about="http://blog.bulknews.net/pubs/gihyo/webdbpress/vol02.html">
+    <title>Apacheモジュールでここまでできる!</title>
+    <link>http://blog.bulknews.net/pubs/gihyo/webdbpress/vol02.html</link>
+    <description>mod_rewrite の紹介記事...</description>
+    <dc:subject>技術評論社 WEB+DB PRESS</dc:subject>
+    <dc:creator>Tatsuhiko Miyagawa</dc:creator>
+    <dc:date>2001-04-23T00:00+09:00</dc:date>
+    <trackback:ping rdf:resource="http://blog.bulknews.net/pubs-tb/gihyo_webdbpress_vol02" />
+    <content:encoded><![CDATA[
+mod_rewrite の紹介記事。単純な URL の書き換えから、携帯端末向けページ振りわけ、メンテナンスページの作成、簡易負荷分散など mod_reqrite のマニアックなテクニックまでを紹介しています。
+]]></content:encoded>
+  </item>
+
+
+</rdf:RDF>

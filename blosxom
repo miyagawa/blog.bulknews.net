@@ -1,0 +1,112 @@
+#!/usr/bin/perl -w
+
+# Blosxom
+# Author: Rael Dornfest <rael@oreilly.com>
+# Version: 0+3i
+# Home/Docs/Licensing: http://www.oreillynet.com/~rael/lang/perl/blosxom/
+
+# --- Configurable variables -----
+
+# What's my blog's title?
+my $blog_title = 'Blosxom';
+
+# Where are my blog entries kept?
+my $datadir = "./entries";
+
+# How many entries should I show on the home page?
+my $num_entries = 20;
+
+# HTTP Charrset attribute
+my $charset = "euc-jp";
+# --------------------------------
+
+use strict;
+use DirHandle;
+use FileHandle;
+use File::stat;
+use Time::localtime;
+use CGI qw/:standard :netscape/;
+
+# Take a gander at HTTP's PATH_INFO for optional blog name, archive yr/mo/day
+my $url = url();
+my @pi = split m{/}, path_info(); 
+shift @pi;
+my $content_type = 'text/' . ($pi[-1] && $pi[-1] =~ /xml/ ? pop @pi : 'html');
+my $pi_bl = $pi[0] && $pi[0] =~ /^([a-zA-Z]\w*)/ ? shift @pi : undef;
+# Check the existence and readability of a specified sub-blog
+$pi_bl and -d "$datadir/$pi_bl" and -r "$datadir/$pi_bl" and $datadir .= "/$pi_bl", $url .= "/$pi_bl", $blog_title .= ": $pi_bl";
+my($pi_yr,$pi_mo,$pi_da,$id) = @pi;
+
+my $dh = new DirHandle($datadir);
+my $fh = new FileHandle;
+
+# Bring in the templates
+my %template = ();
+use vars qw($default);
+for (split /\n/, $default) {
+	last if /^(__END__)?$/;
+	my($ct, $comp, $txt) = /^(\S+)\s(\S+)\s(.*)$/;
+	$txt =~ s/\\n/\n/mg;
+	$template{$ct}{$comp} = $txt;
+}
+
+# Header
+print header(-type => $content_type, -charset => $charset);
+my $head = join '', $content_type eq 'text/html' && $fh->open("< $datadir/head.html") ? <$fh> : $template{$content_type}{'head'};
+$head =~ s/(\$\w+)/$1/gee;
+print $head;
+
+# Send in the blogs
+my $curdate = '';
+foreach ( 
+	sort { return -M "$datadir/$a" <=> -M "$datadir/$b"; } 
+	grep /.txt$/, $dh->read
+	) {
+
+	last if $num_entries-- <= 0 && !$pi_yr;
+
+	my($fn) = ($_ =~ /^(.*)\.txt$/);
+
+	# Date fiddling for by-{year,month,day} archive views
+	my $mtime = ctime(stat("$datadir/$fn.txt")->mtime);
+	my($dw,$mo,$da,$ti,$yr) = ( $mtime =~ /(\w{3}) +(\w{3}) +(\d{1,2}) +(\d{2}:\d{2}):\d{2} +(\d{4})$/ );
+
+	next if $pi_yr && $yr != $pi_yr; last if $pi_yr && $yr < $pi_yr; 
+	next if $pi_mo && $mo ne ucfirst(lc $pi_mo);
+	next if $pi_da && $da != $pi_da; last if $pi_da && $da < $pi_da; 
+
+	$content_type eq 'text/html' && $curdate ne "$dw, $da $mo $yr" && 
+		print span({-class=>'blosxomDate'}, $curdate = "$dw, $da $mo $yr"); 
+
+	# Entry
+	if (-f "$datadir/$fn.txt" && $fh->open("< $datadir/$fn.txt")) {
+		chomp(my $title = <$fh>);
+		chomp(my $body = join '', <$fh>);
+		if ($content_type eq 'text/xml') {
+			# Escape <, >, and &, and to produce valid RSS
+			my %escape = ('<'=>'&lt;', '>'=>'&gt;', '&'=>'&amp;', '"'=>'&quot;');  
+			my $escape_re  = join '|' => keys %escape;
+			$title =~ s/($escape_re)/$escape{$1}/g;
+			$body =~ s/($escape_re)/$escape{$1}/g;
+		}
+		$fh->close;
+		my $story = ($content_type eq 'text/html' && $fh->open("< $datadir/story.html")) ? join '', <$fh> : $template{$content_type}{'story'};
+		$story =~ s/(\$\w+)/$1/gee;
+		print $story;
+		$fh->close;
+	}
+}
+
+# Foot
+print $content_type eq 'text/html' && $fh->open("< $datadir/foot.html") ? <$fh> : $template{$content_type}{'foot'};
+
+# Default HTML and RSS template bits
+BEGIN { $default ||= <<'EOF';
+text/html head <html><head><title>Blosxom</title></head><body><center><font size="+3">$blog_title</font></center><p />
+text/html story <p class="blosxomEntry"><a name="$fn"><span class="blosxomTitle"><b>$title</b></span></a><br /><span class="blosxomBody">$body</span><br /><span class="blosxomTime">Posted at $ti</span> <a href="$url/$yr/$mo/$da#$fn">#</a></p>\n
+text/html foot <p /><center><h6>Powered -- for some narrow definition of powered -- by <a href="http://www.oreillynet.com/~rael/lang/perl/blosxom/">Blosxom</a></h6></body></html>
+text/xml head <?xml version="1.0" encoding="$charset"?>\n<!-- name="generator" content="bloxsom/0+3i" -->\n<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">\n\n<rss version="0.91">\n  <channel>\n    <title>$blog_title</title><link>$url</link>\n
+text/xml story   <item>\n    <title>$title</title>\n    <link>$url/$yr/$mo/$da#$fn</link>\n    <description>$body</description>\n  </item>\n
+text/xml foot   </channel>\n</rss>
+EOF
+}

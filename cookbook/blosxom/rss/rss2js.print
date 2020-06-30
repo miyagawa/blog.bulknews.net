@@ -1,0 +1,319 @@
+<html>
+<head>
+<title>Blog Developer's Cookbook : RSS feed を JavaScript で HTML に埋め込む</title>
+<link rel="stylesheet" type="text/css" href="/cookbook/print.css" />
+</head>
+<body>
+Published on <a href="http://blog.bulknews.net/cookbook/blosxom">Blog Developer's Cookbook</a>.<br />
+Printer friendly version of <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2js.html">http://blog.bulknews.net/cookbook/blosxom/rss/rss2js.html</a>.
+<br /><br /><br />
+
+<h2>RSS feed を JavaScript で HTML に埋め込む</h2>
+by miyagawa at Thu, 30 Oct 2003 17:06
+<p />
+
+<p />
+RSS を利用すると、自分の Blog サイトのサイドバーなどに、お気に入りの Blog サイトの更新情報などを表示することができます。このように、サイト間でのリンクの導線を動的に生成することができるのも、Blog の魅力の1つと言えます。今回は JavaScript Include と呼ばれる手法を使って、既存の Blog サイトに負荷をかけることなく、RSS を HTML に埋め込む手法を紹介します。
+
+<hr class="seemore">
+
+
+<h2>JavaScript Include</h2>
+
+他サイトの RSS を自分の Blog サイトに持ってくるには、通常 Blog ツールに付属するプラグインやサードパーティツール<a href="#note-1">(*1)</a> を利用します。これらのツールは定期的に RSS を GET し、静的に生成される HTML を再構築したり、静的な HTML に書き出して、出力時に Include するといった手法をとります。
+
+<p />
+しかし、こうした手法は、
+<ul>
+<li>Blog ツールに特化しており汎用的でない</li>
+<li>MT など静的ビルドする Blog ツールの場合 cron 等で rebuild する設定が必要</li>
+<li>blosxom など動的ビルドの場合、サーバ側で動的に出力する分の負荷がかかる</li>
+</ul>
+
+というデメリットがあります<a href="#note-2">(*2)</a>。
+<p />
+今回は、こうした手間をかけず、かつわりと汎用的に使える手法として、 JavaScript Include (<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?CSI">CSI</a>: Client-Side Include とも呼ばれます) という手法を用います。JavaScript Include は、以前紹介した <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?BlogRolling">BlogRolling</a> の更新情報を Blog サイトに埋め込む方法でも使用されている手法で、出力する HTML に
+<p><pre class="inlineRaw">&lt;script language=&quot;JavaScript&quot; src=&quot;http://example.com/rss.js&quot;&gt;&lt;/script&gt;
+</pre></p>
+といった JavaScript の Include 命令を書き込み、インクルードされる .js ファイル内には <code>document.write</code> で HTML を出力する JavaScript コードを書き込んでおくと、ブラウザ上でそれらのコードが実行されてマージされ、レンダリングされるという仕組みです。
+<p />
+この JavaScript Include 手法を RSS Feed の HTML 埋め込みに適用すると、
+<ol>
+<li>cron 等で、RSS を javascript 化しておく (<code>foo.js</code> とする)</li>
+<li>Blog のテンプレートに <code class="inlineRaw">&lt;script src=&quot;.../foo.js&quot;&gt;&lt;/script&gt;</code> を記述する</li>
+</ol>
+
+という個別の 2つの作業で、埋め込みができるようになります。また、この URL をパブリックに公開することによって、
+<ul>
+<li>Blog ツールや RSS とりこみプラグインを使っていない他のサイトでも、JavaScript コードを張りつけることでコンテンツのヘッドラインを取り込める</li>
+</ul>
+
+という副次的な効果も見込めます。
+
+<h2>サンプルコード</h2>
+
+今回は RSS ファイルの URL を指定すると、それを JavaScript 化するスクリプト <a href="#listing-1">List 1</a> を作ってみました。HTTP GET で RSS を取得し、XML::RSS でパースしながら JavaScript の <code>document.write</code> によるコードに変換します。
+
+<p />
+<pre class="scriptsSnippet">use Digest::MD5 qw(md5_hex);
+use Encode;
+use HTML::Template;
+use LWP::Simple;
+use XML::RSS;
+</pre>
+
+出力する HTML のテンプレートを記述するために <a href="http://search.cpan.org/search?m=module&q=HTML%3a%3aTemplate">HTML::Template</a> を使用しています。若干オーバースペック気味ですが、元々バッチ起動ですので問題ないでしょう。
+
+<p />
+<pre class="scriptsSnippet">our $CacheDir = &quot;cache&quot;;
+mkdir $CacheDir, 0755 unless -e $CacheDir;
+</pre>
+
+RSS ファイルをキャッシュするディレクトリを指定、存在しなければ初期化しています。
+
+<p />
+<pre class="scriptsSnippet">my $url = shift or die &quot;URL needed!&quot;;
+my $num = shift || 10;
+my $encoding = shift || &quot;utf-8&quot;;
+</pre>
+
+コマンドラインの引数には RSS ファイルの URL, JavaScript に記録するエントリ数、出力する JavaScript のエンコーディングを指定します。それぞれデフォルトはエントリ数は 10, エンコーディングは UTF-8 としています。
+
+<p />
+<pre class="scriptsSnippet">my $digest = md5_hex($url);
+my $cache = &quot;$CacheDir/$digest.xml&quot;;
+
+my $status = LWP::Simple::mirror($url, $cache);
+if (is_error($status)) {
+    die &quot;$url not found!\n&quot;;
+} else {
+    rss2js($cache, $num, $encoding);
+}
+</pre>
+
+RSS を HTTP GET します。<code>mirror</code> を使用して無駄なトラフィックが発生しないようにしています。
+
+<p />
+<pre class="scriptsSnippet">sub rss2js {
+    my($xml, $num, $encoding) = @_;
+    my $rss = XML::RSS-&gt;new();
+       $rss-&gt;parsefile($xml);
+</pre>
+
+XML::RSS で RSS を <code>parsefile</code> します。
+
+<p />
+<pre class="scriptsSnippet">    my @items = map {
+        +{ title =&gt; $_-&gt;{title},
+           link  =&gt; $_-&gt;{link} }
+    } splice(@{$rss-&gt;items}, 0, $num);
+</pre>
+
+<code>$rss->items</code> のうち先頭 <code>$num</code> を <code>splice</code> で取り出し、<code>map</code> でハッシュリファレンスを生成しています。
+
+<p />
+<pre class="scriptsSnippet">    my $template = HTML::Template-&gt;new(filehandle =&gt; \*DATA);
+    $template-&gt;param(
+        title =&gt; $rss-&gt;{channel}-&gt;{title},
+        link  =&gt; $rss-&gt;{channel}-&gt;{link},
+        items =&gt; \@items,
+    );
+</pre>
+
+<code>DATA</code> ファイルハンドル<a href="#note-3">(*3)</a>をテンプレートとして、HTML::Template オブジェクトを生成し、RSS の channel 要素と、先ほど生成した <code>@items</code> をテンプレートの変数にバインドします。
+
+<p />
+<pre class="scriptsSnippet">__DATA__
+&lt;div class=&quot;rssChannel&quot;&gt;
+&lt;h3 class=&quot;rssTitle&quot;&gt;
+&lt;a href=&quot;&lt;TMPL_VAR name=link escape=HTML&gt;&quot;&gt;
+&lt;TMPL_VAR name=title escape=HTML&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;rssItem&quot;&gt;
+&lt;TMPL_LOOP name=items&gt;
+&lt;a href=&quot;&lt;TMPL_VAR name=link escape=HTML&gt;&quot;&gt;
+&lt;TMPL_VAR name=title escape=HTML&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/TMPL_LOOP&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+DATA テンプレートはこのようになっており、<code>items</code> で TMPL_LOOP を回して、各エントリへのリンクを作っています。デザインを CSS でカスタマイズできるよう、<code>rssChannel</code> や <code>rssTitle</code>, <code>rssItem</code> といったクラスを設定してあります。
+
+<p />
+<pre class="scriptsSnippet">    binmode STDOUT, &quot;:encoding($encoding)&quot;;
+    js_print($template-&gt;output());
+</pre>
+
+<code>binmode</code> を使用して、STDOUT を <code>$encoding</code> のエンコーディングに設定します。例えば <code class="inlineRaw">$encoding = &quot;euc-jp&quot;;</code> であれば、STDOUT に print すると自動的に euc-jp にエンコードされる設定となります。encoding プラグマでも同様の効果を得ることができますが、<code>binmode</code> では任意のファイルハンドルに対して、実行時にエンコーディングレイヤを設定できます<a href="#note-4">(*4)</a>。
+
+<p />
+HTML::Template の <code>output</code> メソッドで得られるテンプレートの出力を <code>js_print</code> でエスケープして出力します。
+
+<p />
+<pre class="scriptsSnippet">sub js_print {
+    my @lines = split /\n/, shift;
+    for (@lines) {
+        s/\x27/&amp;#x27;/g; # '
+        print &quot;document.writeln('$_');\n&quot;;
+    }
+}
+</pre>
+
+LF (LineFeed) で <code>split</code> して、<code>\x27</code> すなわち &#x27; (シングルクォート) を HTML 数値参照 (&amp;#x27;) に置換しながら、<code>document.writeln()</code> で囲んで出力します。シングルクォートは <code>document.writeln</code> のセパレータとバッティングするため、エスケープしています。他にも、<code class="inlineRaw">s/'/\\'/g;</code> のようにバックスラッシュでエスケープする方法でも問題ありません。
+
+<h2>実行例</h2>
+
+RSS の URL とエントリ数、エンコーディングを指定してコマンドラインで実行します。
+
+<p><pre class="command">% <strong>./rss2js.pl http://blog.bulknews.net/mt/index.rdf 10 utf-8 &gt; bulknews.js</strong>
+</pre></p>
+
+出来上がった js ファイルは <a href="#listing-2">List 2</a> のようになります。これを HTTP アクセス可能な場所に配置し、URL を <code class="inlineRaw">&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code> で指定すれば、任意の HTML ページに、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?blog.bulknews.net">blog.bulknews.net</a> の最新10件のエントリを埋め込むことができます。
+
+<p />
+このコマンドを crontab 等で定期的に実行して js ファイルを更新してやればよいでしょう。
+
+<h2>JavaScript Include Tips</h2>
+
+<p />
+JavaScript Include のデメリットは、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?lynx">lynx</a> や <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?w3m">w3m</a> といった JavaScript を理解しないブラウザで表示ができないことです。また <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Googlebot">Googlebot</a> などの検索エンジンスパイダーも JavaScript を理解しませんが、これはページの HTML に余計な要素が紛れこまないため、<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?SEO">SEO</a> 的によい効果をもたらすこともあります。
+
+また今回のスクリプトでは、出力する JavaScript のエンコーディングを指定可能にしていますが、埋め込む HTML の <code>script</code> タグの <code>charset</code> 属性で、このエンコーディングを指定することができます。
+<p><pre class="inlineRaw">&lt;script language=&quot;JavaScript&quot; src=&quot;...&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</pre></p>
+
+これを使用すれば、元の HTML ページが euc-jp、JavaScript が UTF-8 という状況でも、文字化けせずに埋め込みが可能です<a href="#note-5">(*5)</a>。
+
+<h2>Apache::JavaScript::DocumentWrite</h2>
+
+このように HTML を生成しておいて JavaScript Include するというのは様々な場面で使用できます。筆者の作成した CPAN モジュール <a href="http://search.cpan.org/search?m=module&q=Apache%3a%3aJavaScript%3a%3aDocumentWrite">Apache::JavaScript::DocumentWrite</a> は、任意の HTML ファイルの URL  末尾 に <code>.js</code> を付加することによって、コンテンツの中身を JavaScript Include でインクルード可能にする mod_perl モジュールです。
+
+<h2>See Also</h2>
+<ul>
+<li>山下達雄 さんの <a href="http://nais.to/~yto/tools/kuttuki-rss/">くっつき RSS</a> - 今回のネタ元です。</li>
+<li><a href="http://search.cpan.org/search?m=module&q=XML%3a%3aRSS%3a%3aJavaScript">XML::RSS::JavaScript</a> - 今回のスクリプトと同様の処理を行う Perl モジュールです。</li>
+<li><a href="http://naoya.dyndns.org/~naoya/mt/archives/000622.html">NDO::Weblog: RSS を整形して SSI で表示してみました</a> - RSS を SSI でとりこみ表示する方法</li>
+</ul>
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: rss2js.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# rss2js - aggregate RSS to JavaScript
+
+use strict;
+use Digest::MD5 qw(md5_hex);
+use Encode;
+use HTML::Template;
+use LWP::Simple;
+use XML::RSS;
+
+our $CacheDir = &quot;cache&quot;;
+mkdir $CacheDir, 0755 unless -e $CacheDir;
+
+my $url = shift or die &quot;URL needed!&quot;;
+my $num = shift || 10;
+my $encoding = shift || &quot;utf-8&quot;;
+
+my $digest = md5_hex($url);
+my $cache = &quot;$CacheDir/$digest.xml&quot;;
+
+my $status = LWP::Simple::mirror($url, $cache);
+if (is_error($status)) {
+    die &quot;$url not found!\n&quot;;
+} else {
+    rss2js($cache, $num, $encoding);
+}
+
+sub rss2js {
+    my($xml, $num, $encoding) = @_;
+    my $rss = XML::RSS-&gt;new();
+       $rss-&gt;parsefile($xml);
+
+    my @items = map {
+        +{ title =&gt; $_-&gt;{title},
+           link  =&gt; $_-&gt;{link} }
+    } splice(@{$rss-&gt;items}, 0, $num);
+
+    my $template = HTML::Template-&gt;new(filehandle =&gt; \*DATA);
+    $template-&gt;param(
+        title =&gt; $rss-&gt;{channel}-&gt;{title},
+        link  =&gt; $rss-&gt;{channel}-&gt;{link},
+        items =&gt; \@items,
+    );
+
+    binmode STDOUT, &quot;:encoding($encoding)&quot;;
+    js_print($template-&gt;output());
+}
+
+sub js_print {
+    my @lines = split /\n/, shift;
+    for (@lines) {
+        s/\x27/&amp;#x27;/g; # '
+        print &quot;document.writeln('$_');\n&quot;;
+    }
+}
+
+__DATA__
+&lt;div class=&quot;rssChannel&quot;&gt;
+&lt;h3 class=&quot;rssTitle&quot;&gt;
+&lt;a href=&quot;&lt;TMPL_VAR name=link escape=HTML&gt;&quot;&gt;
+&lt;TMPL_VAR name=title escape=HTML&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;rssItem&quot;&gt;
+&lt;TMPL_LOOP name=items&gt;
+&lt;a href=&quot;&lt;TMPL_VAR name=link escape=HTML&gt;&quot;&gt;
+&lt;TMPL_VAR name=title escape=HTML&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/TMPL_LOOP&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: bulknews.js</span></a>
+<pre class="scriptsListing">document.writeln('&lt;div class=&quot;rssChannel&quot;&gt;');
+document.writeln('&lt;h3 class=&quot;rssTitle&quot;&gt;');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/&quot;&gt;');
+document.writeln('blog.bulknews.net&lt;/a&gt;&lt;/h3&gt;');
+document.writeln('&lt;div class=&quot;rssItem&quot;&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000492.html&quot;&gt;');
+document.writeln('AllConsuming&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000491.html&quot;&gt;');
+document.writeln('perl 5.8.2 RC1 / perl 5.9.0&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000490.html&quot;&gt;');
+document.writeln('LAMP JukeBox&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000489.html&quot;&gt;');
+document.writeln('Weblog SPAM&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000488.html&quot;&gt;');
+document.writeln('CPAN 8th birthday&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000487.html&quot;&gt;');
+document.writeln('script タグに charset アトリビュート&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000486.html&quot;&gt;');
+document.writeln('Mail::TempAddress&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000485.html&quot;&gt;');
+document.writeln('less presentation&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000484.html&quot;&gt;');
+document.writeln('iPod アップデータ&lt;/a&gt;&lt;br /&gt;');
+document.writeln('');
+document.writeln('&lt;a href=&quot;http://blog.bulknews.net/mt/archives/000483.html&quot;&gt;');
+document.writeln('Syndication ML&lt;/a&gt;&lt;br /&gt;');
+document.writeln('&lt;/div&gt;');
+document.writeln('&lt;/div&gt;');
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> であれば <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?mt-rssfeed">mt-rssfeed</a>, <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?blosxom">blosxom</a> であれば <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?blagg">blagg</a> などのプラグインが利用できます。<br />
+<a href="#note-2" name="note-2">*2)</a> もちろんそれが手間だと思わなければ、別にデメリットではないです ;-)<br />
+<a href="#note-3" name="note-3">*3)</a> <code>__DATA__</code> 以降に記述した文字列を、DATA ファイルハンドルとして扱うことができます。<br />
+<a href="#note-4" name="note-4">*4)</a> <code>binmode</code> でエンコーディングを指定できるのは、Perl 5.8 からの機能です。5.6 以前では、Win32 環境でファイルハンドルをバイナリモードにするのに使われていました。<br />
+<a href="#note-5" name="note-5">*5)</a> 手元で検証した限りでは、Windows IE 6.0 では OK ですが、Windows IE 5.5 ではこの charset 指定は無効なようでした。<br />
+</div>
+
+
+<p />
+Copyright&copy;2002-2003 <b><a href="http://blog.bulknews.net/cookbook/blosxom">Tatsuhiko Miyagawa</a></b>
+</body></html>

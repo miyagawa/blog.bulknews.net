@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Weblogs.com Ping Gateway to はてなアンテナ</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Thu, 09 Oct 2003</div>
+<div class="entry"><h1 class="title"><a name="ping_to_hatena">Weblogs.com Ping Gateway to はてなアンテナ</a></h1>
+
+<p />
+<a href="http://www.movabletype.org/">Movable Type</a> などの Blog ツールは、<a href="http://weblogs.com/">Weblogs.Com</a> などの <strong>Ping Server</strong> に更新を通知する機能を持っています。この更新通知は、<a href="http://newhome.weblogs.com/directory/11">Weblogs.Com Ping Specs</a> にあるような XML-RPC の API を通じて行われており、日本では <a href="http://ping.bloggers.jp/">ping.bloggers.jp</a> や <a href="http://myblog.jp/">MyBlog Japan</a> などがこの XML-RPC Server の仕様を実装しています。
+<p />
+今回のレシピでは、この Ping Server を実装して、受けとった Ping を <a href="http://a.hatena.ne.jp/">はてなアンテナ</a> に更新通知するプロキシをつくってみます。
+
+<p />
+Weblogs.Com の XML-RPC Ping Spec は <a href="http://www.xmlrpc.com/weblogsCom">xmlrpc.com</a> で解説されています<a href="#note-1">(*1)</a> 。
+<p><blockquote class="inlineRaw">weblogUpdates.ping (weblogname, weblogurl) returns struct <br />
+<br />
+To tell Weblogs.Com that a weblog has changed, call weblogUpdates.ping on rpc.weblogs.com, port 80, path /RPC2.<br />
+<br />
+It takes two parameters, both strings. The first is the name of the weblog, the second is its URL.<br />
+<br />
+We read the weblog to determine if it has changed, therefore the weblog must already be updated when you call weblogUpdates.ping.<br />
+<br />
+It returns a struct that indicates success or failure. It has two elements, flerror and message. If flerror is false, it worked. If it's true, message contains an English-language description of the reason for the failure.<br />
+</blockquote></p>
+
+ここで最初に記述されている <code class="inlineRaw">rpc.weblogs.com, port 80, path /RPC2</code> は Weblogs.Com で使用している URI で、実際にはMTなどのツールでは設定項目で変更することができるため、これは任意の通知先 URL となります。
+<p />
+それ以外を整理すると、
+<table class="blosxomTable" cellspacing="1" border="0">
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">メソッド名</td><td class="blosxomTableDataRight">weblogUpdates.ping</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">引数</td><td class="blosxomTableDataRight">(String weblogname, String weblogurl)</td></tr>
+<tr class="blosxomTableRow"><td class="blosxomTableDataLeft">返り値</td><td class="blosxomTableDataRight">struct { Boolean flerror, String message }</td></tr>
+</table>
+
+のような XML-RPC API となります。
+<p />
+
+<h2>サンプルコード</h2>
+
+Perl で XML-RPC のクライアントやサーバを記述するには、SOAP のツールキットである <a href="http://search.cpan.org/search?m=module&q=SOAP%3a%3aLite">SOAP::Lite</a> にバンドルされている XMLRPC::Lite モジュールを使用するのが簡単です <a href="#note-2">(*2)</a>。ここでは CGI スクリプトによってXML-RPCのエンドポイントをつくることができる <a href="http://search.cpan.org/search?m=module&q=XMLRPC%3a%3aTransport%3a%3aHTTP">XMLRPC::Transport::HTTP</a> を使用します。作成したスクリプトは  <a href="#listing-1">List 1</a> のようになります。
+<p />
+
+<pre class="scriptsSnippet">my $server = XMLRPC::Transport::HTTP::CGI
+    -&gt;dispatch_to('weblogUpdates')
+    -&gt;handle;
+</pre>
+
+ここでは、XMLRPC::Transport::HTTP::CGI から dispatch_to メソッドを呼び出して、weblogUpdates パッケージのメソッドに dispatch するよう設定しています。これで、<code class="inlineRaw">weblogUpdates.ping</code> のメソッドを処理することができるようになります。実際に XML-RPC クライアントからリクエストが来ると、<code class="inlineRaw">weblogUpdates-&gt;ping(@args);</code> のようにクラスメソッドで API がコールされます。よって weblogUpdates パッケージ に ping というクラスメソッドを用意すればよいことになります。これは別のモジュール等で実装して呼び出すのが一般的ですが、今回のスクリプトでは、ゲートウェイとなるスクリプトにインラインでメソッドを記述する形にしました。
+<p />
+<pre class="scriptsSnippet">package weblogUpdates;
+
+use LWP::Simple;
+use URI::Escape;
+
+my $HatenaURL;
+BEGIN { $HatenaURL = &quot;http://a.hatena.ne.jp/check?url=%s&quot;; }
+
+sub ping {
+    my($class, $blog_name, $blog_url) = @_;
+    my $api_url = sprintf $HatenaURL, uri_escape($blog_url);
+    if (LWP::Simple::get($api_url)) {
+        return { flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 0) };
+    } else {
+        return { flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 1),
+                 message =&gt; &quot;request failed.&quot; };
+    }
+}
+</pre>
+
+引数に $blog_name, $blog_url を受けとり、はてなアンテナの更新通知URLを生成<a href="#note-3">(*3)</a>、<a href="http://search.cpan.org/search?m=module&q=LWP%3a%3aSimple">LWP::Simple</a> モジュールでリクエストを送信しています。
+<p />
+
+はてなアンテナの更新通知については、<a href="http://a.hatena.ne.jp/check">http://a.hatena.ne.jp/check</a> に記述がある API を使用しました。
+<p><blockquote class="inlineRaw">更新通知用APIについて<br />
+※このページをはてなアンテナに対して能動的に更新を通知するためのAPIとして公開します。お使いの掲示板CGIなどで、ページ更新時にアクセスして頂くことで迅速な更新の反映が可能となります。 <br />
+※アクセスURL http://a.hatena.ne.jp/check?url=チェックしたいページのエンコード済みURL <br />
+</blockquote></p>
+
+本来であれば、はてなの更新通知 API の返り値をチェックすべきですが、現状では HTML をパースする以外にエラーかどうかを調べる方法はない<a href="#note-4">(*4)</a> ようですので、ここではコンテンツが返ってくるかどうかのチェックだけとしています<a href="#note-5">(*5)</a>。返り値として、struct (= Perl ではハッシュリファレンス) を返しています。返り値の boolean 値をつくるためには XMLRPC::Data をつかって明示的に boolean 値を作成します。成功の場合は flerror を false (0) で返し、失敗であれば flerror を true (1), message にエラー文字列を入れて return しています。
+<p />
+ 
+このスクリプト (ping_to_hatena) を CGI として動作させる URL (たとえば http://blog.example.com/ping_to_hatena) に設置し、Blog の Ping 通知先にその URL を記述すれば、Blog の更新をはてなアンテナに即座に反映させることができるというわけです。
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: ping_to_hatena.pl</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# ping_to_hatena - Weblogs.Com Ping Server Gateway to Hatena Antenna
+
+use strict;
+use XMLRPC::Transport::HTTP;
+
+my $server = XMLRPC::Transport::HTTP::CGI
+    -&gt;dispatch_to('weblogUpdates')
+    -&gt;handle;
+
+package weblogUpdates;
+
+use LWP::Simple;
+use URI::Escape;
+
+my $HatenaURL;
+BEGIN { $HatenaURL = &quot;http://a.hatena.ne.jp/check?url=%s&quot;; }
+
+sub ping {
+    my($class, $blog_name, $blog_url) = @_;
+    my $api_url = sprintf $HatenaURL, uri_escape($blog_url);
+    if (LWP::Simple::get($api_url)) {
+        return { flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 0) };
+    } else {
+        return { flerror =&gt; XMLRPC::Data-&gt;type(boolean =&gt; 1),
+                 message =&gt; &quot;request failed.&quot; };
+    }
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> 実際には Weblogs.Com には SOAP や REST (HTML Form) のサービス実装も用意されていますが、各種 Blog ツールが通知として利用しているのは XML-RPC のものです。<br />
+<a href="#note-2" name="note-2">*2)</a> 実際 XMLRPC::Lite は SOAP::Lite のサブクラスとして実装されています。<br />
+<a href="#note-3" name="note-3">*3)</a> URI::Escape で URL エンコードを忘れずに!<br />
+<a href="#note-4" name="note-4">*4)</a> やるのであれば、HTMLに対して正規表現で <code>/ご指定のページはアンテナに登録されていません/</code> にマッチさせるのが簡単かもしれません。<br />
+<a href="#note-5" name="note-5">*5)</a> たとえば a.hatena.ne.jp にアクセスできない場合や、500 Internal Server Error を返す場合などにエラーとなります<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">05:29</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/pings">Weblogs.Com Pings</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/pings_ping_to_hatena?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (4)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Weblogs.com%20Ping%20Gateway%20to%20%A4%CF%A4%C6%A4%CA%A5%A2%A5%F3%A5%C6%A5%CA&amp;body=http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/pings_ping_to_hatena"
+      dc:title="Weblogs.com Ping Gateway to はてなアンテナ"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/common/readme_first.html">About This Blog (Blog Developer's Cookbook)</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">Weblogs.com Ping Gateway to はてなアンテナ (POE版)</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

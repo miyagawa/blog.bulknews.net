@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: February 2006 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2006_01.html" title="January 2006" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2006_03.html" title="March 2006" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001909"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1908"
+    dc:title="Plagger::Plugin::Publish::MSAgent"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001909"
+    dc:subject="perl"
+    dc:description=" MSAgent.pm。ほぼ Publish::Speech::Win32 のコピペ。こんどは Microsoft Agent でアニメーションとかもさせてます。キモは、 sub feed { my($self, $context, $args) = @_; my $character = $self-&gt;conf-&gt;{character} ||..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-27T10:56:33+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 27, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001909"></a>
+<h3 class="title">Plagger::Plugin::Publish::MSAgent</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/plagger-msagent.gif"><img alt="plagger-msagent.gif" src="http://blog.bulknews.net/mt/archives/plagger-msagent-thumb.gif" width="300" height="199" /></a></p>
+
+<p><a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/MSAgent.pm?rev=190">MSAgent.pm</a>。ほぼ Publish::Speech::Win32 のコピペ。こんどは Microsoft Agent でアニメーションとかもさせてます。キモは、</p>
+
+<pre class="code">sub feed {
+    my($self, $context, $args) = @_;
+
+    my $character = $self->conf->{character} || 'Merlin';
+    my $agent = Win32::MSAgent->new($character);
+
+    my $char = $agent->Characters($character);
+    $char->SoundEffectsOn(1);
+    $char->Show();
+
+    $char->MoveTo(300,300);
+    sleep(5);
+
+    if (my $animation = $self->conf->{animation}) {
+        $char->Play($animation);
+    }
+    ...
+    $self->speak( $char, encode($encoding, $args->{feed}->title_text) );
+
+    for my $entry ($args->{feed}->entries) {
+        my $stuff = $entry->title_text . $entry->body_text;
+        for my $message (split /\n/, $stuff) {
+            $self->speak( $char, encode($encoding, $message) );
+        }
+    }
+}
+
+sub speak {
+    my($self, $character, $message) = @_;
+    my $request = $character->Speak($message);
+
+    my $i = 0;
+    while (($request->Status == 2) || ($request->Status == 4)) {
+        $character->Stop($request) if $i >10; sleep(1);  $i++;
+    }
+}
+</pre>
+
+<p>アニメーションは config で指定しますが、フィードの内容によってインテリジェントに振舞えるとカッコイイなあ。というわけで、SNMP の通知など、アラートでなごみたい方はどうぞ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001909.html">10:56 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001909.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001909.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001908"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1907"
+    dc:title="Plagger::Plugin::Publish::Speech"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001908"
+    dc:subject="perl"
+    dc:description="これも Plugin::Pipe からのインスパイヤ。Windows の Speech API (SAPI4) を使ってフィードを読み上げます。楽SpeechS でできるような RSS 音声読み上げアプリができます。 いまのところ Win32 限定ですが、だれか /usr/bin/say でもつかって MacOSX 版おねがいします。 Plagger::Plugin::Speech::Win32 package..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-27T00:55:50+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001908"></a>
+<h3 class="title">Plagger::Plugin::Publish::Speech</h3>
+
+<p>これも <a href="http://subtech.g.hatena.ne.jp/youpy/20060226/p1">Plugin::Pipe</a> からのインスパイヤ。Windows の Speech API (SAPI4) を使ってフィードを読み上げます。<a href="http://www.vector.co.jp/soft/win95/art/se306183.html">楽SpeechS</a> でできるような RSS 音声読み上げアプリができます。</p>
+
+<p>いまのところ Win32 限定ですが、だれか /usr/bin/say でもつかって MacOSX 版おねがいします。</p>
+
+<p><a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/Speech/Win32.pm?rev=171">Plagger::Plugin::Speech::Win32</a></p>
+
+<pre class="code">package Plagger::Plugin::Publish::Speech::Win32;
+use base qw( Plagger::Plugin::Publish::Speech );
+
+use Encode;
+use Locale::Country;
+use Locale::Language;
+use Time::HiRes 'sleep';
+use Win32::OLE;
+use Win32::SAPI4;
+
+sub feed {
+    my($self, $context, $args) = @_;
+
+    my $voice = Win32::SAPI4::VoiceText->new;
+    $self->speak($voice, encode("utf-8", $args->{feed}->title_text) );
+
+    for my $entry ($args->{feed}->entries) {
+        my $stuff = $entry->title_text . $entry->body_text;
+
+        # HACK this should be handled in $entry->locale
+        my $lang     = $stuff =~ /\p{Hiragana}|\p{Katakana}|\p{Han}/ ? 'ja' : 'en-us';
+        my $encoding = $lang eq 'ja' ? 'cp932' : 'latin-1';
+
+	$self->speak($voice, $lang, encode($encoding, $stuff) );
+    }
+}
+
+sub speak {
+    my($self, $voice, $lang, $message) = @_;
+
+    my($t1, $t2) = split /-/, $lang;
+    my $key = code2language($t1);
+       $key.= " (".code2country($t2).")" if code2country($t2);
+
+    my $code = $voice->Language2LanguageID($key);
+    my $gender = $self->conf->{voice} || 'male';
+    my @try_gender  = $gender =~ /^male$/i ? (1, 2) : (2, 1);
+    
+    TRY: for my $gender (@try_gender) {
+        for my $i (1 .. $voice->CountEngines) {
+            if ( $voice->LanguageID($i) == $code && $voice->Gender($i) == $gender ) {
+                Plagger->context->log(debug => "Found voice $i for Lang $lang and Gender $gender");
+                $voice->Select($i);
+                last TRY;
+            }
+        }
+    }
+
+    $voice->Speak($message);
+    sleep 1 while $voice->IsSpeaking;
+}
+
+1;
+</pre>
+
+<p>SAPI4 を使ってオーディオからそのまま音声が流れます。本来なら WAV にしてファイルに書き出したいんですが、SAPI4 でやる方法がわかりませんでした。。 $voice->GetObject->{FileName} = "output.wav" とかすると 0 byte の .wav ファイルができるのでイイ線いってるとはおもうのですが。</p>
+
+<p>むかし <a href="http://blog.bulknews.net/mt/archives/001301.html">rss2audiobook</a> を書いたときは SAPI5 で wav ファイルに書き出せたんですが、SAPI5 だと日本語ランゲージパックをいれても GetInstalledLanguages ででてきません orz</p>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001908.html">12:55 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001908.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001908.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001907"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1906"
+    dc:title="Plagger::Plugin::Publish::PDF = rss2pdf"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001907"
+    dc:subject="perl"
+    dc:description="Publish::PDF プラグイン。これで rss2pdf 相当のことができます。キモは、 sub feed { my($self, $context, $args) = @_; my $dir = $self-&gt;conf-&gt;{dir}; unless (-e $dir &amp;&amp;..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-27T00:29:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001907"></a>
+<h3 class="title">Plagger::Plugin::Publish::PDF = rss2pdf</h3>
+
+<p><a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/PDF.pm?rev=163">Publish::PDF</a> プラグイン。これで <A href="http://rss2pdf.com/">rss2pdf</a> 相当のことができます。キモは、</p>
+
+<pre class="code">
+sub feed {
+    my($self, $context, $args) = @_;
+
+    my $dir = $self->conf->{dir};
+    unless (-e $dir && -d _) {
+        mkdir $dir, 0755 or $context->error("mkdir $dir: $!");
+    }
+
+    my $file = File::Spec->catfile($dir, $args->{feed}->id . ".pdf");
+    my $body = $self->templatize($context, $args);
+    utf8::encode($body);
+
+    $context->log(info => "Writing PDF to $file");
+
+    my $pdf = PDF::FromHTML->new;
+    $pdf->load_file(\$body);
+    $pdf->convert();
+    $pdf->write_file($file);
+}
+</pre>
+
+<p>Audrey の <a href="http://search.cpan.org/dist/PDF-FromHTML/">PDF::FromHTML</a> つかってます。PDF::Template のインストールでハマった。（最新版を CPAN から削除したらしく、CPAN シェルからいれられない。search.cpan.org からもってきていれた）</p>
+
+できあがった PDF は 
+<a href="http://blog.bulknews.net/mt/archives/ea41275be78448f94b9d1d1159cfc358.pdf">こんなの</a> になりました。かっこよくありません。また、img タグをふくんでいるとうまくいかなかったりすることがあるみたいです。
+
+Firefox のコマンドラインオプションとかつかって HTML から PDF を作る方法ってなかったですかね？ そのほうがキレイにでそうです。
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001907.html">12:29 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001907.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001907.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001906"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1905"
+    dc:title="Plagger 0.5.3 リリースと英語Blog"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001906"
+    dc:subject="perl"
+    dc:description="bulknews.typepad.com: Plagger 0.5.2 and 0.5.3 released I decided to post Plagger updates to this blog, under &quot;Plagger&quot; category. It&apos;s a..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-25T19:14:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 25, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001906"></a>
+<h3 class="title">Plagger 0.5.3 リリースと英語Blog</h3>
+
+<p><a title="bulknews.typepad.com: Plagger 0.5.2 and 0.5.3 released" href="http://bulknews.typepad.com/blog/2006/02/plagger_052_and.html">bulknews.typepad.com: Plagger 0.5.2 and 0.5.3 released</a></p>
+
+<blockquote>I decided to post Plagger updates to this blog, under "Plagger" category. It's a little bit tough and tiresome to write the same thing twice, or even three times (My main blog (japanese), Mailing List and here), but posting it on a blog makes it searchable and easy to keep track of.</blockquote>
+
+<p>Plagger 0.5.3 をリリースしました。おもな変更点は、</p>
+
+<p>* Publish::Spotlight, Search::Rast, Search::Namazu といった検索プラグインの追加<br />
+* Publish::MTWidget で <a href="http://www.majordojo.com/projects/SidebarManager/">MT Sidebar Manager</a> 向け Widget を作成。(<a href="http://blog.bulknews.net/mt/archives/plagger-widget.gif">スクリーンショット</a>)<br />
+* Plagger::Rule::Fresh でタイムスタンプベースの dedupe (重複チェック) ができるように<br />
+* <a href="http://d.hatena.ne.jp/tnx/20060224/1140753206">show_icon: 1</a> で フレパ・mixi のフィードにユーザアイコン表示。(<a href="http://blog.bulknews.net/mt/archives/plagger-mixi-icon.gif">スクリーンショット</a>)</p>
+
+<p>詳しくは <A href="http://plagger.org/trac.cgi/wiki/PlaggerChangeLog">ChangeLog</a> をみてください。</p>
+
+<p>何度も同じ内容を書くのは非常にメンドウなので、<a href="http://bulknews.typepad.com/blog/">英語 Blog</a> の <a href="http://bulknews.typepad.com/blog/plagger/">Plagger カテゴリ</a> にポストしていくことにします。日本語に訳したい方はお好きにどうぞｗ</p>
+
+<p>開発の議論やらは、<a href="http://groups.google.com/group/plagger-dev">Mailing List</a> と IRC #plagger (英語) #plagger-ja (日本語) で。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001906.html">07:14 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001906.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001906.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001904"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1903"
+    dc:title="YAPC::Asia チケット追加販売"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001904"
+    dc:subject="tech"
+    dc:description="YAPC::Asia 2006 Tokyo (Japanese) 先日お知らせした チケット販売ですが、2006/2/27 (Mon) 10:00 より、ローソンチケットにて50枚追加販売することに決定しました。 YAPC::Asia のチケットを追加で発売します。５０枚限定ですので、間に合わなかった！という方はお忘れなく。 ローソンチケットのサイトの方はいまひとつ availability に問題があるように見えるので、電話予約のほうをおすすめします。..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-24T17:54:43+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 24, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001904"></a>
+<h3 class="title">YAPC::Asia チケット追加販売</h3>
+
+<p><a title="YAPC::Asia 2006 Tokyo (Japanese)" href="http://tokyo.yapcasia.org/blog/ja/">YAPC::Asia 2006 Tokyo (Japanese)</a></p>
+
+<blockquote>先日お知らせした チケット販売ですが、2006/2/27 (Mon) 10:00 より、ローソンチケットにて50枚追加販売することに決定しました。</blockquote>
+
+<p>YAPC::Asia のチケットを追加で発売します。５０枚限定ですので、間に合わなかった！という方はお忘れなく。</p>
+
+<p>ローソンチケットのサイトの方はいまひとつ availability に問題があるように見えるので、電話予約のほうをおすすめします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001904.html">05:54 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001904.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001904.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001902"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1901"
+    dc:title="Plagger 0.5.2 をリリース"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001902"
+    dc:subject=""
+    dc:description="Plagger 0.5.2 をリリース。 * Subscription::HatenaRSS: はてな RSS の OPML とシンクロ * Subscription::Odeo: Odeo の OPML とシンクロ（enclosure の扱いはまだ不完全です） * Publish::IRC: 更新を..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-23T06:26:37+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 23, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001902"></a>
+<h3 class="title">Plagger 0.5.2 をリリース</h3>
+
+<p><a href="http://plagger.org/">Plagger 0.5.2</a> をリリース。</p>
+
+<p>* <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Subscription/HatenaRSS.pm">Subscription::HatenaRSS</a>: <a href="http://r.hatena.ne.jp/">はてな RSS</a> の OPML とシンクロ<br />
+* <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Subscription/Odeo.pm">Subscription::Odeo</a>: <a href="http://www.odeo.com/">Odeo</a> の OPML とシンクロ（enclosure の扱いはまだ不完全です）<br />
+* <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/IRC.pm">Publish::IRC</a>: 更新を IRC チャネルに通知。POE と IKC つかってるのが Cool<br />
+* <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Filter/StripRSSAd.pm">Filter::StripRSSAd</a>: rssad.jp や Google AdSense for Feeds の広告を strip</p>
+
+<p>その他いくつか Bugfix を含んでます。くわしくは <a href="http://plagger.org/trac.cgi/wiki/PlaggerChangeLog">ChangeLog</a> を。</p>
+
+<p>昨日 IRC で盛り上がったのが Yappo さんのつくった <a href="http://tech.yappo.jp/download/plagger/RssSearch.pm">RssSearch</a> と <a href="http://tech.yappo.jp/download/plagger/OpenSearch.pm">OpenSearch</a> プラグイン。どちらも Aggregator 継承になっているのでここを分離して、Subscription を拡張する ( engine: Bulkfeeds, BlogDB, Technorati / query: Plagger のようにしてバーティカル検索できるように） というのは面白いアイデアかも。</p>
+
+<p>それと Ben Trott の Blog で紹介されました。</p>
+
+<p><a title="Stupidfool.org: "The geek at your feet says you're neat..."" href="http://btrott.typepad.com/typepad/2006/02/the_geek_at_you.html">Stupidfool.org: "The geek at your feet says you're neat..."</a></p>
+
+<blockquote>Plagger (by Tatsuhiko & others) is a fantastic idea. Having developed a bunch of miniature feed-related apps, what I love most about this is that it's essentially the perlbal/qpsmtpd of RSS/Atom feed frameworks. </blockquote>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001902.html">06:26 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001902.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001902.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001901"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1900"
+    dc:title="Jemplate Hackathon"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001901"
+    dc:subject="perl"
+    dc:description=" 21日の夕方に Ingy dot Net がオフィスにきて、Jemplate Hackathon。Six Apart からは Yann と xantus も参加。 ブラウザで動く test suite が動作するようになったり、Jemplate.Stash を拡張して foo =..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-23T06:15:09+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001901"></a>
+<h3 class="title">Jemplate Hackathon</h3>
+
+<p><a href="http://www.flickr.com/photos/yann/103086769/"><img src="http://static.flickr.com/25/103086769_9eb3f983b5_s.jpg" align="right" style="border:0; margin-left: 1em" /></a></p>
+
+<p>21日の夕方に Ingy dot Net がオフィスにきて、Jemplate Hackathon。Six Apart からは <a href="http://yann.typepad.com/">Yann</a> と <a href="http://search.cpan.org/~xantus/">xantus</a> も参加。</p>
+
+<p>ブラウザで動く test suite が動作するようになったり、Jemplate.Stash を拡張して foo = [ "a", "b", "c" ]; foo.join("::") が動くようになったり（まだかなり nasty な Hack ですが）。テストができたので TT2 のテストをポートしようという話も。</p>
+
+<p>今後ますます楽しみ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001901.html">06:15 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001901.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001901.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001900"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1899"
+    dc:title="はてラボ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001900"
+    dc:subject=""
+    dc:description="はてラボ 各サービスには担当開発者がおり、全てはてな社員です。主に個人的な動機により開発を行っています。 はてな社員じゃない人が開発できる場だったら面白いのに、とか思いました。 Alexa Web Search Platform, Ning, Google Homepage API ... Architecture of Participation。..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-21T23:10:48+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 21, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001900"></a>
+<h3 class="title">はてラボ</h3>
+
+<p><a title="はてラボ" href="http://hatelabo.jp/">はてラボ</a></p>
+
+<blockquote>各サービスには担当開発者がおり、全てはてな社員です。主に個人的な動機により開発を行っています。 </blockquote>
+
+<p>はてな社員<strong>じゃない</strong>人が開発できる場だったら面白いのに、とか思いました。</p>
+
+<p><a href="http://websearch.alexa.com/welcome.html">Alexa Web Search Platform</a>, <a href="http://www.ning.com/">Ning</a>, <a href="http://www.google.com/apis/homepage/">Google Homepage API</a> ...  <a href="http://www.oreillynet.com/pub/wlg/3017?wlg=yes">Architecture of Participation</a>。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001900.html">11:10 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001900.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001900.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001899"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1898"
+    dc:title="YAPC::Asia updates"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001899"
+    dc:subject="perl"
+    dc:description="YAPC::Asia 2006 Tokyo まで 36 日。Yahoo! JAPAN がスポンサーになり、セッション一覧 を公開、また チケットの追加販売を準備中 です。..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-21T16:50:41+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001899"></a>
+<h3 class="title">YAPC::Asia updates</h3>
+
+<p>YAPC::Asia 2006 Tokyo まで 36 日。<a href="http://tokyo.yapcasia.org/blog/ja/2006/02/yahoo_japan.html">Yahoo! JAPAN がスポンサーに</a>なり、<a href="http://tokyo.yapcasia.org/blog/ja/sessions.html">セッション一覧</a> を公開、また <a href="http://tokyo.yapcasia.org/blog/ja/2006/02/post_1.html">チケットの追加販売を準備中</a> です。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001899.html">04:50 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001899.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001899.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001893"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1892"
+    dc:title="Plagger をリリース"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001893"
+    dc:subject="perl"
+    dc:description="Plagger - Pluggable RSS/Atom aggregator の 0.5.0 を CPAN にリリースしました。 Plagger は Bloglines to Gmail な Hack の進化したもので、すべてをプラグインで実装できるようにしたソフトウェアです。Blog ソフトウェアの Blosxom..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-19T21:22:20+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 19, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001893"></a>
+<h3 class="title">Plagger をリリース</h3>
+
+<p><a href="http://plagger.org/">Plagger - Pluggable RSS/Atom aggregator</a> の 0.5.0 を <a href="http://search.cpan.org/dist/Plagger/">CPAN にリリース</a>しました。</p>
+
+<p>Plagger は <a href="http://blog.bulknews.net/mt/archives/001789.html">Bloglines to Gmail</a> な Hack の進化したもので、すべてをプラグインで実装できるようにしたソフトウェアです。Blog ソフトウェアの <a href="http://www.blosxom.com/">Blosxom</a> とか SMTP サーバの <a href="http://smtpd.develooper.com/">qpsmtpd</a> とかを知ってる方は、それの RSS アグリゲータ版と思っていただけると話が早い。</p>
+
+<p>Bloglines からとってきて Gmail に HTML メールを送る、というのに限らず、RSS をとってきてそれを加工して何かのフォーマットで書き出す、というのはよくやるハックだなあと思っていました。自分の例でも、</p>
+
+<p>* <a href="http://blog.bulknews.net/mt/archives/001789.html">Bloglines -> Gmail</a><br />
+* <a href="http://blog.bulknews.net/mt/archives/001299.html">Bloglines -> iPod</a><br />
+* <a href="http://blog.bulknews.net/mt/archives/001301.html">RSS -> Audiobook</a><br />
+* <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2js.html">RSS -> JavaScript</a></p>
+
+<p>といくつもリストアップできますが、これを Plagger ではプラグインの組み合わせで実現することができます。またこれらの出力を並列にして、Rule ベースでオンオフすることも可能。</p>
+
+<p>ほかにも、</p>
+
+<p>* <a href="http://cheebow.info/chemt/archives/2006/02/mt.html">はてなブックマークや del.icio.us の更新を MT に XML-RPC でポスト</a><br />
+* <a href="http://kengo.preston-net.com/archives/000880.shtml">RSS の新着エントリを IRC にポスト</a></p>
+
+<p>なんてのも Plagger 上では実現できそうです（まだ全部のプラグインができていないのですが）。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/plagger-hatena.gif"><img alt="plagger-hatena.gif" src="http://blog.bulknews.net/mt/archives/plagger-hatena-thumb.gif" width="300" height="143" style="border:0; margin: 10px" align="right" /></a></p>
+
+<p>また、これから面白くなりそうだなぁと思っているのが Filter と SmartFeed の機能で、<a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Filter/Delicious.pm">del.icio.us</a> や <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Filter/HatenaBookmarkUsersCount.pm">はてなブックマーク</a> でのユーザ数、ユーザに付けられた Tag などを取得するプラグインをすでに書いています。これと SmartFeed を組み合わせて、「きのうの <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Subscription/Bloglines.pm">Bloglines </a>の更新のうち、はてなブックマークで 10 users 以上にブックマークされたもの」という Rule をつくり、マッチしたものを <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/PSP.pm">PSP に書き出してブウラウザで見たり</a>, <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/Publish/JavaScript.pm">JavaScript に書き出してサイドバーに張ったり</a> といったことができるようになってます。（NOTE: はてブ、del.icio.us プラグインともデモ目的でつくったもので、フィードの数がおおいと IP Ban される可能性が高いので注意）</p>
+
+<p>カスタムフィードのプラグインでは、<a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/CustomFeed/Mixi.pm">mixi</a> や <a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/CustomFeed/Frepa.pm">livedoor フレパ</a> などログインの必要なサイトの情報をフィード形式で扱ったり、<a href="http://plagger.org/trac.cgi/browser/trunk/plagger/lib/Plagger/Plugin/CustomFeed/Mailman.pm">Mailman のアーカイブ</a> から RSS を生成したりといったこともできます。</p>
+
+<p>Plagger の開発はまだはじまったばかりで、API やプラグインなどまだまだ安定していませんが、興味のある方の参加をお待ちしてます。<a href="http://groups.google.com/group/plagger-dev">Mailing List (Google Groups)</a> と IRC チャネル #plagger (freenode) で議論と開発が行われてます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001893.html">09:22 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001893.html#comments">Comments (12)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001893.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001892"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1891"
+    dc:title="XMLRPC::Lite (SOAP::Lite) で base64 エンコーディングさせない"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001892"
+    dc:subject="perl"
+    dc:description="404 Blog Not Found:はてなキーワード連想語API vs. XMLRPC::Lite そうなのです。XMLRPC::Liteは、Non-ASCIIな文字列はbase64でおくっておったのですね。 以下のようにすれば base64 しないでそのまま string として送るようになります。ローカルハックは必要なし。 my $res = XMLRPC::Lite-&gt;new-&gt;proxy(&apos;http://d.hatena.ne.jp/xmlrpc&apos;) -&gt;call(&apos;hatena.getSimilarWord&apos;, { wordlist =&gt;..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-16T06:09:41+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 16, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001892"></a>
+<h3 class="title">XMLRPC::Lite (SOAP::Lite) で base64 エンコーディングさせない</h3>
+
+<p><a title="404 Blog Not Found:はてなキーワード連想語API vs. XMLRPC::Lite" href="http://blog.livedoor.jp/dankogai/archives/50374357.html">404 Blog Not Found:はてなキーワード連想語API vs. XMLRPC::Lite</a></p>
+
+<blockquote>そうなのです。XMLRPC::Liteは、Non-ASCIIな文字列はbase64でおくっておったのですね。</blockquote>
+
+<p>以下のようにすれば base64 しないでそのまま string として送るようになります。ローカルハックは必要なし。</p>
+
+<pre>my $res = XMLRPC::Lite->new->proxy('http://d.hatena.ne.jp/xmlrpc')
+    ->call('hatena.getSimilarWord',
+           { wordlist => [ XMLRPC::Data->type(string => "はてな") ] }
+    );</pre>
+
+<p>"はてな" の部分は utf-8 bytes でも Unicode flagged な string でもOK。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001892.html">06:09 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001892.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001892.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001890"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1889"
+    dc:title="Jemplate - TT2 in JavaScript!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001890"
+    dc:subject="perl"
+    dc:description="先週の木曜に、San Francisco に来ていた Ingy が IM で &quot;Do you have a time to hack today? I have a pretty neat..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-07T19:44:59+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 07, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001890"></a>
+<h3 class="title">Jemplate - TT2 in JavaScript!</h3>
+
+<p>先週の木曜に、San Francisco に来ていた <a href="http://search.cpan.org/~ingy/">Ingy</a> が IM で "Do you have a time to hack today? I have a pretty neat project we could hack on." てなメッセージをくれたのでちょっとだけハックしてたのが <a href="http://search.cpan.org/dist/Jemplate/">Jemplate</a>。実際には時間がなくてアイデアを練るだけで終わってしまいましたが、Ingy は作業を続けて今日 CPAN に最初のバージョンがリリースされたみたいです（まだ [% foo %] とか FOREACH, IF ぐらいしかできないですが）。</p>
+
+<p>JavaScript の Template にもいろいろあって、prototype.js の最新版には簡単な Template.js コードがついているようだし、ほかにもいろいろとありますね。Six Apart でも一時期 TT2 のコンパイラバックエンド（TT はデフォルトでテンプレートを Perl コードにコンパイルするバックエンドが動いていて、これを他の言語・フォーマットに切り替えることができます）を作ろうという話があったんですが、なかなかしんどそうで今は pure JavaScript なテンプレートエンジンに向かっています。これは LJ で使っている <a href="http://brad.livejournal.com/2157703.html">Tag AutoComplete</a> なスクリプトと同様に、BSD / MIT 的ライセンスでそのうちリリースされるかも。</p>
+
+<p>ってなわけで Jemplate ですが、サーバサイドにおいたテンプレートファイルを１枚の .js にコンパイルしてくれるというもの。JSON と組み合わせてデータをサーバからとってきて Jemplate.process すればいいというなかなか楽しい仕組みです。</p>
+
+<p>さっそくというか <a href="http://trac.bulknews.net/trac.cgi/browser/Catalyst-View-Jemplate/trunk">Catalyst::View::Jemplate</a> をつくってみました。これと <a href="http://search.cpan.org/dist/Catalyst-View-JSON">Catalyst::View::JSON</a> を組み合わせて Catalyst とデータをやりとりさせるのはカンタンにできますね。まだ Jemplate でできることが少ないのでいろいろ先は長そうですが。</p>
+
+<p>そんな Ingy ですが <a href="http://tokyo.yapcasia.org/blog/ja/">YAPC::Asia</a> で来日がきまっています。Lightning Talk で Jemplate どう？ といったら早速 OK な返事が。楽しみです。チケットは昨日から発売されてますのでお早めにどうぞ！</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001890.html">07:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001890.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001890.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_02.html#001887"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1886"
+    dc:title="YAPC::Asia 2006 スピーカー発表"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_02.html#001887"
+    dc:subject="perl"
+    dc:description="YAPC::Asia 2006 Tokyo (Japanese): スピーカーとスポンサーが決定！ YAPC::Asia 2006 Tokyo のスピーカーおよびスポンサーが決定しましたので、改めてイベント概要とともに告知します。 YAPC::Asia 2006 Tokyo のスピーカー・スポンサーを発表しました。Larry Wall, Damian Conway, Audrey Tang をはじめ海外・国内から豪華なスピーカーが集まりました。いまから楽しみです。 私は..."
+    dc:creator="miyagawa"
+    dc:date="2006-02-03T17:28:58+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">February 03, 2006</h2>
+
+
+<div class="blogbody">
+<a name="001887"></a>
+<h3 class="title">YAPC::Asia 2006 スピーカー発表</h3>
+
+<p><a title="YAPC::Asia 2006 Tokyo (Japanese): スピーカーとスポンサーが決定！" href="http://tokyo.yapcasia.org/blog/ja/2006/02/post.html">YAPC::Asia 2006 Tokyo (Japanese): スピーカーとスポンサーが決定！</a></p>
+
+<blockquote>YAPC::Asia 2006 Tokyo のスピーカーおよびスポンサーが決定しましたので、改めてイベント概要とともに告知します。</blockquote>
+
+<p>YAPC::Asia 2006 Tokyo のスピーカー・スポンサーを発表しました。Larry Wall, Damian Conway, Audrey Tang をはじめ海外・国内から豪華なスピーカーが集まりました。いまから楽しみです。<br />
+私は <a href="http://blog.bulknews.net/mt/archives/001834.html">Blog SPAM</a> 関係と <a href="http://trickster.bulknews.net/">Trickster 2.0</a> な話をする予定ですが、最近いじりはじめた <a href="http://plagger.bulknews.net/">Plagger</a> も自分的に盛り上がってきているので、Lightning Talk でこっちの話もするかも、ってな感じです。</p>
+
+<p>3月上旬までサンフランシスコに出張できているため、日本で会場との交渉やスポンサー関係などしていただいてるスタッフの皆さんにこの場を借りて感謝です。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001887.html">05:28 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001887.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001887.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,3493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: March 2004 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2004_02.html" title="February 2004" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2004_04.html" title="April 2004" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000897"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/897"
+    dc:title="Blogzine の admin:generatorAgent"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000897"
+    dc:subject="blog"
+    dc:description="Blogzine の RSS の admin:generatorAgent は typepad じゃなくて http://blog.ocn.ne.jp/?v=1.1.1j なんすね。 いや、別にどうでもいいんですが。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T21:10:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 30, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000897"></a>
+<h3 class="title">Blogzine の admin:generatorAgent</h3>
+
+<p><a href="http://www.blogzine.jp/">Blogzine</a> の RSS の admin:generatorAgent は typepad じゃなくて http://blog.ocn.ne.jp/?v=1.1.1j なんすね。</p>
+
+<p>いや、別にどうでもいいんですが。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000897.html">09:10 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000897.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000897.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000896"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/896"
+    dc:title="マルチバイト文字と半角英数字の間のスペースをとる"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000896"
+    dc:subject="perl"
+    dc:description="以下のスクリプトは、全角文字と半角英数文字の間にあるスペースを除去します。たぶん。技術系の人は英数字と全角文字の間にスペースをいれる傾向にありますが、DTPにいれるときはないほうがよいのですね。編集者必携？ use strict; my $ascii = &amp;quot;[\x00-\x09\x0b-\x0c\x0e-\x19\x21-\x7f]&amp;quot;; my $non_ascii = &amp;quot;[^\x00-\x7f]&amp;quot;; while (&amp;lt;&amp;gt;) { s{((?&amp;lt;=$non_ascii) +($ascii)|($ascii) +(?=$non_ascii))} {$2||$3}eg; print; }..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T19:18:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000896"></a>
+<h3 class="title">マルチバイト文字と半角英数字の間のスペースをとる</h3>
+
+以下のスクリプトは、全角文字と半角英数文字の間にあるスペースを除去します。たぶん。技術系の人は英数字と全角文字の間にスペースをいれる傾向にありますが、DTPにいれるときはないほうがよいのですね。編集者必携？
+
+<pre>
+use strict;
+my $ascii     = &quot;[\x00-\x09\x0b-\x0c\x0e-\x19\x21-\x7f]&quot;;
+my $non_ascii = &quot;[^\x00-\x7f]&quot;;
+
+while (&lt;&gt;) {
+    s{((?&lt;=$non_ascii) +($ascii)|($ascii) +(?=$non_ascii))}
+      {$2||$3}eg;
+    print;
+}
+</pre>
+
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000896.html">07:18 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000896.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000896.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000895"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/895"
+    dc:title="AOL ダイアリーのRSSに不満"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000895"
+    dc:subject="blog"
+    dc:description="AOL ダイアリー の出力する RSS ですが、記事が何もないときに、「記事がありません」という title の item がはいっちゃうんですね。permalink は Blog のトップURLで。これヤな仕様だな。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T18:07:17+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000895"></a>
+<h3 class="title">AOL ダイアリーのRSSに不満</h3>
+
+<p><a href="http://diary.jp.aol.com/">AOL ダイアリー</A> の出力する RSS ですが、記事が何もないときに、「記事がありません」という title の item がはいっちゃうんですね。permalink は Blog のトップURLで。これヤな仕様だな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000895.html">06:07 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000895.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000895.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000894"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/894"
+    dc:title="Lighweight Language Magazine 発売"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000894"
+    dc:subject="perl"
+    dc:description="Lightweight Language Magazine 嵐を呼ぶイベントLightweight Language Saturday!あの興奮が今誌面によみがえります。Perl、Ruby、Python、その他のLightweight Languageの魅力のすべてを満載! Lightweight Language Magazine が発売になったようで、見本誌をいただきました。僕の記事の後ろに鬼車のコラムがあるのはなぜ。。。 早川君の記事が面白いです、が、LL Saturday と Shibuya.pm Tech Talks 両方きてないと面白さが伝わらないかも ......"
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T18:05:39+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000894"></a>
+<h3 class="title">Lighweight Language Magazine 発売</h3>
+
+<p><a title="Lightweight Language Magazine" href="http://www.ascii.co.jp/books/detail/4-7561/4-7561-4441-1.html">Lightweight Language Magazine</a><br />
+<blockquote>嵐を呼ぶイベントLightweight Language Saturday!あの興奮が今誌面によみがえります。Perl、Ruby、Python、その他のLightweight Languageの魅力のすべてを満載!</blockquote></p>
+
+<p>Lightweight Language Magazine が発売になったようで、見本誌をいただきました。僕の記事の後ろに鬼車のコラムがあるのはなぜ。。。</p>
+
+<p>早川君の記事が面白いです、が、LL Saturday と Shibuya.pm Tech Talks 両方きてないと面白さが伝わらないかも ...</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000894.html">06:05 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000894.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000894.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000893"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/893"
+    dc:title="Bulkfeeds: Blogzine と AOL ダイアリー対応"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000893"
+    dc:subject="bulkfeeds"
+    dc:description="Blogzine と AOL ダイアリーからのアグリゲートを開始しました。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T16:40:42+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000893"></a>
+<h3 class="title">Bulkfeeds: Blogzine と AOL ダイアリー対応</h3>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> で、 <a title="Blogzine ブログ人" href="http://blog.ocn.ne.jp/">Blogzine</a> と <a href="http://diary.jp.aol.com/">AOL ダイアリー</a> からのアグリゲートを開始しました。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000893.html">04:40 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000893.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000893.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000892"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/892"
+    dc:title="人力検索はてなのRSS"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000892"
+    dc:subject="blog"
+    dc:description="はてなダイアリー - はてなダイアリー日記 本日、人力検索サイトはてな http://www.hatena.ne.jp/ にてRSSファイルの提供を開始しました。 http://www.hatena.ne.jp/rss RSSファイルは、質問一覧画面と同様、カテゴリーの指定、キーワードの検索に対応しており、 http://www.hatena.ne.jp/rss?c=E（アンケートカテゴリーのみ出力） http://www.hatena.ne.jp/rss?wd=hatena（キーワード「hatena」の検索結果を出力） といった指定が可能です。 人力検索のはてながRSS提供はじめました。キーワード検索結果の出力もRSSでとれるのはいいっすねえ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T15:28:24+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000892"></a>
+<h3 class="title">人力検索はてなのRSS</h3>
+
+<p><a title="はてなダイアリー - はてなダイアリー日記" href="http://d.hatena.ne.jp/hatenadiary/20040330#1080620054">はてなダイアリー - はてなダイアリー日記</a><br />
+<blockquote>本日、人力検索サイトはてな http://www.hatena.ne.jp/ にてRSSファイルの提供を開始しました。<br />
+http://www.hatena.ne.jp/rss<br />
+RSSファイルは、質問一覧画面と同様、カテゴリーの指定、キーワードの検索に対応しており、<br />
+http://www.hatena.ne.jp/rss?c=E（アンケートカテゴリーのみ出力） <br />
+http://www.hatena.ne.jp/rss?wd=hatena（キーワード「hatena」の検索結果を出力） <br />
+といった指定が可能です。</blockquote></p>
+
+<p>人力検索のはてながRSS提供はじめました。キーワード検索結果の出力もRSSでとれるのはいいっすねえ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000892.html">03:28 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000892.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000892.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000891"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/891"
+    dc:title="Audioscrobbler"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000891"
+    dc:subject="music"
+    dc:description="Going My Way: 聴いている曲のリストをRSSにしてくれるAudioscrobbler AudioscrobblerはMP3プレーヤーで演奏した曲のリストをプラグインにより自動で送信したものを集めて表示してくれます。自分が再生した曲や同じような曲を聴いている人がSimilarity Searchのように表示ができて便利です。 面白い。これやろうとしてたんだよなー。 履歴データがRDFで公開されてますね。musicbrainz のRDFを使用しているみたい。アツイな。そしてデータベース自体も Creative Commons で公開か。すばらしいです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-30T00:37:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000891"></a>
+<h3 class="title">Audioscrobbler</h3>
+
+<p><a title="Going My Way: 聴いている曲のリストをRSSにしてくれるAudioscrobbler" href="http://kengo.preston-net.com/archives/001247.shtml">Going My Way: 聴いている曲のリストをRSSにしてくれるAudioscrobbler</a><br />
+<blockquote>AudioscrobblerはMP3プレーヤーで演奏した曲のリストをプラグインにより自動で送信したものを集めて表示してくれます。自分が再生した曲や同じような曲を聴いている人がSimilarity Searchのように表示ができて便利です。</blockquote></p>
+
+<p>面白い。これやろうとしてたんだよなー。</p>
+
+<p>履歴データがRDFで公開されてますね。musicbrainz のRDFを使用しているみたい。アツイな。そしてデータベース自体も Creative Commons で公開か。すばらしいです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000891.html">12:37 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000891.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000891.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000890"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/890"
+    dc:title="Atom と RSS1.0 を互換に？"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000890"
+    dc:subject="blog"
+    dc:description="ちょっとしたメモ - AtomをRSS 1.0に融合させる提案 Randy Morinが、Atom WikiのRSSVoteというページをつくり、そこでAtomの構文をRSS 1.0互換にしようと提案している。彼によると、《MLのアクティブメンバーの半分以上は同じ意見を持つと思われるが、それが明確に示されていないので、意見表明の場をつくろう》ということだそうだ。 こないだ Dave Winer が RSS 2.0 と Atom の統合を言い出したとおもったら、今度は RSS 1.0 と互換性。Atom..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-29T13:00:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 29, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000890"></a>
+<h3 class="title">Atom と RSS1.0 を互換に？</h3>
+
+<p><a title="ちょっとしたメモ - AtomをRSS 1.0に融合させる提案" href="http://www.kanzaki.com/memo/2004/03/29-1">ちょっとしたメモ - AtomをRSS 1.0に融合させる提案</a><br />
+<blockquote>Randy Morinが、Atom WikiのRSSVoteというページをつくり、そこでAtomの構文をRSS 1.0互換にしようと提案している。彼によると、《MLのアクティブメンバーの半分以上は同じ意見を持つと思われるが、それが明確に示されていないので、意見表明の場をつくろう》ということだそうだ。</blockquote></p>
+
+<p>こないだ Dave Winer が RSS 2.0 と  Atom の統合を言い出したとおもったら、今度は RSS 1.0 と互換性。Atom の Syntax を捨てるってのはきついなあ。</p>
+
+<p>Atom → RSS 1.0 のXSLT つくればいい話ではないのかしら。RDF 自体がデータフォーマットとして書きやすいという気はしないので。</p>
+
+<p>- rssAtom <br />
+- RSS 2.1<br />
+- RSS 1.1<br />
+- Atom 0.4</p>
+
+<p>とかいろんなバージョンがさらに乱立するだけ、なショボーン状態にならないことを願います。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000890.html">01:00 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000890.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000890.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000889"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/889"
+    dc:title="Blog と日記の違い？"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000889"
+    dc:subject="blog"
+    dc:description="切込隊長BLOG　〜俺様キングダム: BLOGと日記はどう違うのか？とかBLOGはビジネスになるのか？という議論 　ということで、対個人という観点でいけば、BLOGはXMLに起こしなおされた日記サイトとして使われやすいというだけで、まだBLOGはその潜在的な使用法を開拓、提示されるに至っていない、という結論を提示だけしておこう。良く知らないけど。 語りつくされた感のある Blog と日記の違いどうのこうのですが、切込隊長が秀逸な分析を。すばらしい。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-29T00:36:11+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000889"></a>
+<h3 class="title">Blog と日記の違い？</h3>
+
+<p><a title="切込隊長BLOG　〜俺様キングダム: BLOGと日記はどう違うのか？とかBLOGはビジネスになるのか？という議論" href="http://kiri.jblog.org/archives/000578.html">切込隊長BLOG　〜俺様キングダム: BLOGと日記はどう違うのか？とかBLOGはビジネスになるのか？という議論</a><br />
+<blockquote>　ということで、対個人という観点でいけば、BLOGはXMLに起こしなおされた日記サイトとして使われやすいというだけで、まだBLOGはその潜在的な使用法を開拓、提示されるに至っていない、という結論を提示だけしておこう。良く知らないけど。</blockquote></p>
+
+<p>語りつくされた感のある Blog と日記の違いどうのこうのですが、切込隊長が秀逸な分析を。すばらしい。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000889.html">12:36 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000889.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000889.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+
+
+
+<h2 class="date">March 28, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000888"></a>
+<h3 class="title">Bulkfeeds API Key 取得を開始</h3>
+
+<p><a title="Bulkfeeds: Developer's API - RSS Directory & Search" href="http://bulkfeeds.net/app/developer.html">Bulkfeeds: Developer's API - RSS Directory & Search</a><br />
+<blockquote>Parameter に apikey が指定されている API については、デベロッパー登録を行って API Key を取得し、その Key をパラメータに指定してください。→ Bulkfeeds API Key を取得 </blockquote></p>
+
+<p>Bulkfeeds の特定の API （現時点では similar.rdf, terms.xml, discover.xml） について、デベロッパー登録をおこなって API Key を取得する必要がある旨、記述を変更しました。</p>
+
+<p>現時点で API Key なしのアクセスについて制限はかけておりませんが、1ヶ月以内には制限を開始する予定（また直前に連絡します）ですので、早めに API Key の取得とスクリプトやアプリケーションへの組み込みをお願いします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000888.html">07:44 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000888.html#comments">Comments (4)</a>
+	
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000887"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/887"
+    dc:title="LL Weekend"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000887"
+    dc:subject="perl"
+    dc:description="Lightweight Language Weekend 2004 あの「Lightweight Language Saturday」が、 「Lightweight Language Weekend」(通称:LL Weekend)と名前を変えて、今年もやってきます。 LL Weekendは、軽量プログラミング言語の世界を広く体験できるカンファレンスです。 是非、ご参加ください。 お、今年もやりますねー。しかも2日間ですな。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-28T02:42:39+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000887"></a>
+<h3 class="title">LL Weekend</h3>
+
+<p><a title="Lightweight Language Weekend 2004" href="http://ll.jus.or.jp/">Lightweight Language Weekend 2004</a><br />
+<blockquote>あの「Lightweight Language Saturday」が、 「Lightweight Language Weekend」(通称:LL Weekend)と名前を変えて、今年もやってきます。<br />
+LL Weekendは、軽量プログラミング言語の世界を広く体験できるカンファレンスです。 是非、ご参加ください。 </blockquote></p>
+
+<p>お、今年もやりますねー。しかも2日間ですな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000887.html">02:42 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000887.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000887.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000886"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/886"
+    dc:title="AWS で障害発生中かも"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000886"
+    dc:subject="bulkfeeds"
+    dc:description="Amazon Web Services の動作が不安定なため、検索が若干重くなることがあるようです。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-27T17:23:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 27, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000886"></a>
+<h3 class="title">AWS で障害発生中かも</h3>
+
+<p>2004/03/27 17:00 現在、AWS のサーバ xml.amazon.co.jp が断続的にHTTP接続できない状態となっており、Bulkfeeds 検索など関連するサービスに一部不具合が起こっていることを確認しています。</p>
+
+<p>また、現象がわかり次第このエントリに追記する予定です。<br />
+# っていまから外出しますけど。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000886.html">05:23 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000886.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000886.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000885"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/885"
+    dc:title="livedoor Blog バージョンアップ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000885"
+    dc:subject="blog"
+    dc:description="livedoor Blog 開発日誌:&quot;毎月26日はBlog（26ぶろぐ）の日&quot;がスタートしました すでにトップページで案内していますのでご存知の方も多いと思いますが、本日、&quot;毎月26日はBlog（26ぶろぐ）の日&quot;というページを開始しました。 livedoor blog がバージョンアップしました。機能的には、 - グループBlog 機能の追加（ゲストBlogger） - サブドメイン制導入 ってとこがアツめですね。どっちも PRO の機能です。 サブドメインはPROの機能、グループは PRO じゃなくてもOKです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-26T21:15:26+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 26, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000885"></a>
+<h3 class="title">livedoor Blog バージョンアップ</h3>
+
+<p><a title="livedoor Blog 開発日誌:"毎月26日はBlog（26ぶろぐ）の日"がスタートしました" href="http://blog.livedoor.jp/staff/archives/287934.html">livedoor Blog 開発日誌:"毎月26日はBlog（26ぶろぐ）の日"がスタートしました</a><br />
+<blockquote>すでにトップページで案内していますのでご存知の方も多いと思いますが、本日、"毎月26日はBlog（26ぶろぐ）の日"というページを開始しました。</blockquote></p>
+
+<p>livedoor blog がバージョンアップしました。機能的には、</p>
+
+<p>- グループBlog 機能の追加（ゲストBlogger）<br />
+- サブドメイン制導入</p>
+
+<p>ってとこがアツめですね。<s>どっちも PRO の機能です。</s> サブドメインはPROの機能、グループは PRO じゃなくてもOKです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000885.html">09:15 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000885.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000885.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000883"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/883"
+    dc:title="Bloggers meeting in Kyoto 2004"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000883"
+    dc:subject="blog"
+    dc:description="@ parallel minds: Bloggers meeting in kyoto 2004　発表内容 Bloggers meeting in kyoto 2004 「blogの楽しみ方」 日時：4月10日（土）13時〜（予） 会場：デジハリ京都校セミナールーム 4/10 京都で Bulkfeeds などの話をしてきます。関西方面の方、この機会にぜひお会いしましょう。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-26T17:38:54+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000883"></a>
+<h3 class="title">Bloggers meeting in Kyoto 2004</h3>
+
+<p><a title="@ parallel minds: Bloggers meeting in kyoto 2004　発表内容" href="http://gnk.s15.xrea.com/archives/000444.html">@ parallel minds: Bloggers meeting in kyoto 2004　発表内容</a><br />
+<blockquote>Bloggers meeting in kyoto 2004<br />
+「blogの楽しみ方」<br />
+日時：4月10日（土）13時〜（予）<br />
+会場：デジハリ京都校セミナールーム</blockquote></p>
+
+<p>4/10 京都で <a href="http://bulkfeeds.net/">Bulkfeeds</a> などの話をしてきます。関西方面の方、この機会にぜひお会いしましょう。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000883.html">05:38 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000883.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000883.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000882"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/882"
+    dc:title="Bulkfeeds: はてな Ping 暫定対応"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000882"
+    dc:subject="bulkfeeds"
+    dc:description="Bulkfeeds Ping Server の暫定対応について"
+    dc:creator="miyagawa"
+    dc:date="2004-03-26T04:34:54+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000882"></a>
+<h3 class="title">Bulkfeeds: はてな Ping 暫定対応</h3>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> の weblogUpdates ping API において、d.hatena.ne.jp からの Ping は特に処理せずそのまま return するように暫定的に対応しました。</p>
+
+<p>これははてなダイアリーの ping をデフォルトOnなのはやめて、とかっていうのとはまったく別の問題で、単純に Bulkfeeds 側のアグリゲートの都合です。以下詳細。</p>
+
+<p><a href="http://bulkfeeds.net/app/faq.html">Bulkfeeds: FAQ</a> にあるように、はてなダイアリーやココログ、livedoor Blog といったホスティングサービスの更新情報は、各サービスの更新情報 (RSS や Changes.xml: はてなダイアリーの場合は、はてなアンテナ hatenadiary の LIRS）から取得しています。このため、Bulkfeeds で Ping をリアルタイム処理すると、はてな側からまとめて取得したデータとまじり、多重に更新処理をしてしまい、ムダな負荷がかかります。（ただ Ping を無視しても ping.bloggers.jp などには ping は飛んでいるわけで、このデータも Bulkfeeds は利用していますからまだ本質的解決にはなっていないのですが）</p>
+
+<p>Bulkfeeds Ping Server は Similarity Search を使用している Blog サイトや、Blog ホスティングを利用せず Movable Type や blosxom、tDiary などで運用している Blogger が確実に更新情報を Bulkfeeds に伝えるために設置しています。ホスティングサービスからの一括 ping はご遠慮ください（もちろん、はてな近藤さんにはこちら連絡済です）。</p>
+
+<p><strong>UPDATE:</strong> コメントにもありますが早々に対応していただきました。迅速なアクションに感謝します。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000882.html">04:34 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000882.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000882.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000881"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/881"
+    dc:title="はてな ping"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000881"
+    dc:subject="blog"
+    dc:description="はてなダイアリー - はてなダイアリー日記 はてなダイアリーの日記編集時に、外部pingサーバーへ自動的にpingを送信するよう変更を行いました。 現在、 http://ping.cocolog-nifty.com/xmlrpc http://ping.myblog.jp http://www.blogpeople.net/servlet/weblogUpdates http://ping.bloggers.jp/rpc/ http://bulkfeeds.net/rpc http://blog.goo.ne.jp/XMLRPC にpingを送信しています。 プライベートモードの日記や「ちょっとした更新」の際には、pingは送信されません。 また、設定画面の「日記更新時にpingを送信する」チェックをオフにすると、pingを送信しないように設定できます。 デフォルトOffで、送信先も自由選択だといいなあ。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-25T19:16:11+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 25, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000881"></a>
+<h3 class="title">はてな ping</h3>
+
+<p><a title="はてなダイアリー - はてなダイアリー日記" href="http://d.hatena.ne.jp/hatenadiary/20040325">はてなダイアリー - はてなダイアリー日記</a><br />
+<blockquote>はてなダイアリーの日記編集時に、外部pingサーバーへ自動的にpingを送信するよう変更を行いました。<br />
+現在、<br />
+http://ping.cocolog-nifty.com/xmlrpc <br />
+http://ping.myblog.jp <br />
+http://www.blogpeople.net/servlet/weblogUpdates <br />
+http://ping.bloggers.jp/rpc/ <br />
+http://bulkfeeds.net/rpc <br />
+http://blog.goo.ne.jp/XMLRPC <br />
+にpingを送信しています。<br />
+プライベートモードの日記や「ちょっとした更新」の際には、pingは送信されません。<br />
+また、設定画面の「日記更新時にpingを送信する」チェックをオフにすると、pingを送信しないように設定できます。</blockquote></p>
+
+<p>デフォルトOffで、送信先も自由選択だといいなあ。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000881.html">07:16 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000881.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000881.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000880"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/880"
+    dc:title="オートニュー速"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000880"
+    dc:subject="blog"
+    dc:description="またくだらないHack。 オートニュー速 asahi.com の RSS から link を HTML 取得して本文らしきところを抜きだし、それを Bulkfeeds Similarity API に渡して形態素解析して、スコア上位2語を元のタイトル前後につけてます。すると、なんか2ちゃんねるニュー速スレ風タイトルが自動生成されます。 Bulkfeeds の Similarity REST API を使用して、asahi.com..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-25T18:08:08+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000880"></a>
+<h3 class="title">オートニュー速</h3>
+
+<p>またくだらないHack。</p>
+
+<p><a title="オートニュー速" href="http://blog.bulknews.net/autonewsoku.cgi">オートニュー速</a><br />
+<blockquote>asahi.com の RSS から link を HTML 取得して本文らしきところを抜きだし、それを Bulkfeeds Similarity API に渡して形態素解析して、スコア上位2語を元のタイトル前後につけてます。すると、なんか2ちゃんねるニュー速スレ風タイトルが自動生成されます。</blockquote></p>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> の <a href="http://blog.bulknews.net/mt/archives/000849.html">Similarity REST API</a> を使用して、asahi.com の RSS から HTML 取得、タイトルを 2ch ニュー速風にしています。</p>
+
+<blockquote>【記念館】 「裕次郎記念館」で４千数百万円横領　元事務員に容疑 【横領】
+【日米】 小泉内閣メルマガ英語版創刊　ベーカー大使が寄稿 【寄稿】</blockquote>
+
+<p>このあたり秀逸です。。<a href="http://blog.bulknews.net/mt/archives/000871.html">見出しに著作権ない</a> からね！（ネタですよ</p>
+
+<p>asahi.com だけじゃなくて、任意のRSSに対応した<a href="http://blog.bulknews.net/autonewsoku-anyrss.cgi">オートニュー速 for RSS</a> もつくってみましたよ。自分の Blog の RSS でやってみると楽しいかも。ちなみにこのBlog のは<a href="http://blog.bulknews.net/autonewsoku-anyrss.cgi?rss_url=http%3A%2F%2Fblog.bulknews.net%2Fmt%2Findex.rdf">こうなりました</a>。</p>
+
+<p>この Hack の詳細は、4月末出版予定の Blog Hacks に似たようなネタが載りますのでお楽しみに、と。</p>
+
+<p>ついでに、業務連絡。Bulkfeeds API は一部、Register して API キーを取得しないとキックできないように変更する予定です。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000880.html">06:08 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000880.html#comments">Comments (5)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000880.html#trackbacks">TrackBack (27)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000879"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/879"
+    dc:title="log2mt"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000879"
+    dc:subject="blog"
+    dc:description="log2mt - Web日記をMovableTypeへインポートできるログ形式に変換する試み Web日記をMovableTypeへインポートできる形式に変換する試み いろんなWeb日記をMTのデータフォーマットに書き出すサービス。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-25T13:38:12+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000879"></a>
+<h3 class="title">log2mt</h3>
+
+<p><a title="log2mt - Web日記をMovableTypeへインポートできるログ形式に変換する試み" href="http://www.log2mt.com/">log2mt - Web日記をMovableTypeへインポートできるログ形式に変換する試み</a><br />
+<blockquote>Web日記をMovableTypeへインポートできる形式に変換する試み</blockquote></p>
+
+<p>いろんなWeb日記をMTのデータフォーマットに書き出すサービス。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000879.html">01:38 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000879.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000879.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000878"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/878"
+    dc:title="bookmaker"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000878"
+    dc:subject="perl"
+    dc:description="Themes, Dreams and Crazy Schemes Bookmaker I write a lot of books. I&apos;ve written most of three books on Perl,..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-25T03:05:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000878"></a>
+<h3 class="title">bookmaker</h3>
+
+<p><a title="Themes, Dreams and Crazy Schemes" href="http://blog.simon-cozens.org/bryar.cgi/id_6691">Themes, Dreams and Crazy Schemes</a><br />
+<blockquote>Bookmaker </p>
+
+<p>I write a lot of books. I've written most of three books on Perl, three tutorial handouts which are as big and well-structured as books, I'm working on a Maypole manual which is going to be as big as a book, and I'm currently gathering information for an altogether different book. I'm also writing a tutorial handout on Ruby for JOIN2004. </blockquote></p>
+
+<p>Simon Cozens さんの書籍執筆ツール。DocBook のラッパーで、xsltproc から FOP までやるような感じ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000878.html">03:05 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000878.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000878.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000872"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/872"
+    dc:title="Shibuya.pm Website currently down"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000872"
+    dc:subject="perl"
+    dc:description="Shibuya.pm の web サイトが現在アクセスできなくなっています。これはホスティングしているマシンのIP変更に伴う障害で、現在DNSのAレコード変更を申請していますのでしばらくお待ちください。 どうしても見たいという方は、PCの設定で shibuya.pm.org 203.131.193.167 と設定してもらえればみれるとおもいます。 UPDATE: 3/24 20:30 変更が完了しました。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-24T18:58:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 24, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000872"></a>
+<h3 class="title">Shibuya.pm Website currently down</h3>
+
+<p><a href="http://shibuya.pm.org/">Shibuya.pm</a> の web サイトが現在アクセスできなくなっています。これはホスティングしているマシンのIP変更に伴う障害で、現在DNSのAレコード変更を申請していますのでしばらくお待ちください。</p>
+
+<p>どうしても見たいという方は、PCの設定で<br />
+shibuya.pm.org  203.131.193.167<br />
+と設定してもらえればみれるとおもいます。</p>
+
+<p><strong>UPDATE: </strong> 3/24 20:30 変更が完了しました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000872.html">06:58 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000872.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000872.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000871"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/871"
+    dc:title="見出しに著作権なし"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000871"
+    dc:subject="blog"
+    dc:description="Yahoo!ニュース - 社会 - 時事通信 見出しに著作権認めず＝ネット引用めぐり読売敗訴~東京地裁 　インターネットのホームページ（ＨＰ）に掲載した記事の見出しを無断で使用され、著作権を侵害されたとして、読売新聞東京本社が「デジタルアライアンス」（神戸市）を相手に使用差し止めと約６８００万円の損害賠償を求めた訴訟の判決が２４日、東京地裁であった。飯村敏明裁判長は「見出しは著作物ではなく、保護の対象にならない」との初判断を示し、請求を棄却した。 でたー。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-24T18:42:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000871"></a>
+<h3 class="title">見出しに著作権なし</h3>
+
+<p><a title="Yahoo!ニュース - 社会 - 時事通信" href="http://headlines.yahoo.co.jp/hl?a=20040324-00000124-jij-soci">Yahoo!ニュース - 社会 - 時事通信</a><br />
+<blockquote>見出しに著作権認めず＝ネット引用めぐり読売敗訴~東京地裁</p>
+
+<p>　インターネットのホームページ（ＨＰ）に掲載した記事の見出しを無断で使用され、著作権を侵害されたとして、読売新聞東京本社が「デジタルアライアンス」（神戸市）を相手に使用差し止めと約６８００万円の損害賠償を求めた訴訟の判決が２４日、東京地裁であった。飯村敏明裁判長は「見出しは著作物ではなく、保護の対象にならない」との初判断を示し、請求を棄却した。</blockquote></p>
+
+<p>でたー。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000871.html">06:42 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000871.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000871.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000869"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/869"
+    dc:title="Dave Winer to TypeKey"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000869"
+    dc:subject="blog"
+    dc:description="なんかTypeKey ネタばっかりですが。 Dave Winer&apos;s Test Site: Six Apart publishes a long FAQ about TypeKey. First, I&apos;d like to thank them..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-23T22:57:59+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 23, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000869"></a>
+<h3 class="title">Dave Winer to TypeKey</h3>
+
+<p>なんかTypeKey ネタばっかりですが。</p>
+
+<p><a title="Dave Winer's Test Site:" href="http://blogs.law.harvard.edu/crimson1/2004/03/23#a1396">Dave Winer's Test Site:</a><br />
+<blockquote>Six Apart publishes a long FAQ about TypeKey. <br />
+First, I'd like to thank them for responding. More than a few of the questions I asked a few days ago are answered in this FAQ.</blockquote></p>
+
+<p>Dave Winer の TypeKey への反応。おおむね良好な反応？</p>
+
+<p>- Optional なのはよいこと<br />
+- 他の Authentication を hook できるのはすばらしい<br />
+- centralized な仕組みより、個別の方がよい</p>
+
+<p>ってな感じかな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000869.html">10:57 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000869.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000869.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000868"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/868"
+    dc:title="WebryBlog の Trackback"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000868"
+    dc:subject="blog"
+    dc:description="BIGLOBE の WebryBlog のTrackbackはすべて Trackback Auto-Discovery を使用して自動でおこなわれるようです。アレゲ！ リンクなしでのTrackback や、逆にリンクしてるけどTrackback なし、ってのはできないみたいですね。いさぎよい。 (3/23) 外部へのトラックバックについて/WebryBlog WebryBlogから他のblogサイトへのトラックバックは 本文中にトラックバックURLでなく、記事のURLを指定してください。 TrackBack Auto-Discoveryという記事の中に設定されている トラックバックURLを自動取得する方式でトラックバックを行います。 やり方は本文中にトラックバック先の記事のURLを入れ て投稿します。 ちなみに..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-23T20:43:42+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000868"></a>
+<h3 class="title">WebryBlog の Trackback</h3>
+
+<p>BIGLOBE の WebryBlog のTrackbackはすべて Trackback Auto-Discovery を使用して自動でおこなわれるようです。アレゲ！</p>
+
+<p>リンクなしでのTrackback や、逆にリンクしてるけどTrackback なし、ってのはできないみたいですね。いさぎよい。</p>
+
+<p><a title="(3/23) 外部へのトラックバックについて/WebryBlog" href="http://info.at.webry.info/200403/article_3.html">(3/23) 外部へのトラックバックについて/WebryBlog</a><br />
+<blockquote>WebryBlogから他のblogサイトへのトラックバックは<br />
+本文中にトラックバックURLでなく、記事のURLを指定してください。<br />
+TrackBack Auto-Discoveryという記事の中に設定されている<br />
+トラックバックURLを自動取得する方式でトラックバックを行います。</p>
+
+<p>やり方は本文中にトラックバック先の記事のURLを入れ<br />
+て投稿します。</blockquote></p>
+
+<p>ちなみに WebryBlog の Trackback URL は ?newsid= の形で ＩＤ がクエリパラメータなので、Trackback クライアントの実装次第ではうまく POST でおくれないケースもありそうですね。MT では URL にクエリパラメータがある場合には GET で送るようになっていたとおもいます（これは仕様書にはない、よくない実装）。</p>
+
+<p>あと、__mode=rss には対応してないようです。</p>
+
+<p><strong>UPDATE:</strong> Trackback をうたないというオプションもあるようです。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000868.html">08:43 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000868.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000868.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000867"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/867"
+    dc:title="TypeKey FAQ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000867"
+    dc:subject="blog"
+    dc:description="TypeKey TypeKey and Movable Type Comment Registration FAQ TypeKey の FAQ が出てます。非常にわかりやすい。 Will it be possible to use an alternate..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-23T16:03:32+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000867"></a>
+<h3 class="title">TypeKey FAQ</h3>
+
+<p><a title="TypeKey" href="http://www.typekey.com/faq/">TypeKey</a><br />
+<blockquote>TypeKey and Movable Type Comment Registration FAQ</blockquote></p>
+
+<p>TypeKey の FAQ が出てます。非常にわかりやすい。</p>
+
+<blockquote><strong>Will it be possible to use an alternate sign-on system for Movable Type?</strong>
+Yes. The sign-on aspect of TypeKey means that individual MT installations will be able to build their own authentication systems and hook those into MT. Documentation for doing so will be available shortly after the Movable Type 3.0 release.
+</blockquote>
+
+<p>これ興味深いなー。コメント認証のしくみを独自につくってhookすることもできるそうです。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000867.html">04:03 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000867.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000867.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000866"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/866"
+    dc:title="TypeKey - you blow me"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000866"
+    dc:subject="blog"
+    dc:description="TypeKey? You Blow Me [dive into mark] TYPEKEY, TYPEKey, TypeKey, typekey, ... The latest round of echoing in our humble..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T23:30:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 22, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000866"></a>
+<h3 class="title">TypeKey - you blow me</h3>
+
+<p><a title="TypeKey? You Blow Me [dive into mark]" href="http://diveintomark.org/archives/2004/03/22/you-blow-me">TypeKey? You Blow Me [dive into mark]</a><br />
+<blockquote>TYPEKEY, TYPEKey, TypeKey, typekey, ... The latest round of echoing in our humble chamber is all about TypeKey. If you read any weblogs over the weekend, first of all, you are a sad, pathetic excuse for a human being. Don窶冲 you have a family or something? This isn窶冲 Evercrack. Take a break. And second of all, you would have learned that TypeKey is a vaporware comment authentication service from SixApart. It will come standard with Movable Type 3.0, which should be shipping around the time pigs fall out of my ass and take flight.</blockquote></p>
+
+<p>diveintomark による TypeKey 批判、かな。</p>
+
+<p>詳しいニュアンスは読まないと伝わらないとおもいますが、centralized された試みは blog ではうまくいかない、と。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000866.html">11:30 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000866.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000866.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000865"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/865"
+    dc:title="Technorati Renewal"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000865"
+    dc:subject="blog"
+    dc:description="Sifry&apos;s Alerts: New Technorati beta launches I&apos;m proud to announce the new Technorati redesign has launched, available at www.technorati.com. Some..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T17:36:42+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000865"></a>
+<h3 class="title">Technorati Renewal</h3>
+
+<p><a title="Sifry's Alerts: New Technorati beta launches" href="http://www.sifry.com/alerts/archives/000341.html">Sifry's Alerts: New Technorati beta launches</a><br />
+<blockquote>I'm proud to announce the new Technorati redesign has launched, available at www.technorati.com. Some highlights of the new design:</blockquote></p>
+
+<p><a href="http://www.technorati.com/">Technorati</a> がリニューアル。デザインリニューアル以外にも、DVDのリスティングとかいろいろ機能追加されている模様。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000865.html">05:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000865.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000865.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000864"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/864"
+    dc:title="ウェブリブログ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000864"
+    dc:subject="blog"
+    dc:description="新たなblog(ブログ)との出会い！WebryBlog登録無料 Biglobe のウェブリブログってーのがOPENしてました。RSS がないですね。Trackback Auto-Discovery はあるみたいです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T16:08:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000864"></a>
+<h3 class="title">ウェブリブログ</h3>
+
+<p><a title="新たなblog(ブログ)との出会い！WebryBlog登録無料" href="http://webryblog.biglobe.ne.jp/">新たなblog(ブログ)との出会い！WebryBlog登録無料</a></p>
+
+<p>Biglobe のウェブリブログってーのがOPENしてました。RSS がないですね。Trackback Auto-Discovery はあるみたいです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000864.html">04:08 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000864.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000864.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000863"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/863"
+    dc:title="SUGARCULT - Palm Trees and Power Lines"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000863"
+    dc:subject="music"
+    dc:description="SUGARCULT - Palm Trees and Power Lines [FROM US] [IMPORT] 1st の START STATIC がすばらしかった SUGARCULT の 2nd ですかね。さっきスペースシャワーで流れてた MEMORY..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T14:36:06+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000863"></a>
+<h3 class="title">SUGARCULT - Palm Trees and Power Lines</h3>
+
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0001F7UH0/bulknews-22">SUGARCULT - Palm Trees and Power Lines [FROM US] [IMPORT]</a></p>
+
+<p>1st の START STATIC がすばらしかった SUGARCULT の 2nd ですかね。さっきスペースシャワーで流れてた MEMORY という曲がかなりよさげ。今週発売。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000863.html">02:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000863.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000863.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000862"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/862"
+    dc:title="さまぁ〜ずの逆にアレだろ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000862"
+    dc:subject=""
+    dc:description="という大好きなラジオ番組があるのですが（木曜 25:00-27:00 TBS ラジオ）、来週で最終回。残念っす。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T05:52:47+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000862"></a>
+<h3 class="title">さまぁ〜ずの逆にアレだろ</h3>
+
+<p>という大好きなラジオ番組があるのですが（木曜 25:00-27:00 TBS ラジオ）、来週で最終回。残念っす。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000862.html">05:52 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000862.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000862.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000861"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/861"
+    dc:title="Template-Plugin-XSLT"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000861"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Simon Cozens / Template-Plugin-XSLT-1.0 Template::Plugin::XSLT Transform XML fragments into something else TT のプラグインでXSLT。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-22T05:02:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000861"></a>
+<h3 class="title">Template-Plugin-XSLT</h3>
+
+<p><a title="search.cpan.org: Simon Cozens / Template-Plugin-XSLT-1.0" href="http://search.cpan.org/~simon/Template-Plugin-XSLT-1.0/">search.cpan.org: Simon Cozens / Template-Plugin-XSLT-1.0</a><br />
+<blockquote>Template::Plugin::XSLT Transform XML fragments into something else  </blockquote></p>
+
+<p>TT のプラグインでXSLT。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000861.html">05:02 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000861.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000861.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000860"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/860"
+    dc:title="いかりや長介さん死去"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000860"
+    dc:subject=""
+    dc:description="最近は大捜査線の和久さんのイメージが強いですが。R.I.P. Bulkfeeds: いかりや長介 １日で1000件近いエントリですね。すごいことになってるなぁ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-21T16:37:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 21, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000860"></a>
+<h3 class="title">いかりや長介さん死去</h3>
+
+<p>最近は大捜査線の和久さんのイメージが強いですが。R.I.P.</p>
+
+<p><a href="http://bulkfeeds.net/app/search2?q=%E3%81%84%E3%81%8B%E3%82%8A%E3%82%84%E9%95%B7%E4%BB%8B&sort=date">Bulkfeeds: いかりや長介</a> １日で1000件近いエントリですね。すごいことになってるなぁ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000860.html">04:37 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000860.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000860.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000859"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/859"
+    dc:title="iPod mini"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000859"
+    dc:subject="music"
+    dc:description="アキバBlog（秋葉原ブログ）:秋葉館でiPodminiを試した。iPodminiは良いぞ。 インプレスの記事で国内発売に先駆けて米国版を試す Apple 「iPod mini」があったが、秋葉館で実際にiPodminiに触ることができたので感想を書くぞ。 iPod mini 買おうかなあ。iPod の重さが気になってきたこのごろ。大容量あっても、いつも聞く曲は大体固定化されてるんですよねえ。母艦にでかいHDDつんで、iTunes からよく聴く曲だけ mini に同期する使い方の方がいいのかもしれない。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-21T02:48:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000859"></a>
+<h3 class="title">iPod mini</h3>
+
+<p><a title="アキバBlog（秋葉原ブログ）:秋葉館でiPodminiを試した。iPodminiは良いぞ。" href="http://blog.livedoor.jp/geek/archives/260763.html">アキバBlog（秋葉原ブログ）:秋葉館でiPodminiを試した。iPodminiは良いぞ。</a><br />
+<blockquote>インプレスの記事で国内発売に先駆けて米国版を試す Apple 「iPod mini」があったが、秋葉館で実際にiPodminiに触ることができたので感想を書くぞ。</blockquote></p>
+
+<p>iPod mini 買おうかなあ。iPod の重さが気になってきたこのごろ。大容量あっても、いつも聞く曲は大体固定化されてるんですよねえ。母艦にでかいHDDつんで、iTunes からよく聴く曲だけ mini に同期する使い方の方がいいのかもしれない。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000859.html">02:48 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000859.html#comments">Comments (7)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000859.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000858"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/858"
+    dc:title="RSS の言語"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000858"
+    dc:subject="blog"
+    dc:description="Bulkfeeds に英語圏のRSSが大量登録されていたみたいで、手動で削除対応しました。まー別に登録するなってことはないんですが、一応日本のフィードを検索するというのがサイトの主目的でしたので。 というわけで、RSS フィードが日本語かどうかを自動的に判定する方法を考えてみる。 まず、Spec に厳密な方法での判定としては、以下。 1. RSS 2.0 では channel に language 要素があるのでこれで判定 2. RSS 1.0 では Dublin Core..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-21T02:15:04+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000858"></a>
+<h3 class="title">RSS の言語</h3>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> に英語圏のRSSが大量登録されていたみたいで、手動で削除対応しました。まー別に登録するなってことはないんですが、一応日本のフィードを検索するというのがサイトの主目的でしたので。</p>
+
+<p>というわけで、RSS フィードが日本語かどうかを自動的に判定する方法を考えてみる。</p>
+
+<p>まず、Spec に厳密な方法での判定としては、以下。</p>
+
+<p>1. <a href="http://blogs.law.harvard.edu/tech/rss">RSS 2.0</a> では channel  に language 要素があるのでこれで判定<br />
+2. RSS 1.0 では Dublin Core を使って dc:language<br />
+3. Atom Feed では、xml:lang="ja" </p>
+
+<p>ホスティングサービスのプロバイダさんは以上のどれかをつけてほしいですな。</p>
+
+<p>んでもってそれにマッチしない場合の liberal な判定方法としては、</p>
+
+<p>1. URL が hard-wired に登録済みである (はてなダイアリー、ココログ、livedoor blog といった既知のホスティングサービス)<br />
+2. $domain =~ /\.jp$/<br />
+3. channel や item のエレメントにマルチバイト文字を含む</p>
+
+<p>この辺かなあ。これにしても 3. で中国語や韓国語がマッチしてしまうという問題はありますが。。なにかいいアイデアあればご意見ください。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000858.html">02:15 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000858.html#comments">Comments (4)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000858.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000857"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/857"
+    dc:title="XML 生成API Genx"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000857"
+    dc:subject="blog"
+    dc:description="steps to phantasien t(2004-03-15) Tim Bray の提案から xml-dev での review を経ながら, XML 生成用 API &quot;Genx&quot; の開発が進んでいる. RSS, Atom, well-formedness といった話題。よくまとまっていて参考になります。(via..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-21T02:11:26+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000857"></a>
+<h3 class="title">XML 生成API Genx</h3>
+
+<p><a title="steps to phantasien t(2004-03-15)" href="http://www.dodgson.org/omo/t/?date=20040315#p02">steps to phantasien t(2004-03-15)</a><br />
+<blockquote>Tim Bray の提案から xml-dev での review を経ながら, XML 生成用 API "Genx" の開発が進んでいる. </blockquote></p>
+
+<p>RSS, Atom, well-formedness といった話題。よくまとまっていて参考になります。(via <a href="http://eto.com/d/#iQm8FGWtADq1FdmNUkhOkw">eto.com/d</a>)</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000857.html">02:11 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000857.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000857.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000856"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/856"
+    dc:title="MT and DoCoMo?"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000856"
+    dc:subject="blog"
+    dc:description="Boing Boing: Movable Type and DoCoMo The Movable Type folks have inked a deal with NTT DoCoMo - mazeltov, goys!..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-21T00:25:29+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000856"></a>
+<h3 class="title">MT and DoCoMo?</h3>
+
+<p><a title="Boing Boing: Movable Type and DoCoMo" href="http://www.boingboing.net/2004/03/20/movable_type_and_doc.html">Boing Boing: Movable Type and DoCoMo</a><br />
+<blockquote>The Movable Type folks have inked a deal with NTT DoCoMo -- mazeltov, goys! </blockquote></p>
+
+<p>んーいや、NTT コミュニケーションズとDoCoMoは違う会社なんだけどな。。</p>
+
+<p><strong>UPDATE</strong>: 誰かが突っ込んだのかな、修正されてました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000856.html">12:25 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000856.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000856.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000855"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/855"
+    dc:title="AWS locale=jp のURL変更"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000855"
+    dc:subject="tech"
+    dc:description="Amazon.com Discussion Boards #4629.1 We are making an important and necessary change to the JP version of Amazon Web Services...."
+    dc:creator="miyagawa"
+    dc:date="2004-03-20T20:48:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 20, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000855"></a>
+<h3 class="title">AWS locale=jp のURL変更</h3>
+
+<p><a title="Amazon.com Discussion Boards #4629.1" href="http://forums.prospero.com/n/mb/message.asp?webtag=am-assocdevxml&msg=4629.1&ctx=4096">Amazon.com Discussion Boards #4629.1</a><br />
+<blockquote>We are making an important and necessary change to the JP version of Amazon Web Services.  As we announced several weeks ago, all requests containing locale=jp must now be directed to http://xml.amazon.co.jp for XML/HTTP or REST requests and to http://soap.amazon.co.jp for SOAP requests.  This includes requests to http://xml-na.amznxslt.com.  <br />
+This change is effective immediately.  Please feel free to write here if you have any questions.</blockquote></p>
+
+<p>AWS が locale=jp の API URLを変更するそうです。xml.amazon.com だったのを xml.amazon.co.jp に変えろ、と。</p>
+
+<p>Perl モジュール Net::Amazon ではそもそも locale=de, locale=uk の場合に xml-eu.amazon.com に書き換えるようになっていたので、ここに locale=jp のルールも追加するように<a href="http://bulknews.net/lib/archives/patches/Net-Amazon-0.20.patch">パッチ</a>かきました。</p>
+
+<p><strong>UPDATE:</strong> <a href="http://search.cpan.org/~mschilli/Net-Amazon-0.21/">Net-Amazon-0.21</a> でとりこまれました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000855.html">08:48 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000855.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000855.html#trackbacks">TrackBack (7)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000854"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/854"
+    dc:title="Net-Trackback 0.99"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000854"
+    dc:subject="blog"
+    dc:description="search.cpan.org: Timothy Appnel / Net-Trackback-0.99 Net::Trackback an object-oriented interface for developing Trackback clients and servers, Net::Trackback 0.99。Complete rewrite だそうで、API 変わっちゃいましたね。本で..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-20T20:34:51+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000854"></a>
+<h3 class="title">Net-Trackback 0.99</h3>
+
+<p><a title="search.cpan.org: Timothy Appnel / Net-Trackback-0.99" href="http://search.cpan.org/~tima/Net-Trackback-0.99/">search.cpan.org: Timothy Appnel / Net-Trackback-0.99</a><br />
+<blockquote>Net::Trackback an object-oriented interface for developing Trackback clients and servers,  </blockquote></p>
+
+<p>Net::Trackback 0.99。Complete rewrite だそうで、API 変わっちゃいましたね。本で Net::Trackback つかってるやつあったぽいな。書き直さなきゃ。</p>
+
+<p><strong>UPDATE:</strong> 前のバージョンは Net::TrackBack だったんですな。B が大文字。一応互換性考えて名前変えたくさい。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000854.html">08:34 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000854.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000854.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000853"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/853"
+    dc:title="TypeKey coming soon?"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000853"
+    dc:subject="blog"
+    dc:description="ひらたさんのJUSセミナーいってきました。 Atom と MT 3.0 の話が中心でしたが、MT 3.0 で導入される TypeKey ってのがアツそうですね。ちなみにこのURLは typekey.com を適当にうってみたらでてきました。 仕組み的には、それぞれのサーバにインストールされたMTと、typekey.com とで なんらかのAPIを使用してコメント認証などをおこなう仕組みみたいです。.NET Passport みたいなシングルサインオンに似た感じのアーキテクチャになるのかな。 あるいはorkut や GREE..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-20T05:34:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000853"></a>
+<h3 class="title">TypeKey coming soon?</h3>
+
+<p>ひらたさんのJUSセミナーいってきました。</p>
+
+<p>Atom と MT 3.0 の話が中心でしたが、MT 3.0 で導入される <a title="TypeKey" href="http://typekey.sixapart.com/">TypeKey</a> ってのがアツそうですね。ちなみにこのURLは typekey.com を適当にうってみたらでてきました。</p>
+
+<p>仕組み的には、それぞれのサーバにインストールされたMTと、typekey.com とで なんらかのAPIを使用してコメント認証などをおこなう仕組みみたいです。.NET Passport みたいなシングルサインオンに似た感じのアーキテクチャになるのかな。</p>
+
+<p>あるいはorkut や GREE のようなソーシャルネットワーキングシステムでAPI（あるいはFOAF のようなメタデータ）を提供して、</p>
+
+<p>- FOF (Friend of Friend) は無条件認証<br />
+- それ以外はペンディング</p>
+
+<p>みたいにするのも面白そうだなあ、とおもったり。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000853.html">05:34 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000853.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000853.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000852"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/852"
+    dc:title="Lighweight Language Magazine"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000852"
+    dc:subject="perl"
+    dc:description="Tatsuhiko Miyagawa&apos;s Publications List : Perl5 におけるオブジェクト指向 Perl5 におけるオブジェクト指向 ASCII | LL Magazine | vol.1 (2004/03/26 発売) | ISBN: 4756144411..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-20T04:00:24+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000852"></a>
+<h3 class="title">Lighweight Language Magazine</h3>
+
+<p><a title="Tatsuhiko Miyagawa's Publications List : Perl5 におけるオブジェクト指向" href="http://blog.bulknews.net/pubs/ascii/llmagazine/vol1.html">Tatsuhiko Miyagawa's Publications List : Perl5 におけるオブジェクト指向</a><br />
+<blockquote>Perl5 におけるオブジェクト指向<br />
+ASCII | LL Magazine | vol.1 (2004/03/26 発売) | ISBN: 4756144411<br />
+Lightweight Language Saturday のスピーカー陣がほとんど参加している LL のためのムック。Perl5 におけるオブジェクト指向の実践のキホンを解説。また応用的テクニックへのポインタも紹介しています。 </blockquote></p>
+
+<p>年明けに書いたLLの記事ですが、来週発売みたいです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000852.html">04:00 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000852.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000852.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000851"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/851"
+    dc:title="MT 3.0 情報"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000851"
+    dc:subject="blog"
+    dc:description="jus 2004.3 Tokyo Benkyokai 第120回「ウェブログの最近と今後」 講師: ひらた だいじ (株式会社ネオテニー) インプレス「Movable Type で今すぐできるウェブログ入門」著者 http://uva.jp/dh/mt/ もうすぐですが、これいってきます。 書籍用にMT 3.0 の情報をゲットしてこないと。。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-19T17:10:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 19, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000851"></a>
+<h3 class="title">MT 3.0 情報</h3>
+
+<p><a title="jus 2004.3 Tokyo Benkyokai" href="http://www.jus.or.jp/benkyokai/04-03.html">jus 2004.3 Tokyo Benkyokai</a><br />
+<blockquote>第120回「ウェブログの最近と今後」</p>
+
+<p>講師: ひらた だいじ (株式会社ネオテニー)<br />
+インプレス「Movable Type で今すぐできるウェブログ入門」著者<br />
+http://uva.jp/dh/mt/ </blockquote></p>
+
+<p>もうすぐですが、これいってきます。<br />
+書籍用にMT 3.0 の情報をゲットしてこないと。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000851.html">05:10 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000851.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000851.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000850"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/850"
+    dc:title="goo Blog = NewsHandler"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000850"
+    dc:subject="blog"
+    dc:description="gooBLOGの更新通知 どうやら更新通知はちゃんとXML-RPCでやっているようだが、通知されてくるURLがイヤらしい。 【本来のURL】http://blog.goo.ne.jp/hogehoge/ 【通知URL】http://blog.goo.ne.jp/btblog.php?bid=hogehoge これはNewsH*ndlerの修正もれでしょうか。がんばれ中の人！..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-19T02:31:19+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000850"></a>
+<h3 class="title">goo Blog = NewsHandler</h3>
+
+<p><a title="gooBLOGの更新通知" href="http://www.myprofile.ne.jp/blog/archive/saito/59">gooBLOGの更新通知</a><br />
+<blockquote>どうやら更新通知はちゃんとXML-RPCでやっているようだが、通知されてくるURLがイヤらしい。 <br />
+【本来のURL】http://blog.goo.ne.jp/hogehoge/ <br />
+【通知URL】http://blog.goo.ne.jp/btblog.php?bid=hogehoge </blockquote></p>
+
+<p>これはNewsH*ndlerの修正もれでしょうか。がんばれ中の人！</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000850.html">02:31 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000850.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000850.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000849"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/849"
+    dc:title="Bulkfeeds: Similarity API 更新"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000849"
+    dc:subject="bulkfeeds"
+    dc:description="Similarity REST API をアップデートしました。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-19T02:08:20+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000849"></a>
+<h3 class="title">Bulkfeeds: Similarity API 更新</h3>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> の <a href="http://bulkfeeds.net/app/developer.html">Similarity REST API</a> で、どの単語が特徴的単語かを bulkfeeds:similarTerms というエレメントからとれるようにしました。<a href="http://bulkfeeds.net/app/similar.rdf?url=http%3A//blog.bulknews.net/mt/archives/000759.html">[sample]</a></p>
+
+<p><strong>UPDATE:</strong> similarTerms の埋め込みが RDF 的にあんまよくないみたいなので、RSS 1.0 の方のAPIに埋め込むのはやめました。similar.xml あるいは terms.xml の方（↓）を使用してください。</p>
+
+<p>Similarity API は RSS Feed の形で取得することができます。RSS Feed 形式の場合、特徴的単語をひいたあとに検索が走るため、ちょっと遅いです。それがイヤ、単語だけほしいんだ！というひとは、similar.xml の方をつかってください。<a href="http://bulkfeeds.net/app/similar.xml?url=http%3A//blog.bulknews.net/mt/archives/000759.html">[sample]</a></p>
+
+<p>similarity の API は、url に Bulkfeeds でアグリゲートされている Permalink を入れる必要があります。Bulkfeeds に補足されてないけど、文字列から特徴的単語だけ抜き出したいという人は、http://bulkfeeds.net/app/terms.xml に POST で content パラメータに本文をいれてなげてください（エンコーディングは utf-8）。MT の記事作成時に特徴的単語を抜きたいときとかに使えるとおもいます（新規投稿時は、まだ Bulkfeeds にインデクスされていないので）</p>
+
+<p><br />
+このAPIでなにか面白いアプリやプラグインをつくられた方は、このエントリまでコメントやTrackbackおねがいします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000849.html">02:08 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000849.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000849.html#trackbacks">TrackBack (5)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000848"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/848"
+    dc:title="google_highlight by JavaScript"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000848"
+    dc:subject="blog"
+    dc:description="blosxom の google_highlight プラグインでは、Referer: が google 検索だった場合に、q= の部分をとりだして、検索語をハイライトするということをやっています。 これの javascript 版があればベンリかなとおもい quick Hack。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-18T23:49:08+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 18, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000848"></a>
+<h3 class="title">google_highlight by JavaScript</h3>
+
+<p>blosxom の <a href="http://cgi.no-ip.org/cgi-bin/blosxom/blosxom.cgi/blosxom/plugin/google_japanized.html">google_highlight</a> プラグインでは、Referer: が google 検索だった場合に、q= の部分をとりだして、検索語をハイライトするということをやっています。</p>
+
+<p>これの javascript 版があればベンリかなとおもい quick Hack。</p>
+
+
+<pre class="code">
+function highlightKeyword() {
+  var html = document.body.innerHTML;
+  if (document.referer == undefined) return;
+  var keywords = extractQueries(document.referer);
+  if (keywords.length &gt; 0) {
+    for (i in keywords) {
+      var kw  = keywords[i];
+      var mod = i % 3; // modular by 3
+      var pat = new RegExp(kw);
+      html = html.replace(pat, &quot;&lt;span class=\&quot;highlight&quot; + mod + &quot;\&quot;&gt;&quot; + kw + &quot;&lt;/span&gt;&quot;);
+    }
+    document.body.innerHTML = html;
+  }
+}
+function extractQueries(referer) {
+  var queries = new Array();
+  referer.match(/q=([^&amp;]+)/);
+  if (RegExp.$1) {
+    var match = RegExp.$1;
+    var qs = match.split(&quot;+&quot;);
+    for (i in qs) {
+      queries.push(unescape(qs[i]));
+    }
+  }
+  return queries;
+}
+document.write(&quot;&lt;style&gt;
+.highlight0 { background: #ff0; }
+.highlight1 { background: #0ff; }
+.highlight2 { background: #f0f; }
+&lt;/style&gt;
+&quot;);
+</pre>
+
+<p>こんな感じですな。document.body.innerHTML を String.replace で置換しています。マルチバイトはうまくうごきませんねえ。。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000848.html">11:49 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000848.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000848.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000847"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/847"
+    dc:title="Win32::Exe"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000847"
+    dc:subject="perl"
+    dc:description="search.cpan.org: 唐宗漢 / Win32-Exe-0.08 Win32::Exe Manipulate Win32 executable files Win32の exe ファイルヘッダを操作。icoの抽出とかできますな。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-18T20:24:15+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000847"></a>
+<h3 class="title">Win32::Exe</h3>
+
+<p><a title="search.cpan.org: 唐宗漢 / Win32-Exe-0.08" href="http://search.cpan.org/~autrijus/Win32-Exe-0.08/">search.cpan.org: 唐宗漢 / Win32-Exe-0.08</a><br />
+<blockquote>Win32::Exe Manipulate Win32 executable files  </blockquote></p>
+
+<p>Win32の exe ファイルヘッダを操作。icoの抽出とかできますな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000847.html">08:24 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000847.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000847.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000846"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/846"
+    dc:title="Movable Type 3.0 Testing Begins"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000846"
+    dc:subject="blog"
+    dc:description="movabletype.org: News We&apos;re taking our first steps towards the release of Movable Type 3.0. The pre-beta version has just finished..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T21:20:20+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 16, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000846"></a>
+<h3 class="title">Movable Type 3.0 Testing Begins</h3>
+
+<p><a title="movabletype.org: News" href="http://www.movabletype.org/news/2004_03.shtml#000912">movabletype.org: News</a><br />
+<blockquote>We're taking our first steps towards the release of Movable Type 3.0. The pre-beta version has just finished its initial two rounds of alpha testing and we're now opening the testing to a larger audience (we've picked 300 random addresses from those who applied and will be adding more as time progresses).</blockquote></p>
+
+<p>MT 3.0 のリリースに向けてのベータテストが開始されました。</p>
+
+<p>レジストした人の中から、300人をランダムにピックアップして、ベータテスターとして連絡しているそうです。時間とともにこのアドレスを追加していくとのこと。</p>
+
+<p>デフォルトのテンプレートの充実、TypeKey とよばれる Comment Registration のしくみ、Atom feed と Atom API のサポート、プラグイン向けの hook の追加あたりが目玉の feature になりそうですな。</p>
+
+<p>つか、本がでる前にリリースされちゃうよ。脱稿される前に MT 3.0 をゲットして記事かかないと！<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000846.html">09:20 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000846.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000846.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000845"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/845"
+    dc:title="JUGEM アグリゲート"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000845"
+    dc:subject="bulkfeeds"
+    dc:description="JUGEM からアグリゲート開始しました。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T19:15:07+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000845"></a>
+<h3 class="title">JUGEM アグリゲート</h3>
+
+<p><a href="http://jugem.cc/newcome.php?num=100">JUGEM の新着リスト (changes.xml)</a> を yosy さんにつくってもらったので、<a href="http://bulkfeeds.net/">Bulkfeeds</a> から正式にアグリゲート開始しました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000845.html">07:15 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000845.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000845.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000844"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/844"
+    dc:title="AOL ダイアリー"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000844"
+    dc:subject="blog"
+    dc:description="AOLジャパン　ニューリリース AOLジャパン株式会社（本社：東京都新宿区、代表取締役社長：ブレット・ウェイン、以下AOL）は、ブログ(ウェブログの略／以下ブログ)を簡単に開設・運営できる会員向け新サービス「AOLダイアリー」(http://diary.jp.aol.com)の提供を2004年3月16日18時より開始します。 ほんとに雨後のタケノコ状態ですが、例のヤツ。 - HTML のエンコーディングは Shift_JIS - JavaScript include 多用 - RSS バージョンは 1.0 - RSS Auto-Discovery なし -..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T18:36:36+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000844"></a>
+<h3 class="title">AOL ダイアリー</h3>
+
+<p><a title="AOLジャパン　ニューリリース" href="http://www.jp.aol.com/info/release/20040316.html">AOLジャパン　ニューリリース</a><br />
+<blockquote>AOLジャパン株式会社（本社：東京都新宿区、代表取締役社長：ブレット・ウェイン、以下AOL）は、ブログ(ウェブログの略／以下ブログ)を簡単に開設・運営できる会員向け新サービス「AOLダイアリー」(http://diary.jp.aol.com)の提供を2004年3月16日18時より開始します。</blockquote></p>
+
+<p>ほんとに雨後のタケノコ状態ですが、例のヤツ。</p>
+
+<p>- HTML のエンコーディングは Shift_JIS<br />
+- JavaScript include 多用<br />
+- RSS バージョンは 1.0<br />
+- RSS Auto-Discovery なし<br />
+- Trackback Auto-Discovery なし<br />
+- Trackback __mode=rss 対応なし<br />
+- サービス全体の新着RSS / XML なし</p>
+
+<p>Trackback と Permalink はURLおなじみたいで、POST だと Trackback になるのかな。サーバヘッダは Apache + PHP + mod_perl でした。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000844.html">06:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000844.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000844.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000843"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/843"
+    dc:title="Net::DAAP"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000843"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Nathan Torkington / dapple-0.21 Net::DAAP::Client client for Apple iTunes DAAP service iTunes の DAAP プロトコル用 Perl モジュール。すでにあるんだね。しかも作者は Nathan Torkington..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T15:16:11+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000843"></a>
+<h3 class="title">Net::DAAP</h3>
+
+<p><a title="search.cpan.org: Nathan Torkington / dapple-0.21" href="http://search.cpan.org/~gnat/dapple-0.21/">search.cpan.org: Nathan Torkington / dapple-0.21</a><br />
+<blockquote>Net::DAAP::Client client for Apple iTunes DAAP service  </blockquote></p>
+
+<p>iTunes の DAAP プロトコル用 Perl モジュール。すでにあるんだね。しかも作者は Nathan Torkington か。ためしてみよ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000843.html">03:16 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000843.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000843.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000842"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/842"
+    dc:title="MySQL Cluster"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000842"
+    dc:subject="tech"
+    dc:description="ITmediaニュース：フェイルオーバー機能搭載のハイエンド版MySQL MySQLデータベースのハイエンド版「MySQL Cluster」には、1カ所で障害が起きた場合、別のところでプロセスを引き継ぐフェイルオーバー機能が備わっている。4月14-16日開催のユーザー会議で発表予定。 SoftAgency がライセンス販売してる Emic の Cluster と同等なのかな。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T12:09:00+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000842"></a>
+<h3 class="title">MySQL Cluster</h3>
+
+<p><a title="ITmediaニュース：フェイルオーバー機能搭載のハイエンド版MySQL" href="http://www.itmedia.co.jp/news/articles/0403/16/news011.html">ITmediaニュース：フェイルオーバー機能搭載のハイエンド版MySQL</a><br />
+<blockquote>MySQLデータベースのハイエンド版「MySQL Cluster」には、1カ所で障害が起きた場合、別のところでプロセスを引き継ぐフェイルオーバー機能が備わっている。4月14-16日開催のユーザー会議で発表予定。</blockquote></p>
+
+<p>SoftAgency がライセンス販売してる Emic の Cluster と同等なのかな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000842.html">12:09 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000842.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000842.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000841"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/841"
+    dc:title="OCEANLANE - On my way back home"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000841"
+    dc:subject=""
+    dc:description="OCEANLANE の On my way back home、Amazon からとどきました。 これはヤベーです。 「友達に教わる前に、君が友達に教えるべきバンド」だそうで、それはうなづけますねえ。たしかに Jimmy Eat World に通じるエモーショナルな vocal と、oasis 等の UK ロックの影響を感じさせるメロディ。 これは、ヘビーローテーションの予感。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T01:52:30+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000841"></a>
+<h3 class="title">OCEANLANE - On my way back home</h3>
+
+<p>OCEANLANE の <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000D8RMN/bulknews-22">On my way back home</a>、Amazon からとどきました。</p>
+
+<p>これはヤベーです。</p>
+
+<p>「友達に教わる前に、君が友達に教えるべきバンド」だそうで、それはうなづけますねえ。たしかに Jimmy Eat World に通じるエモーショナルな vocal と、oasis 等の UK ロックの影響を感じさせるメロディ。</p>
+
+<p>これは、ヘビーローテーションの予感。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000841.html">01:52 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000841.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000841.html#trackbacks">TrackBack (2)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000840"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/840"
+    dc:title="IO::All"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000840"
+    dc:subject="perl"
+    dc:description="perl.com: Simple IO Handling with IO::All [Mar. 11, 2004] One of my favorite things about Perl is how flexible it..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-16T01:17:27+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000840"></a>
+<h3 class="title">IO::All</h3>
+
+<p><a title="perl.com: Simple IO Handling with IO::All [Mar. 11, 2004]" href="http://www.perl.com/pub/a/2004/03/12/ioall.html">perl.com: Simple IO Handling with IO::All [Mar. 11, 2004]</a><br />
+<blockquote>One of my favorite things about Perl is how flexible it is. When I don't like something about the language, I don't let it get me down. I just change the language!</blockquote></p>
+
+<p>おー、なんかすごい。operator overloading とか使ってるのかな。</p>
+
+<pre>io($file) > $string;<br />$data >> $string;</pre>
+
+<p>こんな感じ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000840.html">01:17 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000840.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000840.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000839"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/839"
+    dc:title="輸入盤規制？"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000839"
+    dc:subject="music"
+    dc:description="hidemuzicblog: Amazon.co.jp狩りが始まった・・・ 上の写真単なるリンク切れではありません・・・このblogの推薦盤で何度か登場したFranz Ferdinandの１ｓｔアルバムのアメリカ盤のAmzon.co.jpでの販売が突如打ち切られた、正にその画面がこれである。 安い輸入盤を封じ込み、&quot;多くの消費者の選択の自由を奪う&quot;やはり輸入権なるものが末恐ろしいものになる、その第一段階と考えて良いのではないだろうか？ メモ。まじ？..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-15T14:53:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 15, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000839"></a>
+<h3 class="title">輸入盤規制？</h3>
+
+<p><a title="hidemuzicblog: Amazon.co.jp狩りが始まった・・・" href="http://hidemuzic.typepad.com/hidemuzicblog/2004/03/amazoncojp.html">hidemuzicblog: Amazon.co.jp狩りが始まった・・・</a><br />
+<blockquote>上の写真単なるリンク切れではありません・・・このblogの推薦盤で何度か登場したFranz Ferdinandの１ｓｔアルバムのアメリカ盤のAmzon.co.jpでの販売が突如打ち切られた、正にその画面がこれである。<br />
+安い輸入盤を封じ込み、"多くの消費者の選択の自由を奪う"やはり輸入権なるものが末恐ろしいものになる、その第一段階と考えて良いのではないだろうか？</blockquote></p>
+
+<p>メモ。まじ？</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000839.html">02:53 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000839.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000839.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000838"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/838"
+    dc:title="iTunes Server on Unix"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000838"
+    dc:subject="tech"
+    dc:description="LinuxをiTunesのサーバにする randezvous 経由で DAAP という Apple 独自のプロトコルを使うんすね。メモです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-14T14:29:45+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 14, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000838"></a>
+<h3 class="title">iTunes Server on Unix</h3>
+
+<p><a title="LinuxをiTunesのサーバにする" href="http://www.mizzy.org/linux/itunes.xhtml">LinuxをiTunesのサーバにする</a></p>
+
+<p>randezvous 経由で DAAP という Apple 独自のプロトコルを使うんすね。メモです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000838.html">02:29 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000838.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000838.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000837"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/837"
+    dc:title="アーセナル vs チェルシー again!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000837"
+    dc:subject="football"
+    dc:description="アーセナルはチェルシーと対戦　欧州ＣＬ準々決勝 - asahi.com : スポーツ アーセナルはチェルシーと対戦　欧州ＣＬ準々決勝 　サッカーの欧州チャンピオンズリーグの組み合わせ抽選が１２日、スイス・ニヨンで行われ、準々決勝のカードが決まった。レアル・マドリード（スペイン）はモナコ（フランス）と対戦する。勝ち上がった方が、準決勝でアーセナルとチェルシーのイングランド対決の勝者とぶつかる。 　連覇を狙うＡＣミラン（イタリア）はデポルティボ・ラコルニャ（スペイン）との顔合わせ。初の８強入りを果たしたリヨン（フランス）はポルト（ポルトガル）と当たる。準々決勝第１戦は２３、２４日に、第２戦は４月６、７日に行われる。 (03/12 21:16) おーっと、FAカップにつづいてまたアーセナル vs チェルシーですなあ。チェルシーピンチ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-12T22:09:12+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 12, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000837"></a>
+<h3 class="title">アーセナル vs チェルシー again!</h3>
+
+<p><a title="アーセナルはチェルシーと対戦　欧州ＣＬ準々決勝 - asahi.com : スポーツ" href="http://www.asahi.com/sports/update/0312/146.html?2004">アーセナルはチェルシーと対戦　欧州ＣＬ準々決勝 - asahi.com : スポーツ</a><br />
+<blockquote>アーセナルはチェルシーと対戦　欧州ＣＬ準々決勝 </p>
+
+<p></p>
+
+<p>　サッカーの欧州チャンピオンズリーグの組み合わせ抽選が１２日、スイス・ニヨンで行われ、準々決勝のカードが決まった。レアル・マドリード（スペイン）はモナコ（フランス）と対戦する。勝ち上がった方が、準決勝でアーセナルとチェルシーのイングランド対決の勝者とぶつかる。 <br />
+　連覇を狙うＡＣミラン（イタリア）はデポルティボ・ラコルニャ（スペイン）との顔合わせ。初の８強入りを果たしたリヨン（フランス）はポルト（ポルトガル）と当たる。準々決勝第１戦は２３、２４日に、第２戦は４月６、７日に行われる。 (03/12 21:16)</blockquote></p>
+
+<p>おーっと、FAカップにつづいてまたアーセナル vs チェルシーですなあ。チェルシーピンチ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000837.html">10:09 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000837.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000837.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000836"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/836"
+    dc:title="ベイジアンなRSS Aggregator"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000836"
+    dc:subject="blog"
+    dc:description="Bayesian アルゴリズムをつかって、RSS フィードの新着記事がユーザにとって面白いかどうかを判定するアプリ、があったらおもしろいなあ、とおもい （ReadOne に似てますがあれは Bayesian じゃなかったとおもいます） 書籍の記事向けに quick hack でつくってみました。いまいちわかりにくいですが右下の % が、面白い率を表してます。同じ記事何度も interesting とかするとおかしなことになるプリミティブ実装なんで、あんま実用性はないんですけどね。 blagg と blosxom つかって、Algorithm::NaiveBayes つかったら40行ぐらいでできたーよ。ビックリ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-11T01:35:04+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 11, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000836"></a>
+<h3 class="title">ベイジアンなRSS Aggregator</h3>
+
+<p><a href="http://www.xml.com/pub/a/2003/11/19/udell.html">Bayesian アルゴリズム</a>をつかって、RSS フィードの新着記事がユーザにとって面白いかどうかを判定するアプリ、があったらおもしろいなあ、とおもい （ReadOne に似てますがあれは Bayesian じゃなかったとおもいます）</p>
+
+<p>書籍の記事向けに quick hack で<a href="http://blog.bulknews.net/blagg.pl">つくってみました</a>。いまいちわかりにくいですが右下の % が、面白い率を表してます。同じ記事何度も interesting とかするとおかしなことになるプリミティブ実装なんで、あんま実用性はないんですけどね。</p>
+
+<p><a href="http://www.oreillynet.com/~rael/lang/perl/blagg/">blagg</a> と blosxom つかって、<a href="http://search.cpan.org/~kwilliams/Algorithm-NaiveBayes-0.02/">Algorithm::NaiveBayes </a>つかったら40行ぐらいでできたーよ。ビックリ。</p>
+
+<p>詳細は、書籍の方で解説してます。</p>
+
+<p>ネタ元は、<a href="http://simon-cozens.org/">Simon Cozens</a> さんの <a href="http://blog.simon-cozens.org/bryar.cgi/id_6658?comments=1">Timesink + Bayesian</a> です。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000836.html">01:35 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000836.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000836.html#trackbacks">TrackBack (7)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000835"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/835"
+    dc:title="バッドノウハウこそエンジニアリングの本質"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000835"
+    dc:subject="tech"
+    dc:description="バッドノウハウとグッドラッパーで何かもりあがってるぽいんですが。 究極的には、エンジニアの価値はバッドノウハウの数で決まるとおもいます。バッドノウハウを蓄積していれば、何かトラブルがおこっても、すぐに対処できます。 e.g) 「何か Apache の mod_foobar 入れたんですけど、うまく動かないんですよね〜。エラーログに意味不明のログがでるんすよ。わかります？」 「あ〜それね。んーとたしか mod_hogehoge 一緒に使ってるでしょ？ LoadModule の順番変えればうまくいくよ。原因わからんけど」 「ほんとだ。。神！」 といった具合。別にバッドノウハウを蓄積して「奥が深い」と悦に入る必要はないけど、こうしたバッドノウハウを頭の中（あるいは ChangeLog メモや Wiki といったツールを利用しても可）ですぐにルックアップ可能にしておくこと、またそこまで整理しておくことこそが、エンジニアのトラブル対処能力を向上させる本質的価値だとおもいます。 話は違うのかもしれませんが、Struts..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-10T15:12:56+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 10, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000835"></a>
+<h3 class="title">バッドノウハウこそエンジニアリングの本質</h3>
+
+<p><a href="http://www.namazu.org/~satoru/misc/bad-knowhow.html">バッドノウハウ</a>と<a href="http://www.hyuki.com/techinfo/knowhow.html">グッドラッパー</a>で<a href="http://karin.namazu.org/~satoru/diary/20040309.html#p01">何かもりあがってる</a>ぽいんですが。</p>
+
+<p>究極的には、エンジニアの価値はバッドノウハウの数で決まるとおもいます。バッドノウハウを蓄積していれば、何かトラブルがおこっても、すぐに対処できます。</p>
+
+<p>e.g)<br />
+「何か Apache の mod_foobar 入れたんですけど、うまく動かないんですよね〜。エラーログに意味不明のログがでるんすよ。わかります？」<br />
+「あ〜それね。んーとたしか mod_hogehoge 一緒に使ってるでしょ？ LoadModule の順番変えればうまくいくよ。原因わからんけど」<br />
+「ほんとだ。。神！」</p>
+
+<p>といった具合。別にバッドノウハウを蓄積して「奥が深い」と悦に入る必要はないけど、こうしたバッドノウハウを頭の中（あるいは ChangeLog メモや Wiki といったツールを利用しても可）ですぐにルックアップ可能にしておくこと、またそこまで整理しておくことこそが、エンジニアのトラブル対処能力を向上させる本質的価値だとおもいます。</p>
+
+<p>話は違うのかもしれませんが、Struts みたいな上流層のフレームワークだけつかってアプリを構築していると、ブラウザのバグでキャッシュが消えないだの、Cookie と SSL を併用するとどうたらこうたら、といったトラブルに対処できず、みたいな話に似ているのかもしれませんが。</p>
+
+<p>とっても蛇足的に書きますが、結城さんとsatoruさんが書いてることは本質的に同じだとおもいます。satoruさんが「バッドノウハウはよくない」といっているのは、UNIXのツール開発者としての立場であって、ユーザとしては <a href="http://www.namazu.org/~satoru/diary/20031216.html#p01">Bad knowhow is fun.</a> な姿勢でもあるということで。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000835.html">03:12 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000835.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000835.html#trackbacks">TrackBack (8)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000834"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/834"
+    dc:title="ML SPAM"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000834"
+    dc:subject=""
+    dc:description="handtools0.jp＠s-door.net とかいう ML で SPAM、というかSPAMに反応した人たちの「迷惑です！」とかいうメールがきまくり。Reply-To: が Mailing List になってる SPAM なのかな。かなりウザイ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-10T09:40:42+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000834"></a>
+<h3 class="title">ML SPAM</h3>
+
+<p>handtools0.jp＠s-door.net とかいう ML で SPAM、というかSPAMに反応した人たちの「迷惑です！」とかいうメールがきまくり。Reply-To: が Mailing List になってる SPAM なのかな。かなりウザイ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000834.html">09:40 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000834.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000834.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000833"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/833"
+    dc:title="くるり - アンテナ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000833"
+    dc:subject="music"
+    dc:description="くるり - アンテナ ドラムのクリストファーが加入してからの一連のシングル HOW TO GO, すけべな女の子、ハイウェイ、ロックンロール、とすべてすばらしかったくるりの待望のアルバムっすねー。Amazon で予約購入しちゃいました。楽しみです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-10T02:57:18+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000833"></a>
+<h3 class="title">くるり - アンテナ</h3>
+
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000194U42/bulknews-22">くるり - アンテナ</a></p>
+
+<p>ドラムのクリストファーが加入してからの一連のシングル HOW TO GO, すけべな女の子、ハイウェイ、ロックンロール、とすべてすばらしかったくるりの待望のアルバムっすねー。Amazon で予約購入しちゃいました。楽しみです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000833.html">02:57 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000833.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000833.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000832"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/832"
+    dc:title="ストレイテナーと OCEANLANE"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000832"
+    dc:subject="music"
+    dc:description="最近日本のインディーズ（なのかな？）バンドで気になるの2つ。 - ストレイテナー - LOST WORLD’S ANTHOLOGY - OCEANLANE- On my way back home ストレイテナーは新曲のTENDERがとてもいい曲。OCEANLANE はUKっぽい感じ。どっちも要注目かとおもいます。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-10T02:55:32+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000832"></a>
+<h3 class="title">ストレイテナーと OCEANLANE</h3>
+
+<p>最近日本のインディーズ（なのかな？）バンドで気になるの2つ。</p>
+
+<p>- <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000ZP5AK/bulknews-22">ストレイテナー - LOST WORLD’S ANTHOLOGY</a> <br />
+- <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0000D8RMN/bulknews-22">OCEANLANE- On my way back home</a></p>
+
+<p>ストレイテナーは新曲のTENDERがとてもいい曲。OCEANLANE はUKっぽい感じ。どっちも要注目かとおもいます。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000832.html">02:55 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000832.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000832.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000831"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/831"
+    dc:title="Bulkfeeds: goo Blog に対応"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000831"
+    dc:subject="bulkfeeds"
+    dc:description="goo Blog からのアグリゲートを開始しました。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-09T16:06:37+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 09, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000831"></a>
+<h3 class="title">Bulkfeeds: goo Blog に対応</h3>
+
+<p><a title="blog.bulknews.net: goo Blog" href="http://blog.bulknews.net/mt/archives/000830.html">blog.bulknews.net: goo Blog</a><br />
+<blockquote>- 新着記事のRSSとかありますね、ヨイヨイ。</blockquote></p>
+
+<p><a href="http://bulkfeeds.net/">Bulkfeeds</a> で <a href="http://blog.goo.ne.jp/">goo Blog</a> からのアグリゲートを開始しました。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000831.html">04:06 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000831.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000831.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000830"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/830"
+    dc:title="goo Blog"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000830"
+    dc:subject="blog"
+    dc:description="goo BLOG がオープンしてました。いつなのかはちとわかりませんが今日ですかね。(via naoya さん IM) 例によってざっとチェック。 - 新着記事のRSSとかありますね、ヨイヨイ。 - weblogUpdates ping を送ると検索対象にしてくれる。 - http://blog.goo.ne.jp/ の TITLE タグが SEO 意識か？..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-09T15:52:58+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000830"></a>
+<h3 class="title">goo Blog</h3>
+
+<p><a title="ブログ ウェブログ blogツール - goo BLOG" href="http://blog.goo.ne.jp/">goo BLOG</a> がオープンしてました。いつなのかはちとわかりませんが今日ですかね。(via naoya さん IM)</p>
+
+<p>例によってざっとチェック。</p>
+
+<p>- 新着記事のRSSとかありますね、ヨイヨイ。<br />
+- weblogUpdates ping を送ると検索対象にしてくれる。<br />
+- http://blog.goo.ne.jp/ の TITLE タグが SEO 意識か？<br />
+- RSS のバージョンは 1.0<br />
+- RSS Auto-Discovery 対応<br />
+- Trackback Auto-Discovery 対応<br />
+- Trackback の __mode=rss 対応<br />
+- RSS に trackback モジュールあり (trackback:ping)<br />
+- Blog 自体のエンコーディングは euc-jp<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000830.html">03:52 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000830.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000830.html#trackbacks">TrackBack (4)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000829"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/829"
+    dc:title="FAカップ 準決勝"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000829"
+    dc:subject="football"
+    dc:description="&quot; href=&quot;http://home.att.ne.jp/gamma/0-0/&quot;&gt;0-0 イングランドF.A.カップ・セミファイナル・ドロー (4/3-4) アーセナル v マンチェスター・ユナイテッド サンダーランド v デニス・ワイズ or トランメア・ローヴァーズ ふほー。こういう組み合わせになっちゃうのね。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-09T01:17:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000829"></a>
+<h3 class="title">FAカップ 準決勝</h3>
+
+<p><a title="0-0 <empate>" href="http://home.att.ne.jp/gamma/0-0/">0-0 <empate></a><br />
+<blockquote>イングランドF.A.カップ・セミファイナル・ドロー (4/3-4) </p>
+
+<p>アーセナル v マンチェスター・ユナイテッド<br />
+サンダーランド v デニス・ワイズ or トランメア・ローヴァーズ</blockquote></p>
+
+<p>ふほー。こういう組み合わせになっちゃうのね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000829.html">01:17 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000829.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000829.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000828"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/828"
+    dc:title="Net-MSN"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000828"
+    dc:subject="perl"
+    dc:description="search.cpan.org: David Radunz / Net-MSN-1.022 Net::MSN POE::Component::MSN 挫折してるうちに、 Net-MSN なんてのがでてた！ (via 読兎の工藤さん)..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-09T00:08:23+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000828"></a>
+<h3 class="title">Net-MSN</h3>
+
+<p><a title="search.cpan.org: David Radunz / Net-MSN-1.022" href="http://search.cpan.org/~djr/Net-MSN-1.022/">search.cpan.org: David Radunz / Net-MSN-1.022</a><br />
+<blockquote>Net::MSN </blockquote></p>
+
+<p>POE::Component::MSN 挫折してるうちに、 Net-MSN なんてのがでてた！ (via 読兎の工藤さん)</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000828.html">12:08 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000828.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000828.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000827"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/827"
+    dc:title="DBD::Mock"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000827"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Chris Winters / DBD-Mock-0.01 DBD::Mock Mock database driver for testing DBD に渡されたSQL文やパラメータを解析するための Mock Object DBD。ユニットテストに便利そうです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-08T20:35:14+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 08, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000827"></a>
+<h3 class="title">DBD::Mock</h3>
+
+<p><a title="search.cpan.org: Chris Winters / DBD-Mock-0.01" href="http://search.cpan.org/~cwinters/DBD-Mock-0.01/">search.cpan.org: Chris Winters / DBD-Mock-0.01</a><br />
+<blockquote>DBD::Mock Mock database driver for testing  </blockquote></p>
+
+<p>DBD に渡されたSQL文やパラメータを解析するための Mock Object DBD。ユニットテストに便利そうです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000827.html">08:35 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000827.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000827.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000826"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/826"
+    dc:title="稲村ジェーン"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000826"
+    dc:subject="movie"
+    dc:description="いわゆる群像系映画。サントラのための映画っぽいですが。 ストーリーはわけわからないのですが雰囲気はなかなかけだるくて好きカモ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-07T19:09:28+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 07, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000826"></a>
+<h3 class="title">稲村ジェーン</h3>
+
+<p>いわゆる群像系映画。サントラのための映画っぽいですが。<br />
+ストーリーはわけわからないのですが雰囲気はなかなかけだるくて好きカモ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000826.html">07:09 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000826.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000826.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000825"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/825"
+    dc:title="ウォーターワールド"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000825"
+    dc:subject="movie"
+    dc:description="WOWOW でみた。ケビン・コスナー主演。会社から帰って見たら途中で3回連続寝てしまったのだが、それは眠気のせいではなく、つまらなさのせいなのかもしれない。 数年後の地球、すべてが水没した世界、って設定としては面白いんだけどなあ。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-07T19:08:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000825"></a>
+<h3 class="title">ウォーターワールド</h3>
+
+<p>WOWOW でみた。ケビン・コスナー主演。会社から帰って見たら途中で3回連続寝てしまったのだが、それは眠気のせいではなく、つまらなさのせいなのかもしれない。</p>
+
+<p>数年後の地球、すべてが水没した世界、って設定としては面白いんだけどなあ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000825.html">07:08 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000825.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000825.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000824"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/824"
+    dc:title="続 HDD レコーダ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000824"
+    dc:subject=""
+    dc:description="blog.bulknews.net: HDDレコーダ買った そうか、あの連動機能はビデオが Panasonic だったから使えてた機能だったんだなー。意識してなかった。 ってことはCSの録画しようとおもったらCATV の EPG で番組予約して、さらに HDD 側で 外部入力1で同じ時刻にマニュアルで録画設定せなあかんってことだね。 ダメもとでちょいとつないでいじくってみた。 いろいろマニュアルみてみたら、CATV の STB からの連動は、やっぱり Panasonic じゃないとだめなのですが、HDD レコーダ側で「ライン自動入力」ちうのを使うと、チューナーから入力があったときに自動で録画開始、切れたら終了できることが判明。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-07T17:46:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000824"></a>
+<h3 class="title">続 HDD レコーダ</h3>
+
+<p><a title="blog.bulknews.net: HDDレコーダ買った" href="http://blog.bulknews.net/mt/archives/000814.html">blog.bulknews.net: HDDレコーダ買った</a><br />
+<blockquote>そうか、あの連動機能はビデオが Panasonic だったから使えてた機能だったんだなー。意識してなかった。<br />
+ってことはCSの録画しようとおもったらCATV の EPG で番組予約して、さらに HDD 側で 外部入力1で同じ時刻にマニュアルで録画設定せなあかんってことだね。</blockquote></p>
+
+<p>ダメもとでちょいとつないでいじくってみた。</p>
+
+<p>いろいろマニュアルみてみたら、CATV の STB からの連動は、やっぱり Panasonic じゃないとだめなのですが、HDD レコーダ側で「ライン自動入力」ちうのを使うと、チューナーから入力があったときに自動で録画開始、切れたら終了できることが判明。</p>
+
+<p>というわけで無事 CATV でも使えるのでした（ネット予約は使えませんが）。あと、レコーダが立ち上がって録画可能になるまでに１５秒くらいかかるので、番組の冒頭がきれるのがちと気になりますが。。</p>
+
+<p>ＢＳデジタル、地上デジタルもそれなりの画質でとれててなかなかよし。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000824.html">05:46 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000824.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000824.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000823"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/823"
+    dc:title="m-flo ｌoves BoA"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000823"
+    dc:subject="music"
+    dc:description="m-flo の次のコラボレーションは BoA ですか。なかなか楽しみ。 なんか BoA はこの辺の人らとよく一緒にやってるなあ。 こないだでた久保田のトリビュート LA LA LA LOVE SONG はよかったです。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-07T01:05:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000823"></a>
+<h3 class="title">m-flo ｌoves BoA</h3>
+
+<p>m-flo の次のコラボレーションは BoA ですか。なかなか楽しみ。<br />
+なんか BoA はこの辺の人らとよく一緒にやってるなあ。<br />
+こないだでた久保田のトリビュート LA LA LA LOVE SONG はよかったです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000823.html">01:05 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000823.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000823.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000822"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/822"
+    dc:title="サーバメンテナンスのお知らせ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000822"
+    dc:subject="bulkfeeds"
+    dc:description="本日21時よりサーバメンテナンスをおこないます。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-03T14:55:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 03, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000822"></a>
+<h3 class="title">サーバメンテナンスのお知らせ</h3>
+
+<p>本日21時ごろから Bulkfeeds サーバのメンテナンスのため、サービスが1時間弱停止する予定です。ご迷惑をおかけしますがよろしくお願いいたします。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000822.html">02:55 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000822.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000822.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000821"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/821"
+    dc:title="Bulkfeeds: Yukiwiki / Hiki に Similarity Search プラグイン"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000821"
+    dc:subject="bulkfeeds"
+    dc:description="Yukiwiki / Hiki に Similarity Search プラグインができています。"
+    dc:creator="miyagawa"
+    dc:date="2004-03-02T17:50:49+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 02, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000821"></a>
+<h3 class="title">Bulkfeeds: Yukiwiki / Hiki に Similarity Search プラグイン</h3>
+
+<p><a title="2004年3月" href="http://www.hyuki.com/diary/dia0403.html#i02_17">2004年3月</a><br />
+<blockquote>簡単なプラグインなら現在のYukiWiki 2.1.1で十分作れる。ここでいう「簡単な」というのは、ユーザがYukiWiki上で入力したテキストをHTMLに変換するプラグインという意味である。たとえばルビをつける、色をつける、文字の大きさを変える、センタリングする、アマゾンのアフィリエイトリンクを作る、などはそれぞれ実質数行程度プログラミングすればOK。 <br />
+YukiWikiのプラグイン機能 <br />
+bulkfeeds.netのSimilarity Searchのプラグインも作ってみた。というかみやがわさんのJavaScriptをPerlに移しただけだけれど。でも、動く。すっごく楽しい…♪ </blockquote></p>
+
+<p>お、すばらしーです！</p>
+
+<p>しかし Bulkfeeds 的には、現状は RSS 内の permalink の description は最初の1回しか内容をスキャンしないので、Wiki のように内容がどんどん変わるものに対しての効果は微妙かも。。。</p>
+
+<p>中身を更新したらBulkfeeds側でもアップデートするようにしたほうがいいですよね。TODO にはいれておきます（こうするとインデクシングがさらに時間がかかってしまうんだなあー）。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000821.html">05:50 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000821.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000821.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000820"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/820"
+    dc:title="Net-LibIDN"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000820"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Thomas Jacob / Net-LibIDN-0.04 Net::LibIDNPerl bindings for GNU Libidn GNU libidn の perl port...."
+    dc:creator="miyagawa"
+    dc:date="2004-03-02T13:34:54+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000820"></a>
+<h3 class="title">Net-LibIDN</h3>
+
+<p><a title="search.cpan.org: Thomas Jacob / Net-LibIDN-0.04" href="http://search.cpan.org/~thor/Net-LibIDN-0.04/">search.cpan.org: Thomas Jacob / Net-LibIDN-0.04</a><br />
+<blockquote>Net::LibIDNPerl bindings for GNU Libidn </blockquote></p>
+
+<p>GNU libidn の perl port.</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000820.html">01:34 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000820.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000820.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000819"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/819"
+    dc:title="paperboy を GMO が買収"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000819"
+    dc:subject="blog"
+    dc:description="NIKKEI NET：ベンチャー ニュース ＧＭＯ、個人向けレンタルサーバー業者を子会社化 　インターネット関連サービスのグローバルメディアオンライン（ＧＭＯ）はレンタルサーバー事業を手がけるペーパーボーイ（福岡市、家入一真社長）を買収する。個人向け低価格サービスを得意とするペーパー社を傘下に収めることで、顧客層の拡大を図る。 でたー。 てかヤプースはどうするんすかね。。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-02T13:33:47+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000819"></a>
+<h3 class="title">paperboy を GMO が買収</h3>
+
+<p><a title="NIKKEI NET：ベンチャー ニュース" href="http://www.nikkei.co.jp/news/tento/20040302AT2E0100M01032004.html">NIKKEI NET：ベンチャー ニュース</a><br />
+<blockquote>ＧＭＯ、個人向けレンタルサーバー業者を子会社化<br />
+　インターネット関連サービスのグローバルメディアオンライン（ＧＭＯ）はレンタルサーバー事業を手がけるペーパーボーイ（福岡市、家入一真社長）を買収する。個人向け低価格サービスを得意とするペーパー社を傘下に収めることで、顧客層の拡大を図る。</blockquote></p>
+
+<p>でたー。</p>
+
+<p>てかヤプースはどうするんすかね。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000819.html">01:33 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000819.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000819.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000818"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/818"
+    dc:title="右足激痛"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000818"
+    dc:subject=""
+    dc:description="なんか朝起きたら右足裏が激痛で歩けない。 さっそく病院にいってみてもらうと、なんだか足の裏にあるなんとか筋が炎症をおこしてるそうな。 なにか最近激しい運動はじめましたか？とかいわれたけど、うーん。 引越しでちょっと重い荷物運んだぐらいかな。 んでもそれぐらいでって、どんだけ運動不足なんだよ＞オレ..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-02T13:22:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000818"></a>
+<h3 class="title">右足激痛</h3>
+
+<p>なんか朝起きたら右足裏が激痛で歩けない。<br />
+さっそく病院にいってみてもらうと、なんだか足の裏にあるなんとか筋が炎症をおこしてるそうな。</p>
+
+<p>なにか最近激しい運動はじめましたか？とかいわれたけど、うーん。<br />
+引越しでちょっと重い荷物運んだぐらいかな。<br />
+んでもそれぐらいでって、どんだけ運動不足なんだよ＞オレ</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000818.html">01:22 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000818.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000818.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000817"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/817"
+    dc:title="退屈貴族"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000817"
+    dc:subject=""
+    dc:description="なんか番組の内容がかわった。。 ただの若手ネタ見せ番組かよ。 まあアンガールズは好きだけども。。。..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-02T01:21:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="000817"></a>
+<h3 class="title">退屈貴族</h3>
+
+<p>なんか番組の内容がかわった。。<br />
+ただの若手ネタ見せ番組かよ。<br />
+まあアンガールズは好きだけども。。。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000817.html">01:21 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000817.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000817.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2004_03.html#000816"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/816"
+    dc:title="asahi.com が RSS 配信開始"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2004_03.html#000816"
+    dc:subject="blog"
+    dc:description="アサヒコムが RSS 配信を開始しました。いわゆる大手新聞社系のニュースサイトでは初かな。すばらしいです。Bulknews の asahi.com RSS もいらなくなっちゃったなあ。 * URL に ?ref=rss がついてる。トラッキング用ですね。 * description はない。入れて欲しかった。 * dc:subject でカテゴリが入ってる。素晴らしげ。 * dc:rights..."
+    dc:creator="miyagawa"
+    dc:date="2004-03-01T15:23:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">March 01, 2004</h2>
+
+
+<div class="blogbody">
+<a name="000816"></a>
+<h3 class="title">asahi.com が RSS 配信開始</h3>
+
+<p>アサヒコムが  RSS 配信を開始しました。いわゆる大手新聞社系のニュースサイトでは初かな。すばらしいです。Bulknews の asahi.com RSS もいらなくなっちゃったなあ。</p>
+
+<p>* URL に ?ref=rss がついてる。トラッキング用ですね。<br />
+* description はない。入れて欲しかった。<br />
+* dc:subject でカテゴリが入ってる。素晴らしげ。<br />
+* dc:rights に再配布禁止メッセージがはいってますね。RSSをHTML加工して自分のBlogのせるのはマズイ？</p>
+
+<p><a title="asahi.com : アサヒ･コムから : ＲＳＳ／ＲＤＦを公開" href="http://www.asahi.com/information/rss/index.html">asahi.com : アサヒ･コムから : ＲＳＳ／ＲＤＦを公開</a><br />
+<blockquote>アサヒ･コム速報ニュースのＲＳＳ／ＲＤＦを公開します<br />
+全ジャンルの見出しと記事リンクを提供、１日から</p>
+
+<p><br />
+２００４年３月１日  <br />
+　アサヒ･コムは、ＸＭＬ技術を応用した標準フォーマットのＲＳＳ／ＲＤＦを使って、速報ニュースの見出しと記事リンクを一般公開します。<br />
+　ＲＳＳ／ＲＤＦはさまざまな分野で利用することができ、たとえばＲＳＳリーダーと呼ばれるパソコンソフトを使うと、アサヒ･コム最新ニュースの見出しを素早くチェックできるようになります。ぜひご活用ください。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/000816.html">03:23 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000816.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/000816.html#trackbacks">TrackBack (12)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

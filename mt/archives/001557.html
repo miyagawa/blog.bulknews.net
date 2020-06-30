@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Ajax - Async Javascript with XmlHttpRequest: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001557.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001556.html" title="Flickr on TiVo" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001558.html" title="Adam Curry on commercialization" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001557.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1557"
+    dc:title="Ajax - Async Javascript with XmlHttpRequest"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001557.html"
+    dc:subject="tech"
+    dc:description="adaptive path ajax: a new approach to web applications Google Suggest and Google Maps are two examples of a new..."
+    dc:creator="miyagawa"
+    dc:date="2005-02-24T00:07:21+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">February 24, 2005</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Ajax - Async Javascript with XmlHttpRequest</h1>
+
+<p><a title="adaptive path ajax: a new approach to web applications" href="http://adaptivepath.com/publications/essays/archives/000385.php">adaptive path ajax: a new approach to web applications</a><br />
+<blockquote>Google Suggest and Google Maps are two examples of a new approach to web applications that we at Adaptive Path have been calling Ajax. The name is shorthand for Asynchronous JavaScript   XML, and it represents a fundamental shift in what's possible on the Web.</blockquote></p>
+
+<p>Google が Gmail や Google Maps で見せた JavaScript と XmlHttpRequest による画面遷移のないスムーズな Web Interface を "Ajax" と呼ぶようになったようです。こうして名前がつくのはスムーズなコミュニケーションのベースとなりますから、いいことですよね。（オランダのフットボールチームのアヤックスと同じスペルになりますが、やはりアヤックスと呼ぶのかな？→ アメリカ人にきいてみたところ「エイ-ジャクス」と読むそうです）</p>
+
+<p>Flickr などでもこうした JavaScript + XmlHttpRequest はふんだんに利用されていて、ストレスのない UI として注目も集まっているところですね。ちょうど Ajax を提唱している Adaptive Path の Jesse さんは、奥さんの Rebecca Blood とともに <a href="http://netafull.net/archives/007411.html">来日中</a> （この飲み会、さそわれていたのをすっかり忘れていました。。）。<a href="http://www.designit.jp/">DESIGN IT!</a> のカンファレンスで2人ともユーザ・エクスペリエンスや Blog Universe についての講演をするようですね。</p>
+
+<p>本題の JavaScript + XmlHttpRequest + DHTML って話では、オライリーから昨年でている DHTML + Javascript クックブックがいい具合。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111692/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/4873111692.09.MZZZZZZZ.jpg" alt="JavaScript & DHTMLクックブック―Webエキスパート必携テクニック集" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111692/bulknews-22" name="amazletlink" target="_blank">JavaScript & DHTMLクックブック―Webエキスパート必携テクニック集</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873111692/bulknews-22" target="_blank">amazlet</a> at 05.02.24</div></div><div class="amazlet-detail">ダニー グッドマン Danny Goodman 村上 列 <br />オライリージャパン (2004/01)<br />売り上げランキング: 7,359<br />通常24時間以内に発送<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111692/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'DHTML, JavaScript';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at February 24, 2005 12:07 AM
+| <a href="http://blog.bulknews.net/mt/archives/001557.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001557.html#comments">Comments (0)</a>
+
+| <a href="#trackbacks">TrackBack(16)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001556.html\">&laquo; Flickr on TiVo</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001558.html\">Adam Curry on commercialization &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1557</div>
+
+<div class="comments-body">
+<a name="3121"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/xucker/20050224#p1" target="new" rel="nofollow nofollow">AJaxは面白そう</a><br />
+<b>Excerpt:</b> --------------- [長所] plug-inいらず　広いユーザー層 転送が少ない　はやい動作 ユーザービリティーの向上　フォームのみに比べると革命的  [短所] 大変 	エンジン作るの大変。 	複数のブラウザーへの対応が大変  いずれにせよエンドユーザー向けのサービスを作る場合�...<br />
+<b>Weblog:</b> AkのJavaメモやWebの更新情報<br />
+<b>Tracked:</b> February 24, 2005 04:09 AM</span>
+</div>
+<div class="comments-body">
+<a name="3122"></a>
+<span class="comments-post"><a href="http://p0t.jp/mt/archives/2005/02/ajax_asy.html" target="new" rel="nofollow nofollow">XMLHTTPRequestはAjaxになりました</a><br />
+<b>Excerpt:</b> Ajax - Async Javascript with XmlHttpRequ...<br />
+<b>Weblog:</b> p0t<br />
+<b>Tracked:</b> February 24, 2005 10:12 AM</span>
+</div>
+<div class="comments-body">
+<a name="3123"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/ma2/20050224#p1" target="new" rel="nofollow nofollow">[web]�����勐�����Ajax</a><br />
+<b>Excerpt:</b> GMailとかGoogle MapとかのGoogleが提供しているサービスはJavaScriptを使いまくっている。Webベースだとコンポーネーントに制限があるためUI的にはひどく窮屈なものしか作れないというのが常識だったが，これらGoogle系Webアプリのユーザインターフェースは，ローカルにC...<br />
+<b>Weblog:</b> ma2の日記<br />
+<b>Tracked:</b> February 24, 2005 11:30 AM</span>
+</div>
+<div class="comments-body">
+<a name="3125"></a>
+<span class="comments-post"><a href="http://blog.hinatabocco.com/archives/000663.html" target="new" rel="nofollow nofollow">ajax</a><br />
+<b>Excerpt:</b> 某社案件のブレスト中に出てきたキーワード&quot;ajax&quot;。「ああ、A-JAXのことか、あれは良作だよな」と思っていましたが、どうやら違ったようでGmail,flickrなどで使われているJavascriptとXMLを使ったアプリケーション開発手法のことらしい。Asynchronous JavaScript + XMLの�...<br />
+<b>Weblog:</b> blog.hinatabocco.com<br />
+<b>Tracked:</b> February 24, 2005 11:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="3148"></a>
+<span class="comments-post"><a href="http://zerobase.jp/blog/entry-208" target="new" rel="nofollow nofollow">Ajaxエンジン、Ajaxビジネス、Ajax人材募集</a><br />
+<b>Excerpt:</b> 今日は、いまIT系ブログで話題のAjaxについて、
+（１）Ajaxエンジンどうするか
+（２）Ajaxのビジネス戦略について
+（３）Ajaxの仕事をしたいエンジニアを募集
+という内容で。
+
+なお、Ajaxエンジンというのは、「Ajax: Web アプリケーション開発の新しいアプローチ」...<br />
+<b>Weblog:</b> ZEROBASE CAST<br />
+<b>Tracked:</b> February 25, 2005 11:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="3150"></a>
+<span class="comments-post"><a href="http://e8y.net/blog/index.php/2005/02/26/p94" target="new" rel="nofollow nofollow">Ajax！ とりあえず名前がついたのはいいことだ</a><br />
+<b>Excerpt:</b> 
+
+
+
+miyagawaさんの記事より
+
+
+Google が Gmail や Google Maps で見せた JavaScript と XmlHttpRequest による画面遷移のないスムーズな Web Interface を &quot;Ajax&quot; と呼ぶようになったようです。
+... Flickr など??.<br />
+<b>Weblog:</b> Elementary, ...<br />
+<b>Tracked:</b> February 26, 2005 02:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="3157"></a>
+<span class="comments-post"><a href="http://www.jaro68.org/needlejuice/blog//142" target="new" rel="nofollow nofollow">マトモなJavascriptの使い方</a><br />
+<b>Excerpt:</b> そういえば、 前のエントリ
+で、マトモなJavaScriptの使い方とか言ってたけど、もっと身近にJavaScriptを使ったniceなWebがあった。
+それはGMail。GMailはあまりページ全体のリロードは行われず、リンクをクリックするとXmlHttpRequestでJavaScriptがサーバと通信し、部分...<br />
+<b>Weblog:</b> needlejuice blog<br />
+<b>Tracked:</b> February 27, 2005 05:26 AM</span>
+</div>
+<div class="comments-body">
+<a name="3162"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/hikaru_fujita/archives/15310764.html" target="new" rel="nofollow nofollow">Ajax</a><br />
+<b>Excerpt:</b> またひとつ教えてもらいました。<br />
+<b>Weblog:</b> 先達の知恵を得たい<br />
+<b>Tracked:</b> February 28, 2005 11:58 PM</span>
+</div>
+<div class="comments-body">
+<a name="3163"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/khr/20050228/1109605951" target="new" rel="nofollow nofollow">[JavaScript]JavaScriptでスムーズなWeb Interfaceを</a><br />
+<b>Excerpt:</b>  [http://blog.bulknews.net/mt/archives/001557.html:title] これまでは「Webアプリケーションだからしょうがないや」と 思ってましたが、これからはそうもいかなくなりそうです。  「Ajax」要チェックです。<br />
+<b>Weblog:</b> khrの日記<br />
+<b>Tracked:</b> March  1, 2005 12:53 AM</span>
+</div>
+<div class="comments-body">
+<a name="3166"></a>
+<span class="comments-post"><a href="http://netafull.net/archives/007491.html" target="new" rel="nofollow nofollow">Ajaxとは？</a><br />
+<b>Excerpt:</b> 最近、アルファギークな方々の間では「Ajax」というのが流行っているようです。なんとなく分かったつもりでいたのですが、じゃあ「Ajax」って何なの？　と聞かれると、さっぱり答えられません。と思っていた...<br />
+<b>Weblog:</b> [N]<br />
+<b>Tracked:</b> March  1, 2005 06:53 PM</span>
+</div>
+<div class="comments-body">
+<a name="3168"></a>
+<span class="comments-post"><a href="http://iandeth.dyndns.org/~jimbo/mt/archives/2005/03/ajax.html" target="new" rel="nofollow nofollow">Ajax の読み方</a><br />
+<b>Excerpt:</b> [N] Ajaxとは？より ちなみにこの「Ajax」はAjax - Async ...<br />
+<b>Weblog:</b> jmblog<br />
+<b>Tracked:</b> March  1, 2005 08:02 PM</span>
+</div>
+<div class="comments-body">
+<a name="3197"></a>
+<span class="comments-post"><a href="http://brewblue.s83.xrea.com/archives/2005/03/clouderb.html" target="new" rel="nofollow nofollow">MovableTypeのSearchをAjaxで</a><br />
+<b>Excerpt:</b> Clouder::Blogger: MovableTypeのSearchをAjaxでやってみる Aj...<br />
+<b>Weblog:</b> BREWBLUE<br />
+<b>Tracked:</b> March  3, 2005 10:45 PM</span>
+</div>
+<div class="comments-body">
+<a name="3198"></a>
+<span class="comments-post"><a href="http://director.daich.com/archives/2005/03/03/1142.html" target="new" rel="nofollow nofollow">Ajaxって何？</a><br />
+<b>Excerpt:</b> ここ最近、やたらとAjaxに関する記事を目にします。 以前から、GmailやGoogleMapsやGoogleSuggestやFlickrなどのインターフェースいいなぁと思ってました。リロードせずに画面が遷移する。どうやって実現してるんだろう？とひそかに疑問でしたが、理解できました。 Ajaxは...<br />
+<b>Weblog:</b> Webディレクター::blog<br />
+<b>Tracked:</b> March  4, 2005 05:51 AM</span>
+</div>
+<div class="comments-body">
+<a name="3203"></a>
+<span class="comments-post"><a href="http://" target="new" rel="nofollow nofollow">http://</a><br />
+<b>Excerpt:</b> There are, as is known, insects that die in the moment of fertilization. So it is with all joy: life's highest, most splendid moment of enjoyment is accompanied by death. by &amp;lt;a href=&quot;http://&quot; title=&quot;&quot;<br />
+<b>Weblog:</b> <br />
+<b>Tracked:</b> March  4, 2005 09:44 PM</span>
+</div>
+<div class="comments-body">
+<a name="3317"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/mebo/archives/16543993.html" target="new" rel="nofollow nofollow">ajax とやらで日本語訳検索</a><br />
+<b>Excerpt:</b> ちょっと恥ずかしいぐらい流行に乗り遅れてますが、ちょっと時間があったので ajax とやらを試してみました。
+シームレスなUIを実現するための機能の一つが XMLHttpRequest() なわけですが、これを使うこと自体はいたって簡単で、慣れない言語（javascript）を使うことのほ.<br />
+<b>Weblog:</b> ITソルジャーの目指せ海外就職！<br />
+<b>Tracked:</b> March 17, 2005 04:11 AM</span>
+</div>
+<div class="comments-body">
+<a name="3775"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/amorishi/archives/18898387.html" target="new" rel="nofollow nofollow">AJAXとGoogleMaps</a><br />
+<b>Excerpt:</b> GoogleMapsがアツい。
+
+何がアツいって、
+『Satellite（衛星写真）』がアツい。
+
+まだ詳細情報が揃っているのは、
+アメリカの主要都市だけだが、
+それでも十分旅行計画等には有益だ。
+
+使い方は、
+１．気になる地区を画面の中心に持ってくる
+　　（AcrobatReader.<br />
+<b>Weblog:</b> Ring-A-Ding<br />
+<b>Tracked:</b> April 14, 2005 11:08 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1557" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

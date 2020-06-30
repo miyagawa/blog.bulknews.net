@@ -1,0 +1,322 @@
+body {
+  padding: 0 5% 0 5%;
+  color: #000;
+  background: #fff;
+  font-family: Verdana,Geneva,Arial,Sans-serif;
+  font-size: 11px;
+}
+
+form {
+  margin: 0;
+}
+
+form, td, th {
+  font-family: Verdana,Geneva,Arial,Sans-serif;
+  font-size: 11px;
+}
+
+input {
+  background: #fff;
+  font-family: Verdana,Geneva,Arial,Sans-serif;
+  font-size: 11px;
+}
+
+h1,h2,h3,h4 {
+  font-size: 8pt;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #00f;
+}
+
+a:visited {
+  color: #00a;
+}
+
+a:active {
+  color: #444;
+}
+
+a:hover {
+  text-decoration: underline;  
+}
+
+code {
+  font-family: 'Courier New';
+  color: #222;
+}
+
+#banner {
+  color: #666;
+  font-size: 2.5em;
+  font-family: 'trebuchet MS';
+  line-height: 1.1em;
+  font-weight: bold;
+}
+
+span.description {
+  color: #bbb;
+  font-weight: bold;
+  text-transform: none;
+  letter-spacing: .none;
+}
+
+#menu {
+  color: #fff;
+  font-weight: bold;
+  background: #88a;
+  border-color: #444;
+  border-style: solid;
+  border-width: 1px 0;
+  padding: 2px;
+  margin: 10px 0;
+}
+
+#menu a {
+  color: #fff;
+  padding: 2px;
+  margin: 0 5px;
+}
+
+#menu a:hover {
+  color: #fff;
+  background: #66a;
+  text-decoration: none;
+}
+
+#content {
+  float: left;
+  width: 65%;
+  margin-bottom: 2em;
+}
+
+.entry {
+  padding: 0 1.0em 1.0em 0.2em;
+/*  margin-bottom: 1.0em; */
+  line-height: 1.5em;
+}
+
+.date {
+  color: #642;
+  font-weight: bold;
+}
+
+h1.title {
+  line-height: 110%;
+  font-weight: bold;
+  margin: 0.8em 0 0.3em 0;
+}
+
+h4.subsection {
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+p.blogbody {
+}
+
+p.postinfo {
+  text-align: right;
+}
+
+/*
+hr {
+  width: 80%;
+  height: 1px;
+  color: #000;
+}
+*/
+
+ul, ol {
+  margin-left: 2.5em;
+}
+
+dd {
+  margin-left: 1.0em;
+}
+
+div#modules {
+  padding-left: 2em;
+  width: 30%;
+  float: right;
+  border-left: 1px dotted #aaa;
+}
+
+div.module {
+  margin: 1em 0 2em 0;
+}
+
+h4.module {
+  color: #228;
+  line-height: 1em;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 0; 
+  margin-bottom: 0;
+}
+
+.modulebody {
+/*  font-size: 9px; */
+  padding-top: 5px;
+  margin: 2px;
+  line-height: 1.4em;
+}
+
+div.prevnext {
+  line-height: 1.5em;
+  padding: 0 0 0 1em;
+}
+
+p.copyright {
+/*  font-size: 9px; */
+  color: #666;
+}
+
+span.caution {
+  color: #666;
+}
+
+img.right {
+  float: right;
+  margin: 0.5em 0 0.8em 0.8em;
+}
+
+img.left {
+  float: left;
+  margin: 0.5em 0.8em 0.8em 0;
+}
+
+pre {
+  font-size: 11px;
+  font-familiy: 'Courier New';
+  line-height: 1.2em;
+  border: 1px solid #aaa;
+  background: #eee;
+  padding: 0.5em;
+}
+
+#footer {
+  clear: left;
+  width: 65%;
+  padding: 0;
+/*  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #222; */
+}
+
+blockquote {
+  width: 100%;
+  margin: 1.2em;
+  color: #666;
+  line-height: 1.3em;
+  padding: 0 0 0 1em;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: #666;
+}
+
+.footnote {
+  margin-top: 15px;
+  padding-left: 10px;
+  font-size: 9px;
+}
+
+.blosxomTable {
+  margin: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: #666;
+  border-width: 1px 0;
+/*  border-width: 0; */
+  background: #fff;
+/*  border-collapse: collapse; */
+}
+
+.blosxomTableRow {
+}
+
+.blosxomTableHeader {
+  background: #888;
+  color: #fff;
+  padding: 5px;
+}
+
+.blosxomTableDataEven {
+  background: #eee;
+  color: #444;
+  padding: 5px;
+}
+
+.blosxomTableDataOdd {
+  background: #fff;
+  color: #444;
+  padding: 5px;
+}
+
+.blosxomTableDataLeft {
+  background: #eee;
+  color: #444;
+  padding: 5px;
+}
+
+.blosxomTableDataRight {
+  background: #fff;
+  color: #444;
+  padding: 5px;
+}
+
+pre.scriptsSnippet {
+  border-style: solid;
+  border-color: #aaa;
+  border-width: 1px;
+  background: #eee;
+  padding: 5px;
+  margin-top: 5px;
+  font-family: Courier New, Courier;
+  font-size: 11px;
+}
+
+pre.inlineRaw {
+  color: #000;
+  margin-left: 10px;
+  border-width: 0;
+  background: #fff;
+  font-family: Courier New, Courier;
+  font-size: 11px; 
+}
+
+pre.command {
+  color: #fff;
+  border-style: solid;
+  border-color: #666;
+  border-width: 1px;
+  background: #666;
+  padding: 5px;
+  margin-top: 5px;
+  font-family: Courier New, Courier;
+  font-size: 11px;
+}
+
+.scriptsListings {
+
+}
+
+pre.scriptsListing {
+  border-style: solid;
+  border-color: #aaa;
+  border-width: 1px;
+  background: #eee;
+  padding: 5px;
+  margin-top: 5px;
+  font-family: Courier New, Courier;
+  font-size: 11px;
+}
+
+.inline-image {
+  margin: 1.6em 1.0em;
+  clear: both;
+  display: block;
+}

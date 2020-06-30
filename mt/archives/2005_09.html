@@ -1,0 +1,1267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: September 2005 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2005_08.html" title="August 2005" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2005_10.html" title="October 2005" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001820"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1820"
+    dc:title="MT BanASCII 3.2 対応"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001820"
+    dc:subject="blog"
+    dc:description="英数字または latin-1 だけで構成されたコメントをはじく MT BanASCII プラグインですが、MT 3.2 日本語版リリースにあわせて 3.2 Junk Filter API で書き直してみました。ダウンロードは mt-ban-ascii.pl から。ファイルを plugins ディレクトリにおくだけで OK です。 Junk..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-30T16:17:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 30, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001820"></a>
+<h3 class="title">MT BanASCII 3.2 対応</h3>
+
+<p>英数字または latin-1 だけで構成されたコメントをはじく <a href="http://blog.bulknews.net/mt/archives/001508.html">MT BanASCII</a> プラグインですが、MT 3.2 日本語版リリースにあわせて 3.2 Junk Filter API で書き直してみました。ダウンロードは <a href="http://svn.bulknews.net/viewcvs/*checkout*/public/mt-ban-ascii/trunk/mt-ban-ascii.pl?rev=1657">mt-ban-ascii.pl</a> から。ファイルを plugins ディレクトリにおくだけで OK です。</p>
+
+<p>Junk Filter API を使うことにより、Ban したコメントやトラックバックが Junk フォルダに入るようになるため、間違って Ban されたものを、自動削除処理される一定期間内に気づけば Despam することができますし、また Junk したという情報をほかのフィルタ (SpamLookup の Link Memory など）で連携して使うことができます。</p>
+
+<p>また、このバージョンから Trackback にも対応していて、title や excerpt がスキャン処理対象になります。同じ MT のインストレーションで別に英語で Blog を書いている人は、システムでは Disable しておいて日本語の Blog だけで有効化する、なんてのも MT 3.2 からできるようになってます。</p>
+
+<p>最新のコードは http://svn.bulknews.net/viewcvs/public/mt-ban-ascii/trunk/ から。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001820.html">04:17 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001820.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001820.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001819"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1819"
+    dc:title="use encoding &apos;utf-8&apos; &amp; encoding::warnings"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001819"
+    dc:subject="perl"
+    dc:description="Perl ネタ。 XML まわりなんかを扱うときについて回る UTF-8 フラグ (Unicode フラグ）をどう落とすか的ネタがもりあがっていますねぇ。このネタは拙書の Blog Hacks でも 1 Hack さいて解説してあります。 Blog Hacks ―プロが教えるテクニック&amp;ツール100選posted with amazlet on..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-30T16:02:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001819"></a>
+<h3 class="title">use encoding 'utf-8' & encoding::warnings</h3>
+
+<p>Perl ネタ。</p>
+
+<p>XML まわりなんかを扱うときについて回る UTF-8 フラグ (Unicode フラグ）をどう落とすか的ネタがもりあがっていますねぇ。このネタは拙書の Blog Hacks でも 1 Hack さいて解説してあります。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111749/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/4873111749.09.MZZZZZZZ.jpg" alt="Blog Hacks ―プロが教えるテクニック&ツール100選" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111749/bulknews-22" name="amazletlink" target="_blank">Blog Hacks ―プロが教えるテクニック&ツール100選</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4873111749/bulknews-22" title="Blog Hacks ―プロが教えるテクニック&ツール100選" target="_blank">amazlet</a> on 05.09.30</div></div><div class="amazlet-detail">宮川 達彦 伊藤 直也 <br />オライリー・ジャパン (2004/08/07)<br />売り上げランキング: 20,714<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873111749/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>たしかに内部的に UTF-8 フラグを落としてバリバリつなげちゃえば、場当たり的に楽は楽なんだけど、内部的に Unicode フラグをもったまま処理して、最後に出力するときに落とす（encode する）というのが正当なわけです。</p>
+
+<p>また、Unicode flagged + non-Unicode flagged な処理を行ったときに warning もしくは例外をとばすプラグマ <a href="http://search.cpan.org/~autrijus/encoding-warnings-0.05/">encoding::warnings</a> なんてのもありますし（実験的なのでプロダクション環境ではオススメしない）、このドキュメントには、問題の概要と対処法がちゃんと載ってます。</p>
+
+<blockquote>Upgrade both sides to unicode-strings
+If your program does not need compatibility for Perl 5.6 and earlier, the recommended approach is to apply appropriate IO disciplines, so all data in your program become unicode-strings. See encoding, open and "binmode" in perlfunc for how.</blockquote>
+
+<p>Perl 5.6 以下での互換性が必要ないなら、すべてを Unicode String として扱い、読み書きするときには encoding 指定したり binmode を利用する。</p>
+
+<blockquote>Downgrade both sides to byte-strings 
+The other way works too, especially if you are sure that all your data are under the same encoding, or if compatibility with older versions of Perl is desired.</blockquote>
+
+<p>すべてを byte 列で扱う。すべてのデータが同じエンコーディング（たとえば utf-8) であることを保証でき、また過去の Perl バージョンとの互換性がほしいならこれもよい。</p>
+
+<blockquote>Specify the encoding for implicit byte-string upgrading 
+If you are confident that all byte-strings will be in a specific encoding like UTF-8, and need not support older versions of Perl, use the encoding pragma:</blockquote>
+
+<p>implicit なアップグレード（デフォルトは latin-1 => utf-8）に利用するエンコーディングを use encoding プラグマで指定する。use encoding 'utf-8' とすると、flag つきと flag なしを結合したときの implicit なアップグレードが発生しない。</p>
+
+<p>というわけで、コードをいじらずにサクっと対処するには use encoding "utf-8" がかなり有効だとおもわれます。これでは利かないおおきなアプリケーションでは、内部的に Unicode フラグをつけて扱うといった処理が Best Practice でしょう。</p>
+
+<p>問題は CPAN モジュール（とくに XS系）で、内部で勝手にフラグを落としてしまったり、フラグつきだと Segfault するようなモノがいくつか存在するところですね。Wiki ページでもつくってこの情報をアップデートできるとよいんですが。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001819.html">04:02 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001819.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001819.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001818"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1818"
+    dc:title="tipjar in TypePad &amp; OpenID on TypeKey"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001818"
+    dc:subject="tech"
+    dc:description="Everything TypePad - Tips Accepted HereWe updated TypePad’s Earnings Tracking section while developing the Tip Jar feature. This means that..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-25T12:43:53+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 25, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001818"></a>
+<h3 class="title">tipjar in TypePad & OpenID on TypeKey</h3>
+
+<p><a title="Everything TypePad - Tips Accepted Here" href="http://www.sixapart.com/typepad/news/2005/09/tips_accepted_h_1.html">Everything TypePad - Tips Accepted Here</a><blockquote>We updated TypePad’s Earnings Tracking section while developing the Tip Jar feature. This means that as a Pro-level blogger you can earn money from ads and tips, and track your progress as well as manage all of your Earnings activities in one place. We will be posting more details about how we updated the Earnings Tracking section soon. But first we want to get you started on receiving tips from readers. </blockquote></p>
+
+<p>US TypePad がバージョンアップ。PRO ユーザのみですが、PayPal の API と連携して、サイドバーから Tipjar （投げ銭）を受け取ることができます。受け取った Tip は Kanoodle の広告同様、そのまま TypePad の利用料に振り替えることもできます。</p>
+
+<p><a title="Use TypeKey as your OpenID server: markpasc.org" href="http://markpasc.org/weblog/2005/09/21/use_typekey_as_your_openid_server">Use TypeKey as your OpenID server: markpasc.org</a><blockquote>Not using MT or don't want to run your own OpenID server? TypeKey is now an OpenID server. You can sign into LiveJournal or any other OpenID-enabled site with three easy steps:</blockquote></p>
+
+<p>また、TypeKey が OpenID サーバとしても使えるようになりました。MT では 3.2 で標準ディストリビューションに入っている OpenID プラグインで自分だけの OpenID サーバをつくることができますが、認証システムの信頼性という意味では、LiveJournal や TypeKey のようなサービス側に認証をまかせる方法のほうがベター。</p>
+
+<p>というわけで MT に非対応の Blog (URL を持っていれば Blog でなくてもよいわけですが）でも、HTML に openid.server と openid.delegate を記述することで TypeKey から OpenID 認証をすることが可能です。</p>
+
+<p>とりあえずデモでどう動くのか試してみたい、という場合には、<a href="http://www.livejournal.com/">LiveJournal</a> に行って Sign in as OpenID を選択、OpenID URL に profile.typekey.com/<i>yourname</i> を入力すれば LiveJournal にログインすることができます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001818.html">12:43 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001818.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001818.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001817"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1817"
+    dc:title="Podcasts on small teams"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001817"
+    dc:subject="tech"
+    dc:description="小さなチームで大きなプロダクトを、というテーマで Podcast 2題。 Burning Questions - The Official FeedBurner Weblog: Is This Thing On?We wanted to launch the FeedBurner podcast..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-25T12:36:40+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001817"></a>
+<h3 class="title">Podcasts on small teams</h3>
+
+<p>小さなチームで大きなプロダクトを、というテーマで Podcast 2題。</p>
+
+<p><a title="Burning Questions - The Official FeedBurner Weblog: Is This Thing On?" href="http://www.burningdoor.com/feedburner/archives/001431.html">Burning Questions - The Official FeedBurner Weblog: Is This Thing On?</a><blockquote>We wanted to launch the FeedBurner podcast to give you a better sense of what we're up to, help you understand how to get more out of FeedBurner, and generally provide some thoughts about relevant developments in a changing media landscape</blockquote></p>
+
+<p>メジャーリデザインをしてカッコよく、使いやすくなった FeedBurner のデザインチームによる Podcast。</p>
+
+<p><a title="IT Conversations: Jason Fried - Basecamp" href="http://www.itconversations.com/shows/detail471.html">IT Conversations: Jason Fried - Basecamp</a><blockquote>Ride with Jason Fried of 37signals as he takes us through the lessons learned while building Basecamp, a hosted project management tool that is extremely popular among its thousands of users. </blockquote></p>
+
+<p>Rails や Basecamp, Backpack を生み出した 37 Signals の Jason Fried の講演。解説は goodpic さんが詳しい。</p>
+
+<p><a title="37signals Jason Fried氏の公演 「より少ないシンプルな機能で競争する」：Goodpic" href="http://www.goodpic.com/mt/archives2/2005/09/37signals_jason.html">37signals Jason Fried氏の公演 「より少ないシンプルな機能で競争する」：Goodpic</a><blockquote>さすがにノリに乗っていると言う感じで、歯切れのいい公演。特に、小さなグループで、最大の成果を出すための方法論を、自分達で確立している雰囲気があります。すべての開発に、37signalsメソッドが使えるかどうかは別として、参考になる点が多々。</blockquote></p>
+
+<p>37signals の Jason といえば、Mena's corner での Mena のポストでの議論が面白かったのが記憶に新しいです。</p>
+
+<p><a title="Six Apart - Mena's Corner: In Defense of Big (relatively speaking)" href="http://www.sixapart.com/about/corner/2005/09/in_defense_of_b.html">Six Apart - Mena's Corner: In Defense of Big (relatively speaking)</a><blockquote>I've been reading Signal vs. Noise, the weblog from 37Signals, for quite some time and consider the work that they do quite inspirational. One of the best company weblogs out there, Signal vs. Noise covers a variety of topics ranging from usability and design to company culture.</blockquote></p>
+
+<p>Six Apart は日本･欧米のオフィスあわせて100名に達しようと成長中で、さらに <A href="http://www.sixapart.jp/jobs/">HIring を続けています</a> が、決して大きくなることは evil になることではない、大きなチームであることのベネフィットがまとめられています。この辺は前職でも20人規模の小さな会社から1000人を超える大きな組織に成長する過程を経験した自分としては共感できるとこです。</p>
+
+<p>Signals vs. Noises ではそれへの反論という形で small team のメリットをさらに。これは Podcast の補完として読むと面白いかも。</p>
+
+<p><a title="Mena's Counterpoint Corner: In defense of big - Signal vs. Noise (by 37signals)" href="http://37signals.com/svn/archives2/menas_counterpoint_corner_in_defense_of_big.php">Mena's Counterpoint Corner: In defense of big - Signal vs. Noise (by 37signals)</a><blockquote>Clearly annoyed by all the attention on small teams, Mena Trott goes on the record to defend big (relatively speaking). Her comments are important because she’s in a unique situation — she’s seen Six Apart go from 2 in a bedroom to 80  spread all over the world. Her perspective is valuable and respectable.</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001817.html">12:36 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001817.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001817.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001816"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1816"
+    dc:title="PerlStyle は WEB+DB PRESS 総集編で！"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001816"
+    dc:subject="perl"
+    dc:description="Web+DB press (特別総集編)posted with amazlet at 05.09.25技術評論社 (2005/03)売り上げランキング: 3,779Amazon.co.jp で詳細を見る 某所で話題になっている WEB+DB PRESS での私の連載 PerlStyle ですが、WEB+DB PRESS 総集編の CD-ROM に全部の..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-25T12:22:35+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001816"></a>
+<h3 class="title">PerlStyle は WEB+DB PRESS 総集編で！</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/4774122955.09.MZZZZZZZ.jpg" alt="Web+DB press (特別総集編)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22" name="amazletlink" target="_blank">Web+DB press (特別総集編)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4774122955/bulknews-22" title="Web+DB press (特別総集編)" target="_blank">amazlet</a> at 05.09.25</div></div><div class="amazlet-detail"><br />技術評論社 (2005/03)<br />売り上げランキング: 3,779<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>某所で話題になっている WEB+DB PRESS での私の連載 PerlStyle ですが、WEB+DB PRESS 総集編の CD-ROM に全部の PDF が入ってます。というか、バックナンバーの PDF 全部手に入るのでかなりお買い得感高しですね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001816.html">12:22 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001816.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001816.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001815"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1815"
+    dc:title="SPAM / Fake Blog のデータ（暫定）"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001815"
+    dc:subject="blog"
+    dc:description="Bulkfeeds: Fighting with SPAMs で書いたとおり Bulkfeeds 向けの SPAM / Fake Blog フィルタの開発とチューニングにいそしんでいますが、とりあえずの途中結果でおもしろいデータがとれたので、暫定公開しておきます。 http://bulkfeeds.net/tmp/spams/fakeblog.txt http://bulkfeeds.net/tmp/spams/englishblogs.txt http://bulkfeeds.net/tmp/spams/affiliates.txt （しばらくしたら消去します。直リンクはご遠慮を） Bulkfeeds に Ping を送ってきたり、Blog..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-16T20:13:07+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 16, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001815"></a>
+<h3 class="title">SPAM / Fake Blog のデータ（暫定）</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001813.html">Bulkfeeds: Fighting with SPAMs</a> で書いたとおり Bulkfeeds 向けの SPAM / Fake Blog フィルタの開発とチューニングにいそしんでいますが、とりあえずの途中結果でおもしろいデータがとれたので、暫定公開しておきます。</p>
+
+<p>http://bulkfeeds.net/tmp/spams/fakeblog.txt<br />
+http://bulkfeeds.net/tmp/spams/englishblogs.txt<br />
+http://bulkfeeds.net/tmp/spams/affiliates.txt<br />
+（しばらくしたら消去します。直リンクはご遠慮を）</p>
+
+<p>Bulkfeeds に Ping を送ってきたり、Blog サービスからアグリゲートしている Blog のうち、フィルタにひっかかったものを URL ＋ 1st ディレクトリで正規化しました。</p>
+
+<p>先のエントリにも書いたとおりちょっときびしめのルールになっているので、Fake Blog じゃない Blog までひろってしまっている可能性は大いにありますが、その辺は追い追い対応していきます。見た感じはかなりいい感じになっているんじゃないかと。とりあえずデータをとってみただけですが、これをベースに DNSBL サービスとかをするのも面白いかもですね。</p>
+
+<p>というのも、<a href="http://blogsearch.google.com/">Google Blog Search</a> をマジメにつかってみたら、Sort by Date した場合には SPAM / Fake Blog にやられて使いものになってなかったからなんですね。Technorati は相変わらず重いし。超個人的なバイアスかかった意見では、<a href="http://ask.jp/blghome.asp">Ask.jp の Blog 検索</a> と <a href="http://bulkfeeds.net/">Bulkfeeds</a> が同じぐらいのカバレッジを出してると思います (Ask の方がインデクスの反映が速いが、RSS/Atom でトラックできない）。 Feedster や NAMAAN もいい感じですが、やはりスパム被害が見受けられますね。（詳細な比較はまた今度。繰り返しますがかなりバイアスかかってますので、FUD だ！とかいわないでください）</p>
+
+<p>まあ競合が増えて使い勝手や精度がお互い向上していくのは間違いなくユーザメリットなので、今後も <a href="http://bulkfeeds.net/">Bulkfeeds</a> を末長くよろしく、ということでひとつ。今日はデザイン（レイアウト）をひさびさにいじってみました。余計なサイドバーがなくなって使いやすくなったとおもいます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001815.html">08:13 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001815.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001815.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001814"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1814"
+    dc:title="del.icio.us turns two"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001814"
+    dc:subject="tech"
+    dc:description="del.icio.us: terrible twosToday, del.icio.us turns two years old. Thanks to everyone who tolerated our burps along the way. del.icio.us が2周年。..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-16T15:29:11+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001814"></a>
+<h3 class="title">del.icio.us turns two</h3>
+
+<p><a title="del.icio.us: terrible twos" href="http://blog.del.icio.us/blog/2005/09/terrible_twos.html">del.icio.us: terrible twos</a><blockquote>Today, del.icio.us turns two years old. Thanks to everyone who tolerated our burps along the way.</blockquote></p>
+
+<p>del.icio.us が2周年。 Happy Birthday!</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001814.html">03:29 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001814.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001814.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001813"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1813"
+    dc:title="Bulkfeeds: Fighting with SPAMs"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001813"
+    dc:subject="bulkfeeds"
+    dc:description="Google Blog Search や Ask.jp の参入で盛り上がりを見せている Blog 検索ですが、Bulkfeeds も地道にバージョンアップしています。 スケールや速度で Google などに真っ向勝負するのはちょっと無理があるので、 * ノイズのすくない検索結果を * リーズナブルな速度 （エントリの反映は更新から1時間以内、検索レスポンスは 3秒以下) で提供する、あたりをリーズナブルな目標にしようかなとチューニングしています。フィードリーダーでキーワードを追いかけたり、ちょっといま流行しているキーワードを調べる（安達, のまネコ..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-15T13:24:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 15, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001813"></a>
+<h3 class="title">Bulkfeeds: Fighting with SPAMs</h3>
+
+<p>Google Blog Search や Ask.jp の参入で盛り上がりを見せている Blog 検索ですが、<a href="http://bulkfeeds.net/">Bulkfeeds</a> も地道にバージョンアップしています。</p>
+
+<p>スケールや速度で Google などに真っ向勝負するのはちょっと無理があるので、</p>
+
+<p>* ノイズのすくない検索結果を<br />
+* リーズナブルな速度 （エントリの反映は更新から1時間以内、検索レスポンスは 3秒以下) </p>
+
+<p>で提供する、あたりをリーズナブルな目標にしようかなとチューニングしています。フィードリーダーでキーワードを追いかけたり、ちょっといま流行しているキーワードを調べる（<a href="http://bulkfeeds.net/app/search2?q=%E5%AE%89%E9%81%94">安達</a>, <a href="http://bulkfeeds.net/app/search2?q=%E3%81%AE%E3%81%BE%E3%83%8D%E3%82%B3">のまネコ</a> など）といった用途に特化しようかな、と。</p>
+
+<p>ということでいま一番力をいれているのがいわゆる Fake Blog や、SPAM Blog, API によるアフィリエイト自動生成 Blog への対策です。かなり経験則重視ですが、ドメイン名・URL・本文・リンク数・文字キャラクタセットなどをベースにしたフィルタルールをつくって、極力こうした Blog をはじくように先ほどバージョンアップしました。いまのところかなりイイ感じで動いています。</p>
+
+<p>実際には、このフィルタの副作用として、SPAM ではない Blog も SPAM 判定されてしまうこともあるかと思いますが、先にあげた目標を実現するにはこちらの方針のほうがよいと判断しました。</p>
+
+<p>また、上記の目標の実現のため、より多くの Blog をクロールするようにアグリゲータも改良していますが、ストレージの限界もあるため、1週間以上古いエントリはインデクスしないように修正しています。なので検索結果の件数だけで比較されると困ってしまうのですが、直近3日以内などの条件で比較してもらうとかなり有意な数字が出るのではないかと思います。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001813.html">01:24 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001813.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001813.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001812"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1812"
+    dc:title="Google Blog Search"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001812"
+    dc:subject="blog"
+    dc:description="Google Blog Search でましたね。 RSS / Atom をベースにしたシンプルな検索エンジンで、検索結果の RSS / Atom フォーマットでの出力などベーシックな部分はサポートしつつ、言語での絞り込みや Blog URL でのフィルタもできるのがステキ。Sort 基準のデフォルトが Relevance なのが Google ぽくて面白いです。..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-14T16:25:07+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 14, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001812"></a>
+<h3 class="title">Google Blog Search</h3>
+
+<p><a title="Google Blog Search" href="http://blogsearch.google.com/blogsearch">Google Blog Search</a> でましたね。</p>
+
+<p>RSS / Atom をベースにしたシンプルな検索エンジンで、検索結果の RSS / Atom フォーマットでの出力などベーシックな部分はサポートしつつ、言語での絞り込みや Blog URL でのフィルタもできるのがステキ。Sort 基準のデフォルトが Relevance なのが Google ぽくて面白いです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001812.html">04:25 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001812.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001812.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001811"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1811"
+    dc:title="Turning 28"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001811"
+    dc:subject=""
+    dc:description="昨日晴れて 28歳 になったわけですが、Web というのはステキなもので、たくさんの方から IM, GREE, mixi でメッセージをいただきました。 また SAKK では TP 1.6 のリリースが忙しい中、Birthday Party を開催していただいたようで、感無量です。あとなんか、パーカーつくろうプロジェクト なんてのも 盛り上がっている ようですｗ みなさん、本当にありがとうございます。US..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-13T04:23:51+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 13, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001811"></a>
+<h3 class="title">Turning 28</h3>
+
+<p>昨日晴れて 28歳 になったわけですが、Web というのはステキなもので、たくさんの方から IM, <a href="http://gree.jp/">GREE</a>, <a href="http://mixi.jp/">mixi</a> でメッセージをいただきました。</p>
+
+<p>また SAKK では <a href="http://blogs.itmedia.co.jp/weblog/2005/09/typepad_japan_1_2469.html">TP 1.6 のリリース</a>が忙しい中、<a href="http://www.flickr.com/photos/nseki/sets/933672/">Birthday Party</a> を開催していただいたようで、感無量です。あとなんか、<a href="http://mitaimon.cocolog-nifty.com/blog/2005/09/webdog__b4f4.html">パーカーつくろうプロジェクト</a> なんてのも <a href="http://netafull.net/archives/010468.html">盛り上がっている</a> ようですｗ</p>
+
+<p>みなさん、本当にありがとうございます。US 時間ではまだ誕生日なので、もう少し楽しむとします :-)</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001811.html">04:23 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001811.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001811.html#trackbacks">TrackBack (5)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001810"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1810"
+    dc:title="Class::DBI 3.x"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001810"
+    dc:subject="perl"
+    dc:description="search.cpan.org: Tony Bowden / Class-DBI Class::DBI の新バージョンが立て続けにリリース。Changes を見るとわかりますが、3.0.1/3.0.2 は 0.96 とコードは同一でドキュメンテーションやテストスートの修正のみ。3.0.3 ではバグ修正が行われてますね。 バージョンが一気にあがった理由は RELEASE PHILOSOPHY に書かれているとおりで、次のメジャーバージョンアップである 3.1.0 で、deprecated なメソッドの削除とかをするんじゃないかなぁと予測。 acme..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-12T14:21:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 12, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001810"></a>
+<h3 class="title">Class::DBI 3.x</h3>
+
+<p><a title="search.cpan.org: Tony Bowden / Class-DBI" href="http://search.cpan.org/dist/Class-DBI/">search.cpan.org: Tony Bowden / Class-DBI</a></p>
+
+<p>Class::DBI の新バージョンが立て続けにリリース。<a href="http://search.cpan.org/src/TMTM/Class-DBI-3.0.3/Changes">Changes</a> を見るとわかりますが、3.0.1/3.0.2 は 0.96 とコードは同一でドキュメンテーションやテストスートの修正のみ。3.0.3 ではバグ修正が行われてますね。</p>
+
+<p>バージョンが一気にあがった理由は <a href="http://search.cpan.org/dist/Class-DBI/lib/Class/DBI.pm#RELEASE_PHILOSOPHY">RELEASE PHILOSOPHY</a> に書かれているとおりで、次のメジャーバージョンアップである 3.1.0 で、deprecated なメソッドの削除とかをするんじゃないかなぁと予測。</p>
+
+<p><a href="http://use.perl.org/~acme/journal/26670?from=rss">acme の Journal</a> にでていた Perl 5 Day サマリにもつながる話かもしれませんが、CPAN モジュールを利用するにあたっては、なんでも最新に振り回されるのではなく、使いたいバージョンを（ローカルパッチをあててでも）使うというのが重要なポリシーになってきますね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001810.html">02:21 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001810.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001810.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001809"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1809"
+    dc:title="レイザーラモンHG on BoingBoing"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001809"
+    dc:subject="blog"
+    dc:description="Boing Boing: Hard Gay visits Yahoo! JapanEcto mastermind Adriaan Tijsseling posted a clip from a Japanese TV variety show of..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-12T14:13:59+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001809"></a>
+<h3 class="title">レイザーラモンHG on BoingBoing</h3>
+
+<p><a title="Boing Boing: Hard Gay visits Yahoo! Japan" href="http://www.boingboing.net/2005/09/11/hard_gay_visits_yaho.html">Boing Boing: Hard Gay visits Yahoo! Japan</a><blockquote>Ecto mastermind Adriaan Tijsseling posted a clip from a Japanese TV variety show of a comedian's strange visit to Yahoo! Japan. From Adriaan's post: </blockquote></p>
+
+<p>レイザーラモン HG が Y! Japan を訪問した様子が ecto の Adriaan 経由で Boing Boing に。ゲイは国境を越えるのか。。と、San Francisco にいると若干身近に感じてしまいますｗ</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001809.html">02:13 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001809.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001809.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001808"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1808"
+    dc:title="JSAN Casey West のインタビュー"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001808"
+    dc:subject="perl"
+    dc:description="perlcast.com � Casey West on JSANRecently I had the opportunity to sit down with Casey West and speak with him..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-12T08:59:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001808"></a>
+<h3 class="title">JSAN Casey West のインタビュー</h3>
+
+<p><a title="perlcast.com � Casey West on JSAN" href="http://perlcast.com/2005/09/07/casey-west-on-jsan/">perlcast.com � Casey West on JSAN</a><blockquote>Recently I had the opportunity to sit down with Casey West and speak with him about JSAN, the JavaScript Archive Network. In the interview, Casey tells us why he started JSAN and how you can help out.</blockquote></p>
+
+<p>Perl 関連のネタをあつかってる Podcast, <a href="http://perlcast.com/">Perlcast</a> で <a href="http://openjsan.org/">JSAN</a> の <a href="http://caseywest.com/">Casey West</a> のインタビュー。<a href="http://www.flickr.com/photos/bulknews/22576820/in/set-690336/">YAPC::NA で会って話をした</a>んですが、プレゼンとかもすごくわかりやすく、キレイな英語を話す人です。このインタビューもクリアな発音なのですごく聞き取りやすい。JSAN の利用法・将来の構想などを15分ほどで簡潔に語っていて面白いです。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001808.html">08:59 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001808.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001808.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001807"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1807"
+    dc:title="Web Frameworks explored"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001807"
+    dc:subject="tech"
+    dc:description="O&apos;Reilly Network に掲載されてる DHH のインタビュー や LLDN でさらに最近話題になっているなあと感じる Ruby On Rails なわけですが、Rails の数ある特徴の中でも、以下の部分が一番大きなポイントなのかなと。 O&apos;Reilly Network: Ruby on Rails: An Interview..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-11T13:54:27+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 11, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001807"></a>
+<h3 class="title">Web Frameworks explored</h3>
+
+<p><a href="http://www.oreillynet.com/pub/a/network/2005/08/30/ruby-rails-david-heinemeier-hansson.html">O'Reilly Network に掲載されてる DHH のインタビュー</a> や LLDN でさらに最近話題になっているなあと感じる Ruby On Rails なわけですが、Rails の数ある特徴の中でも、以下の部分が一番大きなポイントなのかなと。</p>
+
+<p><a title="O'Reilly Network: Ruby on Rails: An Interview with David Heinemeier Hansson" href="http://www.oreillynet.com/pub/a/network/2005/08/30/ruby-rails-david-heinemeier-hansson.html?page=2">O'Reilly Network: Ruby on Rails: An Interview with David Heinemeier Hansson</a><blockquote>ED: What's your favourite Rails feature?<br />
+DHH: In general, all the things it doesn't do. All the features we said no to. All the ornaments we turned down. All the 20% solutions that solve 80% of the problem.</blockquote></p>
+
+
+<p>Rails は何でもできるフレームワークでは決してなく、柔軟性を犠牲にすることで Less-Configuration を実現している、という部分。以前から <a href="http://sl.edge.jp/">Sledge</a> のデザイン・開発をしていた経験からこの部分はよく理解できます。</p>
+
+<p>Sledge の場合は Rails とはこの部分では逆で、 MVC の Model 部分は何でも使うことができて、それゆえにフレームワークを使い始めるまでの敷居が若干高い。が、いったん慣れてしまえばかなりの柔軟性と拡張性を手にすることができる、という具合です。ただ実際には Class::DBI をつかって CRUD するアプリケーションをつくるのが普通で、Livedoor の社内では Class::DBI でテーブルを指定すると SELECT / INSERT / UPDATE / DELETE する UI を生成するプラグインなどが転がってました。</p>
+
+<p>また Rails に対抗して Perl 界隈で話題にあがるのは <a href="http://catalyst.perl.org/">Catalyst</a> なわけですが、ちょっと使ってみた印象では、Catalyst はそういう意味では Sledge とも Rails とも違うレイヤーにあるなという印象。</p>
+
+<p><a title="Stupidfool.org: Rails developers kill kittens!" href="http://btrott.typepad.com/typepad/2005/09/rails_developer.html">Stupidfool.org: Rails developers kill kittens!</a><blockquote>Let's get this out of the way up front: I actually really like Catalyst. And I also really like Rails [1].</blockquote></p>
+
+<p>Ben のエントリにもあるように Rails と Catalyst にはマーケティングのよしあしという決定的な違いがあるにせよ、Catalyst は「CPAN にあるモジュールを徹底的に使いこなして、それをコンテナ的につなげる触媒(Catalyst) 的な動きをする」というのが一番のメリットだなあという風に僕は理解しています。ただ実際には、コンポーネントに実装すべきインタフェースの規定などがほとんどない (process というメソッドがデフォルトで呼ばれるぐらいか）ので、いちいちコンポーネントをつなげるのに自前で規定を決めないといけなくて、あまりサクサク気持ちよくは使えないのもまた事実。</p>
+
+<p><a title="TheRoadmap - Maypole" href="http://maypole.perl.org/?TheRoadmap">TheRoadmap - Maypole</a><blockquote>The primary focus of development at the moment is stabilising Maypole 2 by improving documentation and tests. The intention is to try and ensure backward compatibility.</blockquote></p>
+
+<p>Catalyst が生まれるもととなったフレームワーク <a href="http://maypole.perl.org/?HomePage">Maypole</a> もまだまだ開発は続いていて、実際にみてみると、こちらのほうが Rails + ActiveRecord に雰囲気が近いかもという印象。テンプレートもデフォルトでは TT しか使えなかったり、規約を増やすことでフレームワーク側で面倒を見る部分が増やせる部分もありますね。</p>
+
+<h3>まとめ</h3>
+
+<p>あまりまとまってませんが、Catalyst は企業やプロジェクト単位でのフレームワークをつくるベースになるメタフレームワークとして活用するのがとてもエレガントなんじゃないかなぁと思うしだい。実際に <a href="http://handelframework.com/">Handel</a> というコマース系のフレームワークが Catalyst をベースにして出てきたりしているのを見ると、そういう見方もありなのかなぁと。また Rails のように規約がカッチリしたフレームワークはプラグインがつくりやすかったり （<a href="http://dema.ruby.com.br/articles/2005/08/27/easy-tagging-with-rails">acts_as_taggable でモデルに Tagging を追加</a> なんてカッコイイですね）して、小さなプロジェクトなどでは学習曲線もなめらかというメリットもありそうですが、フレームワークの限界（残りの20%）に達したときにどう対処するのかもリスク要因にはなるのかなぁなどと考えてみたりしました。</p>
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001807.html">01:54 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001807.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001807.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001806"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1806"
+    dc:title="Charlie and the Chocolate Factory"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001806"
+    dc:subject="movie"
+    dc:description="SF で2ヶ月すごしたレジデンスのすぐそばにある Meteron で Charlie and the Chocolate Factory (チャーリーとチョコレート工場) みてきました。ティムバートンとジョニーデップワールド全開な感じで楽しめました。US ではそろそろ上映も終わりということもあって IMAX でもガラガラで、ど真ん中でみれて満足です。 チャーリーの母親役の女優が大竹しのぶに似てるのがずっと上映中気になってました。IMDB で調べてみると、Helena Bonham Carter というそうな。 Charlie..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-11T12:41:20+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001806"></a>
+<h3 class="title">Charlie and the Chocolate Factory</h3>
+
+<p>SF で2ヶ月すごしたレジデンスのすぐそばにある <a href="http://www.metreon.com/">Meteron</a> で Charlie and the Chocolate Factory (チャーリーとチョコレート工場) みてきました。ティムバートンとジョニーデップワールド全開な感じで楽しめました。US ではそろそろ上映も終わりということもあって IMAX でもガラガラで、ど真ん中でみれて満足です。</p>
+
+<p>チャーリーの母親役の女優が大竹しのぶに似てるのがずっと上映中気になってました。<a href="http://www.imdb.com/title/tt0367594/">IMDB で調べてみると</a>、<a href="http://www.imdb.com/name/nm0000307/">Helena Bonham Carter</a> というそうな。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009T2S0W/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B0009T2S0W.09.MZZZZZZZ.jpg" alt="Charlie and the Chocolate Factory [Original Motion Picture Soundtrack]" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009T2S0W/bulknews-22" name="amazletlink" target="_blank">Charlie and the Chocolate Factory [Original Motion Picture Soundtrack]</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B0009T2S0W/bulknews-22" title="Charlie and the Chocolate Factory [Original Motion Picture Soundtrack]" target="_blank">amazlet</a> at 05.09.11</div></div><div class="amazlet-detail">Danny Elfman Rick Wentworth Danny Elfman <br />Warner (2005/07/12)<br />売り上げランキング: 1,822<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0009T2S0W/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001806.html">12:41 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001806.html#comments">Comments (3)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001806.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001805"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1805"
+    dc:title="Web 2.0 Stereotypes / Technologies / APIs"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001805"
+    dc:subject="tech"
+    dc:description="しばらくぶりに web2.0 関係のリソースをまとめて紹介。 Read/Write Web: Web 2.0 StereotypesDeja vu, is there a glitch in the Web 2.0 Matrix? Web 2.0..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-10T19:49:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 10, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001805"></a>
+<h3 class="title">Web 2.0 Stereotypes / Technologies / APIs</h3>
+
+<p>しばらくぶりに web2.0 関係のリソースをまとめて紹介。</p>
+
+<p><a title="Read/Write Web: Web 2.0 Stereotypes" href="http://www.readwriteweb.com/archives/002820.php">Read/Write Web: Web 2.0 Stereotypes</a><blockquote>Deja vu, is there a glitch in the Web 2.0 Matrix?</blockquote></p>
+
+<p>Web 2.0 にありがちなステレオタイプ集。サイト名に数字＋名前を使う、Ruby on Rails, Tag, Ajax など。</p>
+
+<p><a title="Anil Dash: Web Development Trends for 2006" href="http://www.dashes.com/anil/2005/09/06/web_development">Anil Dash: Web Development Trends for 2006</a><blockquote>Curious about what technologies and techniques are going to be popular in the coming months and into the next year? Well, our crack team of editors here at dashes.com (that is to say, me) have assembled a list of up-and-coming trends that you should keep an eye on. Call it vocational education for people building Web 2.0.</blockquote></p>
+
+<p>Anil Dash による 2006 年への Web Technologies リソース。Firefox 1.5b1 でサポートされた e4x (ECMAScript 4 XML) や JSON などなど。</p>
+
+<p><a title="ProgrammableWeb: Web 2.0 API Reference" href="http://www.programmableweb.com/apis">ProgrammableWeb: Web 2.0 API Reference</a></p>
+
+<p>Web 2.0 スタイルな REST API を提供しているサイトと API ドキュメントの一覧を54個 (54web20apis.com なんていいかも）。これは便利ですね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001805.html">07:49 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001805.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001805.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001804"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1804"
+    dc:title="HINAGATA and MT 3.2 StyleCatcher"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001804"
+    dc:subject="blog"
+    dc:description="2xUP: HINAGATA Style Switch プレビューまだベータ公開（大袈裟）までもう少し時間はかかりますが、HINAGATA Style Switch の様子を、スクリーン・キャスティングしてみたいと思います ニュー HINAGATA と MT 3.2 StyleCatcher の様子をスクリーンキャストで見れます。Cool!..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-10T19:35:05+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001804"></a>
+<h3 class="title">HINAGATA and MT 3.2 StyleCatcher</h3>
+
+<p><a title="2xUP: HINAGATA Style Switch プレビュー" href="http://2xup.org/log/2005/09/10-1200.html">2xUP: HINAGATA Style Switch プレビュー</a><blockquote>まだベータ公開（大袈裟）までもう少し時間はかかりますが、HINAGATA Style Switch の様子を、スクリーン・キャスティングしてみたいと思います</blockquote></p>
+
+<p>ニュー HINAGATA と MT 3.2 StyleCatcher の様子をスクリーンキャストで見れます。Cool!</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001804.html">07:35 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001804.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001804.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001803"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1803"
+    dc:title="iPod Nano / iTunes 5.0"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001803"
+    dc:subject="tech"
+    dc:description="Apple - iPod + iTunesFind out what’s inside iTunes 5, including a streamlined look and feel, a powerful new Search..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-08T08:48:09+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 08, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001803"></a>
+<h3 class="title">iPod Nano / iTunes 5.0</h3>
+
+<p><a title="Apple - iPod +  iTunes" href="http://www.apple.com/itunes/">Apple - iPod +  iTunes</a><blockquote>Find out what’s inside iTunes 5, including a streamlined look and feel, a powerful new Search Bar and a host of features that help you find, download and manage audio with ease.</blockquote></p>
+
+<p>Apple のスペシャルイベントにあわせて、iTunes 5.0 がでてますね。apple.com からダウンロードしても、日本語版がインストールできました。ただ、Podcast のプレイリスト形式が変わったのか、過去の Podcast サブスクリプションが消失（実際のファイルはライブラリに残っていますが）という事態に。登録していた Podcast 自体そんなに多くなかったので、整理の意味も含めて再度 Subscribe しましたが、たくさんある方はご注意を。</p>
+
+<p>iTunes 5.0 で <a href="http://radio.weblogs.com/0143618/2005/09/07.html">OPML でのインポートエクスポートに対応した</a>という情報も出ていますが、Windows 版では見当たらないなぁ。</p>
+
+<p>しかし iPod Nano いいですね。薄くてかっこいいなあ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001803.html">08:48 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001803.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001803.html#trackbacks">TrackBack (18)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001802"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1802"
+    dc:title="続々 Gmail で Bloglines"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001802"
+    dc:subject="tech"
+    dc:description=" Gmail で Bloglines ですが、Gmail のアイテムビューから、Post to del.icio.us で del.icio.us にポストするリンクをつけてみました。(Thanks to せきむらさん) なかなかベンーリかもしれません。..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-07T18:28:11+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 07, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001802"></a>
+<h3 class="title">続々 Gmail で Bloglines</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/gmail-delicious.gif"><img alt="gmail-delicious.gif" src="http://blog.bulknews.net/mt/archives/gmail-delicious-thumb.gif" width="200" height="111" border="0" align="right" /></a></p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001789.html">Gmail で Bloglines</a> ですが、Gmail のアイテムビューから、<a href="http://svn.bulknews.net/viewcvs/public/bloglines2email/trunk/">Post to del.icio.us</a> で del.icio.us にポストするリンクをつけてみました。(Thanks to <a href="http://qootas.org/blog/">せきむらさん</a>) なかなかベンーリかもしれません。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001802.html">06:28 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001802.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001802.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001801"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1801"
+    dc:title="TypePad 1.6 日本語版"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001801"
+    dc:subject="blog"
+    dc:description="シックス・アパート、TypePad最新版はポッドキャスティングと携帯電話に対応 - CNET Japan最新版ではデザイン機能が強化されたほか、スパム対策やポッドキャスティングへの対応、携帯電話からのブログ管理や閲覧が可能となったことなどが特徴だ。 月曜に日本で記者会見があり、各メディアで TypePad のバージョンアップについてとりあげていただいています。携帯対応は春から日本で作業してきた一連の機能で、2xup の Kaminogoya 君と格闘した携帯向けデザインが一番のお気に入りです。また、US の TypePad.com でもすでに対応していますが動画ファイルや音声ファイルの添付による Vlog/Podcasting なんかもアツイです。閲覧や投稿関係は日本だけでのサービスインとなりますが、ヨーロッパ→US な感じで全世界に対応していけたらなぁと思っています。 詳細は BB Watch や..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-07T16:45:37+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001801"></a>
+<h3 class="title">TypePad 1.6 日本語版</h3>
+
+<p><a title="シックス・アパート、TypePad最新版はポッドキャスティングと携帯電話に対応 - CNET Japan" href="http://japan.cnet.com/news/media/story/0,2000047715,20086941,00.htm?ref=rss">シックス・アパート、TypePad最新版はポッドキャスティングと携帯電話に対応 - CNET Japan</a><blockquote>最新版ではデザイン機能が強化されたほか、スパム対策やポッドキャスティングへの対応、携帯電話からのブログ管理や閲覧が可能となったことなどが特徴だ。</blockquote></p>
+
+<p>月曜に日本で記者会見があり、各メディアで TypePad のバージョンアップについてとりあげていただいています。携帯対応は春から日本で作業してきた一連の機能で、<a href="http://2xup.org/">2xup</a> の Kaminogoya 君と格闘した携帯向けデザインが一番のお気に入りです。また、US の <a href="http://www.typepad.com/">TypePad.com</a> でもすでに対応していますが動画ファイルや音声ファイルの添付による Vlog/Podcasting なんかもアツイです。閲覧や投稿関係は日本だけでのサービスインとなりますが、ヨーロッパ→US な感じで全世界に対応していけたらなぁと思っています。</p>
+
+<p>詳細は BB Watch や IT Media オルタナティブブログにて。</p>
+
+<p><a title="携帯電話向け機能を拡充、Podcastingに対応した「TypePad 1.6日本語版」" href="http://bb.watch.impress.co.jp/cda/news/10958.html">携帯電話向け機能を拡充、Podcastingに対応した「TypePad 1.6日本語版」</a><blockquote>シックス・アパートは5日、ブログサービス「TypePad」の最新版となる「TypePad 1.6日本語版」を9月12日より公開すると発表した。携帯電話からの閲覧・編集機能やPodcasting対応など機能が大幅に強化されている。</blockquote></p>
+
+<p><a title="TypePad 1.6 新機能のご紹介 - We [love] blog [ITmedia オルタナティブ・ブログ]" href="http://blogs.itmedia.co.jp/weblog/2005/09/post_66c8.html">TypePad 1.6 新機能のご紹介 - We [love] blog [ITmedia オルタナティブ・ブログ]</a><blockquote>TypePadの新しいバージョン1.6では、ブログのデザインを３０種類近くのテーマから選べたり、コメント・トラックバックの管理が分かりやすくなるなど、大幅に機能が充実しています。サイドバーに配置できるコンテンツも、色々と増えました。新しくなったTypePadの新機能を、詳しくご説明します。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001801.html">04:45 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001801.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001801.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001800"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1800"
+    dc:title="Rec-POT F"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001800"
+    dc:subject="AV"
+    dc:description="アイ・オー、編集機能を強化したハイビジョン対応HDDレコーダー“Rec-POT F”を発売 AV&amp;ホームシアターNews本機は、容量250GBのチューナーレスHDDレコーダー。テレビや録画機、セットトップボックスなどのデジタル放送チューナー搭載機器とi.Link接続することで、デジタル放送の録画が可能だ。接続した機器のEPGを使い録画予約を行うこともできる。最大録画可能時間は、地上デジタル放送（ハイビジョン）が約26時間、BSデジタル放送（ハイビジョン）が約21時間。 Rec-POT の新バージョンが出るそうです。容量は特に変わらずで、プレイリスト機能とリモコンが変わるぐらいで、特に目新しい違いではない感じですね。WOWOW の ＨＶ/5.1ch 番組用にゲットしてみてもいいかもしれません。詳細は AV Watch にて。 アイ・オー、簡易編集機能を追加した新「Rec-POT」株式会社アイ・オー・データ機器は、デジタル放送をi.LINK経由でストリーム記録するHDDユニット「Rec-POT」シリーズの新モデルとして、簡易編集機能を備えた「Rec-POT F」(HVR-HD250F)を9月下旬に発売する。HDD容量は250GB。価格はオープンプライスで、店頭予想価格は59,800円前後の見込み。..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-07T16:27:34+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001800"></a>
+<h3 class="title">Rec-POT F</h3>
+
+<p><a title="アイ・オー、編集機能を強化したハイビジョン対応HDDレコーダー“Rec-POT F”を発売 AV&ホームシアターNews" href="http://www.phileweb.com/news/d-av/200509/07/13652.html">アイ・オー、編集機能を強化したハイビジョン対応HDDレコーダー“Rec-POT F”を発売 AV&ホームシアターNews</a><blockquote>本機は、容量250GBのチューナーレスHDDレコーダー。テレビや録画機、セットトップボックスなどのデジタル放送チューナー搭載機器とi.Link接続することで、デジタル放送の録画が可能だ。接続した機器のEPGを使い録画予約を行うこともできる。最大録画可能時間は、地上デジタル放送（ハイビジョン）が約26時間、BSデジタル放送（ハイビジョン）が約21時間。 </blockquote></p>
+
+<p>Rec-POT の新バージョンが出るそうです。容量は特に変わらずで、プレイリスト機能とリモコンが変わるぐらいで、特に目新しい違いではない感じですね。WOWOW の ＨＶ/5.1ch 番組用にゲットしてみてもいいかもしれません。詳細は AV Watch にて。</p>
+
+<p><a title="アイ・オー、簡易編集機能を追加した新「Rec-POT」" href="http://www.watch.impress.co.jp/av/docs/20050907/iodata1.htm">アイ・オー、簡易編集機能を追加した新「Rec-POT」</a><blockquote>株式会社アイ・オー・データ機器は、デジタル放送をi.LINK経由でストリーム記録するHDDユニット「Rec-POT」シリーズの新モデルとして、簡易編集機能を備えた「Rec-POT F」(HVR-HD250F)を9月下旬に発売する。HDD容量は250GB。価格はオープンプライスで、店頭予想価格は59,800円前後の見込み。</blockquote></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001800.html">04:27 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001800.html#comments">Comments (4)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001800.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001799"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1799"
+    dc:title="ロケーションフリーTV"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001799"
+    dc:subject="TV"
+    dc:description="ソニー、インターネット経由で視聴可能なPC向けTVチューナソニーは、インターネット経由でTV視聴が可能なネットワーク対応TVチューナ「ロケーションフリーベースステーションパック(LF-PK1)」と、PC視聴用ソフトウェア「ロケーションフリープレイヤーPC用(LFA-PC2)」を10月1日に発売する。 エアボードの PC 版、というかエアボードの端末がなくても PC のソフトで見れるバージョン、というわけですかね。たくさんの方に IM で送っていただきましたｗ 次回の長期出張がもしあればゲットして試してみたいと思います。..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-07T16:18:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001799"></a>
+<h3 class="title">ロケーションフリーTV</h3>
+
+<p><a title="ソニー、インターネット経由で視聴可能なPC向けTVチューナ" href="http://pc.watch.impress.co.jp/docs/2005/0905/sony.htm">ソニー、インターネット経由で視聴可能なPC向けTVチューナ</a><blockquote>ソニーは、インターネット経由でTV視聴が可能なネットワーク対応TVチューナ「ロケーションフリーベースステーションパック(LF-PK1)」と、PC視聴用ソフトウェア「ロケーションフリープレイヤーPC用(LFA-PC2)」を10月1日に発売する。</blockquote></p>
+
+<p>エアボードの PC 版、というかエアボードの端末がなくても PC のソフトで見れるバージョン、というわけですかね。たくさんの方に IM で送っていただきましたｗ 次回の長期出張がもしあればゲットして試してみたいと思います。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001799.html">04:18 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001799.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001799.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001798"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1798"
+    dc:title="Switched to Firefox"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001798"
+    dc:subject="tech"
+    dc:description="ながいこと DonutP を愛用してきましたが、金曜に Firefox に Switch しました。長年の課題だったタブ関係の操作が、Tab-Mix を最新版にすることで解決したのが大きいです。（古い Tab Mix が入っていたので自動更新で通知されなかった） とりあえずインストールしてある Extension の一覧でも。 * ChromEdit * SwitchProxy * All-in-One..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-04T13:53:22+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 04, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001798"></a>
+<h3 class="title">Switched to Firefox</h3>
+
+<p>ながいこと <a href="http://donutp.com/">DonutP</a> を愛用してきましたが、金曜に <a href="http://www.mozilla.org/products/firefox/">Firefox</a> に Switch しました。長年の課題だったタブ関係の操作が、<a href="http://tmp.gary.elixant.com/">Tab-Mix</a> を最新版にすることで解決したのが大きいです。（古い Tab Mix が入っていたので自動更新で通知されなかった） とりあえずインストールしてある Extension の一覧でも。</p>
+
+<p>* <a href="http://cdn.mozdev.org/chromedit/">ChromEdit</a><br />
+* <a href="https://addons.mozilla.org/extensions/moreinfo.php?application=firefox&id=125">SwitchProxy</a><br />
+* <a href="http://perso.wanadoo.fr/marc.boullet/">All-in-One Gestures</a><br />
+* <a href="https://addons.mozilla.org/extensions/moreinfo.php?id=60">Web Developer</a><br />
+* <a href="http://greasemonkey.mozdev.org/">GreaseMonkey</a><br />
+* <a href="https://addons.mozilla.org/extensions/moreinfo.php?application=firefox&id=530">geoURL</a><br />
+* <a href="http://tmp.gary.elixant.com/">Tab Mix Plus</a><br />
+* <a href="http://www.radebatz.net/mano/mozilla/extensions/formhistory/">Form History</a><br />
+* <a href="http://www.bolinfest.com/targetalert/">Target Alert</a><br />
+* <a href="http://livehttpheaders.mozdev.org/">Live HTTP Headers</a><br />
+* <a href="http://toolbar.google.com/firefox/T3/intl/ja/index.html">Google Toolbar</a></p>
+
+<p>現状の不満点としては、</p>
+
+<p>* やっぱフォントサイズがうまくないサイトが多い → デフォルト設定でそこそこ解決<br />
+* IME オンでスペース押してもスクロールしてくれない。Gmail のキーボードショートカットも同様<br />
+* 長い URL でレイアウト崩れ → 解消する Extension がある模様<br />
+* タブを50個とか開くとメモリリークが激しい(?) DonutP では50個とか開いても問題なかったけど Firefox ではメモリ 200M とか食ってもっさりになってしまいます。Extension のどれかが悪さしてるんですかねえ。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001798.html">01:53 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001798.html#comments">Comments (4)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001798.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001797"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1797"
+    dc:title="Jack&apos;s Mannequin - Everything In Transit"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001797"
+    dc:subject="music"
+    dc:description="Everything in Transitposted with amazlet at 05.09.04Jack&apos;s Mannequin Maverick (2005/08/23)売り上げランキング: 8,996Amazon.co.jp で詳細を見る iTMS でウロウロしてたら見つけたエモポップの新譜。一聴して Something Coporate みたいな声・サウンドだな、とおもったら実際に Something Corporate のヴォーカル..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-04T13:33:37+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="001797"></a>
+<h3 class="title">Jack's Mannequin - Everything In Transit</h3>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000A1INNA/bulknews-22" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B000A1INNA.09.MZZZZZZZ.jpg" alt="Everything in Transit" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000A1INNA/bulknews-22" name="amazletlink" target="_blank">Everything in Transit</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B000A1INNA/bulknews-22" title="Everything in Transit" target="_blank">amazlet</a> at 05.09.04</div></div><div class="amazlet-detail">Jack's Mannequin <br />Maverick (2005/08/23)<br />売り上げランキング: 8,996<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000A1INNA/bulknews-22" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>iTMS でウロウロしてたら見つけたエモポップの新譜。一聴して Something Coporate みたいな声・サウンドだな、とおもったら実際に Something Corporate のヴォーカル Andrew のソロプロジェクトでした。良質なグッドメロディにピアノがからむサウンドはかなりツボに入ります。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001797.html">01:33 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001797.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001797.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2005_09.html#001796"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1796"
+    dc:title="Upgraded to MT 3.2!"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2005_09.html#001796"
+    dc:subject="blog"
+    dc:description=" MT 3.2-en_US にアップグレードしました。2002 年に MT 2.51 + 日本語化パッチをインストールして以来、はじめてのアップグレード作業で、激しい格闘を期待していたのですが、あっけなく15分ほどで完了してしまいました。こんなに簡単とは！ 事前に euc- jp は問題がありそうだったので、mysqldump をとって utf-8 にコンバートしておきました。また、パスをそのままインストールするのもいろいろこんがらがりそうなので、新しいパスにインストールしています。 mysqldump -uroot mt |..."
+    dc:creator="miyagawa"
+    dc:date="2005-09-03T09:33:21+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 03, 2005</h2>
+
+
+<div class="blogbody">
+<a name="001796"></a>
+<h3 class="title">Upgraded to MT 3.2!</h3>
+
+<p><a href="http://blog.bulknews.net/mt/archives/mt-upgrade.gif"><img alt="mt-upgrade.gif" src="http://blog.bulknews.net/mt/archives/mt-upgrade-thumb.gif" width="200" height="132" align="right" border="0" /></a></p>
+
+<p>MT 3.2-en_US にアップグレードしました。2002 年に MT 2.51 + 日本語化パッチをインストールして以来、はじめてのアップグレード作業で、激しい格闘を期待していたのですが、あっけなく15分ほどで完了してしまいました。こんなに簡単とは！</p>
+
+<p>事前に euc- jp は問題がありそうだったので、mysqldump をとって utf-8 にコンバートしておきました。また、パスをそのままインストールするのもいろいろこんがらがりそうなので、新しいパスにインストールしています。</p>
+
+<p><code> mysqldump -uroot mt | piconv -f euc-jp -t utf-8 &gt; mt.dump.utf8<br />
+mysqladmin -uroot create mt3<br />
+mysql -uroot mt3 < mt.dump.utf8<br />
+tar xzvf MT3.2-en_US.tar.gz<br />
+cp -r MT-3.2-en_US/ /bulknews/htdocs/blog/mt3<br />
+cp mt-config.cgi-original mt-config.cgi<br />
+emacs -nw mt-config.cgi<br />
+Hit mt.cgi<br />
+"Begin Upgrade"<br />
+vi .htaccess # euc-jp => utf-8<br />
+</code></p>
+
+<p>大まかな作業はこんな感じ。あとは Templates で euc-jp とハードコードしてある場所を utf-8 にしたり。</p>
+
+<p>設置して4時間、まだスパム対策系のプラグインは移植していませんが、デフォルトで入っている SpamLookup プラグインがほとんどキャッチしてくれてます。3.2 にしたら SPAM 対策は何もしなくていい感じかも。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/001796.html">09:33 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001796.html#comments">Comments (5)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/001796.html#trackbacks">TrackBack (3)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

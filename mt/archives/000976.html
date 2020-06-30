@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Similarity Search の負荷軽減に jscache: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000976.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000975.html" title="webryblog2rss" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000977.html" title="RT Atom API" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000976.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/976"
+    dc:title="Similarity Search の負荷軽減に jscache"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000976.html"
+    dc:subject="blog"
+    dc:description="Similarity Search の負荷が気になる場合は、jscache を利用してみてください。"
+    dc:creator="miyagawa"
+    dc:date="2004-05-07T20:35:43+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">May 07, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Similarity Search の負荷軽減に jscache</h1>
+
+<p><a href="http://bulkfeeds.net/app/similar">Bulkfeeds Similarity Search</a> をはじめとして、Javascript 型でページにはりつける系のサービスはいくつかありますが、大きな問題点として、</p>
+
+<ul><li>js をフィードしているサーバの負荷にページの表示が引きずられる</li></ul>
+
+<p>
+という問題がありました。Bulkfeeds でもキャッシュして出力するなどの努力はしていて、2度目以降は高速にサーブできるはずなのですが、著名なサイトでのアクセスが多かったり、検索結果のRSSへのアクセスが集中したりすると Apache のスロットを食いつぶしてしまい、Similarity Search 設置側のページで待たされることなんかもたまに発生していました。
+</p>
+
+<p>
+この問題を解消するために <a href="http://bulknews.net/lib/archives/jscache-0.01">jscache</a> という CGI スクリプトを作成しました（別名: くっつきキャッシュ）。このスクリプトのやっていることは単純で、リモートの js を取得して、サーバ側にキャッシュして保存。キャッシュ有効期間中は自分のサーバからコンテンツを吐き出すようにするものです。これならホスト側のサーバ負荷に表示が引きずられることはありません。レンタルサーバなどでCGIが利用できる環境にある方は、利用してみてください（インストールが簡単になるよう、モジュールを一切使用していません）。
+</p>
+
+Bulkfeeds Similarity Search を例にして設置方法を解説します。
+
+<ol>
+<li><a href="http://bulknews.net/lib/archives/jscache-0.01">jscache</a> をダウンロードして CGI を実行可能なディレクトリに配置します。(mod_perl でも動くはずです)</li>
+<li>20 行目の $remote_url = "http://bulkfeeds.net/app/similar.js"; とします。</li>
+<li>キャッシュ用のディレクトリを作成、chmod go+w して、24行目の $cache_dir に設定します。</li>
+<li>27 行目 $cache_ttl にはキャッシュする時間を設定します。60分ぐらいが適当でしょう。</li>
+<li>LWP がインストールされていない場合、34 行目 $get_app に wget や lynx などのコマンドラインを入力します。</li>
+</ol>
+
+<p>
+MT の Individual Entries （または他のBlogツールの該当テンプレート） の <i>http://bulkfeeds.net/app/similar.js</i> の部分を <i>http://あなたのサーバホスト名/jscacheの設置場所</i> に変更して、リビルドします。これで、js の表示はあなたのサーバから行われるようになり、Bulkfeeds 側のサーバ負荷に影響されなくなります。（キャッシュがきれた場合などのアクセスはのぞく）
+</p>
+<p>
+動作が確認できたら、設定変数 $debug を 0 にしておけばエラーがうるさくならずにすみます。
+</p>
+
+<h3>FAQ</h3>
+
+<dl>
+
+<dt>Bulkfeeds でしか使えませんか？</dt>
+<dd>$remote_url 変数を変更すれば他の js 型貼り付けサービスでも使えると思います。（というかただのプロキシ＋キャッシュスクリプトなので js じゃなくてもホントは使えます）</dd>
+
+<dt>js １個につき 1 jscache ってことですか？めんどくないですか？</dt>
+<dd>そういうことになります。URL もパラメータ化してもいいんですが、open proxy として悪用される可能性があるので、一応ソースに設定する形にしてあります。やりたい人は $remote_url を $ENV{PATH_INFO} あたりから取得するように改良すればできます。
+
+<pre>$remote_url = $ENV{PATH_INFO};
+$remote_url =~ s!^/!!;
+</pre>
+
+こうして、http://ホスト/jscache/http://example.com/hoge.js として使えばよいでしょう。</dd>
+
+<dt>これを使うとどういうメリットがあるのかよくわかりません。</dt>
+<dd>Bulkfeeds （や他の js 吐き出しサービス） が重いときでもあなたのページの表示が遅くなりません。またあなたのサイトが著名なサイトでアクセスが多い場合にはぜひ利用してもらえると Bulkfeeds 側が負荷が減って助かります。</dd>
+
+<dt>将来的にこれを使わないと Similarity Search が使えなくなったりしますか？</dt>
+<dd>その予定はないです。</dd>
+
+</dl>
+
+<a name="more"></a>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at May  7, 2004 08:35 PM
+| <a href="http://blog.bulknews.net/mt/archives/000976.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000976.html#comments">Comments (3)</a>
+
+| <a href="#trackbacks">TrackBack(41)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000975.html\">&laquo; webryblog2rss</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000977.html\">RT Atom API &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>私も似たような中継君JSという同機能のものを作っていたのですが、エラー時の処理を手抜きしています。（このエントリのトラックバックされた方で中継君JSを紹介してくださった方々ありがとうございます。）<br />
+jscacheのソースを拝見して、自分の作成したCGIを見直そうと誓いました。はい。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://underdone.visithp.jp/" rel="nofollow">あんでるどん</a> on May  7, 2004 11:26 PM</span>
+</div>
+<div class="comments-body">
+<p>Miyagawa さま。TBでとても有用な情報をお知らせ頂き有り難うございました。早速僕の方でも利用させて頂きたいと思います。多謝!!</p>
+<span class="comments-post">Posted by: <a href="http://www.drk7.jp/" rel="nofollow">drk</a> on May  8, 2004 06:04 PM</span>
+</div>
+<div class="comments-body">
+<p>トラックバックでお知らせ頂き、どうもありがとうございました！</p>
+<span class="comments-post">Posted by: <a href="http://www.mayumix.net/blog/" rel="nofollow">マユミ</a> on May 13, 2004 11:11 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/976</div>
+
+<div class="comments-body">
+<a name="895"></a>
+<span class="comments-post"><a href="http://tiger.air-nifty.com/tigers_logs/2004/05/jscache.html" target="new" rel="nofollow nofollow">jscache、リリース！</a><br />
+<b>Excerpt:</b> おお！キャッシュ機能が独立して追加できるとは！！
+TB で知らせて貰いました。ありがとうございます
+
+この問題を解消するために jscache という CGI <br />
+<b>Weblog:</b> あそびをせんとやうまれけむ<br />
+<b>Tracked:</b> May  7, 2004 09:42 PM</span>
+</div>
+<div class="comments-body">
+<a name="898"></a>
+<span class="comments-post"><a href="http://www.cakesjun.net/mvbg/archives/001421.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減</a><br />
+<b>Excerpt:</b> うちは成功。でもココログには LWP が入ってないので、うまく動かないみたいです。<br />
+<b>Weblog:</b> チェリオメアリー<br />
+<b>Tracked:</b> May  7, 2004 10:33 PM</span>
+</div>
+<div class="comments-body">
+<a name="899"></a>
+<span class="comments-post"><a href="http://hail2u.net/blog/blog/jscache.html" target="new" rel="nofollow nofollow">jscacheとか</a><br />
+<b>Excerpt:</b> 「jscache作った！」とかTrackBackされたので読んでみる。blosxomの場合は動的生成で使っている人が多いので、これを使うとCGI(blosxom)からCGI(jscache)を呼ぶことになり、なかなかなこと(微妙な言い回し)になるかも。TTL効いている間はすぐ終わるスクリプトだし、Bulkfe...<br />
+<b>Weblog:</b> hail2u.net - Weblog<br />
+<b>Tracked:</b> May  7, 2004 10:43 PM</span>
+</div>
+<div class="comments-body">
+<a name="900"></a>
+<span class="comments-post"><a href="http://stella.cocolog-nifty.com/starchartlog/2004/05/jscache.html" target="new" rel="nofollow nofollow">jscacheと中継君JS</a><br />
+<b>Excerpt:</b> Similarity Search と Amazon Search がかなり重くなってきました。数秒はまたされるので、いったん消してしまったほうがいいかな、と思っていたら、blog.bulknews.net: Similarity Search の負荷軽減に jsca...<br />
+<b>Weblog:</b> StarChartLog @cocolog<br />
+<b>Tracked:</b> May  7, 2004 11:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="901"></a>
+<span class="comments-post"><a href="http://nikujaga.s35.xrea.com/archives/000049.html" target="new" rel="nofollow nofollow">jscache ver.0.01</a><br />
+<b>Excerpt:</b> Bulkfeeds Similarity Searchなどjavascriptを使用した外部サービスの使用を非常に軽快にしてくれるcgi(でいいんですよね)、jscacheがリリースされた。 blog.bulknews.netSimilarity Search の負荷軽減に jscache...<br />
+<b>Weblog:</b> VNDN-NKJG<br />
+<b>Tracked:</b> May  7, 2004 11:32 PM</span>
+</div>
+<div class="comments-body">
+<a name="902"></a>
+<span class="comments-post"><a href="http://ruby.cx/archives/i/2004/05/08_0043.html" target="new" rel="nofollow nofollow">Similarity Search の jscacheを使ってみる</a><br />
+<b>Excerpt:</b> ふにゃっ？トラックバックがblog.bulknews.netさんの「Similarity Search の負荷軽減に jscache」から、おひらの「Bulkfeeds: Similarity Search をつけてみた」にきている。 いったい？と覗きにいったおひらであったりする。 ふにふに・・・ どーやらBulkfeedsさんのサイ...<br />
+<b>Weblog:</b> Ruby site<br />
+<b>Tracked:</b> May  8, 2004 12:53 AM</span>
+</div>
+<div class="comments-body">
+<a name="903"></a>
+<span class="comments-post"><a href="http://a-tak.com/blog/archives/000306.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscache</a><br />
+<b>Excerpt:</b> 「Similarity Search の負荷軽減に jscache」とのことなので、さっそく入れてみましたが、最初はうまく動かず。...<br />
+<b>Weblog:</b> A-tak on PC Weblog<br />
+<b>Tracked:</b> May  8, 2004 01:26 AM</span>
+</div>
+<div class="comments-body">
+<a name="905"></a>
+<span class="comments-post"><a href="http://ideatech.zive.net/blog/archives/000119.php" target="new" rel="nofollow nofollow">Similarity Search 高速化！</a><br />
+<b>Excerpt:</b> Similarity Search の総本山、Bulnews 様から Trackback 頂いた （感涙） jscache を実装しました。Similarity Search は圧倒的に高速化！結果を自宅サーバー側に cache することで高速化しています。これ、アイディアだなぁ。そうそう、こういうの必要だったんですよ！ b...<br />
+<b>Weblog:</b> Idea&amp;&amp;Technology-&gt;Blog<br />
+<b>Tracked:</b> May  8, 2004 03:56 AM</span>
+</div>
+<div class="comments-body">
+<a name="907"></a>
+<span class="comments-post"><a href="http://kokogiko.net/m/archives/000340.html" target="new" rel="nofollow nofollow">JavaScript系記事貼付サービスの負荷軽減に、jscache</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Similarity Search の負荷軽減に jscache こういうの、欲しかったんですよねえ。 うちの場合、SimilaritySearchよりもBlogPeopleに悩まされてて…(あと時々FeedBack)。...<br />
+<b>Weblog:</b> ここギコ！<br />
+<b>Tracked:</b> May  8, 2004 06:11 AM</span>
+</div>
+<div class="comments-body">
+<a name="908"></a>
+<span class="comments-post"><a href="http://111.boo.jp/blog/archives/000952.php" target="new" rel="nofollow nofollow">「おとなりのBlog」使ってみる。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリースわかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。 早速、導入...<br />
+<b>Weblog:</b> D@nny's cafe BLOG<br />
+<b>Tracked:</b> May  8, 2004 10:14 AM</span>
+</div>
+<div class="comments-body">
+<a name="909"></a>
+<span class="comments-post"><a href="http://www.punkfreak.com/pflog/archives/000091.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscache</a><br />
+<b>Excerpt:</b> かなり、はやくなった。 Similarity Search の負荷軽減に jscache ここに書いている以外で変更したところ jscasheをjscache.cgiにリネーム MT の Individual Entries で http://あなたのサーバホスト名/jscache.cgi...<br />
+<b>Weblog:</b> PunkFreak.com<br />
+<b>Tracked:</b> May  8, 2004 11:00 AM</span>
+</div>
+<div class="comments-body">
+<a name="910"></a>
+<span class="comments-post"><a href="http://www.punkfreak.com/pflog/archives/000091.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscache</a><br />
+<b>Excerpt:</b> かなり、はやくなった。 Similarity Search の負荷軽減に jscache ここに書いている以外で変更したところ jscasheをjscache.cgiにリネーム MT の Individual Entries で http://あなたのサーバホスト名/jscache.cgi...<br />
+<b>Weblog:</b> PunkFreak.com<br />
+<b>Tracked:</b> May  8, 2004 11:01 AM</span>
+</div>
+<div class="comments-body">
+<a name="911"></a>
+<span class="comments-post"><a href="http://fumika.jp/nikki/2004/05/jscache.html" target="new" rel="nofollow nofollow">jscache で Similarity Search の負荷軽減・高速化</a><br />
+<b>Excerpt:</b>  この日記は、個別記事のページ(Individual Archive) に、Bulkfeeds の Similarity Search を付けています。 これは、ページが表示されるたびに bulkfeeds.net サーバ上の JavaScript が呼び出されて、結果が出力される仕組みですので、私のサーバには負荷がかからないも�...<br />
+<b>Weblog:</b> 津田ふみかの日記<br />
+<b>Tracked:</b> May  8, 2004 05:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="912"></a>
+<span class="comments-post"><a href="http://gamania.s22.xrea.com/mt/archives/200405/08-1919mt_custom.php" target="new" rel="nofollow nofollow">カスタマイズ vol.25-2</a><br />
+<b>Excerpt:</b> JavaScriptを使ってリスト取得している物を参照元サーバー依存ではなく、自サーバーのキャッシュを使用して動作を軽く出来るようにJavaScriptで得たリストをキャッシュするCGIを設置してみる。<br />
+<b>Weblog:</b> G@MANIA ver.MT - CODE:Hyena -<br />
+<b>Tracked:</b> May  8, 2004 07:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="913"></a>
+<span class="comments-post"><a href="http://takaryu.jugem.cc/?eid=69" target="new" rel="nofollow nofollow">jscache</a><br />
+<b>Excerpt:</b> nagasawaさんのところでみた記事に反応してBulkfeedsのmiyagawaさんが作られたjscacheというjsファイルをキャッシュするCGIスクリプトをBlogpeopleで使ってみようとトライ。
+
+適当にディレクトリ（ここではcgiとしました）をつくってそこにtmpというディレクトリをつく�...<br />
+<b>Weblog:</b> ぐーたら日記<br />
+<b>Tracked:</b> May  9, 2004 03:01 AM</span>
+</div>
+<div class="comments-body">
+<a name="915"></a>
+<span class="comments-post"><a href="http://run.main.jp/index.cgi/blog/bulkfeedhack.html" target="new" rel="nofollow nofollow">jscacheをカスタマイズ</a><br />
+<b>Excerpt:</b> jscache使用と改善<br />
+<b>Weblog:</b> Outside of mind<br />
+<b>Tracked:</b> May  9, 2004 01:14 PM</span>
+</div>
+<div class="comments-body">
+<a name="917"></a>
+<span class="comments-post"><a href="http://blog.cles.jp/item/166" target="new" rel="nofollow nofollow">NP_SimilaritySearch v1.1.0</a><br />
+<b>Excerpt:</b> blog.bulknews.netでmiyagawaさんがSimilarity Searchの結果をキャッシュするCGIを発表していました。ならば、拙作のNP_SimilaritySearchにも同じ機能をつけてしまおう！という単純な発想でプラグインをアップデ...<br />
+<b>Weblog:</b> cles::blog<br />
+<b>Tracked:</b> May  9, 2004 08:43 PM</span>
+</div>
+<div class="comments-body">
+<a name="924"></a>
+<span class="comments-post"><a href="http://clip.zive.net/archives/000260.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscache</a><br />
+<b>Excerpt:</b> ＃Bulkfeedsさんがとても便利なツールを公開。JSを一定時間キャッシュすることでページ表示速度を改善するもの。早速導入してみました。 このサイトにもたくさんJSがあるのだが、実は一番遅いのはページ上部のRadiostormの曲名表示JS。ホントは全てキャッシュ化したいのだ...<br />
+<b>Weblog:</b> Clip-log : clip.zive.net<br />
+<b>Tracked:</b> May 10, 2004 04:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="925"></a>
+<span class="comments-post"><a href="http://blog.s32.xrea.com/archives/000179.html" target="new" rel="nofollow nofollow">中継君JSを導入</a><br />
+<b>Excerpt:</b> しばらく前になりますが、bulknews.net さんから jscache のお知らせトラックバックを受けました。一度試してみたのですが、どうしてもうまく行かず、同じような機能がある、中継君JS (by あんでるどんさん) を使わせていただくことにしました。 これで個別アーカイブでの...<br />
+<b>Weblog:</b> from TSUKUBA<br />
+<b>Tracked:</b> May 10, 2004 08:36 PM</span>
+</div>
+<div class="comments-body">
+<a name="929"></a>
+<span class="comments-post"><a href="http://blue-bullet.dyndns.org/mt/archives/2004/0511183837.php" target="new" rel="nofollow nofollow">jscache</a><br />
+<b>Excerpt:</b> MTB!出発の直前に、トラックバックでjscacheの通知をいただいたので、これを導入しました。0.02の方ね。 BBBでは自前でごにょごにょしている部分は、わりとキャッシュしていますが、他からの呼び出しサービスのキャッシュにも使えるので便利そう。...<br />
+<b>Weblog:</b> BBBLOG<br />
+<b>Tracked:</b> May 11, 2004 06:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="937"></a>
+<span class="comments-post"><a href="http://www.slo-review.com/blog/archives/000147.html" target="new" rel="nofollow nofollow">いろいろサイト改造　メモ</a><br />
+<b>Excerpt:</b> 今日は諸処諸々の事情からサイトをいろいろいじることにした。 Bulkfeeds Similarity Searchを導入 以前から便利そうだとは思っていたのだが、なぜか実装をためらっていた。 今回入れてみて分かったことは、自分のサイトばかりが引っかかること。俺、文章の書き方ヘタなの...<br />
+<b>Weblog:</b> slo-review BLOG<br />
+<b>Tracked:</b> May 12, 2004 06:41 AM</span>
+</div>
+<div class="comments-body">
+<a name="969"></a>
+<span class="comments-post"><a href="http://www.aga-ye.com/archives/000157.html" target="new" rel="nofollow nofollow">Javascriptのキャッシュ:中継君JSにしてみる</a><br />
+<b>Excerpt:</b> bulkfeed.netの宮川さんから、トラックバック経由で「類似した記事」で使っているBulkfees Similarity Searchで、javascriptのキャッシュを使ってほしいとの連絡。 Similarity Search の負荷軽減に jscache Bulkfeeds Similarity Search をはじめとして、Javascript 型で�...<br />
+<b>Weblog:</b> Aga-Ye!! : Kasedac<br />
+<b>Tracked:</b> May 16, 2004 06:27 PM</span>
+</div>
+<div class="comments-body">
+<a name="970"></a>
+<span class="comments-post"><a href="http://mk22.com/blog/archives/000230.php" target="new" rel="nofollow nofollow">「Similarity Search の負荷軽減に」</a><br />
+<b>Excerpt:</b> 個別記事の下のほうに「Similarity Search」という素晴らしい機能があるのですが、問題点として表示されるまでに時間が掛かったこと。 それとあちらのサーバも相当な負担になっていたのではないかと思います。 Similarity Searchの管理人さんからわざわざトラックバックで...<br />
+<b>Weblog:</b> ::WHATSOEVER ;)<br />
+<b>Tracked:</b> May 16, 2004 08:39 PM</span>
+</div>
+<div class="comments-body">
+<a name="972"></a>
+<span class="comments-post"><a href="http://kengo.preston-net.com/archives/001323.shtml" target="new" rel="nofollow nofollow">BulkfeedsのSimilarity Searchへの負荷軽減にjscache</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Similarity Search の負荷軽減に jscacheで紹介されていたjscache 0.02を設置しました。BulkfeedsのSimilarity Searchを個別のエントリーの下の方に表示していますが、 毎回Bulkfeedsに読みに行くのではなく指定した時間までは自分のサーバー内でキャ�...<br />
+<b>Weblog:</b> Going My Way<br />
+<b>Tracked:</b> May 16, 2004 08:46 PM</span>
+</div>
+<div class="comments-body">
+<a name="1011"></a>
+<span class="comments-post"><a href="http://homepage.ya-ma-da.com/archives/000301.html" target="new" rel="nofollow nofollow">「おとなりBLOG&BOOK」の負荷軽減に中継君JS導入</a><br />
+<b>Excerpt:</b>  　当サイトでは、「おとなりBOOK＆BLOG」をつけていますが、これは、Javascript で提供元のサーバが生成したコードをページにはりつけるタイプのサービスです。ただ、問題点がありまして、コードをフィードしているサーバの負荷にページの表示が引きずられてしまうのです...<br />
+<b>Weblog:</b> やまだのほうむぺえじ<br />
+<b>Tracked:</b> May 19, 2004 02:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="1012"></a>
+<span class="comments-post"><a href="http://homepage.ya-ma-da.com/archives/000301.html" target="new" rel="nofollow nofollow">「おとなりBLOG&BOOK」の負荷軽減に中継君JS導入</a><br />
+<b>Excerpt:</b>  　当サイトでは、「おとなりBOOK＆BLOG」をつけていますが、これは、Javascript で提供元のサーバが生成したコードをページにはりつけるタイプのサービスです。ただ、問題点がありまして、コードをフィードしているサーバの負荷にページの表示が引きずられてしまうのです...<br />
+<b>Weblog:</b> やまだのほうむぺえじ<br />
+<b>Tracked:</b> May 19, 2004 02:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="1020"></a>
+<span class="comments-post"><a href="http://www.zakimi.com/archives/2004/05/19/220358.php" target="new" rel="nofollow nofollow">Webサイトをちょっと改良：Similarity Search の負荷軽減</a><br />
+<b>Excerpt:</b> 似た記事を自動的に探してくれて、リンクまでを自動的に表示してくれるサービス、Similarity Search は便利だけれども設置していなかったときに比べてWebサイトの表示がちょっと重くなっていた。 まあ、便利である点と表示してくれるリンクがきっかけで新しい発見が多いの...<br />
+<b>Weblog:</b> Zakimi::Blog<br />
+<b>Tracked:</b> May 19, 2004 10:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="1027"></a>
+<span class="comments-post"><a href="http://serafree.oops.jp/blog/archives/000055.html" target="new" rel="nofollow nofollow">負荷軽減を目指して</a><br />
+<b>Excerpt:</b> 先の「Similarity Search」を導入後、やはり気になったのは&quot;重さ&quot;。 そこで、これを導入してみました。 Bulkfeeds：「Similarity Search の負荷軽減に jscache」 軽くなったような気がします…か？...<br />
+<b>Weblog:</b> sera::log<br />
+<b>Tracked:</b> May 21, 2004 07:46 PM</span>
+</div>
+<div class="comments-body">
+<a name="1078"></a>
+<span class="comments-post"><a href="http://unwired.jugem.cc/?eid=95" target="new" rel="nofollow nofollow">「おとなりBlog」設置方法を改良したよ</a><br />
+<b>Excerpt:</b> 記事の一覧表示状態では表示せず、パーマネントリンクで個別の記事を見るときだけ表示されるようにしてみた。
+これですっきり。<br />
+<b>Weblog:</b> unwired<br />
+<b>Tracked:</b> June  3, 2004 12:25 AM</span>
+</div>
+<div class="comments-body">
+<a name="1162"></a>
+<span class="comments-post"><a href="http://www.murata.org/blog/archives/000378.html" target="new" rel="nofollow nofollow">Similarity Search powered by Bulkfeeds</a><br />
+<b>Excerpt:</b> 以前にもちょこっとご紹介した、Bulkfeedsの「似たものエントリーサーチ」ですが、書くエントリーの下にリアルタイムで表示するようにさせてみました。結構面白いですねぇ。 へんてこなものが似たもの紹介される場合も、「ああ、このキーワードに引っかかったのかな」なん...<br />
+<b>Weblog:</b> WebMURATA::WebLOG<br />
+<b>Tracked:</b> June 26, 2004 11:41 AM</span>
+</div>
+<div class="comments-body">
+<a name="1188"></a>
+<span class="comments-post"><a href="http://jun.daa.jp/archives/20040708112603.php" target="new" rel="nofollow nofollow">中継君JSとSimilarity Search</a><br />
+<b>Excerpt:</b> Amazon Searchを利用するにあたって、各サーバーへの負担軽減のためにcacheを自サーバー内に設置しておりました。 UnderDone あんでるどん 餡照丼: 中継君JS Ver1.2.1リリース コレにより(キャッシュの期限が切れていない限り)2回目以降のページ表示は高速化されていたの�...<br />
+<b>Weblog:</b> Diary::Weblog<br />
+<b>Tracked:</b> July  8, 2004 11:26 AM</span>
+</div>
+<div class="comments-body">
+<a name="1189"></a>
+<span class="comments-post"><a href="http://jun.daa.jp/archives/20040708112603.php" target="new" rel="nofollow nofollow">中継君JSとSimilarity Search</a><br />
+<b>Excerpt:</b> Amazon Searchを利用するにあたって、各サーバーへの負担軽減のためにcacheを自サーバー内に設置しておりました。 UnderDone あんでるどん 餡照丼: 中継君JS Ver1.2.1リリース コレにより(キャッシュの期限が切れていない限り)2回目以降のページ表示は高速化されていたの�...<br />
+<b>Weblog:</b> Diary::Weblog<br />
+<b>Tracked:</b> July  8, 2004 11:27 AM</span>
+</div>
+<div class="comments-body">
+<a name="1225"></a>
+<span class="comments-post"><a href="http://blog.takeratta.com/archives/000823.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscacheをやってみた。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Similarity Search の負荷軽減に jscache 以前から表示速度が重たくなっていて、導入しようと思っていたのを昨日やってみました。 意外と簡単でした。 表示速度もあがり満足です。 【導入方法】 Blog.bulkfeeds.netさんとこをまず参照して下さい。 う�...<br />
+<b>Weblog:</b> takeratta::Blog+<br />
+<b>Tracked:</b> July 23, 2004 01:14 AM</span>
+</div>
+<div class="comments-body">
+<a name="1228"></a>
+<span class="comments-post"><a href="http://www.murata.org/blog/archives/000224.php" target="new" rel="nofollow nofollow">Similarity Search powered by Bulkfeeds</a><br />
+<b>Excerpt:</b> …ってなわけで話がそれてしまったけど、文意検索がも少しまともなものに、かつ安価なものになってくると、本当に面白ことができそう。とはいえ、下手すると意識操作にも応用が利くから怖いところではあります。
+※先だっての、ウェディング告訴による google から悪徳商�...<br />
+<b>Weblog:</b> WebMURATA::WebLOG<br />
+<b>Tracked:</b> July 24, 2004 08:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="1230"></a>
+<span class="comments-post"><a href="http://nano.moo.jp/archives/individual/2004/0724143902.php" target="new" rel="nofollow nofollow">jscacheでSimilaritySearchの負荷軽減</a><br />
+<b>Excerpt:</b> Similarity Search の負荷軽減に jscache(blog.bulknews.net) (takeratta::Blog+) 話題に共通性のあるエントリーを見つけて表示してくれるSimilarity Searchですが、自分のサイト内に情報をキャッシュすることで表示時間が節約できるらしく、早速導入して見ました。上のta...<br />
+<b>Weblog:</b> the meager<br />
+<b>Tracked:</b> July 24, 2004 02:39 PM</span>
+</div>
+<div class="comments-body">
+<a name="1289"></a>
+<span class="comments-post"><a href="http://underdone.visithp.jp/mt/archives/000070.html" target="new" rel="nofollow nofollow">中継君JSVer.1.1.0リリース</a><br />
+<b>Excerpt:</b> 中継君JSをバージョンアップしました。 このCGIは jscacheと同じく Jacascript を出力するサービスのキャッシュをします。 こうすることによって、サービスを提供しているアプリケーションサーバへの負荷を軽減し、 たとえば、blogpeopleやbulkfeedsがアクセス過多で応答�...<br />
+<b>Weblog:</b> UnderDone あんでるどん 餡照丼<br />
+<b>Tracked:</b> August  6, 2004 07:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="1333"></a>
+<span class="comments-post"><a href="http://pebbleinsky.ddo.jp/mt/archives/2004/08/13_0025.php" target="new" rel="nofollow nofollow">jscacheでSimilarity Searchの負荷軽減</a><br />
+<b>Excerpt:</b> Bulkfeedsを使った関連記事の検索(Similarity Search)が...<br />
+<b>Weblog:</b> pebbleinsky's blog<br />
+<b>Tracked:</b> August 13, 2004 12:25 AM</span>
+</div>
+<div class="comments-body">
+<a name="1351"></a>
+<span class="comments-post"><a href="http://ideatech.zive.net/blog/archives/000215.php" target="new" rel="nofollow nofollow">Windows Server 上での jscache 動作不具合の修正方法</a><br />
+<b>Excerpt:</b> 先日、Similarity Search の高速化で利用した jscache ですが、Win + IIS で実行しようとすると、パラメータが多い場合に動作しなくなると言う不具合を発見しました。暫定ながら jscache の 68 行目（0.01/0.02両Ver.とも同じです）を以下のように変更すると修正できます�...<br />
+<b>Weblog:</b> Idea&amp;&amp;Technology-&gt;Blog<br />
+<b>Tracked:</b> August 18, 2004 07:09 AM</span>
+</div>
+<div class="comments-body">
+<a name="1622"></a>
+<span class="comments-post"><a href="http://wino.dip.jp/mt/archives/686.php" target="new" rel="nofollow nofollow">サイドバーにおすすめ商品を簡単にクリップ！</a><br />
+<b>Excerpt:</b> このサイトも含め、あちこちのブログなり日記でサイドバーに管理人さんのおすすめ商品を紹介しているサイトをよく見かけます。あれってどうやってるんでしょう？サイトによってまちまちなんですかね？？ ちなみにウチのサイトの場合、手書きでタグを書いて、そのファイル�...<br />
+<b>Weblog:</b> こりゃまた余談<br />
+<b>Tracked:</b> September 12, 2004 08:54 PM</span>
+</div>
+<div class="comments-body">
+<a name="2483"></a>
+<span class="comments-post"><a href="http://blog.634.jp/archive/2004/12/post_59.html" target="new" rel="nofollow nofollow">自分の関連記事を探してくれる！</a><br />
+<b>Excerpt:</b> ○自分のBLOGと関係ありそうなものを、google検索して表示。 いいわぁ(^...<br />
+<b>Weblog:</b> ６３４（ムサシ）の宴<br />
+<b>Tracked:</b> December 10, 2004 10:52 AM</span>
+</div>
+<div class="comments-body">
+<a name="5971"></a>
+<span class="comments-post"><a href="http://jun.daa.jp/archives/20040708112603.php" target="new" rel="nofollow nofollow">中継君JSとSimilarity Search</a><br />
+<b>Excerpt:</b> Amazon Searchを利用するにあたって、各サーバーへの負担軽減のためにcacheを自サーバー内に設置しておりました。 UnderDone あんでるどん 餡照丼: 中継君JS Ver1.2.1リリース コレにより(キャッシ...<br />
+<b>Weblog:</b> Diary::Weblog<br />
+<b>Tracked:</b> October 28, 2005 04:55 AM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="976" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

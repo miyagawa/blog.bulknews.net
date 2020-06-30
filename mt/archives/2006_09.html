@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: September 2006 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2006_08.html" title="August 2006" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2006_10.html" title="October 2006" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_09.html#002071"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2018"
+    dc:title="Lingua::JA::Hepburn::Passport でヘボン式ローマ字変換"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_09.html#002071"
+    dc:subject="perl"
+    dc:description=" ひらがな/カタカナからヘボン式ローマ字に変換するモジュール Tatsuhiko Miyagawa / Lingua-JA-Hepburn-Passport-0.01 - search.cpan.org をリリースしました。 同じようなことをするモジュールは Lingua::JA::Romaji, Linguua::JA::Romanize::Kana, Text::Kakasi といろいろあるんですが、日本の外務省パスポートのルール にあるヘボン式に則ったものは１個もなかったので車輪の再発明。 use utf8; use Lingua::JA::Hepburn::Passport; my..."
+    dc:creator="miyagawa"
+    dc:date="2006-09-26T22:48:17+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 26, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002071"></a>
+<h3 class="title">Lingua::JA::Hepburn::Passport でヘボン式ローマ字変換</h3>
+
+<div class="section">
+	<p>ひらがな/カタカナからヘボン式ローマ字に変換するモジュール <a href="http://search.cpan.org/~miyagawa/Lingua-JA-Hepburn-Passport-0.01/">Tatsuhiko Miyagawa / Lingua-JA-Hepburn-Passport-0.01 - search.cpan.org</a> をリリースしました。</p>
+	
+	<p>同じようなことをするモジュールは <a href="http://search.cpan.org/~kesinger/Lingua-JA-Romaji-0.03/">Lingua::JA::Romaji</a>, <a href="http://search.cpan.org/author/KAWASAKI/Lingua-JA-Romanize-Japanese-0.13/lib/Lingua/JA/Romanize/Kana.pm">Linguua::JA::Romanize::Kana</a>, <a href="http://search.cpan.org/~dankogai/Text-Kakasi-2.04/">Text::Kakasi</a> といろいろあるんですが、<a href="http://www.seikatubunka.metro.tokyo.jp/hebon/">日本の外務省パスポートのルール</a> にあるヘボン式に則ったものは１個もなかったので車輪の再発明。</p>
+	
+	<pre class="hatena-super-pre">
+  use utf8;
+  use Lingua::JA::Hepburn::Passport;
+
+  my $hepburn = Lingua::JA::Hepburne::Passport-&gt;new;
+  $hepburn-&gt;romanize(&quot;みやがわ&quot;);     # MIYAGAWA
+  $hepburn-&gt;romanize(&quot;おおの&quot;);       # ONO
+  $hepburn-&gt;romanize(&quot;かとう&quot;);       # KATO
+  $hepburn-&gt;romanize(&quot;ゆうこ&quot;);       # YUKO
+  $hepburn-&gt;romanize(&quot;なんば&quot;);       # NAMBA
+  $hepburn-&gt;romanize(&quot;はっちょう&quot;);   # HATCHO
+
+  # Indicate long vowels by &quot;h&quot;
+  my $hepburn = Lingua::JA::Hepburne::Passport-&gt;new( long_vowels_h =&gt; 1 );
+  $hepburn-&gt;romanize(&quot;おおの&quot;);       # OHNO
+  $hepburn-&gt;romanize(&quot;かとう&quot;);       # KATOH
+</pre>
+	
+	<p>みたいにつかいます。long_vowels_h をつけるとオオ・オウの長音に H をつけるようになる。</p>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002071.html">10:48 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002071.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002071.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_09.html#002070"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2017"
+    dc:title="学校では教えてくれないエンジニアリング英語 #2: Push the code"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_09.html#002070"
+    dc:subject=""
+    dc:description=" 第1回はなかなか好評 だったようで、若干プレッシャー感じたりもしていますが、早速第2回いってみましょう。週1くらいでできるといいですねえ。 そういえば、何十回とたまったら書籍化なんかいいですね。始まったばっかりでいきなりそれかよ、って感じですが、こういう本ってなかなかまとまってないので面白いかも。 コードのリリース 今日のテーマは「ソフトウェアのリリース」。このリリースにはいろんな言い方がありますが、ライブのサービスでよく使うのが &quot;Push&quot; という言葉です。例文から。 &quot;We just pushed the 2.1 code to the production. Test it away..."
+    dc:creator="miyagawa"
+    dc:date="2006-09-12T22:46:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 12, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002070"></a>
+<h3 class="title">学校では教えてくれないエンジニアリング英語 #2: Push the code</h3>
+
+<div class="section">
+	<p><a href="http://blog.bulknews.net/mt/archives/002064.html">第1回はなかなか好評</a> だったようで、若干プレッシャー感じたりもしていますが、早速第2回いってみましょう。週1くらいでできるといいですねえ。</p>
+	
+	<p>そういえば、何十回とたまったら書籍化なんかいいですね。始まったばっかりでいきなりそれかよ、って感じですが、こういう本ってなかなかまとまってないので面白いかも。</p>
+	
+	<p><h2>コードのリリース</h2></p>
+	
+	<p>今日のテーマは「ソフトウェアのリリース」。このリリースにはいろんな言い方がありますが、ライブのサービスでよく使うのが "Push" という言葉です。例文から。</p>
+	
+	<blockquote>
+		<p>"We just pushed the 2.1 code to the production. Test it away and let me know if you find any problems." （2.1 のコードを本番環境にリリースしたよ。テストして何か問題があれば教えてくれ）</p>
+	</blockquote>
+	
+	<p>push 自体には、手元からリモートに成果物を送り出す、というような意味合いがあります。QA 環境やステージ環境にあるコードをプロダクションに「送り出す」様子をイメージするとわかりやすいかも。"Code push" という風にすれば名詞として使えます。</p>
+	
+	<blockquote>
+		<p>"Code push just started now ... waiting for complete." （いまコードを本番化中... 完了まちです）</p>
+	</blockquote>
+	
+	<p>似たような言葉で "roll out" というのもあり、</p>
+	
+	<blockquote>
+		<p>"1.5 was rolled out this morning without problems." (1.5 は問題なく本番化されました）</p>
+		<p>"We tentatively schedule the rollout tomorrow morning PST." (本番化はPSTで明日の朝を仮で予定してます）</p>
+	</blockquote>
+	
+	<p>こっちのほうが「本番化」というのに近いかも。</p>
+	
+	<p>rollout も push も実際に稼動しているサービスのコードを置き換えるイメージがあります。パッケージソフトウェアなどをダウンロード可能にする場合には、普通に release っていう感じかなあ。</p>
+	
+	<blockquote>
+		<p>"Movable Type 3.32 is released world wide right now." (MT 3.32 はたったいま全世界でリリースされました）</p>
+	</blockquote>
+	
+	<p><h2>Examples</h2></p>
+	
+	<p>(Examples は Six Apart の Mailing List から、一部固有名詞を変更して抜粋しています。生きた英語！）</p>
+	
+	<blockquote>
+		<p>"We'll be pushing out a bug-fix maintenance release (version 1.01) for XYZ this afternoon at 3:30pm Pacific time.  The changelog and roll plan are below." (今日の午後 3:30 太平洋時間に XYZ のバグフィックスリリース 1.01 をプッシュする予定。変更点とリリースプランは以下の通り)</p>
+	</blockquote>
+	
+	<blockquote>
+		<p>"We are beginning our push of AAA 2.1 now at 2pm.  This release introduces a small subset of changes that will help easy the transition when 2.2 rolls later this month." (午後2時に AAA 2.1 の本番化を開始します。このリリースに含まれる変更で、月末に予定している 2.2 のリリースがよりスムーズになる予定）</p>
+	</blockquote>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002070.html">10:46 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002070.html#comments">Comments (4)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002070.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_09.html#002069"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2016"
+    dc:title="CPAN::Mini で CPAN のミラーをローカルに"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_09.html#002069"
+    dc:subject="perl"
+    dc:description=" DECON で話してきたネタですがちょっと詳しく。 飛行機やら電車の中やらでオフラインハックするときに（たまに）問題になるのが CPAN モジュールの不足です。「あぁ、このマシンにはあのモジュール入ってねぇ～」とかでハックが滞るのは萎えます。というわけで minicpan。CPAN::Mini というモジュールで、CPAN モジュールの最新版だけを持ってきてミラーをつくることができます。 導入は簡単で、CPAN から install CPAN::Mini すると minicpan というコマンドが付属してきます。コマンドラインから使うには、 &amp;gt; minicpan -r http://ftp.funet.fi/pub/languages/perl/CPAN/..."
+    dc:creator="miyagawa"
+    dc:date="2006-09-10T17:25:47+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 10, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002069"></a>
+<h3 class="title">CPAN::Mini で CPAN のミラーをローカルに</h3>
+
+<div class="section">
+	<p>DECON で話してきたネタですがちょっと詳しく。</p>
+	
+	<p>飛行機やら電車の中やらでオフラインハックするときに（たまに）問題になるのが CPAN モジュールの不足です。「あぁ、このマシンにはあのモジュール入ってねぇ～」とかでハックが滞るのは萎えます。というわけで minicpan。<a href="http://search.cpan.org/dist/CPAN-Mini/">CPAN::Mini</a> というモジュールで、CPAN モジュールの最新版だけを持ってきてミラーをつくることができます。</p>
+	
+	<p>導入は簡単で、CPAN から install CPAN::Mini すると minicpan というコマンドが付属してきます。コマンドラインから使うには、</p>
+	
+	<pre class="hatena-super-pre">
+&gt; minicpan -r <a href="http://ftp.funet.fi/pub/languages/perl/CPAN/" title="http://ftp.funet.fi/pub/languages/perl/CPAN/">http://ftp.funet.fi/pub/languages/perl/CPAN/</a> -l ~/minicpan
+</pre>
+	
+	<p>とかすれば finet から HTTP で同期できます。<a href="ftp://" title="ftp://">ftp://</a> を使うことも出来るのですが、モジュール1個ずつ anonymous ログインするのが無駄なので HTTP がベターです。あとはこれを crontab にでも登録してやれば OK。CPAN シェルからの利用は、</p>
+	
+	<pre class="hatena-super-pre">
+cpan&gt; o conf urllist unshift file:///home/miyagawa/minicpan
+</pre>
+	
+	<p>のように。オフラインハック用じゃなくても、モジュールのダウンロードがローカルからで高速になるので、普段からやっておいて損することはないはず。ちなみに minicpan のミラーサイズは 500M くらいになります。CDROM におさまりますね。YAPC::Europe のオマケ CD にもプレゼン資料といっしょに入ってました。</p>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002069.html">05:25 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002069.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002069.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_09.html#002068"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2015"
+    dc:title="DECON 2006 で講演してきました"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_09.html#002068"
+    dc:subject=""
+    dc:description="Shibuya.JS DECON で講演してきました。 私のタイトルは &quot;Hacking Vox and Plagger&quot; で、Xen や yum/rpm を使った Vox のアプリケーションデプロイネタとか、Plagger のオープンソース型開発モデルとテストドリブン、リグレッションテストやスモークテストなどの話をしてきました。発表資料はこちらにおいておきますのでご参考まで（一部発表内容と異なるスライドがありますがご了承を）。 発表資料 (PDF)..."
+    dc:creator="miyagawa"
+    dc:date="2006-09-09T21:03:31+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 09, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002068"></a>
+<h3 class="title">DECON 2006 で講演してきました</h3>
+
+<p><a href="http://shibuyajs.org/articles/2006/08/28/development-environment-conference">Shibuya.JS DECON</a> で講演してきました。</p>
+
+<p>私のタイトルは "Hacking Vox and Plagger" で、Xen や yum/rpm を使った Vox のアプリケーションデプロイネタとか、Plagger のオープンソース型開発モデルとテストドリブン、リグレッションテストやスモークテストなどの話をしてきました。発表資料はこちらにおいておきますのでご参考まで（一部発表内容と異なるスライドがありますがご了承を）。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/DECON.pdf">発表資料 (PDF)</a></p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002068.html">09:03 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002068.html#comments">Comments (1)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002068.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_09.html#002067"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2014"
+    dc:title="Plagger World Tour が終わりました"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_09.html#002067"
+    dc:subject="perl"
+    dc:description=" 8/30-9/1 とイギリスはバーミンガムで行われた YAPC::Europe 2006 に参加してきました。YAPC::NA, OSCON に続く World Tour 3部作がこれで終わりました。 バーミンガムはロンドンから電車で1時間半のところにあるということで、まずはヒースロー空港から svk の作者でもあるスーパーハッカー clkao の家に到着。最近は Best Practical で telecommute..."
+    dc:creator="miyagawa"
+    dc:date="2006-09-07T21:10:10+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">September 07, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002067"></a>
+<h3 class="title">Plagger World Tour が終わりました</h3>
+
+<div class="section">
+	<p><a href="http://www.flickr.com/photos/bulknews/234270845/" title="Photo Sharing"><img src="http://static.flickr.com/91/234270845_8a6f826d56_m.jpg" width="240" height="180" alt="20060902 267" align="right" style="border:0; margin: 1em" /></a></p>
+	
+	<p>8/30-9/1 とイギリスはバーミンガムで行われた <a href="http://www.birmingham2006.com/">YAPC::Europe 2006</a> に参加してきました。YAPC::NA, OSCON に続く World Tour 3部作がこれで終わりました。</p>
+	
+	<p>バーミンガムはロンドンから電車で1時間半のところにあるということで、まずはヒースロー空港から svk の作者でもあるスーパーハッカー clkao の家に到着。最近は <a href="http://www.bestpractical.com/">Best Practical</a> で telecommute で働いています。</p>
+	
+	<p>カンファレンスは200人程度、ヨーロッパの各地から来ていることもあり、英語の訛りもブリティッシュ（最初はきついが慣れれば問題なし）、フランス（ほとんど聞き取れない）、ドイツ（わかりやすいがたまに違和感）と各種さまざま。自分の発表は最終日の朝っぱら9時から Plagger ネタ、それと Lightning Talks で Google Maps Tilt をプレゼンしてきました。</p>
+	
+	<ul>
+		<li> <a href="http://plagger.org/trac/attachment/wiki/PlaggerPresentations/Plagger-YAPCEU.pdf?format=raw">Plagger</a> (PDF)</li>
+		<li> <a href="http://blog.bulknews.net/mt/archives/gmaps-tilt.pdf">Tilting Google Maps</a> (PDF)</li>
+	</ul>
+	
+	<p>Plagger スライドは YAPC, OSCON と同様の構成をベースにしていますが、フィードバックをもとに順序や細かい部分をアップデートしたので、今まで一番いい出来になっていると思います。とりあえず今年はカンファレンス終了かなという感じですが、他の場所でやってという声がかかれば、可能ならいきますので呼んでください。</p>
+	
+	<p><a href="http://www.flickr.com/photos/bulknews/234177946/" title="Photo Sharing"><img src="http://static.flickr.com/92/234177946_3c5b7a1f74_m.jpg" width="180" height="240" alt="20060902 139" align="right" style="border:0; margin: 1em" /></a></p>
+	
+	<p>カンファレンスの前後はロンドン観光。博物館にいったり、ノッティングヒルのカーニバルを見たりと楽しく過ごせました。ただユーロ・ポンドの影響か何でもかんでも物価が高いので、長期で住むのはきつそうだな、と思ったり。</p>
+	
+	<p>ヒースロー空港は相変わらずセキュリティチェックが厳しくて、手荷物も1つまで。なんだかちょっと憂鬱になりましたが、オンラインチェックインで狙っていた席をゲットできたため、横の列が全部空席というすばらしい環境に。ミッションインポシブルIII やら ALWAYS やら見ながら、寝転がって寝れました。エコノミーの環境は席にかなり左右されるという例ですね。。。</p>
+	
+	<p>帰国していきなりですが、明日は shibuya.js のイベント DECON （開発環境カンファレンス）にスピーカーとして参加します。まだネタとか決めてないですが(!)、来られる方は会場でお会いしましょう。</p>
+</div>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002067.html">09:10 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002067.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002067.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

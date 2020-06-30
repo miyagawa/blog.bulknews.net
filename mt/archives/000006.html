@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>mt-rssfeed: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000006.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000005.html" title="棚橋！" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000007.html" title="mt-jcode" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000006.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/6"
+    dc:title="mt-rssfeed"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000006.html"
+    dc:subject="blog"
+    dc:description="さてRSSといえば、ページの右側とかに、他のサイトのRSSをとりこんで表示してみたいものです。mt-rssfeedというプラグインがそれなので、さっそく導入。..."
+    dc:creator="miyagawa"
+    dc:date="2002-11-29T17:40:51+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">November 29, 2002</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">mt-rssfeed</h1>
+
+<p>さてRSSといえば、ページの右側とかに、他のサイトのRSSをとりこんで表示してみたいものです。<a href="http://www.mplode.com/tima/files/mt-plugins/#mt-rssfeed">mt-rssfeed</a>というプラグインがそれなので、さっそく導入。<br />
+</p>
+
+<a name="more"></a>
+<p>例によって日本語化苦労バナシです。</p>
+
+<p>まずは .tar.gz を持ってきて解凍。このアーカイブはディレクトリを作成しない行儀の悪いヤツなので注意。</p>
+
+<blockquote class="code">mkdir -p $MT/extlib/XML/RSS
+cp LP.pm $MT/extlib/XML/RSS
+mkdir $MT/plugins
+cp mt-rssfeed.pl $MT/plugins
+</blockquote>
+
+<p>mt-rssfeed.pl の先頭にある</p>
+
+<blockquote class="code">my $RSSFEED_DATA_DIR = "./db/";
+</blockquote>
+
+<p>をお好きなところに。自分は "./rssfeed/" としました。mkdir して chown g+w する。mt-list.pl もあると便利なので、同じとこから持ってきて plugins/ に放りこみます。</p>
+
+<p>で、mt-rssfeed.pl の下のほうにある例を参考にテンプレートを編集します。次に XML::Parser の設定。</p>
+
+<p>1) XML::Parser がない場合</p>
+
+<p>CPAN から <a href="http://search.cpan.org/src/KULCHENKO/SOAP-Lite-0.55/lib/XML/Parser/Lite.pm">XML::Parser::Lite</a> を持ってきてインストールします。MT ライブラリ一緒版には入っているそうです。</p>
+
+<p>2) XML::Parser がある場合</p>
+
+<p>euc-jp でXMLを配布しているサイトがあると </p>
+
+<blockquote class="code">Couldn't open encmap euc-jp.enc:No such file or directory</blockquote>
+
+<p>とかでてきます。ので、$MT/extlib/XML/Parser/Encodings に euc-jp.enc を入れます。<a href="http://bulknews.net/lib/tmp/enc-jp.enc.gz">こちら</a>からもってってください。# ちなみにこれは XML::Encodings モジュールに入っているXMLファイルを置換して作成しました。</p>
+
+<p>さてこれで RSS のパースはうまくいきます。もしあなたのサイトがUTF-8なら、問題ないでしょう。EUC-JP の場合、例によって表示のとこで化けます。これを解決するのは、次のエントリで。</p>
+
+<p>またrss のように、blog 自体は更新しなくても、定期的に更新したい人のためのツール mt-rebuild.pl というのが mt-rssfeed に入ってるので、cron とかで実行するとよいでしょう。</p>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at November 29, 2002 05:40 PM
+| <a href="http://blog.bulknews.net/mt/archives/000006.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000006.html#comments">Comments (9)</a>
+
+| <a href="#trackbacks">TrackBack(26)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000005.html\">&laquo; 棚橋！</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000007.html\">mt-jcode &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>mt-list.plって何してくれるヤツ？<br />
+ドキュメント読んだけどよくわかりませんでした。</p>
+<span class="comments-post">Posted by: <a href="http://rebecca.ac/milano/mt/" rel="nofollow">milano</a> on November 29, 2002 07:03 PM</span>
+</div>
+<div class="comments-body">
+<p>なんか、繰りかえしを楽にできるみたいな感じだったけど。複数の RSS を同じレイアウトで表示するときに、上でリストだけ定義すれば繰りかえしだせる、みたいな。</p>
+
+<p>mt-rssfeed.pl の下のほうにある USING MT-RSSFEED WITH THE MT-LIST PLUGIN ってのをみてみて。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on November 29, 2002 07:08 PM</span>
+</div>
+<div class="comments-body">
+<p>なるぺそ〜。<br />
+組み合わせて使うと便利なのねー。<br />
+やってみるー。</p>
+<span class="comments-post">Posted by: <a href="http://rebecca.ac/milano/mt/" rel="nofollow">milano</a> on November 29, 2002 07:12 PM</span>
+</div>
+<div class="comments-body">
+<p>なんかさ、</p>
+
+<p>&lt;MTListLoop name="feeds"&gt;<br />
+&lt;MTRSSFeed file="&lt;$MTListItem$"&gt;&gt;<br />
+　．<br />
+　．<br />
+　．<br />
+&lt;/MTListLoop&gt;</p>
+
+<p>ってやると、パースにミスって、"> が残ってしまうみたいね。</p>
+
+<p>&lt;MTListLoop name="feeds"&gt;<br />
+&lt;MTRSSFeed file=&lt;$MTListItem$&gt;<br />
+　．<br />
+　．<br />
+　．<br />
+&lt;/MTListLoop&gt;</p>
+
+<p>ってやらなきゃだ。<br />
+きもちわりー。</p>
+<span class="comments-post">Posted by: <a href="http://rebecca.ac/milano/mt/" rel="nofollow">milano</a> on November 29, 2002 07:22 PM</span>
+</div>
+<div class="comments-body">
+<p>MTListLoop 内では、&lt;MTRSSFeed&gt; だけでいいみたい。file= 省略すれば、MTList で定義したやつをURLとしてひろってくれる。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on November 29, 2002 07:25 PM</span>
+</div>
+<div class="comments-body">
+<p>mt-rssfeed をトップページで使用すると、なんらかの書き込み (Comments, TrackBack) のたびにRSSを起動しちゃいますね。なんとかならないのかな。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on November 30, 2002 06:24 PM</span>
+</div>
+<div class="comments-body">
+<p>えと、上の「こちら」っていう euc-jp.enc へのリンクですが、URL が微妙に間違っているようで、クリックするとエラーになっちゃいます。<br />
+というわけで、ご報告でした。すでにお気づきならごめんなさい。<br />
+ではでは、これからもいろいろと参考にさせていただきます...。</p>
+<span class="comments-post">Posted by: <a href="http://www.pressnet.tv/flash/" rel="nofollow">toru?</a> on March 10, 2003 02:49 PM</span>
+</div>
+<div class="comments-body">
+<p>こんにちは。<br />
+いつも大変参考にさせていただいております。実はmt-rssfeed、試してみているのですがどうもうまくいきません。mySQL使用で、$RSSFEED_DATA_DIRを適当なところに設定しています。mt-jcodeはまだ問題の切り分けのために入れていませんが、それが原因でしょうか。<br />
+現象としては、rebuild時に「wide character...」というエラーメッセージが出てしまいます。</p>
+
+<p>少しヒントをいただければありがたいです。</p>
+<span class="comments-post">Posted by: <a href="http://www.yasukawa.com/blog/" rel="nofollow">hiroshiy</a> on March 22, 2003 05:16 PM</span>
+</div>
+<div class="comments-body">
+<p>はじめまして。<br />
+こちらのエントリを参考に、mt-rssfeedを自分のブログ（utf-8）のトップページにも入れてみたのですが、取り込んだRSS以外の、もともとあった日本語の部分が文字化けしてしまいます。取り込んだRSSの日本語は化けずに表示されます。<br />
+取り込むRSSのあるサイトもutf-8のサイトなのですが、原因がわかりません。<br />
+（原因がわからないので、今はプラグインを外してしまいました。）<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://oguradio.babyblue.jp/" rel="nofollow">おぐらじお</a> on December 19, 2003 02:59 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/6</div>
+
+<div class="comments-body">
+<a name="2"></a>
+<span class="comments-post"><a href="http://rebecca.ac/milano/mt/archives/000068.html" target="new" rel="nofollow nofollow">mt-rssfeed</a><br />
+<b>Excerpt:</b> Milano::Monologの右側に、「=blog.bulknews.net=」という部分があります。 これは、blog.bulknews.netのエントリ一覧を表示しています。 何も手動で毎回更新しているわけではなく、MovableTypeが標準で生成するRSSファイル（ウチではhttp://blog.bulknews.net/mt/index.x...<br />
+<b>Weblog:</b> Milano::Monolog<br />
+<b>Tracked:</b> November 29, 2002 06:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="7"></a>
+<span class="comments-post"><a href="http://uva.jp/dh/mt/archives/000235.html" target="new" rel="nofollow nofollow">mt-rssfeed, mt-jcode : blog.bulknews.net</a><br />
+<b>Excerpt:</b> blog.bulknews.net に mt-rssfeed の日本語化、mt-jcode が載っていました。 mt-rssfeed さてRSSといえば、ページの右側とかに、他のサイトのRSSをとりこんで表示してみたいものです。mt-rssfeedというプラグインがそれなので、さっそく導入。 例によって日本語化苦労バナ...<br />
+<b>Weblog:</b> dh's memoranda<br />
+<b>Tracked:</b> November 30, 2002 12:06 PM</span>
+</div>
+<div class="comments-body">
+<a name="9"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/000010.html" target="new" rel="nofollow nofollow">MTBlogTimes</a><br />
+<b>Excerpt:</b> 右上に MTBlogTimes プラグインをつけてみた。書き込みしてる時間が timeline で表示されてなかなか cool です。<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> November 30, 2002 06:31 PM</span>
+</div>
+<div class="comments-body">
+<a name="26"></a>
+<span class="comments-post"><a href="http://219.113.143.242/blog/urakata/archives/000021.html" target="new" rel="nofollow nofollow">mt-rssfeed</a><br />
+<b>Excerpt:</b> いれてみた。 参考 URL: blog.bulknews.net: mt-rssfeed ↑ここのリンク先に euc-jp.enc というファイルが無かったので、次のページからとってきました。 Perl XMLでencoding='Shift_JIS'や'euc-jp'を使う<br />
+<b>Weblog:</b> いのえもんブログ制作管理委員会。<br />
+<b>Tracked:</b> February 28, 2003 03:58 PM</span>
+</div>
+<div class="comments-body">
+<a name="27"></a>
+<span class="comments-post"><a href="http://alternate.dyndns.info/~macromarionette/archives/000033.html" target="new" rel="nofollow nofollow">他サイトのRSS 情報を掲載するには</a><br />
+<b>Excerpt:</b> 今回導入したのは、mt-rssfeed と mt-jcode （jcode.pm が必要）、mt-rebuild 。 &amp;nbsp; mt-rssfeed.pl 他サイトの RSS 情報の取込みプラグイン mt-jcode.pl MT タグ編集時における、文字コードの変換プラグイン（だと思う） jcode.pm 文字コードの変換モジュール mt-rebu...<br />
+<b>Weblog:</b> macromarionette<br />
+<b>Tracked:</b> March  9, 2003 10:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="29"></a>
+<span class="comments-post"><a href="http://alternate.dyndns.info/~macromarionette/archives/000034.html" target="new" rel="nofollow nofollow">他の Weblog 情報を取り込むには</a><br />
+<b>Excerpt:</b> 導入したプラグインは、mt-rssfeed と mt-jcode （jcode.pm が必要）、最後に mt-rebuild の３つ。 &amp;nbsp; mt-rssfeed.pl 他サイトの RSS 情報の取込みプラグイン mt-jcode.pl MT タグ編集時における、文字コードの変換プラグイン（だと思う） jcode.pm 文字コードの変換�...<br />
+<b>Weblog:</b> macromarionette<br />
+<b>Tracked:</b> March  9, 2003 11:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="43"></a>
+<span class="comments-post"><a href="http://www.nightnoise.net/blog/archives/000049.html" target="new" rel="nofollow nofollow">RSSFeed文字化け</a><br />
+<b>Excerpt:</b> ここはEUC-JPで書いているんですが、RSSFeedを試したくて、 このへんとか参考にさせていただきながらmt-rssfeedを入れたりしてみています。 どうやらフィードしてくれて、パースもできて、表示もできるようなんですが、どうしても文字化けが治りません。サイト全体が化け�...<br />
+<b>Weblog:</b> Nightnoise::blog<br />
+<b>Tracked:</b> March 28, 2003 01:59 PM</span>
+</div>
+<div class="comments-body">
+<a name="51"></a>
+<span class="comments-post"><a href="http://ssg01/~kazug/blog/archives/000019.html" target="new" rel="nofollow nofollow">他のサイトの RSS を自分の blog へ入れる方法</a><br />
+<b>Excerpt:</b> blog.bulknews.net: mt-rssfeed mt-rssfeed さてRSSといえば、ページの右側とかに、他のサイトのRSSをとりこんで表示してみたいものです。mt-rssfeedというプラグインがそれなので、さっそく導入。...<br />
+<b>Weblog:</b> kazug<br />
+<b>Tracked:</b> April 18, 2003 12:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="56"></a>
+<span class="comments-post"><a href="http://www.cyberblocks.net/archives/000275.php" target="new" rel="nofollow nofollow">mt-rssfeed : 最新のニュースを10分間隔で！</a><br />
+<b>Excerpt:</b> RSSとかでニュース記事とかを取得して、ページを更新するってのを実装してみました。UTF-8で提供されているモノは問題なく表示出来るんですが、文字コードの問題で掲載したいのに、出来ないサイトとかがあって、ちょっと微妙…。 News Pick-Up : CYBERBLOCKS. でもまぁ結�...<br />
+<b>Weblog:</b> CYBERBLOCKS.<br />
+<b>Tracked:</b> May 21, 2003 01:51 AM</span>
+</div>
+<div class="comments-body">
+<a name="84"></a>
+<span class="comments-post"><a href="http://www.morahaza.net/mt/archives/000051.html" target="new" rel="nofollow nofollow">mt-rssfeedの導入</a><br />
+<b>Excerpt:</b> モラハザにmt-rssfeedを導入してみました。これにより、他サイトからRSSを取得し、最新のニュースを表示してくれます。 導入の解説については以下のサイトを参考にしました。 ■bulknews - mt-rssfeed http://blog.bulknews.net/mt/archives/000006.html 現在はスラッシュ...<br />
+<b>Weblog:</b> morahaza*blog<br />
+<b>Tracked:</b> August 23, 2003 10:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="86"></a>
+<span class="comments-post"><a href="http://web.sfc.keio.ac.jp/~t02517hh/weblog/archives/000034.html" target="new" rel="nofollow nofollow">UTF-8の問題 rss-jp.netのスクリプトが使えない。</a><br />
+<b>Excerpt:</b> 当然のことなのだがいままではてなアンテナの埋め込みに使っていた、rss-jp.netのスクリプトサービスがどうやらUTF-8未対応なので、はてなアンテナの広告も始まったことだし自分でアンテナを立てることにした。 RNAとかいうものがあるのでそれを入れてみる予定。 参考WEB�...<br />
+<b>Weblog:</b> hatayanlog<br />
+<b>Tracked:</b> August 27, 2003 02:11 AM</span>
+</div>
+<div class="comments-body">
+<a name="87"></a>
+<span class="comments-post"><a href="http://web.sfc.keio.ac.jp/~t02517hh/weblog/archives/000034.html" target="new" rel="nofollow nofollow">UTF-8の問題 rss-jp.netのスクリプトが使えない。</a><br />
+<b>Excerpt:</b> 当然のことなのだがいままではてなアンテナの埋め込みに使っていた、rss-jp.netのスクリプトサービスがどうやらUTF-8未対応なので、はてなアンテナの広告も始まったことだし自分でアンテナを立てることにした。 RNAとかいうものがあるのでそれを入れてみる予定。 参考WEB�...<br />
+<b>Weblog:</b> hatayanlog<br />
+<b>Tracked:</b> August 27, 2003 02:12 AM</span>
+</div>
+<div class="comments-body">
+<a name="89"></a>
+<span class="comments-post"><a href="http://www.funk.ne.jp/~afrosis/archives/000024.html" target="new" rel="nofollow nofollow">RSS</a><br />
+<b>Excerpt:</b> RSSでNEWS(左側)を追加しました。 EUCじゃなく、UTF8にすればよかった。...<br />
+<b>Weblog:</b> Handsome Restaurant<br />
+<b>Tracked:</b> September  1, 2003 01:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="119"></a>
+<span class="comments-post"><a href="http://www.nao23.com/nao23/arc/000035.html" target="new" rel="nofollow nofollow">mt-rssfeed</a><br />
+<b>Excerpt:</b> 「ウェブログ入門」のP131〜を参考に、mt-rssfeedの設定を試みた。 しかし、うまく行かない。 いろいろ調べて、下のページを参考に修正した。 blog.bulknews.net: mt-rssfeed MySQLを使っているときは、mt-rssfeed.pl内の&quot;# my $RSSFEED_DATA_DIR = &quot;./db/&quot;;&quot;の部分をコメ...<br />
+<b>Weblog:</b> Nao23's Topics<br />
+<b>Tracked:</b> September 28, 2003 09:00 PM</span>
+</div>
+<div class="comments-body">
+<a name="129"></a>
+<span class="comments-post"><a href="http://wo.dip.jp/mt/archives/000044.html" target="new" rel="nofollow nofollow">他のサイトのニュースを横に表示</a><br />
+<b>Excerpt:</b> できるように、mt-rssfeedを導入。例によってblog.bulknews.netさんを参考に。 筑波朝日奈アンテナでもRSS生成希望かも…とか言ってみるテスト。...<br />
+<b>Weblog:</b> wolog<br />
+<b>Tracked:</b> October  8, 2003 11:55 AM</span>
+</div>
+<div class="comments-body">
+<a name="188"></a>
+<span class="comments-post"><a href="http://www.goodpic.com/mt/archives/000023.html" target="new" rel="nofollow nofollow">RSS feedをBlog上に表示するためのPlug-in</a><br />
+<b>Excerpt:</b> Plug-inモジュールをインストールします。 〓　mt-rssfeed.pl 解説： http://mt-plugins.org/archives/entry/rss_feed.php ダウンロード： http://www.mplode.com/tima/files/mt-plugins/#mt-rssfeed 〓　MT-List 解説： http://mt-plugins.org/archives/entry/mtlist.php...<br />
+<b>Weblog:</b> Goodpic<br />
+<b>Tracked:</b> November 19, 2003 07:33 PM</span>
+</div>
+<div class="comments-body">
+<a name="227"></a>
+<span class="comments-post"><a href="http://register.intruder.ru/archives/16.12.2003/16.22.42/index.html" target="new" rel="nofollow nofollow">XML::Parser and different encodings</a><br />
+<b>Excerpt:</b> 烈, 蓖瑩�! 懍� 韉銜 栬� � 褌粫韲礪瑕� 粤諤蓿�! 汳銜 跪糂譛 � 籥聽 辣 芻珱 獼� 鉈 鰰� 粤諤纈, 邇 鴈猧� 碌� 牖鞳� 椴腕. 𡸴驪� 關釶諷� � 褓鉐髀鉐鴈� � 篤 牖鞳� XML 碼�礦謌髴 關釶諷踵 � 獼纃蒹� RSS � 礦辟鉐鈞驫鉗 褌粫韲礪�. 𡸴跪�...<br />
+<b>Weblog:</b> intruder's register<br />
+<b>Tracked:</b> December 16, 2003 10:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="234"></a>
+<span class="comments-post"><a href="http://blog.xrea.jp/archives/000007.html" target="new" rel="nofollow nofollow">mt-rssfeed</a><br />
+<b>Excerpt:</b> mt-rssfeed RSSを読み込んで表示させるやつ。 mt-jcodeも使ってるけど文字化けしちゃうんだよなぁ。 んな訳でちょっと作業中断。 猫にも解るように書かれているページ無いっすか?...<br />
+<b>Weblog:</b> Ikagaitasimasyo?@MT<br />
+<b>Tracked:</b> December 19, 2003 08:27 PM</span>
+</div>
+<div class="comments-body">
+<a name="348"></a>
+<span class="comments-post"><a href="http://www.de4u.net/mt/archives/2004_01.html#000800" target="new" rel="nofollow nofollow">XML::Parserのエラー</a><br />
+<b>Excerpt:</b> blog.bulknews.net: November 2002 Archives Couldn't open encmap euc-jp.enc:No such file or directory エラーの対処方法がのってます。...<br />
+<b>Weblog:</b> Epic->yoshimax<br />
+<b>Tracked:</b> January  7, 2004 05:53 PM</span>
+</div>
+<div class="comments-body">
+<a name="531"></a>
+<span class="comments-post"><a href="http://blog.nisk.info/archives/000050.html" target="new" rel="nofollow nofollow">mt-rssfeed</a><br />
+<b>Excerpt:</b> 指定したRSSを表示してくれるMTプラグイン。 前から試してみたかったので、とりあえず理由もなくつけてみる。 インターネットウォッチのRSSをBulknewsからいただき、表示。 下記のサイトを参考させていただきました。 http://blog.bulknews.net/mt/archives/000006.html h...<br />
+<b>Weblog:</b> blog.nisk.info<br />
+<b>Tracked:</b> February 14, 2004 01:18 PM</span>
+</div>
+<div class="comments-body">
+<a name="560"></a>
+<span class="comments-post"><a href="http://sanman.zive.net/db/000045.html" target="new" rel="nofollow nofollow">RSS Feed を試す</a><br />
+<b>Excerpt:</b> SOPHOSのページ訪問で・・・ ウイルス情報フィードというサービス（もちろん無料ｗ）があった。 まぁ、普通にHTMLに貼り付けるタイプのものであれば、簡単 だろうし、ってなわけで試してみることに。 ところが、「このサービスは、RSS フィード としてもご利用いただけま�...<br />
+<b>Weblog:</b> さんまん::BLOG<br />
+<b>Tracked:</b> February 21, 2004 02:33 AM</span>
+</div>
+<div class="comments-body">
+<a name="618"></a>
+<span class="comments-post"><a href="http://blog.takaito.com/archives/000003.html" target="new" rel="nofollow nofollow">ニュース欄始動。</a><br />
+<b>Excerpt:</b> 今さっきようやくrss-feedが入った。 うまく動作するまでに結局２時間以上も時間を費やしてしまった。 それまでに踏んだプロセスは以下の通り。 以下Movable Typeのルートディレクトリを(MT)として ●mt-rssfeed.pl の15行目当たりを my $RSSFEED_DATA_DIR = &quot;./(ディレク...<br />
+<b>Weblog:</b> takanolog<br />
+<b>Tracked:</b> March  9, 2004 05:18 PM</span>
+</div>
+<div class="comments-body">
+<a name="675"></a>
+<span class="comments-post"><a href="http://www.punkfreak.com/pflog/archives/000016.html" target="new" rel="nofollow nofollow">rssfeed</a><br />
+<b>Excerpt:</b> blog.bulknews.net: mt-rssfeed 使いました。ありがとう！...<br />
+<b>Weblog:</b> PFlog<br />
+<b>Tracked:</b> March 22, 2004 11:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="983"></a>
+<span class="comments-post"><a href="http://krbys.net/blog/archives/000702.html" target="new" rel="nofollow nofollow">MTにRSSFeed導入</a><br />
+<b>Excerpt:</b> ブログ上でRSSファイルを読み込んで、ニュース一覧などを表示してみようかな、と思い立った。RSSFeedというMovable TypeのPluginを導入。...<br />
+<b>Weblog:</b> krbys.net<br />
+<b>Tracked:</b> May 18, 2004 12:40 PM</span>
+</div>
+<div class="comments-body">
+<a name="1541"></a>
+<span class="comments-post"><a href="http://blog.yoshiki.com/archives/000369.html" target="new" rel="nofollow nofollow">mt-rssfeedで自サイトのヘッドラインを表示させてみる</a><br />
+<b>Excerpt:</b> 　気分的にサブドメイン化したくなったので、このブログをTreoネタとそれ以外に分割してみた。本体はblog.yoshiki.comで、Treoネタはtreo.yoshiki.comである。両方ばらばらに更新がかかるので、一本化して表紙に両方のブログの最新エントリ一覧を表示したくなった。
+
+　mt...<br />
+<b>Weblog:</b> Digital Junk<br />
+<b>Tracked:</b> September  5, 2004 11:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="5140"></a>
+<span class="comments-post"><a href="http://kiui.dyndns.org/archives/2005/09/kiui.html" target="new" rel="nofollow nofollow">kiuiのブックマーク</a><br />
+<b>Excerpt:</b>  Feeds.App - A plugin for publishing syn...<br />
+<b>Weblog:</b> NazoPedia<br />
+<b>Tracked:</b> September 26, 2005 06:35 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="6" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

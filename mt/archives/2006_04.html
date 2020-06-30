@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: April 2006 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2006_03.html" title="March 2006" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2006_05.html" title="May 2006" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002036"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1987"
+    dc:title="livedoor Reader - RSS reader of choice"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002036"
+    dc:subject=""
+    dc:description="livedoor Reader がついにリリースされましたね。 とりあえず Bloglines からの移行もスムーズにできるし、Plagger のインストールできねぇよワーン！って人は livedoor Reader 使っとけばいいんじゃね？ という感じになってますね。国産のリーダーはもちろん、Bloglines も超えてる気がする。 UI がちょっと先進的すぎてなれないけど、フィードリーダーとしての究極の使い勝手を求めている感じかな。いまのとこ Plagger で Bloglines + Gmail からスイッチする強力なモチベーションにはならないけど、将来的に..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-20T01:22:44+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">April 20, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002036"></a>
+<h3 class="title">livedoor Reader - RSS reader of choice</h3>
+
+<p><A href="http://reader.livedoor.com/">livedoor Reader</a> がついにリリースされましたね。</p>
+
+<p>とりあえず Bloglines からの移行もスムーズにできるし、Plagger のインストールできねぇよワーン！って人は livedoor Reader 使っとけばいいんじゃね？ という感じになってますね。国産のリーダーはもちろん、Bloglines も超えてる気がする。</p>
+
+<p>UI がちょっと先進的すぎてなれないけど、フィードリーダーとしての究極の使い勝手を求めている感じかな。いまのとこ Plagger で Bloglines + Gmail からスイッチする強力なモチベーションにはならないけど、将来的に Plagger server を実装して UI として使う (JSON の互換 API  を吐き出してフロントエンドだけ再利用）という方向性が幸せな気がします。</p>
+
+<p>→ とりあえず <a href="http://plagger.org/trac/browser/trunk/plagger/lib/Plagger/Plugin/Subscription/LivedoorReader.pm">Subscription::LivedoorReader</a> モジュールつくってみました。Subscription::Bloglines 同様、Reader をクローラとして使います。Livedoor Reader のバックエンドも結構優秀そうなので、Bloglines からスイッチしてみてもよいかも。</p>
+
+<p>ちなみにリバースエンジニアリングの結果、Notifier API は Bloglines 互換、フィードの API は JSON を使ってます。Reader の JSON API はかなりわかりやすく、また Plagger の aggregate をする部分とかなり似ているので、データフィールドをコピーしてきているだけのシンプルなコードになってます。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002036.html">01:22 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002036.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002036.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002035"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1986"
+    dc:title="WEB+DB PRESS で連載を開始"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002035"
+    dc:subject=""
+    dc:description="WEB+DB PRESS Vol.32 (2006年4月発売号）から、連載を担当することになりました。 技術系ネタではなくて、毎回１ページで外資系ソフトウェア企業でエンジニアとしてはたらくことについて、気軽にコラムみたいな感じで書いていくことになりました。初回のテーマは仕事で必要な英語とかの話題です。１ページなのであまり深い話はできていませんが、もしよかったら見てみてください。 また連載にあたって海外で働くこと、外資系で働くことに関する読者からの質問などを歓迎、とのことで、mado at gihyo.co.jp まで送っていただけると次回以降の連載の中で答えられるかもしれません。何かありましたらどうぞ。 Web+DB press (特別総集編)posted with amazlet on 06.04.18技術評論社 (2005/03)売り上げランキング: 3,779Amazon.co.jp で詳細を見る..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-18T19:19:39+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">April 18, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002035"></a>
+<h3 class="title">WEB+DB PRESS で連載を開始</h3>
+
+<p>WEB+DB PRESS Vol.32 (2006年4月発売号）から、連載を担当することになりました。</p>
+
+<p>技術系ネタではなくて、毎回１ページで外資系ソフトウェア企業でエンジニアとしてはたらくことについて、気軽にコラムみたいな感じで書いていくことになりました。初回のテーマは仕事で必要な英語とかの話題です。１ページなのであまり深い話はできていませんが、もしよかったら見てみてください。</p>
+
+<p>また連載にあたって海外で働くこと、外資系で働くことに関する読者からの質問などを歓迎、とのことで、mado at gihyo.co.jp まで送っていただけると次回以降の連載の中で答えられるかもしれません。何かありましたらどうぞ。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/4774122955.09.MZZZZZZZ.jpg" alt="Web+DB press (特別総集編)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Web+DB press (特別総集編)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/4774122955/bulknews-22" title="Web+DB press (特別総集編)" target="_blank">amazlet</a> on 06.04.18</div></div><div class="amazlet-detail"><br />技術評論社 (2005/03)<br />売り上げランキング: 3,779<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774122955/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002035.html">07:19 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002035.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002035.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002032"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1983"
+    dc:title="えいご漬けをやってみた"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002032"
+    dc:subject=""
+    dc:description="土曜日の昼から、サブテク な人々で花見（もう桜は散りましたが）→ サイボウズラボで Hackathon してました。サイボウズラボはすばらしい環境で、Hackathon にも最適ｗ 夜中にちょっとひと段落したので、竹迫さん所有の えいご漬け をやってみました。「miyagawaさんは必要ないでしょ」という声もありましたが、レベル6にして、上画面のガイドを全部オフ、トレーニングは文のみ、というのにするといくつかわからないのも出てきました。 英語が苦手な大人のDSトレーニング えいご漬けposted with amazlet on 06.04.16任天堂 (2006/01/26)Amazon.co.jp で詳細を見る ペンで書く、というのも 脳を鍛えるDSトレーニング に近いものがあって、たまに..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-16T03:58:55+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">April 16, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002032"></a>
+<h3 class="title">えいご漬けをやってみた</h3>
+
+<p>土曜日の昼から、<A href="http://subtech.g.hatena.ne.jp/">サブテク</a> な人々で花見（もう桜は散りましたが）→ サイボウズラボで Hackathon してました。サイボウズラボはすばらしい環境で、Hackathon にも最適ｗ</p>
+
+<p>夜中にちょっとひと段落したので、竹迫さん所有の <a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000BQT6XK/bulknews-22/ref=nosim/">えいご漬け</a> をやってみました。「miyagawaさんは必要ないでしょ」という声もありましたが、レベル6にして、上画面のガイドを全部オフ、トレーニングは文のみ、というのにするといくつかわからないのも出てきました。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000BQT6XK/bulknews-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://images-jp.amazon.com/images/P/B000BQT6XK.09.MZZZZZZZ.jpg" alt="英語が苦手な大人のDSトレーニング えいご漬け" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000BQT6XK/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">英語が苦手な大人のDSトレーニング えいご漬け</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B000BQT6XK/bulknews-22" title="英語が苦手な大人のDSトレーニング えいご漬け" target="_blank">amazlet</a> on 06.04.16</div></div><div class="amazlet-detail">任天堂 (2006/01/26)<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000BQT6XK/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+
+<p>ペンで書く、というのも <A href="http://www.amazon.co.jp/exec/obidos/ASIN/B000BRYNUU/bulknews-22/ref=nosim">脳を鍛えるDSトレーニング</a> に近いものがあって、たまに t や o の文字で認識がうまくいかなくてイラっとすることもありますが、キーボードなんかより英語になれるためには一番効率的なんじゃないかなあと思いました。</p>
+
+<p>初心者向けかと侮っていましたが、なかなか使えそう。ということで Amazon でポチっとおしておきました。あとはこの音声とディクテーションのデータを Web からダウンロード、さらにだれでもデータをアップロードできるとかなってると最高なんですけどねぇ。<br />
+</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002032.html">03:58 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002032.html#comments">Comments (2)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002032.html#trackbacks">TrackBack (1)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002031"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1982"
+    dc:title="Google Calendar vs. 30 boxes"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002031"
+    dc:subject=""
+    dc:description="Google Calendar Simplify. Organize. (And relax.) Organizing your schedule shouldn&apos;t be a burden. That&apos;s why we&apos;ve created Google Calendar –..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-13T18:10:46+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">April 13, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002031"></a>
+<h3 class="title">Google Calendar vs. 30 boxes</h3>
+
+<p><a title="Google Calendar" href="http://www.google.com/googlecalendar/overview.html">Google Calendar</a></p>
+
+<blockquote>Simplify. Organize. (And relax.) Organizing your schedule shouldn't be a burden. That's why we've created Google Calendar – our free online shareable calendar service. With Google Calendar, it's easy to keep track of all your life's important events – birthdays, reunions, little league games, doctor's appointments – all in one place.</blockquote>
+
+<p>Google Calendar がようやっとローンチ。ここしばらく <a href="http://30boxes.com/">30boxes</a> をかなり気に入って使ってきたので心中複雑ですが、Google Calendar の iCal っぽい UI はたしかにステキですね。色でカレンダーをわけたり、Quick Add も踏襲していてさすがという感じ。Gmail で文中にスケジュールが書いてあると自動で追加する Gmail Integration （試してみたいけどどうやるのかな） とか、GMaps 連携とか面白そう。</p>
+
+<p>ただ、３週間ほど使っている 30boxes のほうがまだ痒いところに手が届く感じ。Flickr のアカウントを追加すると勝手に buddyicon がデフォルトで置き換わるとか、登録時の Email に gmail.com を使うと Check Gmail なリンクがついたり、細かいところが凝っているなあ、と スモールチームのプロダクトという感じが気に入っていました。</p>
+
+<p><a title="Journal of acme (189)" href="http://use.perl.org/~acme/journal/29310?from=rss">Journal of acme (189)</a></p>
+
+<blockquote>and I import the ICS into Google Calendar and all the times are off by eight hours!. That 2.05pm event is now at 10.05pm. Pesky dates! Pesky software!</blockquote>
+
+<p>たしかに ics インポートするときにはローカルタイムがすべて西海岸時間（GMT-8 ）になってしまうとか、UTF-8 でマルチバイトな文字はちゃんとインポートできないとか、まだまだ Google Calendar も改善の余地がありそうです。Atom への link (Auto-Discovery) もついているけど実際にアクセスしてもフィードはでてこなかった。。。</p>
+
+<p><a title="Google Calendar - Ogawa::Memoranda" href="http://as-is.net/blog/archives/001120.html">Google Calendar - Ogawa::Memoranda</a></p>
+
+<blockquote>サイボウズのスケジュールを読み込んで、Google CalendarにiCal形式でポストできるPlaggerのモジュールがあればなあ。そうすればOutlookは完全に捨てられるのに。</blockquote>
+
+<p>Plagger でカレンダーデータを扱うというのはかなり楽しいですね。CustomFeed::iCal と Publish::iCal をつくってみても面白いかも。Feed のエントリーの中にスケジュールっぽい文字列があったら自動抽出なんてできるとステキだなあ。もちろん王道で hCalendar な microformats にも。</p>
+
+<p>Plagger のRSS/Atom な entry には日付しかついてないので、より詳細なメタデータ形式としては <a title="RDF Site Summary 1.0 Modules: Event" href="http://web.resource.org/rss/1.0/modules/event/">RDF Site Summary 1.0 Modules: Event</a> を使うとよいかも。hCalendar を フィードの xhtml:body, content:encoded, atom:body にそのまま入れるのもありですね。</p>
+
+<p>これは Plagger Enclosure 対応のときに <a href="http://en.wikipedia.org/wiki/Media_RSS">Media RSS</a> に対応するのと同じ感じ。Publish::Feed の大改造が必要だな。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002031.html">06:10 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002031.html#comments">Comments (4)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002031.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002030"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1981"
+    dc:title="OSCON 2006 で Plagger のプレゼン"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002030"
+    dc:subject=""
+    dc:description="O&apos;Reilly Open Source Convention - July, 24-28, 2006 - Portland, OR Plagger: Pluggable RSS/Atom Aggregation Tatsuhiko Miyagawa, Six Apart YAPC::Asia..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-13T17:57:12+09:00" />
+</rdf:RDF>
+-->
+
+
+
+
+<div class="blogbody">
+<a name="002030"></a>
+<h3 class="title">OSCON 2006 で Plagger のプレゼン</h3>
+
+<p><a title="O'Reilly Open Source Convention - July, 24-28, 2006 - Portland, OR" href="http://conferences.oreillynet.com/cs/os2006/view/e_sess/8993">O'Reilly Open Source Convention - July, 24-28, 2006 - Portland, OR</a></p>
+
+<blockquote>Plagger: Pluggable RSS/Atom Aggregation
+Tatsuhiko Miyagawa, Six Apart</blockquote>
+
+<p>YAPC::Asia のスライドでも触れましたが、O'Reilly Open Source Convention 2006 @ Portland, OR で Plagger のトーク (50分) をすることになりました。英語でのプレゼンはほとんど初めてに近い（YAPC::Taipei も一応英語でしたが）のでちょっと緊張します！ といってもこれが最初ではなくて、ちょうど１ヶ月前の <a href="http://www.yapcchicago.org/">YAPC::NA @ Chicago</a> にも同じトーク（＋Trickter Hacking iTunes & PSP）をサブミットしてあります。</p>
+
+<p>これももうすぐ accept の可否がわかると思いますが、たぶん大丈夫でしょう。いい予行演習になるはず。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002030.html">05:57 PM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002030.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002030.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2006_04.html#002029"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1980"
+    dc:title="YAPC Hackathon"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2006_04.html#002029"
+    dc:subject=""
+    dc:description="YAPC は終わってしまいましたが、「YAPC は Hackathon が終わるまでが YAPC です」というわけで、3/31-4/2 の間、月島の Dan さんのウチにお世話になって Hackathon してきました。 Larry, Audrey, Dave, Ingy, Jesse のステイ組に加えて、初日は Damian, Matz..."
+    dc:creator="miyagawa"
+    dc:date="2006-04-03T02:02:16+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">April 03, 2006</h2>
+
+
+<div class="blogbody">
+<a name="002029"></a>
+<h3 class="title">YAPC Hackathon</h3>
+
+<p>YAPC は終わってしまいましたが、「YAPC は Hackathon が終わるまでが YAPC です」というわけで、3/31-4/2 の間、月島の Dan さんのウチにお世話になって Hackathon してきました。</p>
+
+<p>Larry, Audrey, Dave, Ingy, Jesse のステイ組に加えて、初日は Damian, Matz さんも参加と超豪華。<a href="http://www.flickr.com/photos/bulknews/121261397/">Larry, Audrey, Ingy, Dave に「サブテク入りたい！」</a> と書かせる悪ノリなんかもありつつ、かなりプロダクティブにハックできました。それもこれも Dan さん、そしておいしい料理を提供してくれた奥様のおかげです。多謝。</p>
+
+<p>というわけで Plagger は無事 0.6.0 をリリース。CustomFeed の API 変更と EntryFullText による "Upgrader Your Feed" がメインテーマ。現状は entryfulltext の設定から CustomFeed もつくれて、asahi.com やスポナビなどの本文がないフィードからフル HTMLをとってきたりできます。簡単にサイトが追加できるので、ぜひ新しいサイト用のパターンファイルをつくって IRC で教えてください。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002029.html">02:02 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002029.html#comments">Comments (0)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002029.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

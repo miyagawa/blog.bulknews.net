@@ -1,0 +1,1264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>blog.bulknews.net</title>
+<link rel="openid.delegate" href="http://profile.typekey.com/miyagawa/" />
+<link rel="openid.server" href="https://www.typekey.com/t/openid" />
+<link rel="meta" type="application/rdf+xml" title="FOAF" href="http://blog.bulknews.net/foaf.rdf" />
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/bulknews" />
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="content">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002242.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2158"
+    dc:title="YAPC::Asia 2009 で Remedie と AnyEvent/Coro について話します"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002242.html"
+    dc:subject=""
+    dc:description="もっと早くに書く予定でしたが、ちょうどビザ更新と時期がバッティングしたために更新手続きの書類やらの待ち状態がつづいてしまっていましたが、今日やっと最終的に参加が確定して、フライトなども予約しました。 9/10-11 に行われる YAPC::Asia 2009 にスピーカーとして参加します。セッションは２つ、Building Desktop apps with Perl, SQLite and jQuery と Asynchronous Event Programming with AnyEvent and..."
+    dc:creator="miyagawa"
+    dc:date="2009-09-03T16:01:24+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	September 03, 2009
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002242"></a -->
+	<h3 class="title">YAPC::Asia 2009 で Remedie と AnyEvent/Coro について話します</h3>
+	
+	<p>もっと早くに書く予定でしたが、ちょうどビザ更新と時期がバッティングしたために更新手続きの書類やらの待ち状態がつづいてしまっていましたが、今日やっと最終的に参加が確定して、フライトなども予約しました。</p>
+
+<p>9/10-11 に行われる <a href="http://conferences.yapcasia.org/ya2009/">YAPC::Asia 2009</a> にスピーカーとして参加します。セッションは２つ、<a href="http://conferences.yapcasia.org/ya2009/talk/2217">Building Desktop apps with Perl, SQLite and jQuery</a> と <a href="http://conferences.yapcasia.org/ya2009/talk/2218">Asynchronous Event Programming with AnyEvent and Coro</a> どちらも Remedie の開発をもとにした話ですが、Ajax のブームから数年がたち、また非同期／リアルタイムのプログラミングやプロトコルが再注目されている中、Perl でこれらを処理する上でこれから主流になるとおもわれる AnyEvent や Coro、またそれを利用した Comet プログラミングをデスクトップクライアントで jQuery と連携させる方法など、いろいろ面白い話ができるとおもいます。</p>
+
+<p>今年の運営は JPA こと牧さんにまかせきりですが、楽しみなセッションが盛りだくさんで、また日本はじめ世界から集まるPerl ハッカーのみんなとあっていろいろ話をしたり、ハックしたりするのを楽しみにしています。前夜祭ももちろん参加予定です。</p>
+
+<p>チケットはまだ残りがあるようですが、数的に残りわずかかな？ともおもいますので、まだの方は<a href="http://conferences.yapcasia.org/ya2009/purchase">チケットの購入はお早めに。</a> では来週、東工大でお会いしましょう！</p>
+	
+	
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0854756127426271";
+google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+//--></script>
+<div align="right">
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+	
+
+	
+	<div class="posted">Posted by miyagawa at  04:01 PM | <a href="http://blog.bulknews.net/mt/archives/002242.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002242.html#comments">Comments (4)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002242.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002241.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2157"
+    dc:title="The Get Up Kids 再結成ライブ @ GAMH SF"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002241.html"
+    dc:subject=""
+    dc:description="NOFX に引き続き、去年突如として再結成した The Get Up Kids のライブ、いってきましたよー。 Holiday にはじまり Valentine, Red Letter Day, Come &amp; Clean と大好きな曲ばっかりの１時間半でした。楽しかった。..."
+    dc:creator="miyagawa"
+    dc:date="2009-04-03T16:46:17+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	April 03, 2009
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002241"></a -->
+	<h3 class="title">The Get Up Kids 再結成ライブ @ GAMH SF</h3>
+	
+	<p>NOFX に引き続き、去年突如として再結成した The Get Up Kids のライブ、いってきましたよー。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3408216991/" title="IMG_5064.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3326/3408216991_de9b48017f.jpg" width="500" height="281" alt="IMG_5064.JPG" /></a></p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3409003730/" title="IMG_4981.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3656/3409003730_15ab80766d.jpg" width="500" height="281" alt="IMG_4981.JPG" /></a></p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3408200947/" title="IMG_5002.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3590/3408200947_d48eb2521c.jpg" width="500" height="281" alt="IMG_5002.JPG" /></a></p>
+
+<p>Holiday にはじまり Valentine, Red Letter Day, Come & Clean と大好きな曲ばっかりの１時間半でした。楽しかった。</p>
+
+<p><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/3Gfzq-MvPO0&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/3Gfzq-MvPO0&hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object><br />
+</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  04:46 PM | <a href="http://blog.bulknews.net/mt/archives/002241.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002241.html#comments">Comments (8)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002241.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002240.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2156"
+    dc:title="Eye-Fi カードの爪がはがれかけ"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002240.html"
+    dc:subject=""
+    dc:description=" Eye-Fi カードからビデオを吸い出そうとアダプタにつけようとしたらなんかひっかかりが。というわけでみてみたらこんなんなってました。 Twitter でつぶやいてみると同様の症状なってる人おおいみたいですね。自分はそれ以外にも、以前SDカードとしてまったく認識しないということもあったので、Eye-Fi のこのハードウェア不安定なのはなんとかしてもらいたいものですね。 とりあえず、爪がとれないように元の位置に戻して固定して差し込んでみたら、読み書きはそのままできているみたい。もう少し様子をみてみますか。 関係ないけど、デジタルマクロで照明いい感じだとこの Canon SD 880 (IXY 920IS) は（無駄に）すてきな写真がとれるなぁ。DSLR 風。 Canon デジタルカメラ IXY DIGITAL (イクシ)..."
+    dc:creator="miyagawa"
+    dc:date="2009-04-03T16:40:13+09:00" />
+</rdf:RDF>
+-->
+
+
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002240"></a -->
+	<h3 class="title">Eye-Fi カードの爪がはがれかけ</h3>
+	
+	<p><a href="http://www.flickr.com/photos/bulknews/3409035590/" title="IMG_5065 by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3569/3409035590_4fedbc0e53.jpg" width="500" height="375" alt="IMG_5065" /></a></p>
+
+<p>Eye-Fi カードからビデオを吸い出そうとアダプタにつけようとしたらなんかひっかかりが。というわけでみてみたらこんなんなってました。</p>
+
+<p>Twitter でつぶやいてみると同様の症状なってる人おおいみたいですね。自分はそれ以外にも、以前SDカードとしてまったく認識しないということもあったので、Eye-Fi のこのハードウェア不安定なのはなんとかしてもらいたいものですね。</p>
+
+<p>とりあえず、爪がとれないように元の位置に戻して固定して差し込んでみたら、読み書きはそのままできているみたい。もう少し様子をみてみますか。</p>
+
+<p>関係ないけど、デジタルマクロで照明いい感じだとこの Canon SD 880 (IXY 920IS) は（無駄に）すてきな写真がとれるなぁ。DSLR 風。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41akkmxdTsL._SL160_.jpg" alt="Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B001G91SGE/bulknews-22/ref=nosim/" title="Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)" target="_blank">amazlet</a> at 09.04.03</div></div><div class="amazlet-detail">キヤノン (2008-09-20)<br />売り上げランキング: 190<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  04:40 PM | <a href="http://blog.bulknews.net/mt/archives/002240.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002240.html#comments">Comments (3)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002240.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002239.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2155"
+    dc:title="NOFX 25th Anniversary Live at Slim&apos;s San Francisco"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002239.html"
+    dc:subject=""
+    dc:description="NOFX が 25周年記念ライブをやるというのでみてきた。25年の間、メンバーチェンジで脱退したギタリストも参加して昔の曲やりまくり。 NOFX を最後に見たのはいつだろうかまったく覚えてないけど、川崎のクラブチッタだかそのへんだったような。。学生時代を思い出しまして懐かしいやら甘酸っぱいやら、初心を思い出したような気持ち。 20:00にはじまったライブでNOFXがでてきたのは22:30、おわったのは24時すぎ、ちょっと物足りない感じもあるけど、楽しかった。..."
+    dc:creator="miyagawa"
+    dc:date="2009-02-16T18:10:42+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	February 16, 2009
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002239"></a -->
+	<h3 class="title">NOFX 25th Anniversary Live at Slim's San Francisco</h3>
+	
+	<p>NOFX が <a href="http://www.last.fm/event/871306">25周年記念ライブ</a>をやるというのでみてきた。25年の間、メンバーチェンジで脱退したギタリストも参加して昔の曲やりまくり。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3284385476/" title="IMG_4849.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3508/3284385476_a74375fdc6.jpg" width="500" height="281" alt="IMG_4849.JPG" /></a></p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3283571521/" title="IMG_4878.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3148/3283571521_4e759821bb.jpg" width="500" height="281" alt="IMG_4878.JPG" /></a></p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3284383550/" title="IMG_4843.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3322/3284383550_de4499fd1e.jpg" width="500" height="281" alt="IMG_4843.JPG" /></a></p>
+
+<p></p>
+
+<p>NOFX を最後に見たのはいつだろうかまったく覚えてないけど、川崎のクラブチッタだかそのへんだったような。。学生時代を思い出しまして懐かしいやら甘酸っぱいやら、初心を思い出したような気持ち。</p>
+
+<p>20:00にはじまったライブでNOFXがでてきたのは22:30、おわったのは24時すぎ、ちょっと物足りない感じもあるけど、楽しかった。</p>
+
+<p><br />
+</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  06:10 PM | <a href="http://blog.bulknews.net/mt/archives/002239.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002239.html#comments">Comments (3)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002239.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002238.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2154"
+    dc:title="学校では教えてくれないエンジニアリング英語 #6: red herring"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002238.html"
+    dc:subject=""
+    dc:description="何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。 Red herring あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。 そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。 &quot;Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was..."
+    dc:creator="miyagawa"
+    dc:date="2009-01-30T05:37:25+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	January 30, 2009
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002238"></a -->
+	<h3 class="title">学校では教えてくれないエンジニアリング英語 #6: red herring</h3>
+	
+	<p>何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。</p>
+
+<h3>Red herring</h3>
+
+<p>あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。</p>
+
+<p>そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。</p>
+
+<p>"Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was giving an OOM (out of memory) error. It looks like we recently updated Image Magick on our development instances but didn't on production. Shall we upgrade?"</p>
+
+<p>(ウィジェットがうまく表示されない件なんだけど、サーバログに ImageMagick の Out of Memory がたくさん出ていたよ。どうも開発環境では ImageMagick をアップグレードしているんだがプロダクションではまだみたいだ。アップグレードすればなおるのかな？)</p>
+
+<p>"That ImageMagick thing is <strong>a red herring</strong>. What's happening here is: when the widget definition XML file causes a parser error, we redirect the user to our Oops error page, which includes a beacon image that's automatically generated based on their geo location, and that is causing ImageMagick OOM. So, what we should fix is the widget XML file syntax error, not ImageMagick"</p>
+
+<p>(そのImageMagick エラーは Red Herring だね。これ、実はウィジェットのXMLファイルがパーサーエラーを起こしていて、それでエラー画面にリダイレクトするときにエラー画面のHTMLにある画像が動的に生成されていてそれがImageMagick のOOMを起こすことがあるみたいだ。だからwidget のXMLファイルの文法エラーをなおすべきで、ImageMagickは直接関係ないよ)</p>
+
+<p>いい直接の訳が思い浮かびませんが、「関係ないのに紛らわしいもの」というぐらいの意味で、Wikipedia には <a href="http://en.wikipedia.org/wiki/Red_herring_(narrative)">ドラマ脚本やサスペンスで読者の気を引いてだますための余計なエピソード</a> という意味も紹介されていますね。</p>
+
+<p>以下、実際に僕のメールボックスから:</p>
+
+<p>typepad.log on our stage doesn't show any errors similar to what Chris saw around the time of his emails.. i.e. yesterday at 9:00pm.. it does show some apache restarts at that time, which would correspond to some redirect changes I was testing.  But he said this morning that it's consistent.. so those log messages are probably <strong>a red herring</strong>.</p>
+
+<p>Categories are a bit weird: only one category is displaying ("Current Affairs"). That sounds similar to what's happening in XXX, *but* I have no idea how YYY is even getting that list of categories, so that may be <strong>a red herring</strong>.</p>
+
+<p>調査段階で red herring かどうかもわからない（けど、おそらく関係ないエラーだろうとおもう）時には、probably や may be とつけていうのが便利ですね。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  05:37 AM | <a href="http://blog.bulknews.net/mt/archives/002238.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002238.html#comments">Comments (6)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002238.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002237.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2153"
+    dc:title="ガキの使いと電波少年がHulu.comに"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002237.html"
+    dc:subject=""
+    dc:description="ガキの使いの古いエピソード（山崎モリマンと２４時間鬼ごっこ）、それに電波少年が Hulu.com で見られるようになってました。（他にも日本テレビ系のバラエティあるのかな？みつけたら教えてください） value=&quot;http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA&quot;&gt; 英語字幕がついていて、見たくない人（つまり在米の日本人）はオフにできる soft sub な親切設計。 例によって remedie でみるとこんなかんじ。 どうも１ヶ月くらい前からこっそりはじまっていたみたいですが、プレスリリースもなんもでていないし、よほど知られたくないんですかね（笑）。日本からは例によって視聴地域制限でみれないみたいだし。第２日本テレビでみれたりするのかなあ。 Thanks to @sekimura...."
+    dc:creator="miyagawa"
+    dc:date="2009-01-09T03:54:13+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	January 09, 2009
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002237"></a -->
+	<h3 class="title">ガキの使いと電波少年がHulu.comに</h3>
+	
+	<p><a href="http://www.hulu.com/gaki">ガキの使い</a>の古いエピソード（山崎モリマンと２４時間鬼ごっこ）、それに<a href="http://www.hulu.com/denpa-shonen">電波少年</a>が Hulu.com で見られるようになってました。（他にも日本テレビ系のバラエティあるのかな？みつけたら教えてください）</p>
+
+<p><object width="512" height="296"><param name="movie" <br />
+value="http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA" type="application/x-shockwave-flash" allowFullScreen="true"  width="512" height="296"></embed></object></p>
+
+<p>英語字幕がついていて、見たくない人（つまり在米の日本人）はオフにできる soft sub な親切設計。</p>
+
+<p>例によって remedie でみるとこんなかんじ。</p>
+
+<p><img src="http://gyazo.com/3820e8fb7b4825f15254337bf60b0310.png" width="500" /></p>
+
+<p>どうも１ヶ月くらい前からこっそりはじまっていたみたいですが、プレスリリースもなんもでていないし、よほど知られたくないんですかね（笑）。日本からは例によって視聴地域制限でみれないみたいだし。第２日本テレビでみれたりするのかなあ。</p>
+
+<p>Thanks to <a href="http://twitter.com/sekimura">@sekimura</a>.</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  03:54 AM | <a href="http://blog.bulknews.net/mt/archives/002237.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002237.html#comments">Comments (6)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002237.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002236.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2152"
+    dc:title="Canon IXY 920 iS がすごい"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002236.html"
+    dc:subject=""
+    dc:description="Canon IX 920iS (US では SD880) を購入して３週間ほど。先週末にいってきた京都旅行でもいろいろとってきたんですが、こいつは楽しいなあ。 こんなのが基本的にはオート（夜間は露出のスライダーをちょっと少なめ -2/3〜-4/3ぐらいにしぼってる）露出でとれちゃう。上位機種の IXY 3000 (SD 990) と比べても、広角28mmで光学ズーム4倍、ディスプレイもこっちのほうがでかいので、IXY 920iS のほうがいいんじゃないかなあ。同時期に Powershot G10 とかもでてるけど、Ken Rockwell..."
+    dc:creator="miyagawa"
+    dc:date="2008-12-29T13:34:07+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	December 29, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002236"></a -->
+	<h3 class="title">Canon IXY 920 iS がすごい</h3>
+	
+	<p>Canon IX 920iS (US では SD880) を購入して３週間ほど。先週末にいってきた京都旅行でもいろいろとってきたんですが、こいつは楽しいなあ。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3138215872/" title="IMG_4412.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3292/3138215872_53cdee8cd0.jpg" width="500" height="375" alt="IMG_4412.JPG" /></a></p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3138222328/" title="IMG_4425.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3076/3138222328_b95e33dcf1.jpg" width="375" height="500" alt="IMG_4425.JPG" /></a></p>
+
+<p>こんなのが基本的にはオート（夜間は露出のスライダーをちょっと少なめ -2/3〜-4/3ぐらいにしぼってる）露出でとれちゃう。上位機種の IXY 3000 (SD 990) と比べても、広角28mmで光学ズーム4倍、ディスプレイもこっちのほうがでかいので、IXY 920iS のほうがいいんじゃないかなあ。同時期に Powershot G10 とかもでてるけど、<a href="http://www.kenrockwell.com/canon/compacts/sd880.htm">Ken Rockwell いわくほとんど差はない</a> みたいな感じだし、小さくてポケットからすぐ出して撮れるこのモデルがおすすめ。いつものシルバーじゃなくてゴールド使ってますがこの色もいい。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/3142907881/" title="IMG_4563.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3100/3142907881_8ac189c57e.jpg" width="500" height="375" alt="IMG_4563.JPG" /></a></p>
+
+<p>きのう設定をしったのが長時間露出。手動で1〜15sまで指定できる。この写真はISO80 の1.5sでとってますがもうちょっと暗いとこで長めにやるときれいになったりするのかな。もうちょっと試してみたい。</p>
+
+<p>DSLR 使いな方の日常撮り用セカンドモデルにもおすすめですよ。</p>
+
+<div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41akkmxdTsL._SL160_.jpg" alt="Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)" style="border: none;" /></a></div><div class="amazlet-info" style="float:left;margin-left:15px;line-height:120%"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)</a><div class="amazlet-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://www.amazlet.com/browse/ASIN/B001G91SGE/bulknews-22/ref=nosim/" title="Canon デジタルカメラ IXY DIGITAL (イクシ) 920 IS ゴールド  IXYD920IS(GL)" target="_blank">amazlet</a> at 08.12.29</div></div><div class="amazlet-detail">キヤノン (2008-09-20)<br />売り上げランキング: 868<br /></div><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001G91SGE/bulknews-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="amazlet-footer" style="clear: left"></div></div>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  01:34 PM | <a href="http://blog.bulknews.net/mt/archives/002236.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002236.html#comments">Comments (6)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002236.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002235.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2151"
+    dc:title="ITPro Challenge 2008 で講演しました＆資料公開"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002235.html"
+    dc:subject=""
+    dc:description="日経BP さんのイベント ITPro Challenge! にご招待いただきまして、Why Open Matters という話で講演させてもらいました。 Why Open Matters It Pro Challenge 2008View SlideShare presentation or Upload your..."
+    dc:creator="miyagawa"
+    dc:date="2008-09-08T15:24:21+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	September 08, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002235"></a -->
+	<h3 class="title">ITPro Challenge 2008 で講演しました＆資料公開</h3>
+	
+	<p>日経BP さんのイベント <A href="http://itpro.nikkeibp.co.jp/ev/itc2008/index.html">ITPro Challenge!</a> にご招待いただきまして、Why Open Matters という話で講演させてもらいました。</p>
+
+<div style="width:425px;text-align:left" id="__ss_585519"><a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/miyagawa/why-open-matters-it-pro-challenge-2008-presentation?src=embed" title="Why Open Matters It Pro Challenge 2008">Why Open Matters It Pro Challenge 2008</a><object style="margin:0px" width="425" height="355"><param name="movie" value="http://static.slideshare.net/swf/ssplayer2.swf?doc=itprochallenge08-1220718267666305-8&stripped_title=why-open-matters-it-pro-challenge-2008-presentation" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slideshare.net/swf/ssplayer2.swf?doc=itprochallenge08-1220718267666305-8&stripped_title=why-open-matters-it-pro-challenge-2008-presentation" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object><div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">View SlideShare <a style="text-decoration:underline;" href="http://www.slideshare.net/miyagawa/why-open-matters-it-pro-challenge-2008-presentation?src=embed" title="View Why Open Matters It Pro Challenge 2008 on SlideShare">presentation</a> or <a style="text-decoration:underline;" href="http://www.slideshare.net/upload?src=embed">Upload</a> your own. (tags: <a style="text-decoration:underline;" href="http://slideshare.net/tag/itprochallenge">itprochallenge</a>)</div></div>
+
+<p>他の皆さんの話もとてもおもしろくて、とくに奥地さんのかわりのきかないエンジニアになる話、金子さんのシミュレーションプログラミングは興味深かったです。<a href="http://www.amazon.co.jp/dp/4756145485/bulknews-22">Winny の技術</a> 本にサインしてもらおうとおもったんですが引っ越しのごたごたでどこにいったか見つけられず、かないませんでした。</p>
+
+<p>懇親会・２次会も楽しめました。会場に来ていたオライリージャパンのWさんが ELLEGARDEN の最終ワンマン(?) にいくほどのファンだとは、さすがとおどろきましたねw</p>
+
+<p>今月はあと２週間ほど日本に滞在します。だいたい予定がつまっていますが何かあればぜひお誘いくださいませ。１２月の <A href="http://tokyo.web2expo.com/">web 2.0 expo Tokyo</a> にもぜひ参加したいなぁ。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  03:24 PM | <a href="http://blog.bulknews.net/mt/archives/002235.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002235.html#comments">Comments (2)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002235.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002234.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2150"
+    dc:title="角川とANAにみる日米格差"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002234.html"
+    dc:subject=""
+    dc:description="タグは[在アメ自慢話]推奨。 ハルヒのDVD、日本は１巻（２話収録）で4400円、US はコンプリートセット（吹き替え・字幕つき）で $41 (限定版は日米とも１巻5500円とかなので比較せず→ブクマ情報によるとUSは全4巻、JPは全7巻での値段なので初回限定もUSのほうが若干やすいようです。Thanks） US のほうは売れ行きが一段落したところで廉価版のコンプリートでもう一稼ぎ、っていうことなのかな。日本はシーズン２がもうすぐなのでまだまだ落ちないうちはでない、と。。 ANA のマイレージの話。フライトやら買い物でマイルをためて国際線アップグレードするぞと意気込んでも、格安チケットであるところのエコ割14, 21 なんかはアップグレードできない。エコ割スタンダードより上のクラスでないとだめ。 適当に 9/1-8 の成田-サンフランシスコでエコ割スタンダード（アップグレードできる最安価格）比較。 成田発 サンフランシスコ 往復: 266,000円 (JP) サンフランシスコ発..."
+    dc:creator="miyagawa"
+    dc:date="2008-07-18T09:01:42+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	July 18, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002234"></a -->
+	<h3 class="title">角川とANAにみる日米格差</h3>
+	
+	<p>タグは[在アメ自慢話]推奨。</p>
+
+<p><img src="http://media.tumblr.com/Hy4FQ6P3Kbjgfkzjd2gVrvvD_400.png" /><br />
+<img src="http://media.tumblr.com/Hy4FQ6P3Kbjggd3e0LXx4MIt_400.png" /></p>
+
+<p>ハルヒのDVD、日本は１巻（２話収録）で4400円、US はコンプリートセット（吹き替え・字幕つき）で $41 (限定版は日米とも１巻5500円とかなので比較せず→ブクマ情報によるとUSは全4巻、JPは全7巻での値段なので初回限定もUSのほうが若干やすいようです。Thanks）</p>
+
+<p>US のほうは売れ行きが一段落したところで廉価版のコンプリートでもう一稼ぎ、っていうことなのかな。日本はシーズン２がもうすぐなのでまだまだ落ちないうちはでない、と。。</p>
+
+<p>ANA のマイレージの話。フライトやら買い物でマイルをためて国際線アップグレードするぞと意気込んでも、格安チケットであるところのエコ割14, 21 なんかはアップグレードできない。エコ割スタンダードより上のクラスでないとだめ。</p>
+
+<p>適当に 9/1-8 の成田-サンフランシスコでエコ割スタンダード（アップグレードできる最安価格）比較。</p>
+
+<p><img src="http://media.tumblr.com/Hy4FQ6P3Kbjh070dpsZoTiY6_500.png" /> <img src="http://media.tumblr.com/Hy4FQ6P3Kbjgyd6xBObkgtLH_500.png" /></p>
+
+<p>成田発 サンフランシスコ 往復: 266,000円 (JP)<br />
+サンフランシスコ発  成田往復: $1432.40 (US)</p>
+
+<p>この時点で10万円以上差があるが驚くのはまだ早い。US のほうは燃油費込み表示であるのに対し、JP のほうはここからさらにサーチャージ追加となる。</p>
+
+<p><img src="http://media.tumblr.com/Hy4FQ6P3Kbjh0i9bHPPrL4mm_500.png" /> <img src="http://media.tumblr.com/Hy4FQ6P3KbjgypenEQCfNvGi_500.png" /></p>
+
+<p>最終的な額は 日本発: 330,620円 / US発: $1506.90 となった。倍以上違う。</p>
+
+<p>でもって昨日 ANA の北米サイトをみていたら <a href="https://www.ana.co.jp/amc/news/upgrade_change/">国際線アップグレード対象クラス変更のお知らせ</a> なんてのがでてた。</p>
+
+<p>曰く、北米発のエコノミークラス便は予約クラス S もアップグレード対象になると。ANA サイトに詳しく記述されていないけど、予約クラス S は日本発の エコ割14、US 発はスーパーエコバリューという、スタンダードより１つランクの低いブッキングクラス。こんな差がついていいのか？</p>
+
+<p>個人的には US に住んでるからどうでもいいというか歓迎すべきなのだろうけど、ここまで格差があると心情的には複雑。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  09:01 AM | <a href="http://blog.bulknews.net/mt/archives/002234.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002234.html#comments">Comments (4)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002234.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002233.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2149"
+    dc:title="YAPC::Asia 2008 運営記録 #1 会場受付"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002233.html"
+    dc:subject=""
+    dc:description=" いきなり間があいてしましましたが、ちょっと前に daiba さんとこで YAPC::Asia の開き方 ってエントリがあがっていたのでそちらに関連して、会場受付の話題。 他の YAPC::NA, YAPC::EU でも利用されている Act というシステムを間借りして YAPC::Asia のサイトを構築しました。この辺の話はまた追々やるとして、daiba さんのプレゼンでもチェックイン（会場受付）をどうするか、という部分が問題だったという話題になっています。 これは私は Act に起因する問題だとは思っていません。YAPC::NA や..."
+    dc:creator="miyagawa"
+    dc:date="2008-07-15T10:18:29+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	July 15, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002233"></a -->
+	<h3 class="title">YAPC::Asia 2008 運営記録 #1 会場受付</h3>
+	
+	<p><a href="http://www.flickr.com/photos/clouder/2498434809/"><img src="http://farm3.static.flickr.com/2184/2498434809_8a6b0c0b0d_m.jpg" align="right" style="border:0; padding: 1em" /></a></p>
+
+<p>いきなり間があいてしましましたが、ちょっと前に <a href="http://d.hatena.ne.jp/kdaiba/20080705/p1">daiba さんとこで YAPC::Asia の開き方</a> ってエントリがあがっていたのでそちらに関連して、会場受付の話題。</p>
+
+<p>他の YAPC::NA, YAPC::EU でも利用されている <a href="http://act.mongueurs.net/">Act</a> というシステムを間借りして YAPC::Asia  のサイトを構築しました。この辺の話はまた追々やるとして、daiba さんのプレゼンでもチェックイン（会場受付）をどうするか、という部分が問題だったという話題になっています。</p>
+
+<p>これは私は Act に起因する問題だとは思っていません。YAPC::NA や YAPC::EU でも会場での受付は一番工夫がいるところで、クレジットカードで支払いをしているためチケットの類いが発行されず、会場で名前を都度いってバッジ（名札）をもらって、というプロセスを全員に対して行う必要があります（とくに本人であるかの認証はおこなっていない様子）。その混雑を緩和するため、会場をカンファレンス前日にあけて事前登録をしたり、会場近くのパブとかでも名札だけ渡したり、ということをやったりしています。</p>
+
+<p>これまでの YAPC::Asia 2006-7 では東京が会場ということもあって、参加者全員が前日に集まれるような場所（海外の場合ほとんどの参加者がキャンパスや同じホテルに宿泊している）はなかなかありません、ということで今年は前日も会場を押さえて前夜祭を行うことにして、そこである程度受付をすませようともくろみました。これは結果的には成功だったと思いますが、それでも参加した人数は２割程度だったとおもうので、やはり当日朝の混雑が問題になってきます。</p>
+
+<p>受付登録作業というと複雑に聞こえますが、やることは至極単純。こちらはユーザID と名前の入ったリストがあるので、参加者のユーザIDをもらって、それを引き換えればいいわけです。これを簡略化しつつ、なりすましを防ぐ為に「マイページにユーザID + 一方向関数でつくったチェックディジットを表示、プリントアウトしてきてもらう」という方針にしました。これで８桁の数字からユーザID をすばやく見つけつつ、なりすましもディジットで防ぐことができます。</p>
+
+<p>それでも初日の朝だけは混雑が予想されるので、「最初のキーノート時は登録を省略して全員中に入ってもらい、すませていない人は携帯電話をつかって認証をしてもらう」というフローを考えました。またその携帯サイトにコード付きでアクセスするためのQRコードも印刷できるようにしました。</p>
+
+<p>ここからが連絡の行き違いというか、意図しない結果になってしまったのですが、列が出来始めた段階で、基本的に QR コードをつかって認証してもらい、ユーザID を見せてもらって交換する、というフローが「メイン」になってしまいました。これは完全にスタッフ間の連絡ミスで、当初想定していたものではありませんでした。８桁の数値はソートをしておくことで手元のリストから照合を数秒で行うことが出来ますし、QR コードの利用は二次的なものでよかったはずです。これは来年以降やるのであればもっと簡略化するという意味で改善の余地があるとおもいます。</p>
+
+<p>またこれをさらにすすめた案としてはサイト上にバッジ（名札）を PDF 形式でダウンロードできるようにしておく、というのがあります。これでバッジ引き換え部分の手間がはじけます（ノベルティの交換は必要ですし、複数印刷できてしまので結局なりすまし防止の認証は必要になのかもしれませんが）</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  10:18 AM | <a href="http://blog.bulknews.net/mt/archives/002233.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002233.html#comments">Comments (7)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002233.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002232.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2148"
+    dc:title="YAPC::Asia 2008 運営記録 #0"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002232.html"
+    dc:subject=""
+    dc:description="YAPC::Asia サイト にレポートを載せる予定でアンケートの集計なんかも完了していたんですが、どうもフルのレポートを書くにはモチベーションと時間が必要、ということで Karen さん にならってちょっとずつ連載方式で書いていくことにします。基本的には時系列ですが忘れたところは随時割り込み、まとまったところで YAPC サイトに英訳もいれて載せる、ということで。 YAPC のプランニングはスタッフ選びと会場選びから。今年は実行委員長はやらずに広報だけ、というつもりでだらだらとしていたら、案の定海外のスピーカーからメールやら、IRC,Twitter で「おいYAPCはいつやるんだ？」とつっこみはいりまくり、例年使用している実行委員会のメーリングリストに会場選びの開始を依頼。 チームのメンバーは ML にそのまま残っていた 2007年のチームにエマーソンを足して、その後はてなで京都引越しになる長山さんを後に除き、会場となった東工大から佐藤さん（overlast）、直前になってボランティアリーダーに翔泳社の岩切さんを追加、という感じの相変わらずこじんまりとしたチーム。なれた面子なので一度も顔合わせをすることなくとりあえずスタート。ポジティブに言えば小回りはききますが、悪い点は各人の属人的な知識やスケジュールに大いに依存する編成です。来年やるにしてもスタッフの顔合わせや各人の担当範囲の明確化、当日のスタッフのスケジュールについては大いに改善の余地があるなという認識ですね。 会場選びは2007年の津田ホールの問題点であった高価な利用料を解消すること、また各国のYAPC で利用されていて学生へのアピールなんかの点や会場に大人数を収容できる食堂がある、などのメリットがある点で大学施設を借りることを検討。そこでスタッフの個人的なつながりから東工大の大岡山キャンパスが候補になります。 大学側との細かい交渉には参加していないので割愛しますが、大学施設の利用規定は授業で使用する場合はもちろんそれが優先となるため、年度をまたぐと新年度の授業スケジュールが確定するのが遅くなる、という点が少し問題になりました。５月開催となった今回、最終的に利用できる施設が確定してアナウンスができたのは２月でした。３トラックの会場がそれぞれ別の建物になってしまった点も含めて、年度をまたぐ場合の開催はこのあたりに注意が必要になりますね。津田ホールのような私設の建物であればこのあたりはだいぶやりやすいのですが。。。５月という時期は雨も少なく、キャンパスの雰囲気もとてもいいのでよかった（アンケートの集計結果でも90%が「会場が素晴らしかった」と回答していました）とおもいますが、このあたりは来年以降大学施設を利用する場合はポイントになりそうです。 チケットについては学生割引を用意しましたが結果的には１０数名しか利用がなかったようです。やはり授業がはじまっている５月というのは学生さんが２日間フルで参加するのは難しいということでしょうか。春休み中となる３月下旬～４月上旬というのも考えられますが４月上旬は新年度、３月下旬は決算になる社会人の参加が難しくなる、となかなかどこもうまくいく、というスケジュールはないようです。RubyKaigi のように週末にやるというのももちろん考えられますが。..."
+    dc:creator="miyagawa"
+    dc:date="2008-06-28T11:10:54+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	June 28, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002232"></a -->
+	<h3 class="title">YAPC::Asia 2008 運営記録 #0</h3>
+	
+	<p><a href="http://yapcasia.org/">YAPC::Asia サイト</a> にレポートを載せる予定でアンケートの集計なんかも完了していたんですが、どうもフルのレポートを書くにはモチベーションと時間が必要、ということで <a href="http://martian.org/karen/tag/yapcasia2008/">Karen さん</a> にならってちょっとずつ連載方式で書いていくことにします。基本的には時系列ですが忘れたところは随時割り込み、まとまったところで YAPC サイトに英訳もいれて載せる、ということで。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2510776844/" title="IMG_0803 by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3076/2510776844_d1cb939920_m.jpg" width="240" height="135" alt="IMG_0803" align="right" style="border:0; margin: 10px" /></a></p>
+
+<p>YAPC のプランニングはスタッフ選びと会場選びから。今年は実行委員長はやらずに広報だけ、というつもりでだらだらとしていたら、案の定海外のスピーカーからメールやら、IRC,Twitter で「おいYAPCはいつやるんだ？」とつっこみはいりまくり、例年使用している実行委員会のメーリングリストに会場選びの開始を依頼。</p>
+
+<p>チームのメンバーは ML にそのまま残っていた 2007年のチームにエマーソンを足して、その後はてなで京都引越しになる長山さんを後に除き、会場となった東工大から佐藤さん（overlast）、直前になってボランティアリーダーに翔泳社の岩切さんを追加、という感じの相変わらずこじんまりとしたチーム。なれた面子なので一度も顔合わせをすることなくとりあえずスタート。ポジティブに言えば小回りはききますが、悪い点は各人の属人的な知識やスケジュールに大いに依存する編成です。来年やるにしてもスタッフの顔合わせや各人の担当範囲の明確化、当日のスタッフのスケジュールについては大いに改善の余地があるなという認識ですね。</p>
+
+<p>会場選びは2007年の津田ホールの問題点であった高価な利用料を解消すること、また各国のYAPC で利用されていて学生へのアピールなんかの点や会場に大人数を収容できる食堂がある、などのメリットがある点で大学施設を借りることを検討。そこでスタッフの個人的なつながりから東工大の大岡山キャンパスが候補になります。</p>
+
+<p>大学側との細かい交渉には参加していないので割愛しますが、大学施設の利用規定は授業で使用する場合はもちろんそれが優先となるため、年度をまたぐと新年度の授業スケジュールが確定するのが遅くなる、という点が少し問題になりました。５月開催となった今回、最終的に利用できる施設が確定してアナウンスができたのは２月でした。３トラックの会場がそれぞれ別の建物になってしまった点も含めて、年度をまたぐ場合の開催はこのあたりに注意が必要になりますね。津田ホールのような私設の建物であればこのあたりはだいぶやりやすいのですが。。。５月という時期は雨も少なく、キャンパスの雰囲気もとてもいいのでよかった（アンケートの集計結果でも90%が「会場が素晴らしかった」と回答していました）とおもいますが、このあたりは来年以降大学施設を利用する場合はポイントになりそうです。</p>
+
+<p>チケットについては学生割引を用意しましたが結果的には１０数名しか利用がなかったようです。やはり授業がはじまっている５月というのは学生さんが２日間フルで参加するのは難しいということでしょうか。春休み中となる３月下旬～４月上旬というのも考えられますが４月上旬は新年度、３月下旬は決算になる社会人の参加が難しくなる、となかなかどこもうまくいく、というスケジュールはないようです。RubyKaigi のように週末にやるというのももちろん考えられますが。</p>
+
+<p>そうそう、今回は大学側との交渉に佐藤さん、東工大の奥村先生にご協力いただきました。この場を借りて再度お礼申し上げます。</p>
+
+<p>つづく</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  11:10 AM | <a href="http://blog.bulknews.net/mt/archives/002232.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002232.html#comments">Comments (5)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002232.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002231.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2147"
+    dc:title="Amazon MP3 のすごさをもっと知るべき"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002231.html"
+    dc:subject=""
+    dc:description=" Amazon MP3 がすごい。iTunes Store もいいが、Amazon MP3 が出てからはめっきり iTS で買うことが少なくなった。DRM がないから PC, Mac, iPod とコピーしたり SlimServer ごしに会社から家のライブラリに聞いたり、会社の IM/IRC で」このアルバムいいよ」って同僚におしえて iTunes..."
+    dc:creator="miyagawa"
+    dc:date="2008-04-04T08:55:46+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	April 04, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002231"></a -->
+	<h3 class="title">Amazon MP3 のすごさをもっと知るべき</h3>
+	
+	<p><img src="http://g-ecx.images-amazon.com/images/G/01/digital/music/mp3-storefront-logo-0108a._V16570869_.jpg" /></p>
+
+<p><a href="http://www.amazon.com/b?ie=UTF8&amp;node=163856011">Amazon MP3</a> がすごい。iTunes Store もいいが、Amazon MP3 が出てからはめっきり iTS で買うことが少なくなった。DRM がないから PC, Mac, iPod とコピーしたり SlimServer ごしに会社から家のライブラリに聞いたり、会社の IM/IRC で」このアルバムいいよ」って同僚におしえて iTunes share で共有したりが簡単にできる。月に 5-6枚のペースでアルバム買ってる。</p>
+
+<p>私的録音補償金を縮小しつつ DRM でコピー管理、とか言ってる国の人は５年は遅れてる（の上、間違った方向に進んでいる）ことをはやく自覚してもらいたい。</p>
+
+<p>Amazon MP3 はすべてのアルバムを １曲$.99、アルバム単位では $8.99-9.99 から、256kbps の MP3 DRM なしで販売している。Windows/Mac/Linux (Ununtu etc.) のダウンロードソフトウェアがあって、ダウンロード後 iTunes に自動登録、すべての曲にアートワーク情報がついている。だから Mac で iTunes を使っているからという理由で iTunes Store を使わなくてはいけない理由にはならない。</p>
+
+<p>Amazon が DRM フリーで配信しているからといって、Amazon でダウンロードした MP3 が海賊版として BitTorrent に流れたか？ そんなことはない（一応 MP3 の ID3 タグに購入者ID らしきものを発見したという報告あり）。そもそも海賊版に流そうと思えば CD を買ってきてリッピングすれば同じことはできるし、そもそもアメリカの CD はいまや $10 を下回っていて、たんに配信サイトで買うかどうかは利便性やデータのバックアップのしやすさ、でしかない。</p>
+
+<p>CDにプロモーションビデオのDVDつけて3500円。初回限定版は３種類の特典がランダムに、とかそんなんでファンからお布施とろうなんてのはまったく間違ってるんですよ。</p>
+
+<p>日本の中高生の違法着うた利用率は 40%？ それはいわゆる「合法」配信サイトの値段づけやラインアップに問題があるのではないのか？ 「買いたいというほどじゃないけど、ただでダウンロードできるところがあったから落としてみた」っていう認識が大半じゃないだろうか。その数字だけを一人歩きさせて、「この利用率から推定するにこれだけの売り上げが違法サイトによって失われた」というのは詭弁です。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  08:55 AM | <a href="http://blog.bulknews.net/mt/archives/002231.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002231.html#comments">Comments (12)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002231.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002230.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2146"
+    dc:title="chumby がすばらしすぎる件"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002230.html"
+    dc:subject=""
+    dc:description=" ガジェットブログみたいになってきてますが、こちらの一部geekに話題の chumby をゲット。 chumby とは？ ひとことで説明するとベッドサイドにおいておけるウィジェットコンピュータ＋オーディオプレイヤー、という感じでしょうか。もちろんベッドサイドじゃなくてオフィスの机の隅においておいたり、どんなところでも使えますが。 もともとアメリカではショッピングセンターなんかにあるがジェット屋でよくみかけるのが、ベッドサイドにおく目覚まし時計、なんだけど気温を表示できたり、FMラジオがついていたり、ネットワークから天気予報を引っ張ってきたり、はたまた USB デバイスやSDカードをつかってフォトフレームになったり、という「ハイテクアラーム」みたいのがはやっています。でもこれってそれぞれが別個の商品になっていて、たとえばフォトフレームのほうも進化して WiFi 経由で Flickr の写真を表示するフォトフレーム みたいのも出てきているわけですが、せっかくならデベロッパーがブラウザや Flash をつかってウィジェットをつくれてしまうコンピュータが１個あればいいじゃん、ってことで O&apos;Reilly の主催する Foo..."
+    dc:creator="miyagawa"
+    dc:date="2008-03-08T19:55:36+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	March 08, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002230"></a -->
+	<h3 class="title">chumby がすばらしすぎる件</h3>
+	
+	<p><img src="http://store.chumby.com/images/resources/rotate/pearl_02.png" align="right" /></p>
+
+<p>ガジェットブログみたいになってきてますが、こちらの一部geekに話題の <a href="http://www.chumby.com/">chumby</a> をゲット。</p>
+
+<p>chumby とは？ ひとことで説明するとベッドサイドにおいておけるウィジェットコンピュータ＋オーディオプレイヤー、という感じでしょうか。もちろんベッドサイドじゃなくてオフィスの机の隅においておいたり、どんなところでも使えますが。</p>
+
+<p>もともとアメリカではショッピングセンターなんかにあるがジェット屋でよくみかけるのが、ベッドサイドにおく目覚まし時計、なんだけど気温を表示できたり、FMラジオがついていたり、ネットワークから天気予報を引っ張ってきたり、はたまた USB デバイスやSDカードをつかってフォトフレームになったり、という「ハイテクアラーム」みたいのがはやっています。でもこれってそれぞれが別個の商品になっていて、たとえばフォトフレームのほうも進化して <A href="http://www.engadget.com/2006/01/10/the-estarling-wifi-photo-frame-does-flickr/">WiFi 経由で Flickr の写真を表示するフォトフレーム</a> みたいのも出てきているわけですが、せっかくなら<strong>デベロッパーが<s>ブラウザや</s> Flash をつかってウィジェットをつくれてしまうコンピュータが１個あればいいじゃん</strong>、ってことで O'Reilly の主催する <a href="http://www.christine.net/2007/06/chumby-reveals-.html">Foo Camp でデモ</a> された製品のようで、発売にこぎつけるまでには１年以上かかっているみたいですね。<strong>UPDATE:</strong> chumby には web ブラウザはついていません。Web サーバは走っていますが。ウィジェットはすべて ActionScript 2 (FlashLite3) で書く必要ありです。</p>
+
+<p>で、先月から一般発売されていて自分の Twitter 界隈なんかで入手している人が結構いたので、$160 とそこそこ値はしますが購入してみました。結論からいうと、これかなりいけてます。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2318092588/" title="IMG_0404.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3211/2318092588_ff9e5cf55f_m.jpg" width="240" height="135" alt="IMG_0404.JPG" /></a></p>
+
+<p>まず電源をいれてガイドツアーを見た後、WiFi のアクセスポイントを入力、ウェブでのアクティベーションもすんなりと終わります。ソフトウェアアップデートはみたところ BitTorrent でダウンロードしているような感じで、時計あわせも NTP で勝手にやってくれる。</p>
+
+<div style="float:left"><a href="http://www.flickr.com/photos/bulknews/2318100570/" title="IMG_0407.JPG by miyagawa, on Flickr"><img src="http://farm3.static.flickr.com/2284/2318100570_5447050954_m.jpg" width="240" height="135" alt="IMG_0407.JPG" /></a> <a href="http://www.flickr.com/photos/bulknews/2318166914/" title="IMG_0410.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3191/2318166914_73a8626af8_m.jpg" width="240" height="135" alt="IMG_0410.JPG" /></a> <a href="http://www.flickr.com/photos/bulknews/2318276594/" title="IMG_0412.JPG by miyagawa, on Flickr"><img src="http://farm3.static.flickr.com/2031/2318276594_b2bd5bb663_m.jpg" width="240" height="135" alt="IMG_0412.JPG" /></a></div>
+
+<div style="clear:both"></div>
+
+<p>あとはウェブ上でウィジェットを追加していきます。気分や用途などにあわせてチャンネル（ウィジェットをいれるコンテナのようなもの）をつくって追加していけます。それぞれのウィジェットの表示時間なんかもカスタマイズできる。自分は平日朝みるように天気・ニュース・Google Calendar なんかを表示する News チャネルと、気の向いたときに友達の Twitter, Facebook, Flickr を表示する Social というチャンネルをつくってみました。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2318092716/" title="IMG_0405.JPG by miyagawa, on Flickr"><img src="http://farm3.static.flickr.com/2189/2318092716_0b8495c7ab_m.jpg" width="240" height="135" alt="IMG_0405.JPG" /></a></p>
+
+<p>ウィジェット表示とは別に音楽を再生することもできて、iPod をつなげば充電しながらプレイリストを再生、USB ドライブに入っている MP3 をスキャンしたり、Shoutcast のディレクトリからストリームなんかもできます。Podcast の URL を直接入力はできないみたいですが、Mediafly Podcast チャンネルにお気に入りの Buzz Out Loud が入っていたので、まあこれでよしとします。たぶんソフトウェアアップデートで任意の Podcast がきけるようになるんじゃないかなぁと希望的観測。<strong>UPDATE:</strong> Mediafly のチャンネルをカスタマイズする方法が<a href="http://mediafly.typepad.com/cvconant_tech_insights/2008/01/personalize-the.html">こちらに</a>でていました。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2318328412/" title="squeezecenter by miyagawa, on Flickr"><img src="http://farm3.static.flickr.com/2030/2318328412_0d40687065.jpg" width="500" height="212" alt="squeezecenter" /></a></p>
+
+<p>あと面白いのは SlimDevices の Slim Server (現在は名前が変わって SqueezeCenter) のサーバにも接続できます。まあ Slim 自体が Shoutcast 互換なのであたりまえですが、ということは iPod つながなくても Mac にはいってる iTunes ライブラリを聞けるようになる、というわけで早速設定。<a href="http://www.slimdevices.com/pi_features.html">Mac OSX 用の SqueezeCenter サーバ</a>をインストール（Perl 製ですがパッケージインストーラ一発で preferencePane に入りました）、AAC がうまく再生できなかったので <a href="http://www.blacktree.com/projects/itunes-lame.html">iTunes-LAME</a> ももってきて ~/Library/iTunes/Scripts にいれたら、あとは Chumby をつないでブラウザから選曲するだけ。すばらしいなあ。</p>
+
+<p>音楽再生とウィジェットは別スレッドなのでバックグラウンドで再生しながら Flickr のスライドショー、なんてことも簡単にできます。 </p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2318323604/" title="IMG_0414.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3067/2318323604_438b0b4eff_m.jpg" width="240" height="135" alt="IMG_0414.JPG" /></a></p>
+
+<p>で、あとはこれを目覚まし時計に連動させて設定。平日と週末で設定をわけたり、ワンタイムのアラーム設定、またその後どのウィジェットチャンネルを表示するか、とかをこまかく選べます。というわけで平日の朝９時にニュースチャンネルを表示して SlimServer のほうでは iTunes のトップレートを流すように設定してみました。現在のところアラーム設定では iPod から再生することはできないようですが、これもアップデートで直るでしょう。</p>
+
+<p>ほかにも YouTube の人気ビデオをみるウィジェットや Yahoo! Maps (ドラッグで動かせる)、Sudokuみたいなゲームもあってポテンシャルを感じさせます。残念ながら日本語フォントが入っていないからか日本語のデータはまったく表示されないのですが、こればっかりはしょうがないですかね。（chumby 社に日本人のエンジニアっていないのかなあ）</p>
+
+<p>とりあえず希望としては</p>
+
+<p>- ニコニコ動画のビデオウィジェット（ランキング、タグ検索、マイリストから）<br />
+- タイムゾーン設定できて複数都市表示できる時計<br />
+- Media RSS の enclosure にある写真をスライドショー<br />
+- SlimServer のコンパネで再生中の曲表示、スキップ操作</p>
+
+<p>するウィジェットなんかほしい、あるいはつくってみたいですね。Media RSS があればあとは Plagger なり Pipes! なりでどうにでもできるし。</p>
+
+<p>というわけで激しくオススメ。日本にも発送しているかどうか調べてませんが、もししているならガジェット好きは要チェックだとおもいます。中国から配送されてきました。<strong>UPDATE: </strong> チャレンジした人情報によると、日本住所のクレジットカードでは購入できなかったようです。</p>
+
+<p>他の写真は Flickr の <a href="http://www.flickr.com/photos/bulknews/tags/chumby">chumby タグ</a> から。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  07:55 PM | <a href="http://blog.bulknews.net/mt/archives/002230.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002230.html#comments">Comments (4)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002230.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002229.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2145"
+    dc:title="Logitech Cordless Rumblepad がすこぶるよい件"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002229.html"
+    dc:subject=""
+    dc:description="Amazon.com: Logitech Cordless Rumblepad 2 with Vibration Feedback (963326-0403): Electronics 先週帰国した際の土曜日にも SAKK の goya君, 金子さん, 吉松さん らと (S)NES ゲーム大会を開催したんですが、Mac にUSBコントローラをつなげてファミコンマシン化するのがなかなかあついです。小学生～高校生のころ遊んだけどなかなかクリアできなかった..."
+    dc:creator="miyagawa"
+    dc:date="2008-03-05T16:42:36+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	March 05, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002229"></a -->
+	<h3 class="title">Logitech Cordless Rumblepad がすこぶるよい件</h3>
+	
+	<p><a title="Amazon.com: Logitech Cordless Rumblepad 2 with Vibration Feedback (963326-0403): Electronics" href="http://www.amazon.com/Logitech-Cordless-Rumblepad-Vibration-963326-0403/dp/B0002XJBGE">Amazon.com: Logitech Cordless Rumblepad 2 with Vibration Feedback (963326-0403): Electronics</a></p>
+
+<p><img src="http://ecx.images-amazon.com/images/I/413GSXMP3ML._AA280_.jpg" align="right" /></p>
+
+<p>先週帰国した際の土曜日にも SAKK の <a href="http://2xup.org/">goya君</a>, <a href="http://www.goodpic.com/">金子さん</a>, <a href="http://www.luckypines.com/mt/">吉松さん</a> らと (S)NES ゲーム大会を開催したんですが、Mac にUSBコントローラをつなげてファミコンマシン化するのがなかなかあついです。小学生～高校生のころ遊んだけどなかなかクリアできなかった RPG なんかを久々に楽しんだりしています。</p>
+
+<p>で、USのリビングはテレビまでの距離が結構あるので、当初は <a href="<br />
+http://www.amazon.com/gp/product/B00030AX3Q/">Logitech のシンプルな $9.99 のコントローラ</a> に USB 延長ケーブルでプレイしていました。まあこれも普通にできますがやっぱりケーブルがカーペットをはうのは美しくない。というわけで、コードレス（たぶん日本では未発売）でバイブレーションとアナログコントローラもついてる上位機種 ($25) を買ってみた。サイトのほうには Windows 対応としか書いていないけど、ふつうにドライバなしで Macでも認識。電池を入れないといけない関係でちょっとずっしりとしますが、コードなしでソファからゲームがいつでもできるのはやはりすばらしいです。</p>
+
+<p>で、せっかくワイヤレスのデバイスを１個手に入れたので、これをマウス代わりに使いたいなとおもいました。ふだん Mac で動画をみたり音楽を聴いたりするときは Remote Buddy というソフトウェアをつかって Apple Remote から操作していて、これがなかなか快適なのですが、Script が用意されていないソフトウェア (Miro とか) や、ブラウザ上で動画をみるとき (いまは亡き Stage6 やニコニコ動画) はいちいち ThinkPad から Synergy ごしに操作しなければいけなく、かならずしも快適とはいえない状況だったわけです。</p>
+
+<p>同じく Logitech から発売になる手のひらサイズの Bluetooth キーボード <a href="http://journal.mycom.co.jp/news/2008/01/07/007/">Dinovo Mini</a> の発売をいまかと待っていたんだけど、どうも出る気配がない。それか <a href="http://www.tuaw.com/2007/07/17/remote-buddy-adds-iphone-support/">RemoteBuddy の iPhone サポート</a> をつかう、ってのもイカしてるなあとおもいつつ（これは Bluetooth じゃなくて Safari をつかう）、まだ購入にはいたってません。</p>
+
+<p>というわけで、<A href="http://www.carvware.com/gamepadcompanion.html">Gamepad Companion</a> というこれにぴったりなソフトをいれて、ゲームパッドをマウス代わりに使えるように設定してみました。左アナログスティックをマウスに、A, B ボタンをマウスの左右クリックに割り当てるだけなので単純。これでちょっとしたマウス操作はゲームパッドでできるようになりました。なんか PS2 発売初期に DVD をゲームコントローラで操作したころを思い出します。</p>
+
+<p><a href="http://www.flickr.com/photos/bulknews/2312161558/" title="IMG_0400.JPG by miyagawa, on Flickr"><img src="http://farm4.static.flickr.com/3209/2312161558_91d8a6b4a4.jpg" width="500" height="281" alt="IMG_0400.JPG" /></a></p>
+
+<p>せっかくなのでL1 ボタンとか十字キーでRemoteBuddy のリモコンボタンにマッピングしようと試みたんだけど、これはどうも Ctrl や Command をマッピングするとなぜかうまく動かない（かわりに A キー入力が発生する）。USB Overdrive とかだとうまくいったりするんだろうか？ もうちょっと深追いする必要がありそう。</p>
+
+<p>あ、そうそうこれでエミュレータでゲームをプレイするときは Gamepad Companion の preference pane から停止を押していったん解除しないと Emulator Enhancer と競合してしまうので注意が必要、かも。あと１日つかってみてわかったんですが、ゲームパッドがスリープモード (5分間放っておくとなる) に入ると、USB でつないでいるレシーバーの LED が点滅します。これかなりうっとうしい。フォーラムを検索してみたけど USB から抜くか、点滅を気にしない、というのがソリューションみたい。とりあえず受光部の向きを変えて気にならないようにしてみたけど、１日中点滅しているのは気持ち悪いなあ。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  04:42 PM | <a href="http://blog.bulknews.net/mt/archives/002229.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002229.html#comments">Comments (1)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002229.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002226.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2142"
+    dc:title="ZDNet builder tech Day で講演します"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002226.html"
+    dc:subject=""
+    dc:description="もう来週の話なのですが、ZDNet さんとシックスアパート共同で Open API and Beyond というテーマのデベロッパー向けカンファレンスを開催します。 Six Apart のUSオフィスからはわたしと David Recordon が来日して基調講演やパネルディスカッションで話をする予定です。David は去年 Verisign にいたころに来日していたようですが、実際にこうしたカンファレンスで講演するのははじめてだとおもいます。OpenID や Social Graph などのテクノロジーに関する考えを直接聞けるのはとてもエキサイティングだとおもいますので、ぜひご登録ください。..."
+    dc:creator="miyagawa"
+    dc:date="2008-02-22T17:19:58+09:00" />
+</rdf:RDF>
+-->
+
+
+		<h2 class="date">
+	February 22, 2008
+	</h2>
+	
+
+	<div class="blogbody">
+	
+	<!-- a name="002226"></a -->
+	<h3 class="title">ZDNet builder tech Day で講演します</h3>
+	
+	<p>もう来週の話なのですが、ZDNet さんとシックスアパート共同で <a href="http://builder.japan.zdnet.com/info/techday/">Open API and Beyond</a> というテーマのデベロッパー向けカンファレンスを開催します。</p>
+
+<p>Six Apart のUSオフィスからはわたしと <a href="http://www.davidrecordon.com/">David Recordon</a> が来日して基調講演やパネルディスカッションで話をする予定です。David は去年 Verisign にいたころに来日していたようですが、実際にこうしたカンファレンスで講演するのははじめてだとおもいます。OpenID や Social Graph などのテクノロジーに関する考えを直接聞けるのはとてもエキサイティングだとおもいますので、ぜひご登録ください。</p>
+
+<p>第二部ではビールと軽食を用意してスピーカーや参加者のネットワーキング、それにくわえてライトニングトークのスピーカーも募集しています。OpenID や Social Graph、また各 Web 2.0 サービスの API をつかったマッシュアップなどのネタを5分でプレゼンしていただける方を募集してます。こちらも案内ページからどうぞ。</p>
+	
+	
+
+	
+
+	
+	<div class="posted">Posted by miyagawa at  05:19 PM | <a href="http://blog.bulknews.net/mt/archives/002226.html">Permalink</a>
+		| <a href="http://blog.bulknews.net/mt/archives/002226.html#comments">Comments (0)</a>
+	
+		| <a href="http://blog.bulknews.net/mt/archives/002226.html#trackbacks">TrackBack (0)</a>
+	
+	</div>
+	
+	</div>
+
+
+
+</div>
+
+</div>
+
+
+<div id="links">
+
+<div class="blogtimes"><a href="http://feeds.feedburner.com/bulknews"><img src="http://feeds.feedburner.com/~fc/bulknews?bg=444444&amp;fg=FFFFFF&amp;anim=0" height="26" width="88" style="border:0" alt="" /></a></div>
+
+<div class="blogtimes">
+<a href="http://nilesh.org/mt/blogtimes/" target="_blank">
+<img src="http://blog.bulknews.net/mt//images/blogtimes.png" 
+   width="190" height="36" 
+   border="0" alt="B L O G T I M E S" title="B L O G T I M E S" /></a> 
+</div>
+
+<div class="sidetitle">
+Search
+</div>
+ 
+<div class="side">
+<form method="get" action="http://blog.bulknews.net/mt3/mt-search.cgi">
+<input type="hidden" name="IncludeBlogs" value="1" />
+<label for="search" accesskey="4">Search this site:</label><br />
+<input id="search" name="search" size="20" />
+<input type="submit" value="Search" />
+</form>
+</div>
+
+<div class="sidetitle">Recommend!</div>
+<div class="side" style="text-align:center">
+<a href="http://hacks.bloghackers.net/">
+<img src="http://images-jp.amazon.com/images/P/4873111749.09.MZZZZZZZ.jpg" border="0" alt="Blog Hacks" /><br />
+Blog Hacks
+</a>
+</div>
+
+<div class="sidetitle">Profile</div>
+<div class="vcard side">
+  <img src="http://bulknews.typepad.com/P506iC0003735833.jpg" alt="photo" class="photo" style="margin-bottom:1em" /><br />
+ <a class="url fn" href="http://blog.bulknews.net/">Tatsuhiko Miyagawa</a>
+ <div class="org">Six Apart, Ltd.</div>
+ <a class="email" href="mailto:miyagawa@bulknews.net">miyagawa@bulknews.net</a>
+ <div class="adr">
+  <span class="locality">Tokyo</span>
+  <span class="country-name">Japan</span>
+ </div>
+ <a class="url" rel="me" href="http://twitter.com/miyagawa">Twitter</a>
+ <a class="url" rel="me" href="http://bulknews.vox.com/">Vox</a>
+ <a class="url" rel="me" href="http://gree.jp/38/">GREE</a>
+ <a class="url" rel="me" href="http://mixi.jp/show_friend.pl?id=134">mixi</a>
+ <a class="url" rel="me" href="http://www.flickr.com/photos/bulknews/">Flickr</a>
+ <a class="url" rel="me" href="http://del.icio.us/miyagawa">del.icio.us</a>
+</div>
+
+<!--$MTInclude module="YMStatus"$-->
+<!--$MTInclude module="NowReading"$-->
+
+<div class="sidetitle">
+Archives
+</div>
+
+<div class="side">
+<ul>
+<li><a href="http://blog.bulknews.net/mt/archives/2009_09.html">September 2009</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2009_04.html">April 2009</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2009_02.html">February 2009</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2009_01.html">January 2009</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_12.html">December 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_09.html">September 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_07.html">July 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_06.html">June 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_04.html">April 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_03.html">March 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_02.html">February 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2008_01.html">January 2008</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_10.html">October 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_09.html">September 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_08.html">August 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_06.html">June 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_05.html">May 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_03.html">March 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_02.html">February 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2007_01.html">January 2007</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_12.html">December 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_11.html">November 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_10.html">October 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_09.html">September 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_08.html">August 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_07.html">July 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_06.html">June 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_05.html">May 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_04.html">April 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_03.html">March 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_02.html">February 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2006_01.html">January 2006</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_12.html">December 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_11.html">November 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_10.html">October 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_09.html">September 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_08.html">August 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_07.html">July 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_06.html">June 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_05.html">May 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_04.html">April 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_03.html">March 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_02.html">February 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2005_01.html">January 2005</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_12.html">December 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_11.html">November 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_10.html">October 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_09.html">September 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_08.html">August 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_07.html">July 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_06.html">June 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_05.html">May 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_04.html">April 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_03.html">March 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_02.html">February 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2004_01.html">January 2004</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_12.html">December 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_11.html">November 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_10.html">October 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_09.html">September 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_08.html">August 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_07.html">July 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_06.html">June 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_05.html">May 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_04.html">April 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_03.html">March 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_02.html">February 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2003_01.html">January 2003</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2002_12.html">December 2002</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/2002_11.html">November 2002</a></li>
+
+</ul>
+</div>
+
+<div class="sidetitle">
+Recent Entries
+</div>
+
+<div class="side">
+<ul>
+<li><a href="http://blog.bulknews.net/mt/archives/002242.html">YAPC::Asia 2009 で Remedie と AnyEvent/Coro について話します</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002241.html">The Get Up Kids 再結成ライブ @ GAMH SF</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002240.html">Eye-Fi カードの爪がはがれかけ</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002239.html">NOFX 25th Anniversary Live at Slim's San Francisco</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002238.html">学校では教えてくれないエンジニアリング英語 #6: red herring</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002237.html">ガキの使いと電波少年がHulu.comに</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002236.html">Canon IXY 920 iS がすごい</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002235.html">ITPro Challenge 2008 で講演しました＆資料公開</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002234.html">角川とANAにみる日米格差</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/002233.html">YAPC::Asia 2008 運営記録 #1 会場受付</a></li>
+
+</ul>
+</div>
+
+<div class="sidetitle">
+Recent TrackBacks
+</div>
+
+<div class="side">
+<ul>
+
+<li><a href="http://casinos-en-ligne.cfr8.com" target="_blank" rel="nofollow nofollow">casinos en ligne</a> <span class="sidedate">(07/10 03:56)</span></li>
+
+<li><a href="http://enx-taurus.gossipy.info/" target="_blank" rel="nofollow nofollow">英会話攻略</a> <span class="sidedate">(06/27 20:39)</span></li>
+
+<li><a href="http://server.typepad.jp/dragonfly/2006/06/post_5e5e.html" target="_blank" rel="nofollow nofollow">Dragonfly</a> <span class="sidedate">(06/21 04:26)</span></li>
+
+<li><a href="http://ameblo.jp/shadexx/entry-10013595737.html" target="_blank" rel="nofollow nofollow">グロリアスレボリューション</a> <span class="sidedate">(06/13 22:45)</span></li>
+
+<li><a href="http://ameblo.jp/shadexx/entry-10013595737.html" target="_blank" rel="nofollow nofollow">グロリアスレボリューション</a> <span class="sidedate">(06/13 22:38)</span></li>
+
+<li><a href="http://sumin.sakura.ne.jp/archives/2006/06/04-063538.html" target="_blank" rel="nofollow nofollow">Sky High!</a> <span class="sidedate">(06/04 07:27)</span></li>
+
+<li><a href="http://mitaimon.cocolog-nifty.com/blog/2006/05/flickr_exif_ama_0b66.html" target="_blank" rel="nofollow nofollow">[mi]みたいもん！！</a> <span class="sidedate">(05/28 04:32)</span></li>
+
+<li><a href="http://blog.livedoor.jp/t_furu/archives/50512911.html" target="_blank" rel="nofollow nofollow">WEBで何か作るよ(AjaxとJsp/サーブレットetc.)</a> <span class="sidedate">(05/27 00:21)</span></li>
+
+<li><a href="http://gambling.jeu8.com/online-gambling.html" target="_blank" rel="nofollow nofollow">online gambling</a> <span class="sidedate">(05/22 11:54)</span></li>
+
+<li><a href="http://toshian.jugem.cc/?eid=35" target="_blank" rel="nofollow nofollow">�Ѹ�äƤɤ���ä����ã�����</a> <span class="sidedate">(05/20 15:09)</span></li>
+
+</ul>
+</div>
+
+<div class="sidetitle">
+<a href="http://www.flickr.com/photos/bulknews/">Recent Photos on Flickr</a>
+</div>
+
+<div class="side">
+<script type="text/javascript">
+<!-- 
+
+flickr_badge_background_color = "";
+flickr_badge_border = "";
+flickr_badge_width = "120px";
+flickr_badge_text_font = "11px Arial, Helvetica, Sans serif";
+flickr_badge_image_border = "1px solid #000000";
+flickr_badge_link_color = "";
+
+//-->
+</script>
+<script type="text/javascript" src="http://www.flickr.com/badge_code.gne?nsid=49503048699@N01&count=5&display=latest&name=0&size=thumb"></script>
+</div>
+<div class="sidetitle"><a href="http://www.last.fm/user/miyagawa/">Recent Tunes on Last.FM</a></div>
+<div class="side">
+<style type="text/css">table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 td {margin:0 !important;padding:0 !important;border:0 !important;}table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 tr.lfmHead a:hover {background:url(http://cdn.last.fm/widgets/images/en/header/chart/recenttracks_regular_grey.png) no-repeat 0 0 !important;}table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 tr.lfmEmbed object {float:left;}table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 tr.lfmFoot td.lfmConfig a:hover {background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat 0px 0 !important;;}table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 tr.lfmFoot td.lfmView a:hover {background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat -85px 0 !important;}table.lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8 tr.lfmFoot td.lfmPopup a:hover {background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat -159px 0 !important;}</style>
+<table class="lfmWidgetchart_9b7a5a5104b5c37cb20f32a3411abee8" cellpadding="0" cellspacing="0" border="0" style="width:184px;"><tr class="lfmHead"><td><a title="miyagawa: Recently Listened Tracks" href="http://www.last.fm/user/miyagawa" target="_blank" style="display:block;overflow:hidden;height:20px;width:184px;background:url(http://cdn.last.fm/widgets/images/en/header/chart/recenttracks_regular_grey.png) no-repeat 0 -20px;text-decoration:none;border:0;"></a></td></tr><tr class="lfmEmbed"><td><object type="application/x-shockwave-flash" data="http://cdn.last.fm/widgets/chart/friends_6.swf" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" id="lfmEmbed_490729466" width="184" height="199"> <param name="movie" value="http://cdn.last.fm/widgets/chart/friends_6.swf" /> <param name="flashvars" value="type=recenttracks&amp;user=miyagawa&amp;theme=grey&amp;lang=en&amp;widget_id=chart_9b7a5a5104b5c37cb20f32a3411abee8" /> <param name="allowScriptAccess" value="always" /> <param name="allowNetworking" value="all" /> <param name="allowFullScreen" value="true" /> <param name="quality" value="high" /> <param name="bgcolor" value="999999" /> <param name="wmode" value="transparent" /> <param name="menu" value="true" /> </object></td></tr><tr class="lfmFoot"><td style="background:url(http://cdn.last.fm/widgets/images/footer_bg/grey.png) repeat-x 0 0;text-align:right;"><table cellspacing="0" cellpadding="0" border="0" style="width:184px;"><tr><td class="lfmConfig"><a href="http://www.last.fm/widgets/?colour=grey&amp;chartType=recenttracks&amp;user=miyagawa&amp;chartFriends=1&amp;from=code&amp;widget=chart" title="Get your own widget" target="_blank" style="display:block;overflow:hidden;width:85px;height:20px;float:right;background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat 0px -20px;text-decoration:none;border:0;"></a></td><td class="lfmView" style="width:74px;"><a href="http://www.last.fm/user/miyagawa" title="View miyagawa's profile" target="_blank" style="display:block;overflow:hidden;width:74px;height:20px;background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat -85px -20px;text-decoration:none;border:0;"></a></td><td class="lfmPopup"style="width:25px;"><a href="http://www.last.fm/widgets/popup/?colour=grey&amp;chartType=recenttracks&amp;user=miyagawa&amp;chartFriends=1&amp;from=code&amp;widget=chart&amp;resize=1" title="Load this chart in a pop up" target="_blank" style="display:block;overflow:hidden;width:25px;height:20px;background:url(http://cdn.last.fm/widgets/images/en/footer/grey.png) no-repeat -159px -20px;text-decoration:none;border:0;" onclick="window.open(this.href + '&amp;resize=0','lfm_popup','height=299,width=234,resizable=yes,scrollbars=yes'); return false;"></a></td></tr></table></td></tr></table>
+</div>
+
+
+
+
+<div class="sidetitle"><a href="https://b.hatena.ne.jp/entrylist?url=http%3A%2F%2Fblog.bulknews.net%2Fmt%2F&sort=hot" target="_blank">『blog.bulknews.net』 の新着エントリー - はてなブックマーク</a></div>                
+<div class="side">
+<ul>
+<li><a href="http://blog.bulknews.net/mt/archives/001280.html" target="_blank">iTunes で聴いてる曲: ストリームの場合: blog.bulknews.net</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/000862.html" target="_blank">さまぁ〜ずの逆にアレだろ: blog.bulknews.net</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/000060.html" target="_blank">MT Tokyo Meeting: blog.bulknews.net</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/000942.html" target="_blank">10,000 Promises - Sailing: blog.bulknews.net</a></li>
+<li><a href="http://blog.bulknews.net/mt/archives/001364.html" target="_blank">MySQL 4.1: blog.bulknews.net</a></li>
+
+</ul>
+</div>
+
+<div class="sidetitle"><a href="https://del.icio.us/miyagawa" target="_blank">Delicious/miyagawa</a></div>                
+<div class="side">
+<ul>
+<li><a href="https://shop.icio.us/sales/the-limited-edition-black-hawk-drone-hd-camera?utm_source=del.icio.us&utm_medium=referral&utm_campaign=the-limited-edition-black-hawk-drone-hd-camera" target="_blank">Sponsored: 64% off Code Black Drone with HD Camera</a></li>
+<li><a href="http://kotaku.com/a-history-of-bad-nintendo-phone-ideas-1722365793" target="_blank">A History Of Bad Nintendo Phone Ideas</a></li>
+<li><a href="http://techcrunch.com/2015/08/08/zenhub-brings-its-project-management-service-to-github-enterprise/" target="_blank">ZenHub Brings Its Project Management Service To GitHub Enterprise | TechCrunch</a></li>
+<li><a href="https://blog.cloudflare.com/dns-parser-meet-go-fuzzer/" target="_blank">DNS parser, meet Go fuzzer</a></li>
+<li><a href="http://www.theverge.com/2015/8/8/9118283/googles-project-fi-cell-phone-service-is-simple-until-its-not" target="_blank">Google's Project Fi cell phone service is simple, until it's not | The Verge</a></li>
+
+</ul>
+</div>
+
+
+<div class="sidetitle"><a href="http://bulkfeeds.net/" target="_blank">Shun! Bulkfeeds</a></div>                
+<div class="side">
+<ul>
+
+</ul>
+</div>
+
+<div class="sidetitle"><a href="" target="_blank"></a></div>                
+<div class="side">
+<ul>
+
+</ul>
+</div>
+
+<div class="sidetitle"><a href="http://shibuya.pm.org/blosxom" target="_blank">Shibuya Perl Mongers</a></div>                
+<div class="side">
+<ul>
+<li><a href="http://shibuya.pm.org/blosxom/techtalks/201807.html" target="_blank">Shibuya Perl Mongersテクニカルトーク#18</a></li>
+<li><a href="http://shibuya.pm.org/blosxom/techtalks/201506.html" target="_blank">Shibuya Perl Mongersテクニカルトーク#17</a></li>
+<li><a href="http://shibuya.pm.org/blosxom/techtalks/201107.html" target="_blank">Shibuya Perl Mongersテクニカルトーク#16</a></li>
+<li><a href="http://shibuya.pm.org/blosxom/techtalks/201012.html" target="_blank">Shibuya Perl Mongersテクニカルトーク#15</a></li>
+<li><a href="http://shibuya.pm.org/blosxom/techtalks/201009.html" target="_blank">Shibuya Perl Mongersテクニカルトーク#14</a></li>
+
+</ul>
+</div>
+
+
+
+
+<div class="sidetitle">
+Links
+</div>
+
+<div class="side">
+<ul>
+<li><a href="http://bulknews.net/">Bulknews</a></li>
+<li><a href="http://shibuya.pm.org/">Shibuya.pm</a></li>
+</div>
+
+<div class="syndicate">
+Syndicated using <a href="http://www.mplode.com/tima/files/mt-plugins/#mt-rssfeed">mt-rssfeed</a><br />
+<a href="http://blog.bulknews.net/mt/index.rdf">Syndicate this site (XML)</a>
+</div>
+</div>
+
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

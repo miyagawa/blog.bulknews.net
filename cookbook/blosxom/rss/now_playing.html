@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Winamp で再生中の曲を Blog に</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Wed, 10 Dec 2003</div>
+<div class="entry"><h1 class="title"><a name="now_playing">Winamp で再生中の曲を Blog に</a></h1>
+
+<p />
+自分のローカル MP3 プレイヤーで聞いている曲を、Blog のサイドバーに表示させたら楽しいですよね。今回は <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Winamp">Winamp</a> の再生中の曲を HTTP で通知し、RSS ファイルを生成してみます。
+
+
+<h2>DoSomething Plugin</h2>
+
+MP3 Player で再生中の曲を知るには、そのプレイヤーソフトウェアの API や SDK<a href="#note-1">(*1)</a>を用いて<a href="#note-2">(*2)</a>、曲情報を取得する必要があります。Winamp や iTunes 等のメジャーなソフトであれば、こうした SDK が公開されているため、自作でプラグインなどを作成することによって、再生中の曲を Blog にアップロード、といった方法もとれそうです。
+
+<p />
+ですが、この方法は誰でもできる、というほど簡単なものではありません。今回は、Winamp の <a href="http://www.oddsock.org/tools/dosomething/">DoSomething Plugin</a> というよりジェネリックなプラグインを使用します。このプラグインは、
+
+<p><blockquote class="inlineRaw">A Winamp General Purpose Plugin which is geared toward Shoutcasters. Whenever a song changes (or predetermined time interval) this plugin is responsible for doing &quot;something&quot;. The somethings that are supported are as follows :<br />
+<br />
+Submit A URL<br />
+FTP A file<br />
+Generate an HTML Playlist (Just like MusicTicker)<br />
+Run a command<br />
+Gather XML Statistics (this uses the Shoutcast XML admin interface to gather statistics about your broadcast, you can then use tags to substitute this information into any of the above actions)<br />
+</blockquote></p>
+
+というもので、Shoutcast を利用しているユーザが、曲の切替時に実行すべきコマンドや、FTP/HTTP のアクセスなどを登録しておくことができるというものです。
+
+<p />
+今回は、このうち <i>Submit A URL</i> の機能を使用して、
+<ol>
+<li>Winamp が曲が変わるたびに特定の CGI URL に送信</li>
+<li>CGI でデータを RSS 化して保存</li>
+</ol>
+
+という流れで実現してみます。
+
+<h2>The Code</h2>
+
+Winamp からの曲更新通知を受けとる CGI コードは <a href="#listing-1">List 1</a> のようになります。パラメータとして song に、曲情報を渡す仕様としています。
+
+<p />
+<pre class="scriptsSnippet">our $RssPath    = &quot;now_playing.xml&quot;; # path for RSS data
+our $MaxEntries = 15;                # number of items to store
+our $ClientEncoding = &quot;Shift_JIS&quot;;   # DoSomething songinfo encoding
+</pre>
+
+RSS のパス、RSS に保持する曲数、DoSomething プラグインがマルチバイトの曲情報を送信するときのエンコーディングを指定しています。今回 RSS のバージョンには 0.91 を使用しますが、このバージョンではエントリは 15 個までという規定があるため、15 としています。
+
+<p />
+<pre class="scriptsSnippet">my $q = CGI-&gt;new();
+my $song = _param($q, 'song');
+</pre>
+
+CGI オブジェクトを <code>new</code> し、song パラメータを取得します。
+
+<p />
+<pre class="scriptsSnippet">sub _param {
+    my($q, $name) = @_;
+    my $value = $q-&gt;param($name);
+    return decode($ClientEncoding, $value);
+}
+</pre>
+
+CGI パラメータ取得用のラッパーメソッド <code>_param</code> では、CGI.pm の <code>param</code> メソッドで取得した値を、<code>$ClientEncoding</code> でデコードして Unicode 文字列として返します。実は DoSomething プラグインでは、マルチバイト文字列は URL エスケープせずに生バイト文字列として送信してしまう不具合がありますが、CGI.pm で扱う分にはとりあえず問題なく処理できるようです。
+
+<p />
+<pre class="scriptsSnippet">my $rss = XML::RSS-&gt;new(version =&gt; 0.91);
+
+if (-e $RssPath) {
+    eval {
+        $rss-&gt;parsefile($RssPath);
+        pop(@{$rss-&gt;{items}}) if @{$rss-&gt;{items}} &gt;= $MaxEntries;
+    };
+}
+</pre>
+
+<a href="http://search.cpan.org/search?m=module&q=XML%3a%3aRSS">XML::RSS</a> オブジェクトを version 0.91 で生成し、RSS ファイルが存在するなら <code>parsefile</code> します。RSS ファイルをデータストレージとしても使用していることに注意してください。
+<p />
+<code>$MaxEntries</code> より数が増えている場合には、最後の1個のエントリを <code>pop</code> で削除しています<a href="#note-3">(*3)</a>。
+
+<p />
+<pre class="scriptsSnippet">$rss-&gt;channel(
+    title =&gt; &quot;Now Playing&quot;,
+    pubDate =&gt; time2str(time),
+);
+</pre>
+
+RSS の channel 要素を設定します。再生していない場合には、ずっとこの RSS ファイルは更新されないことになり、その情報が伝わりませんので、channel の pubDate 属性に、現在時刻を入れておきます。現在時刻は RFC822 形式で格納する必要があるため、<a href="http://search.cpan.org/search?m=module&q=HTTP%3a%3aDate">HTTP::Date</a> モジュールの <code>time2str</code> 関数を使用しました。
+
+<p />
+<pre class="scriptsSnippet">$rss-&gt;add_item(
+    title =&gt; $song,
+    mode  =&gt; &quot;insert&quot;,
+);
+</pre>
+
+現在の曲情報を title に持つ item を追加します。通常なら item は最後尾に追加されますが、<code class="inlineRaw">mode =&gt; &quot;insert&quot;</code> とすることで、先頭に追加<a href="#note-4">(*4)</a>することができます。
+
+<p />
+<pre class="scriptsSnippet">$rss-&gt;save($RssPath);
+
+print $q-&gt;header, &quot;Thanks, DoSomething!&quot;;
+</pre>
+
+最後に RSS をファイルに保存し、適当な CGI レスポンスを出力して終了します。
+
+<h2>Running the Hack</h2>
+
+作成したスクリプトを CGI 実行可能な場所に配置します。ここでは URL を http://example.com/now_playing.cgi としましょう。
+
+<p />
+<a href="http://www.oddsock.org/tools/dosomething/">DoSomething Plugin</a> をダウンロードして dosomethingv2_12.exe を実行します。とくにインストール自体は何の設定もなく終了するはずです。
+
+<p />
+次に DoSomething プラグインのアクションを設定します。Winamp を起動し、Options → Preference で設定画面を開き、Plug-ins → General Purpose から &quot;DoSomething Plugin&quot; を選択します。
+
+<img src="/cookbook/images/now_playing/do_something.gif" alt="DoSomething 設定" class="inline-image" />
+
+&quot;Disable Plugin&quot; のチェックをはずし、&quot;Actions&quot; から &quot;Submit A URL&quot; を選択、URL を
+
+<p><blockquote class="inlineRaw">http://example.com/now_playing.cgi?song=%%CURRENTSONG%%<br />
+</blockquote></p>
+
+と設定し、Add をクリックすれば登録が完了です。もちろん、URL は今回作成した now_playing.cgi を設置した URL に置きかえてください。
+
+<p />
+Winamp で適当に曲を再生、また曲を変更してみましょう。プレイヤーの見た目はとくに変化しませんが、now_playing.cgi に対してリクエストが飛ばされているはずです。うまく動作すれば、<code>$RssPath</code> で設定したパスに RSS ファイル now_playing.xml が作成されています。サンプルの now_playing.xml は <a href="#listing-2">List 2</a> のようになります。
+
+<p />
+ここまでできれば、あとは出力された RSS ファイルを <a href="http://blog.bulknews.net/cookbook/blosxom/rss/rss2js.html">JavaScript</a> 化して、Client Side Include で Blog のサイドバーなどに出力するとよいでしょう。
+
+<h2>Hacking the Hack</h2>
+
+今回は RSS 0.91 を使用しているため、各曲の演奏開始時刻を設定できていません。RSS 1.0 にすれば、実現可能でしょう。
+
+<p />
+RSS を使用していますが、それぞれの item に link 要素や description 要素が設定されていません。例えば <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?AmazonWebServices">AmazonWebServices</a> を使用してアソシエイトへのリンクを link に設定したり、レビューを取得して description に設定したり、といったことができるとさらに面白いでしょう。
+
+<h2>See Also</h2>
+<ul>
+<li><a href="http://a.wholelottanothing.org/archives.blah/006625">Trackbacks in Winamp</a></li>
+<li><a href="http://brutalhugs.com/flavours#now_playing">blosxom: now_playing plugin</a></li>
+</ul>
+
+いずれも、専用の CGI ではなく、Trackback Ping (<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?MovableType">MovableType</a> の Category Trackback や <a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?tb-standalone">tb-standalone</a>) を通知のプロトコルとして利用しています。
+
+
+<h2>Listings</h2>
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: now_playing.cgi</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# now_playing - Save winamp info to RSS
+
+use strict;
+use CGI;
+use Encode;
+use HTTP::Date;
+use XML::RSS;
+
+our $RssPath    = &quot;now_playing.xml&quot;; # path for RSS data
+our $MaxEntries = 15;                # number of items to store
+our $ClientEncoding = &quot;Shift_JIS&quot;;   # DoSomething songinfo encoding
+
+my $q = CGI-&gt;new();
+my $song = _param($q, 'song');
+
+my $rss = XML::RSS-&gt;new(version =&gt; 0.91);
+
+if (-e $RssPath) {
+    eval {
+        $rss-&gt;parsefile($RssPath);
+        pop(@{$rss-&gt;{items}}) if @{$rss-&gt;{items}} &gt;= $MaxEntries;
+    };
+}
+
+$rss-&gt;channel(
+    title =&gt; &quot;Now Playing&quot;,
+    pubDate =&gt; time2str(time),
+);
+
+$rss-&gt;add_item(
+    title =&gt; $song,
+    mode  =&gt; &quot;insert&quot;,
+);
+
+$rss-&gt;save($RssPath);
+
+print $q-&gt;header, &quot;Thanks, DoSomething!&quot;;
+
+sub _param {
+    my($q, $name) = @_;
+    my $value = $q-&gt;param($name);
+    return decode($ClientEncoding, $value);
+}
+</pre>
+
+<a name="listing-2"><span class="scripsListingHeader">List 2: now_playing.xml</span></a>
+<pre class="scriptsListing">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;!DOCTYPE rss PUBLIC &quot;-//Netscape Communications//DTD RSS 0.91//EN&quot;
+            &quot;http://my.netscape.com/publish/formats/rss-0.91.dtd&quot;&gt;
+
+&lt;rss version=&quot;0.91&quot;&gt;
+
+&lt;channel&gt;
+&lt;title&gt;Now Playing&lt;/title&gt;
+&lt;link&gt;&lt;/link&gt;
+&lt;description&gt;&lt;/description&gt;
+&lt;pubDate&gt;Tue, 09 Dec 2003 19:09:54 GMT&lt;/pubDate&gt;
+
+&lt;item&gt;
+&lt;title&gt; Busted - Air Hostess &lt;/title&gt;
+&lt;link&gt;&lt;/link&gt;
+&lt;/item&gt;
+
+&lt;item&gt;
+&lt;title&gt; The Ataris - So long, Astoria &lt;/title&gt;
+&lt;link&gt;&lt;/link&gt;
+&lt;/item&gt;
+
+&lt;item&gt;
+&lt;title&gt; Crystal Kay - Can't be Stopped &lt;/title&gt;
+&lt;link&gt;&lt;/link&gt;
+&lt;/item&gt;
+
+&lt;/channel&gt;
+&lt;/rss&gt;</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> Software Development Kit<br />
+<a href="#note-2" name="note-2">*2)</a> 公開されていれば、ですが<br />
+<a href="#note-3" name="note-3">*3)</a> この場合、RSS は新着順となるため、最も古いエントリが削除されることになります。<br />
+<a href="#note-4" name="note-4">*4)</a> Perl の配列でいえば、push ではなく unshift<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html">05:08</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/rss">RSS</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/rss_now_playing?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (4)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Winamp%20%A4%C7%BA%C6%C0%B8%C3%E6%A4%CE%B6%CA%A4%F2%20Blog%20%A4%CB&amp;body=http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/rss_now_playing"
+      dc:title="Winamp で再生中の曲を Blog に"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/rss/now_playing.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_thread.html">Trackback スレッド化</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/common/bloghacks.html">Blog Hacks 出版</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

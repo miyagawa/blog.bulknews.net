@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Six Apart employess on CPAN: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/002046.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/002045.html" title="Flickr の EXIF に Amazon.co.jp のカメラ情報を追加する GM" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/002052.html" title="Blog の整理と mt-text-hatena.pl" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/002046.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1997"
+    dc:title="Six Apart employess on CPAN"
+    dc:identifier="http://blog.bulknews.net/mt/archives/002046.html"
+    dc:subject=""
+    dc:description=".person, .rank { vertical-align: top} .modules { padding-bottom: 1em } Six Apart CPAN Leaderboard (generated from 02packages.details.txt.gz on Thu Jun..."
+    dc:creator="miyagawa"
+    dc:date="2006-06-02T01:28:11+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">June 02, 2006</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Six Apart employess on CPAN</h1>
+
+<style>.person, .rank { vertical-align: top} .modules { padding-bottom: 1em }</style>
+
+<p>
+<a href="http://code.sixapart.com/">Six Apart</a> CPAN Leaderboard
+(generated from 02packages.details.txt.gz on Thu Jun  1 12:31:59 2006)
+</p>
+<p>
+Contributors are ranked by number of modules and then by name. 
+</p>
+
+<p>
+Want to work with us? <a href="mailto:miyagawa@bulknews.net?subject=Resume">Send me your resume now!</a>
+</p>
+
+
+<a name="more"></a>
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+     <td colspan="3" class="top">&nbsp;</td>
+</tr>
+<tr>
+    <td class="rank">1&nbsp;    &nbsp;&nbsp;</td>
+
+    <td class="person">
+    <a name="MIYAGAWA" ></a>
+    Tatsuhiko Miyagawa&nbsp;(<a href="http://search.cpan.org/search?author=MIYAGAWA">MIYAGAWA</a>)&nbsp;&nbsp;
+    (102)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/abbreviation/">abbreviation</a>,             <a href="http://search.cpan.org/dist/Acme-Module-Authors/">Acme-Module-Authors</a>,             <a href="http://search.cpan.org/dist/Apache-ACEProxy/">Apache-ACEProxy</a>,             <a href="http://search.cpan.org/dist/Apache-AntiSpam/">Apache-AntiSpam</a>,             <a href="http://search.cpan.org/dist/Apache-Clickable/">Apache-Clickable</a>,             <a href="http://search.cpan.org/dist/Apache-CustomKeywords/">Apache-CustomKeywords</a>,             <a href="http://search.cpan.org/dist/Apache-DefaultCharset/">Apache-DefaultCharset</a>,             <a href="http://search.cpan.org/dist/Apache-GuessCharset/">Apache-GuessCharset</a>,             <a href="http://search.cpan.org/dist/Apache-JavaScript-DocumentWrite/">Apache-JavaScript-DocumentWrite</a>,             <a href="http://search.cpan.org/dist/Apache-No404Proxy/">Apache-No404Proxy</a>,             <a href="http://search.cpan.org/dist/Apache-Profiler/">Apache-Profiler</a>,             <a href="http://search.cpan.org/dist/Apache-Session-CacheAny/">Apache-Session-CacheAny</a>,             <a href="http://search.cpan.org/dist/Apache-Session-Generate-ModUniqueId/">Apache-Session-Generate-ModUniqueId</a>,             <a href="http://search.cpan.org/dist/Apache-Session-Generate-ModUsertrack/">Apache-Session-Generate-ModUsertrack</a>,             <a href="http://search.cpan.org/dist/Apache-Session-PHP/">Apache-Session-PHP</a>,             <a href="http://search.cpan.org/dist/Apache-Session-Serialize-YAML/">Apache-Session-Serialize-YAML</a>,             <a href="http://search.cpan.org/dist/Apache-Singleton/">Apache-Singleton</a>,             <a href="http://search.cpan.org/dist/Apache-StickyQuery/">Apache-StickyQuery</a>,             <a href="http://search.cpan.org/dist/Archive-Any-Create/">Archive-Any-Create</a>,             <a href="http://search.cpan.org/dist/Attribute-Profiled/">Attribute-Profiled</a>,             <a href="http://search.cpan.org/dist/Attribute-Protected/">Attribute-Protected</a>,             <a href="http://search.cpan.org/dist/Attribute-Unimplemented/">Attribute-Unimplemented</a>,             <a href="http://search.cpan.org/dist/Bundle-Sledge/">Bundle-Sledge</a>,             <a href="http://search.cpan.org/dist/capitalization/">capitalization</a>,             <a href="http://search.cpan.org/dist/Catalyst-Plugin-JSONRPC/">Catalyst-Plugin-JSONRPC</a>,             <a href="http://search.cpan.org/dist/Catalyst-View-Jemplate/">Catalyst-View-Jemplate</a>,             <a href="http://search.cpan.org/dist/Catalyst-View-JSON/">Catalyst-View-JSON</a>,             <a href="http://search.cpan.org/dist/CGI-Untaint-email/">CGI-Untaint-email</a>,             <a href="http://search.cpan.org/dist/Class-DBI-AbstractSearch/">Class-DBI-AbstractSearch</a>,             <a href="http://search.cpan.org/dist/Class-DBI-Extension/">Class-DBI-Extension</a>,             <a href="http://search.cpan.org/dist/Class-DBI-Pager/">Class-DBI-Pager</a>,             <a href="http://search.cpan.org/dist/Class-DBI-Replication/">Class-DBI-Replication</a>,             <a href="http://search.cpan.org/dist/Class-DBI-SQLite/">Class-DBI-SQLite</a>,             <a href="http://search.cpan.org/dist/Class-DBI-View/">Class-DBI-View</a>,             <a href="http://search.cpan.org/dist/Class-Trigger/">Class-Trigger</a>,             <a href="http://search.cpan.org/dist/Convert-Base32/">Convert-Base32</a>,             <a href="http://search.cpan.org/dist/Convert-DUDE/">Convert-DUDE</a>,             <a href="http://search.cpan.org/dist/Convert-RACE/">Convert-RACE</a>,             <a href="http://search.cpan.org/dist/Date-Japanese-Era/">Date-Japanese-Era</a>,             <a href="http://search.cpan.org/dist/Date-Range-Birth/">Date-Range-Birth</a>,             <a href="http://search.cpan.org/dist/Device-KeyStroke-Mobile/">Device-KeyStroke-Mobile</a>,             <a href="http://search.cpan.org/dist/Dunce-time/">Dunce-time</a>,             <a href="http://search.cpan.org/dist/Email-Find/">Email-Find</a>,             <a href="http://search.cpan.org/dist/Email-Valid-Loose/">Email-Valid-Loose</a>,             <a href="http://search.cpan.org/dist/Encode-JP-Mobile/">Encode-JP-Mobile</a>,             <a href="http://search.cpan.org/dist/Encode-Punycode/">Encode-Punycode</a>,             <a href="http://search.cpan.org/dist/File-Find-Rule-Digest/">File-Find-Rule-Digest</a>,             <a href="http://search.cpan.org/dist/HTML-Entities-ImodePictogram/">HTML-Entities-ImodePictogram</a>,             <a href="http://search.cpan.org/dist/HTML-RelExtor/">HTML-RelExtor</a>,             <a href="http://search.cpan.org/dist/HTML-ResolveLink/">HTML-ResolveLink</a>,             <a href="http://search.cpan.org/dist/HTML-XSSLint/">HTML-XSSLint</a>,             <a href="http://search.cpan.org/dist/HTTP-ProxyPAC/">HTTP-ProxyPAC</a>,             <a href="http://search.cpan.org/dist/HTTP-Server-Simple-Authen/">HTTP-Server-Simple-Authen</a>,             <a href="http://search.cpan.org/dist/Inline-Basic/">Inline-Basic</a>,             <a href="http://search.cpan.org/dist/Kwiki-Emoticon/">Kwiki-Emoticon</a>,             <a href="http://search.cpan.org/dist/Kwiki-Export/">Kwiki-Export</a>,             <a href="http://search.cpan.org/dist/Kwiki-Footnote/">Kwiki-Footnote</a>,             <a href="http://search.cpan.org/dist/Kwiki-OpenSearch/">Kwiki-OpenSearch</a>,             <a href="http://search.cpan.org/dist/Kwiki-OpenSearch-Service/">Kwiki-OpenSearch-Service</a>,             <a href="http://search.cpan.org/dist/Kwiki-TypeKey/">Kwiki-TypeKey</a>,             <a href="http://search.cpan.org/dist/Kwiki-URLBL/">Kwiki-URLBL</a>,             <a href="http://search.cpan.org/dist/Log-Dispatch-Config/">Log-Dispatch-Config</a>,             <a href="http://search.cpan.org/dist/Log-Dispatch-DBI/">Log-Dispatch-DBI</a>,             <a href="http://search.cpan.org/dist/Mac-Macbinary/">Mac-Macbinary</a>,             <a href="http://search.cpan.org/dist/MSIE-MenuExt/">MSIE-MenuExt</a>,             <a href="http://search.cpan.org/dist/Net-DAAP-Server-AAC/">Net-DAAP-Server-AAC</a>,             <a href="http://search.cpan.org/dist/Net-IDN-Nameprep/">Net-IDN-Nameprep</a>,             <a href="http://search.cpan.org/dist/Net-IPAddr-Find/">Net-IPAddr-Find</a>,             <a href="http://search.cpan.org/dist/Net-YahooMessenger/">Net-YahooMessenger</a>,             <a href="http://search.cpan.org/dist/NetAddr-IP-Find/">NetAddr-IP-Find</a>,             <a href="http://search.cpan.org/dist/PHP-Session/">PHP-Session</a>,             <a href="http://search.cpan.org/dist/Plagger/">Plagger</a>,             <a href="http://search.cpan.org/dist/POE-Component-Client-AirTunes/">POE-Component-Client-AirTunes</a>,             <a href="http://search.cpan.org/dist/POE-Component-YahooMessenger/">POE-Component-YahooMessenger</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-Clickable/">Template-Plugin-Clickable</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-Comma/">Template-Plugin-Comma</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-FillInForm/">Template-Plugin-FillInForm</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-HTML-Template/">Template-Plugin-HTML-Template</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-JavaScript/">Template-Plugin-JavaScript</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-MobileAgent/">Template-Plugin-MobileAgent</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-Shuffle/">Template-Plugin-Shuffle</a>,             <a href="http://search.cpan.org/dist/Template-Provider-Encoding/">Template-Provider-Encoding</a>,             <a href="http://search.cpan.org/dist/Term-TtyRec/">Term-TtyRec</a>,             <a href="http://search.cpan.org/dist/Text-Emoticon/">Text-Emoticon</a>,             <a href="http://search.cpan.org/dist/Text-Emoticon-GoogleTalk/">Text-Emoticon-GoogleTalk</a>,             <a href="http://search.cpan.org/dist/Text-Emoticon-MSN/">Text-Emoticon-MSN</a>,             <a href="http://search.cpan.org/dist/Text-Emoticon-Yahoo/">Text-Emoticon-Yahoo</a>,             <a href="http://search.cpan.org/dist/Text-MessageFormat/">Text-MessageFormat</a>,             <a href="http://search.cpan.org/dist/Time-Duration-ja/">Time-Duration-ja</a>,             <a href="http://search.cpan.org/dist/WebService-Bloglines/">WebService-Bloglines</a>,             <a href="http://search.cpan.org/dist/WebService-ChangesXml/">WebService-ChangesXml</a>,             <a href="http://search.cpan.org/dist/WebService-Google-Suggest/">WebService-Google-Suggest</a>,             <a href="http://search.cpan.org/dist/WWW-Baseball-NPB/">WWW-Baseball-NPB</a>,             <a href="http://search.cpan.org/dist/WWW-Blog-Metadata-MobileLinkDiscovery/">WWW-Blog-Metadata-MobileLinkDiscovery</a>,             <a href="http://search.cpan.org/dist/WWW-Blog-Metadata-OpenID/">WWW-Blog-Metadata-OpenID</a>,             <a href="http://search.cpan.org/dist/WWW-Blog-Metadata-OpenSearch/">WWW-Blog-Metadata-OpenSearch</a>,             <a href="http://search.cpan.org/dist/WWW-Cache-Google/">WWW-Cache-Google</a>,             <a href="http://search.cpan.org/dist/WWW-OpenSearch/">WWW-OpenSearch</a>,             <a href="http://search.cpan.org/dist/XML-Atom/">XML-Atom</a>,             <a href="http://search.cpan.org/dist/XML-Atom-Lifeblog/">XML-Atom-Lifeblog</a>,             <a href="http://search.cpan.org/dist/XML-Atom-Stream/">XML-Atom-Stream</a>,             <a href="http://search.cpan.org/dist/XML-Liberal/">XML-Liberal</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">2&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="BTROTT" ></a>
+    Benjamin Trott&nbsp;(<a href="http://search.cpan.org/search?author=BTROTT">BTROTT</a>)&nbsp;&nbsp;
+
+    (23)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Apache-AuthTypeKey/">Apache-AuthTypeKey</a>,             <a href="http://search.cpan.org/dist/Authen-TypeKey/">Authen-TypeKey</a>,             <a href="http://search.cpan.org/dist/Catalyst-Plugin-AtomServer/">Catalyst-Plugin-AtomServer</a>,             <a href="http://search.cpan.org/dist/Catalyst-Plugin-Authentication-OpenID/">Catalyst-Plugin-Authentication-OpenID</a>,             <a href="http://search.cpan.org/dist/Class-ErrorHandler/">Class-ErrorHandler</a>,             <a href="http://search.cpan.org/dist/Config-FreeForm/">Config-FreeForm</a>,             <a href="http://search.cpan.org/dist/Convert-PEM/">Convert-PEM</a>,             <a href="http://search.cpan.org/dist/Crypt-DES_EDE3/">Crypt-DES_EDE3</a>,             <a href="http://search.cpan.org/dist/Crypt-DH/">Crypt-DH</a>,             <a href="http://search.cpan.org/dist/Crypt-DSA/">Crypt-DSA</a>,             <a href="http://search.cpan.org/dist/Crypt-Keys/">Crypt-Keys</a>,             <a href="http://search.cpan.org/dist/Crypt-OpenPGP/">Crypt-OpenPGP</a>,             <a href="http://search.cpan.org/dist/Data-Buffer/">Data-Buffer</a>,             <a href="http://search.cpan.org/dist/Data-ObjectDriver/">Data-ObjectDriver</a>,             <a href="http://search.cpan.org/dist/Digest-BubbleBabble/">Digest-BubbleBabble</a>,             <a href="http://search.cpan.org/dist/Feed-Find/">Feed-Find</a>,             <a href="http://search.cpan.org/dist/Filter-Handle/">Filter-Handle</a>,             <a href="http://search.cpan.org/dist/POE-Component-BlogCloud/">POE-Component-BlogCloud</a>,             <a href="http://search.cpan.org/dist/URI-Fetch/">URI-Fetch</a>,             <a href="http://search.cpan.org/dist/WWW-Blog-Metadata/">WWW-Blog-Metadata</a>,             <a href="http://search.cpan.org/dist/WWW-Blog-Metadata-Icon/">WWW-Blog-Metadata-Icon</a>,             <a href="http://search.cpan.org/dist/XML-Feed/">XML-Feed</a>,             <a href="http://search.cpan.org/dist/XML-FOAF/">XML-FOAF</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">3&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="XANTUS" ></a>
+    David Davis&nbsp;(<a href="http://search.cpan.org/search?author=XANTUS">XANTUS</a>)&nbsp;&nbsp;
+
+    (18)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Apache-Backend-POE/">Apache-Backend-POE</a>,             <a href="http://search.cpan.org/dist/Device-MX240/">Device-MX240</a>,             <a href="http://search.cpan.org/dist/Filesys-Virtual/">Filesys-Virtual</a>,             <a href="http://search.cpan.org/dist/Filesys-Virtual-Plain/">Filesys-Virtual-Plain</a>,             <a href="http://search.cpan.org/dist/POE-Component-Client-Asterisk-Manager/">POE-Component-Client-Asterisk-Manager</a>,             <a href="http://search.cpan.org/dist/POE-Component-Client-MSN/">POE-Component-Client-MSN</a>,             <a href="http://search.cpan.org/dist/POE-Component-Client-Telnet/">POE-Component-Client-Telnet</a>,             <a href="http://search.cpan.org/dist/POE-Component-DebugShell-Jabber/">POE-Component-DebugShell-Jabber</a>,             <a href="http://search.cpan.org/dist/POE-Component-EasyDBI/">POE-Component-EasyDBI</a>,             <a href="http://search.cpan.org/dist/POE-Component-NomadJukebox/">POE-Component-NomadJukebox</a>,             <a href="http://search.cpan.org/dist/POE-Component-Player-Xmms/">POE-Component-Player-Xmms</a>,             <a href="http://search.cpan.org/dist/POE-Component-Proxy-MSN/">POE-Component-Proxy-MSN</a>,             <a href="http://search.cpan.org/dist/POE-Component-Server-FTP/">POE-Component-Server-FTP</a>,             <a href="http://search.cpan.org/dist/POE-Component-Telephony-CTPort/">POE-Component-Telephony-CTPort</a>,             <a href="http://search.cpan.org/dist/POE-Component-XUL/">POE-Component-XUL</a>,             <a href="http://search.cpan.org/dist/POE-TIKC/">POE-TIKC</a>,             <a href="http://search.cpan.org/dist/WWW-GMail/">WWW-GMail</a>,             <a href="http://search.cpan.org/dist/WWW-Hotmail/">WWW-Hotmail</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">4&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="GENE" ></a>
+    Gene Boggs&nbsp;(<a href="http://search.cpan.org/search?author=GENE">GENE</a>)&nbsp;&nbsp;
+
+    (14)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Acme-Opish/">Acme-Opish</a>,             <a href="http://search.cpan.org/dist/Date-Baha-i/">Date-Baha-i</a>,             <a href="http://search.cpan.org/dist/File-Backup/">File-Backup</a>,             <a href="http://search.cpan.org/dist/Games-Battleship/">Games-Battleship</a>,             <a href="http://search.cpan.org/dist/Games-Chess-Coverage/">Games-Chess-Coverage</a>,             <a href="http://search.cpan.org/dist/GD-Graph-radar/">GD-Graph-radar</a>,             <a href="http://search.cpan.org/dist/Graph-Weighted/">Graph-Weighted</a>,             <a href="http://search.cpan.org/dist/GraphViz-Traverse/">GraphViz-Traverse</a>,             <a href="http://search.cpan.org/dist/Lingua-TokenParse/">Lingua-TokenParse</a>,             <a href="http://search.cpan.org/dist/Math-Counting/">Math-Counting</a>,             <a href="http://search.cpan.org/dist/SETI-Drake/">SETI-Drake</a>,             <a href="http://search.cpan.org/dist/SQL-OrderBy/">SQL-OrderBy</a>,             <a href="http://search.cpan.org/dist/Statistics-RankCorrelation/">Statistics-RankCorrelation</a>,             <a href="http://search.cpan.org/dist/URI-Collection/">URI-Collection</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">5&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="ABERGMAN" ></a>
+    Arthur Bergman&nbsp;(<a href="http://search.cpan.org/search?author=ABERGMAN">ABERGMAN</a>)&nbsp;&nbsp;
+
+    (12)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Acme-Goto-Line/">Acme-Goto-Line</a>,             <a href="http://search.cpan.org/dist/Alien/">Alien</a>,             <a href="http://search.cpan.org/dist/Attribute-Handlers/">Attribute-Handlers</a>,             <a href="http://search.cpan.org/dist/File-Find-Random/">File-Find-Random</a>,             <a href="http://search.cpan.org/dist/Hook-Scope/">Hook-Scope</a>,             <a href="http://search.cpan.org/dist/Net-LibNIDS/">Net-LibNIDS</a>,             <a href="http://search.cpan.org/dist/optimize/">optimize</a>,             <a href="http://search.cpan.org/dist/optimizer/">optimizer</a>,             <a href="http://search.cpan.org/dist/RT-Authen-OpenID/">RT-Authen-OpenID</a>,             <a href="http://search.cpan.org/dist/SVL/">SVL</a>,             <a href="http://search.cpan.org/dist/Time-Duration-sv/">Time-Duration-sv</a>,             <a href="http://search.cpan.org/dist/types/">types</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">5=&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="BRADFITZ" ></a>
+    Brad Fitzpatrick&nbsp;(<a href="http://search.cpan.org/search?author=BRADFITZ">BRADFITZ</a>)&nbsp;&nbsp;
+
+    (12)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Brackup/">Brackup</a>,             <a href="http://search.cpan.org/dist/Cache-Memcached/">Cache-Memcached</a>,             <a href="http://search.cpan.org/dist/Danga-Socket/">Danga-Socket</a>,             <a href="http://search.cpan.org/dist/Data-SingletonManager/">Data-SingletonManager</a>,             <a href="http://search.cpan.org/dist/LWPx-ParanoidAgent/">LWPx-ParanoidAgent</a>,             <a href="http://search.cpan.org/dist/Net-LiveJournal/">Net-LiveJournal</a>,             <a href="http://search.cpan.org/dist/Net-OpenID-Consumer/">Net-OpenID-Consumer</a>,             <a href="http://search.cpan.org/dist/Net-OpenID-Server/">Net-OpenID-Server</a>,             <a href="http://search.cpan.org/dist/Perlbal/">Perlbal</a>,             <a href="http://search.cpan.org/dist/Perlbal-XS-HTTPHeaders/">Perlbal-XS-HTTPHeaders</a>,             <a href="http://search.cpan.org/dist/Sys-Syscall/">Sys-Syscall</a>,             <a href="http://search.cpan.org/dist/Unicode-CheckUTF8/">Unicode-CheckUTF8</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">7&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="SOCK" ></a>
+    Nicholas Gerakines&nbsp;(<a href="http://search.cpan.org/search?author=SOCK">SOCK</a>)&nbsp;&nbsp;
+
+    (11)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Audio-AMR-Decode/">Audio-AMR-Decode</a>,             <a href="http://search.cpan.org/dist/Config-Builder/">Config-Builder</a>,             <a href="http://search.cpan.org/dist/Net-FeedBurner/">Net-FeedBurner</a>,             <a href="http://search.cpan.org/dist/WWW-Bookmarks/">WWW-Bookmarks</a>,             <a href="http://search.cpan.org/dist/WWW-CloudCreator/">WWW-CloudCreator</a>,             <a href="http://search.cpan.org/dist/WWW-NameGen/">WWW-NameGen</a>,             <a href="http://search.cpan.org/dist/WWW-Search-Bookmarks/">WWW-Search-Bookmarks</a>,             <a href="http://search.cpan.org/dist/WWW-Search-Feedster/">WWW-Search-Feedster</a>,             <a href="http://search.cpan.org/dist/WWW-Search-ISBNDB/">WWW-Search-ISBNDB</a>,             <a href="http://search.cpan.org/dist/WWW-Search-UrbanDictionary/">WWW-Search-UrbanDictionary</a>,             <a href="http://search.cpan.org/dist/WWW-Yahoo-KeywordExtractor/">WWW-Yahoo-KeywordExtractor</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">8&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="TANIMOTO" ></a>
+    Satoshi Tanimoto&nbsp;(<a href="http://search.cpan.org/search?author=TANIMOTO">TANIMOTO</a>)&nbsp;&nbsp;
+
+    (7)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Apache-AddReqHeader/">Apache-AddReqHeader</a>,             <a href="http://search.cpan.org/dist/Apache-DoCoMoUID/">Apache-DoCoMoUID</a>,             <a href="http://search.cpan.org/dist/Mail-Address-MobileJp/">Mail-Address-MobileJp</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-KwikiFormat/">Template-Plugin-KwikiFormat</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-String-Compare/">Template-Plugin-String-Compare</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-TagRescue/">Template-Plugin-TagRescue</a>,             <a href="http://search.cpan.org/dist/Template-Plugin-TruncateJp/">Template-Plugin-TruncateJp</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">9&nbsp;    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="HACHI" ></a>
+    Jonathan Steinert&nbsp;(<a href="http://search.cpan.org/search?author=HACHI">HACHI</a>)&nbsp;&nbsp;
+
+    (4)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Crypt-Salt/">Crypt-Salt</a>,             <a href="http://search.cpan.org/dist/POE-Component-Client-LDAP/">POE-Component-Client-LDAP</a>,             <a href="http://search.cpan.org/dist/POE-Wheel-Null/">POE-Wheel-Null</a>,             <a href="http://search.cpan.org/dist/Tie-Handle-HTTP/">Tie-Handle-HTTP</a>    </td>
+</tr>
+
+<tr>
+
+    <td class="rank">10    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="LINDNER" ></a>
+    Paul Lindner&nbsp;(<a href="http://search.cpan.org/search?author=LINDNER">LINDNER</a>)&nbsp;&nbsp;
+    (3)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Apache-CacheContent/">Apache-CacheContent</a>,             <a href="http://search.cpan.org/dist/Apache-TaintRequest/">Apache-TaintRequest</a>,             <a href="http://search.cpan.org/dist/HTML-Clean/">HTML-Clean</a>    </td>
+
+</tr>
+
+<tr>
+    <td class="rank">11    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="BYRNE" ></a>
+    Byrne Reese&nbsp;(<a href="http://search.cpan.org/search?author=BYRNE">BYRNE</a>)&nbsp;&nbsp;
+    (2)
+    </td>
+
+    <td class="modules">            <a href="http://search.cpan.org/dist/SOAP-Lite/">SOAP-Lite</a>,             <a href="http://search.cpan.org/dist/SOAP-MIME/">SOAP-MIME</a>    </td>
+</tr>
+
+<tr>
+    <td class="rank">11=    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="SEKIMURA" ></a>
+
+    Masayoshi Sekimura&nbsp;(<a href="http://search.cpan.org/search?author=SEKIMURA">SEKIMURA</a>)&nbsp;&nbsp;
+    (2)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/LWP-UserAgent-WithCache/">LWP-UserAgent-WithCache</a>,             <a href="http://search.cpan.org/dist/Template-Provider-Encode/">Template-Provider-Encode</a>    </td>
+</tr>
+
+<tr>
+    <td class="rank">13    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="BCHOATE" ></a>
+    Brad Choate&nbsp;(<a href="http://search.cpan.org/search?author=BCHOATE">BCHOATE</a>)&nbsp;&nbsp;
+    (1)
+    </td>
+
+    <td class="modules">            <a href="http://search.cpan.org/dist/Text-Textile/">Text-Textile</a>    </td>
+</tr>
+
+<tr>
+    <td class="rank">13=    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="GARTH" ></a>
+    Garth Winter Webb&nbsp;(<a href="http://search.cpan.org/search?author=GARTH">GARTH</a>)&nbsp;&nbsp;
+
+    (1)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/SWF-Chart/">SWF-Chart</a>    </td>
+</tr>
+
+<tr>
+    <td class="rank">13=    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="MARKPASC" ></a>
+
+    Mark Paschal&nbsp;(<a href="http://search.cpan.org/search?author=MARKPASC">MARKPASC</a>)&nbsp;&nbsp;
+    (1)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/XML-Atom-Filter/">XML-Atom-Filter</a>    </td>
+</tr>
+
+<tr>
+
+    <td class="rank">13=    &nbsp;&nbsp;</td>
+    <td class="person">
+    <a name="YANNK" ></a>
+    Yann Kerherv&eacute;&nbsp;(<a href="http://search.cpan.org/search?author=YANNK">YANNK</a>)&nbsp;&nbsp;
+    (1)
+    </td>
+    <td class="modules">            <a href="http://search.cpan.org/dist/Catalyst-Plugin-MortalForward/">Catalyst-Plugin-MortalForward</a>    </td>
+
+</tr>
+
+<tr>
+    <td colspan="3" class="bottom">&nbsp;</td>
+</td>
+</table>
+
+
+Six Apart contributed :
+<p>
+214 of 10791 packages (1.98%)
+on CPAN<br />
+and constitute 17 of all 2919 authors (0.58%).
+
+</p>
+
+<p>You can find <a href="http://london.pm.org/who/cpanscore.html">the script</a> on london.pm.org</p>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at June  2, 2006 01:28 AM
+| <a href="http://blog.bulknews.net/mt/archives/002046.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/002046.html#comments">Comments (0)</a>
+
+| <a href="#trackbacks">TrackBack(0)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/002045.html\">&laquo; Flickr の EXIF に Amazon.co.jp のカメラ情報を追加する GM</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/002052.html\">Blog の整理と mt-text-hatena.pl &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1997</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="2046" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

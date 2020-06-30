@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Bloglines を Gmail で読む: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/001789.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/001788.html" title="Podcasting Hacks" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/001790.html" title="SVN レポジトリの公開" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/001789.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/1789"
+    dc:title="Bloglines を Gmail で読む"
+    dc:identifier="http://blog.bulknews.net/mt/archives/001789.html"
+    dc:subject="blog"
+    dc:description="UPDATE 2006/02/28: 現在このスクリプトは Plagger という名前で開発を継続しています。 Gmail as RSS reader で妄想していた、「Bloglines の未読を Gmail に転送して読む」というのをちょちょいとスクリプト書いて試してみました。（Life Hack ってヤツですね！） 予想通り、これはむちゃくちゃ便利です。..."
+    dc:creator="miyagawa"
+    dc:date="2005-08-25T16:47:55+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">August 25, 2005</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Bloglines を Gmail で読む</h1>
+
+<p><strong>UPDATE 2006/02/28</strong>: 現在このスクリプトは <a href="http://blog.bulknews.net/mt/archives/001893.html">Plagger</a> という名前で開発を継続しています。</p>
+
+<p><a href="http://blog.bulknews.net/mt/archives/001786.html">Gmail as RSS reader</a> で妄想していた、「Bloglines の未読を Gmail に転送して読む」というのをちょちょいとスクリプト書いて試してみました。（Life Hack ってヤツですね！）</p>
+
+<p>予想通り、これはむちゃくちゃ便利です。</p>
+
+<a name="more"></a>
+<div style="float:right; padding-left:2em"><a href="http://blog.bulknews.net/mt/archives/bloglines1.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines1-thumb.gif" style="border:0" width="200" /></a><br /><br /><a href="http://blog.bulknews.net/mt/archives/bloglines2.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines2-thumb.gif" style="border:0" width="200" /></a><br /><br /><a href="http://blog.bulknews.net/mt/archives/bloglines3.gif"><img src="http://blog.bulknews.net/mt/archives/bloglines3-thumb.gif" style="border:0" width="200" /></a></div>
+
+<p>アイデアとしては、Bloglines WebServices の API を使って Bloglines 側の未読記事を持ってきて、HTML メールに整形して Gmail アドレスに送信します。Gmail の方ではフィルタリングを使って、「Bloglines のラベルをつけ、Inbox には残さない」というフィルタをしてやるとかなり便利に使えると思われます。</p>
+
+<p>Gmail に転送することで、Bloglines のもっさりとしたインタフェースとはおさらばできて、過去のエントリを（Archive しておいた分は）全文検索もできますね。Star/Unstar でクリッピングしたり、ラベルで tag づけなんてやると del.icio.us さえもいらなくなるかも？</p>
+
+<h3>スクリプト</h3>
+
+<p>試してみたい！というチャレンジャーな方向けに、とりあえず動きますなスクリプトを subversion で公開しておきます。Movable Type をインストールできるのと同等ぐらいの権限が必要になります。svnweb は <a href="http://svn.bulknews.net/svnweb/public/browse/bloglines2email/trunk/">こちら。</a></p>
+
+<blockquote><code>svn co svn://svn.bulknews.net/public/bloglines2email/trunk bloglines2email</code></blockquote>
+
+<ul>
+<li>perl 5.8.0</li>
+<li>WebService::Bloglines (0.06 以上)</li>
+<li>XML::LibXML, XML::RSS::LibXML</li>
+<li>YAML</li>
+<li>Template-Toolkit</li>
+<li>MIME::Lite</li>
+</ul>
+
+<p>といったモジュールが必要です。libxml がどうしても入らない、という場合は WebService::Bloglines 0.06 をいれて、XML::RSS と XML::XPath の組み合わせでも大丈夫なハズ。</p>
+
+<p>アーカイブをチェックアウトしたら bloglines2email と同一のディレクトリに bloglines2email.conf というファイルを作って Bloglines のユーザ名・パスワードやや Gmail のメールなどを設定します。.sample が置いてあるのでそれを参考にしてください。あとは bloglines2email スクリプトを cron で5分間隔ぐらいで仕込めばよいでしょう。</p>
+
+<p>bloglines2email スクリプトを起動すると Bloglines の未読がクリアされます。初回にテストでやってみたい場合は、--test オプションをつけて実行すれば未読を消しません。メールサーバの設定や、送られてくるメールのテンプレートはスクリプト内に書いてあるので、気に入らない人は適当にいじってくださいませ。ライセンスは Perl と同じです。</p>
+
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = 'Bloglines, Gmail';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at August 25, 2005 04:47 PM
+| <a href="http://blog.bulknews.net/mt/archives/001789.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/001789.html#comments">Comments (10)</a>
+
+| <a href="#trackbacks">TrackBack(7)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/001788.html\">&laquo; Podcasting Hacks</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/001790.html\">SVN レポジトリの公開 &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>最強にイイですね。これ。</p>
+
+<p>で、bloglines2email-0.01.tar.gz　には --test オプションが実装されてないような気がします。</p>
+
+<p>-my @updates = $bws->getitems(0, 1);<br />
++my @updates = $bws->getitems(0, $ARGV[0] && $ARGV[0] eq '--test' ? 0 : 1);</p>
+<span class="comments-post">Posted by: せきむら on August 25, 2005 09:16 PM</span>
+</div>
+<div class="comments-body">
+<p>あれ、Getopt::Long で拾ってるはずなんですが。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 26, 2005 01:42 AM</span>
+</div>
+<div class="comments-body">
+<p>このせいかわからないですが（昨日から個人メールも転送しはじめたので）、Gmail アカウントがLock Downされてしまいました。登録しているフィードがあまりにも多い人は、控えたほうがいいかもしれません。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 26, 2005 09:00 AM</span>
+</div>
+<div class="comments-body">
+<p>http://bulknews.typepad.com/photos/uncategorized/gmail.gif<br />
+こんなかんじ</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 26, 2005 09:01 AM</span>
+</div>
+<div class="comments-body">
+<p>失礼、微妙に古いもの(以下md5)をwgetしたみたいです。＞"--test"</p>
+
+<p>cb59873f64ce5542548c1f6c262a9c09  bloglines2email-0.01.tar.gz<br />
+</p>
+<span class="comments-post">Posted by: せきむら on August 26, 2005 11:02 AM</span>
+</div>
+<div class="comments-body">
+<p>こういうものはsvnで公開したほうがいいですね。。<br />
+public なSVNを準備するか。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 26, 2005 11:08 AM</span>
+</div>
+<div class="comments-body">
+<p>いい感じです。使い始めてみました。<br />
+自分はそんな登録件数多くないので、今のところlockはされてませんね。。</p>
+
+<p>動作が早くていいんだけど、まだこのIFに慣れてないので若干みづらし…。そのうち慣れると思いますが。</p>
+
+<p>いろいろ改造してみまつ。</p>
+<span class="comments-post">Posted by: <a href="http://clouder.jp/yoshiki/mt/" rel="nofollow">よしき</a> on August 26, 2005 12:17 PM</span>
+</div>
+<div class="comments-body">
+<p>svn にしてみました。<br />
+svn co svn://svn.bulknews.net/public/bloglines2email/trunk bloglines2email</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 26, 2005 01:45 PM</span>
+</div>
+<div class="comments-body">
+<p>1つのフィードの更新を1つのメールにまとめるオプションをつけました。asahi.com などのフィードで威力を発揮します。副作用として、メールのSubjectがFeedのtitleとなるので、conversationでまとめて読むことができます。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 31, 2005 07:36 AM</span>
+</div>
+<div class="comments-body">
+<p>MIME::Lite のデフォルトのDate:ヘッダはGmailが理解しないようなので、自前でRFC2822形式のDate:ヘッダをはくようにしました。<br />
+DateTimeおよびDateTime::Format::Mail モジュールが必要になります。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on August 31, 2005 10:18 AM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/1789</div>
+
+<div class="comments-body">
+<a name="4721"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/nirvash/20050826/1124991683" target="new" rel="nofollow nofollow">[LifeHack] GMail を RSS Reader にしよう</a><br />
+<b>Excerpt:</b>  Bloglines を Gmail で読む http://blog.bulknews.net/mt/archives/001789.html ほうほう、更新内容をメール通知してくれるものだったら応用できそうですね。ただ、だからといって del.icio.us とかがいらなくなるわけじゃないけど。しかし、メルマガとかが RSS 配信に切...<br />
+<b>Weblog:</b> nirvashの日記<br />
+<b>Tracked:</b> August 26, 2005 03:18 AM</span>
+</div>
+<div class="comments-body">
+<a name="4722"></a>
+<span class="comments-post"><a href="http://blog.feedcook.com/article.php?id=20" target="new" rel="nofollow nofollow">Bloglines と Gmail の連携</a><br />
+<b>Excerpt:</b> miyagawaさんがステキなHackを公開しています。
+
+Bloglines を Gmail で読むGmail as RSS reader で妄想していた、「Bloglines の未読を Gma...<br />
+<b>Weblog:</b> FeedCook Master's Weblog<br />
+<b>Tracked:</b> August 26, 2005 06:42 AM</span>
+</div>
+<div class="comments-body">
+<a name="4723"></a>
+<span class="comments-post"><a href="http://blog.feedcook.com/article.php?id=20" target="new" rel="nofollow nofollow">Bloglines と Gmail の連携</a><br />
+<b>Excerpt:</b> miyagawaさんがステキなHackを公開しています。
+
+Bloglines を Gmail で読むGmail as RSS reader で妄想していた、「Bloglines の未読を Gma...<br />
+<b>Weblog:</b> FeedCook Master's Weblog<br />
+<b>Tracked:</b> August 26, 2005 06:50 AM</span>
+</div>
+<div class="comments-body">
+<a name="4724"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/zorio/20050825/1124994267" target="new" rel="nofollow nofollow">Gmail������������</a><br />
+<b>Excerpt:</b>  アカウントの切り替え http://as-is.net/blog/archives/001035.html Languageを英語にすると設定できるタブが出てくるのがミソ。 すばらしく便利。  Bloglinesとの連携 http://blog.bulknews.net/mt/archives/001789.html 私の環境だと、CPANにMIME::Liteの追加も必要だ�...<br />
+<b>Weblog:</b> zorioの日記<br />
+<b>Tracked:</b> August 26, 2005 07:22 AM</span>
+</div>
+<div class="comments-body">
+<a name="4725"></a>
+<span class="comments-post"><a href="http://masayuki.boo.jp/mt3/archives/2005/08/gmail_1.html" target="new" rel="nofollow nofollow">Gmail������</a><br />
+<b>Excerpt:</b>  GMail関連記事、またとりあえずのメモですが。 Ogawa::Memoran...<br />
+<b>Weblog:</b> 紊���◑�����<br />
+<b>Tracked:</b> August 26, 2005 07:23 AM</span>
+</div>
+<div class="comments-body">
+<a name="4744"></a>
+<span class="comments-post"><a href="http://www.koshigoe.sakura.ne.jp/MT/archives/2005/09/post_27.html" target="new" rel="nofollow nofollow">フィードをメールで管理</a><br />
+<b>Excerpt:</b> フィードをメールで管理してみる。...<br />
+<b>Weblog:</b> KoshigoeBLOG<br />
+<b>Tracked:</b> September  1, 2005 02:02 AM</span>
+</div>
+<div class="comments-body">
+<a name="4774"></a>
+<span class="comments-post"><a href="http://www.koshigoe.sakura.ne.jp/MT/archives/2005/09/post_27.html" target="new" rel="nofollow nofollow">フィードをメールで管理</a><br />
+<b>Excerpt:</b> フィードをメールで管理してみる。...<br />
+<b>Weblog:</b> KoshigoeBLOG<br />
+<b>Tracked:</b> September  4, 2005 11:50 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="1789" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Shibuya.pm Tech Talks #4: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000470.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000469.html" title="半身浴" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000471.html" title="蝶野さん" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000470.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/470"
+    dc:title="Shibuya.pm Tech Talks #4"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000470.html"
+    dc:subject="perl"
+    dc:description="Shibuya.pm Tech Talks #4 が無事終了しました。 資料や他の方の感想はShibuya Perl Mongers : 1周年記念テクニカルトーク レビューリンク集と配布資料で見てもらうとして、私の個人的な感想などを書いていきます。..."
+    dc:creator="miyagawa"
+    dc:date="2003-10-19T23:26:24+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">October 19, 2003</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Shibuya.pm Tech Talks #4</h1>
+
+<p><a href="http://shibuya.pm.org/">Shibuya.pm</a> Tech Talks #4 が無事終了しました。</p>
+
+<p>資料や他の方の感想は<a title="Shibuya Perl Mongers : 1周年記念テクニカルトーク レビューリンク集と配布資料" href="http://shibuya.pm.org/blosxom/techtalks/techtalks_200310_slides_and_reviews.html">Shibuya Perl Mongers : 1周年記念テクニカルトーク レビューリンク集と配布資料</a>で見てもらうとして、私の個人的な感想などを書いていきます。</p>
+
+<a name="more"></a>
+<p>12:30 に会場入り。そうそう<a href="http://diary.godtomato.net/takefumi/2003/10/18.html#s02">木村君</a>に待ち合わせ場所を教えるの忘れてましたよ、ゴメンナサイ。</p>
+
+<p>会場でPCの準備や席の配置。休日利用ということで全員に入館許可証をくばる必要があるとか。ナカナカ大変ですな。</p>
+
+<p>途中で山手線がとまってるとの連絡をうけたので、入り口締切の時間を若干おくらせてみる。やはり場所がわかりにくかったので、次やるときはエレベータのぼったところに案内とか出すように交渉してみよう。</p>
+
+<p>まずは<a href="http://naoya.dyndns.org/">直也さん</a>の Blog と Web サービス。期待したとおり、すっきりと現状のテクノロジーについてまとめてもらい、いい感じでした。デモの pingbot (Weblogs.com Ping を受け取ってIRCに発言するボットをPOE でかく）は、すんなり動作しすぎてみんな唖然、って感じだったのかリアクションは少なめでしたな ;-) Weblog.com Ping を受け取るサーバは、<a href="http://blog.bulknews.net/cookbook/blosxom/pings/ping_to_hatena_poe.html">Blog Developer's Cookbook</a> でも扱ってますので参考にしてみてください。</p>
+
+<p>次は竹迫さんの mod_perl パフォーマンスチューニング。基本的にはウチの会社でも番組連動等で対応する際にやっているような構成だったが、<a href="http://www.apsis.ch/pound/">Pound</a> は初耳。かなり前々から欲しいとおもっていた機能を満たしているステキなソフトウェアですな。今度ためしてみよう。ただ質疑でもイヤらしい質問をしたのですが、あまりソフトでがんばりすぎると自分の首をしめてしまう環境も考えられるので ;-) その辺はほどほどに、と。</p>
+
+<p>次は自分の blosxom と SEO プレゼン。当日になってから作ったスライドの割にはうまくいったかもしれません ;-) SEO については実は根拠ナシで言っている箇所もありますので、あまりアテにしないでね。</p>
+
+<p>そして初の試み Lightning Talks。<a href="http://member.nifty.ne.jp/hippo2000/index.htm">川合さんのドラ</a> とストップウォッチをお借りしてスタートです。</p>
+
+<p>川合さんのVBネタはすごい。後半のGDでフォームを描画とか涙ぐましすぎですよ。</p>
+
+<p>小山さんは MS の CM みたいな BGMをもとに、Q&A形式でラジオのパーソナリティみたいな進行。そういえば準備中に携帯でなんかやってたなーと思い出しつつ。そのアイデアに脱帽です。</p>
+
+<p>木村君の位置情報ネタ。Livedoor Navigation は普通の人はしらないよ（笑） 変換用のCPANモジュール期待してます。</p>
+
+<p>CNET Japan編集長山岸さんのは、沿革に時間を使いすぎて本題に入る前に終了。ちゃんと練習しましょう（笑） ただネタ的に異色だったのでやりにくかったかもしれませんね、すいません。</p>
+
+<p>早川君の哲学的(?) Perl 論は面白かった。あらたに彼の語録に Perl インタプリタ = サイヤ人説が追加されましたな。まだ続きがあったみたいですが、それは飲み会で聞きました（後述）</p>
+
+<p>たつをさんの ChangeLog で Blog。ChangeLog メモは高林さんの UNIX Magazine の連載で見てつかっていますよー。public は Blog があるので、プライベートなパスワードとかをメモしてます。</p>
+
+<p>飯尾さんのFLOSS-JPサベイ。回答してみましたが、たしかにあれ選択肢が多少恣意的なものがあったように感じたかも。</p>
+
+<p>塚本さんのPDAネタ。PDA とか Palm とかって全然興味がなかったのですが、自分が書いたプログラムであーいったガジェットをカスタマイズできるのはステキかもしれませんね。今度 <a href="http://trickster.bulknews.net/">Trickster</a> を動かしてみてください＞塚本さん</p>
+
+<p>高林さんのネットピープルネタは笑いすぎて腹いたくなりました。</p>
+
+<p>こんな感じで終了。時間もちょっとオシただけで、つつがなくセミナーとしては終了し、満足度も高めのものになりました。技評のフォンさん、稲尾さん、いつも会計や受け付けをやってもらってる木村君、小山さんに感謝しつつ。いや私はスピーカーのブッキングしてるだけですから（笑）。テクノロジセミナーのブッカー業進出か？</p>
+
+<p>その後はちょっと時間があいてしまって飲み会。どうせ30分ぐらい押すだろうなと時間をあけてしまったんですよね。ちょっと失敗。</p>
+
+<p>飲み会は競合他社 I社のみなさんとWeb業界について、たつをさんとChangeLog やJavaScript Feed について話したり。参加は29名でした。</p>
+
+<p>また早川君のスライドのつづきは、サブルーチン宣言を空手家の宣言にみたてるものでした。偉大な空手家は、技の名前を宣言してからかけても、相手はそれをかわしきれないそうで、Perl のサブルーチンプロトタイプ宣言 (sub foo ($); だけの宣言、実体はあとで出たり、別ファイルだったりする） もそれに近いものがあると。彼は sub foo; などの宣言を見ると、「うぉおー 後でどんなすごいコードが出てくるんだ？」と武者奮いするそうな。うーん、さすが。</p>
+
+<p>18時から飲み始めたこともあって、おわってもまだ20時。ステキ。ってことで2次会へ。2次会も20人ぐらいいたなー。何も食い物たのまずひたすら飲んでますた。</p>
+
+<p>次は年内か年明けに、とおもいますが今回がイベントとして成功しすぎたので、参加者の期待の敷居が高くならないかイベンターとしては気になるこのごろです。</p>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at October 19, 2003 11:26 PM
+| <a href="http://blog.bulknews.net/mt/archives/000470.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000470.html#comments">Comments (2)</a>
+
+| <a href="#trackbacks">TrackBack(0)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000469.html\">&laquo; 半身浴</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000471.html\">蝶野さん &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>えーっと女子大生らしき人はいなかったと思いますが（笑）<br />
+それから取締役ではなく執行役員です。まあ何でもいいですが（笑）<br />
+また遊びにきてくださいねー。応募の方も、おまちしてます。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/mt/" rel="nofollow">miyagawa</a> on October 20, 2003 10:04 AM</span>
+</div>
+<div class="comments-body">
+<p>遠藤＠競合I社です。<br />
+shibuyaPMお疲れ様でした。<br />
+確かに宮川さんの活動かっこいい、と思う一人です。<br />
+我々も仕掛けねば。。。<br />
+また、よろしくお願いします。<br />
+レビュー後でまとめたいと思います。</p>
+<span class="comments-post">Posted by: <a href="http://hirokiendo.main.jp/" rel="nofollow">Hiroki Endo</a> on October 20, 2003 02:00 PM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/470</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="470" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="Perl, Blog, RSS, XML, Trackback" />
+    <link rel="stylesheet" type="text/css" href="/cookbook/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" />
+    <link rev="made"  href="mailto:miyagawa@bulknews.net" />
+    <title>Blog Developer's Cookbook : Trackback Tracer</title>
+  </head>
+  <body>
+    <div id="header">
+      <div id="banner">Blog Developer's Cookbook</div>
+      <span class="description">Cookbook About Programming Weblog Technologies</span>
+    </div><!-- end of "header" -->
+
+    <div id="menu">
+      <a href="http://blog.bulknews.net/cookbook/blosxom" title="Home">Home</a>
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10" title="RSS">RSS</a>
+    </div><!-- end of "menu" -->
+
+<div id="content">
+
+<div class="date">Fri, 05 Dec 2003</div>
+<div class="entry"><h1 class="title"><a name="tbtrace">Trackback Tracer</a></h1>
+
+<p />
+<a href="http://blog.bulknews.net/cookbook/kwiki/kwiki.cgi?Trackback">Trackback</a> は Blog のエントリ間のつながりを表現することができるプロトコルです。ある記事を起点にして Trackback Ping をたどれば、E-mail やニュースグループのスレッド表示のように、関連する記事を一覧でブラウズすることができます。今回は、起点となる URL から Trackback をたどっていく Web アプリケーション Trackback Tracer をつくってみます。
+
+
+<h2>Trackback Tracer</h2>
+
+Trackback をたどるアプリケーションは、<a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Trackback Auto-Discovery</a> と <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_rss.html">Trackback の RSS 出力</a> を組み合わせれば容易に実装できます。つまり、
+<ol>
+<li>起点となる URL から Trackback Ping URL を抽出</li>
+<li>Ping URL に <code>__mode=rss</code> を付加して RSS を取得</li>
+</ol>
+
+という流れで、起点の URL に対して Trackback Ping を送信したエントリ一覧が取得できます。
+
+<h2>サンプルコード</h2>
+
+CGI スクリプトとして動作する Trackback Tracer のコードは <a href="#listing-1">List 1</a> のようになります。
+
+<p />
+<pre class="scriptsSnippet">use CGI;
+use Net::TrackBack;
+use LWP::Simple;
+use URI;
+use XML::RSS;
+</pre>
+
+使用するモジュールを use します。もうおなじみのモノばかりですね。
+
+<p />
+<pre class="scriptsSnippet">my $q   = CGI-&gt;new();
+my $url = $q-&gt;param('url');
+my $rss = fetch_tb_rss($url) if $url;
+
+print_form($q);
+
+if ($rss &amp;&amp; ref($rss)) {
+    # if $rss is object, it's XML::RSS
+    show_rss($q, $rss);
+} elsif ($rss) {
+    # otherwise, it's error string
+    print &quot;Error: $rss&quot;;
+}
+</pre>
+
+ここがメインの処理になります。CGI パラメータの <code>url</code> を取得し、入力されていれば <code>fetch_tb_rss</code> で Trackback Ping URL から RSS を取得します。<code>print_form</code> では入力フォームを表示、レスポンスの <code>$rss</code> がオブジェクトであれば <code>show_rss</code> で Ping の中身を表示、そうでなければエラーを表示します。
+
+<p />
+<pre class="scriptsSnippet">sub print_form {
+    my $q = shift;
+    print $q-&gt;header('text/html; charset=utf-8'),
+        $q-&gt;h1(&quot;Trackback Tracer&quot;),
+        $q-&gt;start_form(-method =&gt; &quot;GET&quot;),
+        &quot;URL: &quot;, $q-&gt;textfield(-name =&gt; 'url', -size =&gt; 50),
+        $q-&gt;submit(-value =&gt; &quot;Trace&quot;), $q-&gt;end_form;
+}
+</pre>
+
+CGI.pm のフォーム生成機能で、HTML とフォーム部品を出力します。テンプレートを使用するのでもいいのですが、フォームの中身を Sticky<a href="#note-1">(*1)</a> にするには、CGI.pm のメソッドを使用するのが簡単です。
+
+<p />
+<pre class="scriptsSnippet">sub fetch_tb_rss {
+    my $url = shift;
+    my $p = Net::TrackBack-&gt;new();
+    my($ping_url) = $p-&gt;discover($url);
+    $ping_url or return &quot;Trackback Ping URL Not Found&quot;;
+
+    # strips weird &lt;response&gt; things
+    my $xml = get(&quot;$ping_url?__mode=rss&quot;);
+    $xml =~ s!&lt;response&gt;.*&lt;error&gt;.*&lt;/error&gt;!!s;
+    $xml =~ s!&lt;/response&gt;!!s;
+
+    # parse it with XML::RSS
+    my $rss = XML::RSS-&gt;new();
+    eval { $rss-&gt;parse($xml) };
+
+    return $@ ? &quot;$@&quot; : $rss;
+}
+</pre>
+
+<a href="http://search.cpan.org/search?m=module&q=Net%3a%3aTrackBack">Net::TrackBack</a> で Ping URL を Auto-Discovery します。見つからなかった場合には、文字列でエラーを返します。
+
+<p />
+次はちょっと汚いのですが、Trackback Ping の RSS モードについている、<code>response</code> や <code>error</code> というエレメントが、XML パースの邪魔になるため、除去しておき、その文字列 <code>$xml</code> を <a href="http://search.cpan.org/search?m=module&q=XML%3a%3aRSS">XML::RSS</a> に食わせます<a href="#note-2">(*2)</a>。エラーの場合はエラー文字、成功すれば XML::RSS オブジェクトを return します。
+
+<p />
+<pre class="scriptsSnippet">sub show_rss {
+    my($q, $rss) = @_;
+    if (@{$rss-&gt;items}) {
+        for my $item (@{$rss-&gt;items}) {
+            my $trace = URI-&gt;new($q-&gt;url);
+            $trace-&gt;query_form(url =&gt; $item-&gt;{link});
+            print $q-&gt;a({ -href =&gt; $item-&gt;{link} },
+                        $item-&gt;{title}), &quot;\n&quot;,
+                $q-&gt;a({ -href =&gt; $trace-&gt;as_string }, &quot;[trace]&quot;),
+                $q-&gt;blockquote($item-&gt;{description}), $q-&gt;br,
+        }
+    } else {
+        print &quot;No Trackback to this entry.&quot;;
+    }
+}
+</pre>
+
+RSS に item がある場合は、title, link, description を表示します。<code>$trace</code> には、この CGI の URL を入れた後、クエリパラメータ <code>url</code> に item の link をセットしています。この <code>$trace</code> にリンクを張れば、今度はこのアイテムを起点にして Ping をたどることができるようになります。
+
+
+<h2>Running the Hack</h2>
+
+このスクリプトを CGI 実行可能な環境に配置して、ブラウザからアクセスします。
+
+<img src="/cookbook/images/tbtrace/tbtrace1.gif" alt="tbtrace フォーム" class="inline-image" />
+
+このようなフォームが表示されるので、適当に Blog エントリの URL を入れましょう<a href="#note-3">(*3)</a>。ここでは、<a href="http://naoya.dyndns.org/~naoya/mt/archives/000718.html">Monday Module ひとり</a> というエントリの URL を入れてみました。実行結果は <a href="http://bulknews.net/tbtrace.cgi?url=http%3A%2F%2Fnaoya.dyndns.org%2F%7Enaoya%2Fmt%2Farchives%2F000718.html&amp;.submit=Trace">このように</a>なります。
+
+<img src="/cookbook/images/tbtrace/tbtrace2.gif" alt="tbtrace 実行結果" class="inline-image" />
+
+このエントリに Trackback Ping を送信したエントリのタイトルと概要 (excerpt) が表示されます。それぞれのタイトルの右には [trace] というリンクがあり、これをクリックすると、さらにそのエントリを起点にしてたどることができます。
+
+<h2>See Also</h2>
+<ul>
+<li><a href="http://holic.org/b2uvoyager.php">Trackback Voyager</a></li>
+<li><a href="http://hail2u.net/blog/blog/tbtrace.html">Trackback Tracer</a></li>
+</ul>
+
+いずれも今回紹介したスクリプトと同等の処理ができます。
+
+<h2>Listings</h2>
+
+<div class="scriptsListings"><a name="listing-1"><span class="scripsListingHeader">List 1: tbtrace.cgi</span></a>
+<pre class="scriptsListing">#!/usr/local/bin/perl -w
+# tbtrace.cgi - Trackback Tracer
+
+use strict;
+use CGI;
+use Net::TrackBack;
+use LWP::Simple;
+use URI;
+use XML::RSS;
+
+my $q   = CGI-&gt;new();
+my $url = $q-&gt;param('url');
+my $rss = fetch_tb_rss($url) if $url;
+
+print_form($q);
+
+if ($rss &amp;&amp; ref($rss)) {
+    # if $rss is object, it's XML::RSS
+    show_rss($q, $rss);
+} elsif ($rss) {
+    # otherwise, it's error string
+    print &quot;Error: $rss&quot;;
+}
+
+sub print_form {
+    my $q = shift;
+    print $q-&gt;header('text/html; charset=utf-8'),
+        $q-&gt;h1(&quot;Trackback Tracer&quot;),
+        $q-&gt;start_form(-method =&gt; &quot;GET&quot;),
+        &quot;URL: &quot;, $q-&gt;textfield(-name =&gt; 'url', -size =&gt; 50),
+        $q-&gt;submit(-value =&gt; &quot;Trace&quot;), $q-&gt;end_form;
+}
+
+sub fetch_tb_rss {
+    my $url = shift;
+    my $p = Net::TrackBack-&gt;new();
+    my($ping_url) = $p-&gt;discover($url);
+    $ping_url or return &quot;Trackback Ping URL Not Found&quot;;
+
+    # strips weird &lt;response&gt; things
+    my $xml = get(&quot;$ping_url?__mode=rss&quot;);
+    $xml =~ s!&lt;response&gt;.*&lt;error&gt;.*&lt;/error&gt;!!s;
+    $xml =~ s!&lt;/response&gt;!!s;
+
+    # parse it with XML::RSS
+    my $rss = XML::RSS-&gt;new();
+    eval { $rss-&gt;parse($xml) };
+
+    return $@ ? &quot;$@&quot; : $rss;
+}
+
+sub show_rss {
+    my($q, $rss) = @_;
+    if (@{$rss-&gt;items}) {
+        for my $item (@{$rss-&gt;items}) {
+            my $trace = URI-&gt;new($q-&gt;url);
+            $trace-&gt;query_form(url =&gt; $item-&gt;{link});
+            print $q-&gt;a({ -href =&gt; $item-&gt;{link} },
+                        $item-&gt;{title}), &quot;\n&quot;,
+                $q-&gt;a({ -href =&gt; $trace-&gt;as_string }, &quot;[trace]&quot;),
+                $q-&gt;blockquote($item-&gt;{description}), $q-&gt;br,
+        }
+    } else {
+        print &quot;No Trackback to this entry.&quot;;
+    }
+}
+</pre>
+</div>
+<div class="footnote"><a href="#note-1" name="note-1">*1)</a> フォームに入力された値を保持して再表示すること。エラー表示などに便利です。<br />
+<a href="#note-2" name="note-2">*2)</a> Hack 的なのでこの処理を CPAN モジュール化した方がよいかもしれませんね。<br />
+<a href="#note-3" name="note-3">*3)</a> Blog のホームではなく、エントリを入力してください。<br />
+</div>
+
+<p class="postinfo">posted at: <a title="permanent link to this entry" href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">03:54</a> by <a href="mailto:miyagawa@bulknews.net">miyagawa</a> | category: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback">Trackback Pings</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">permalink</a><br />
+<a href="http://blog.bulknews.net/cookbook/trackback/trackback_tbtrace?__mode=list" onclick="window.open(this.href, 'comments', 'width=640,height=480,scrollbars=yes,status=yes'); return false">Trackback (1)</a> | <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.print">Printer Friendly</a> | <a title="Email this blog link to your firends" href="mailto:?subject=Trackback%20Tracer&amp;body=http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html">Email this blog</a>
+</p>
+<!--
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+    <rdf:Description
+      rdf:about="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html"
+      trackback:ping="http://blog.bulknews.net/cookbook/trackback/trackback_tbtrace"
+      dc:title="Trackback Tracer"
+      dc:identifier="http://blog.bulknews.net/cookbook/blosxom/trackback/tbtrace.html" />
+  </rdf:RDF>
+-->
+</div>
+
+<div class="prevnext">Prev: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_send.html">Trackback Ping を送信する</a><br />Next: <a href="http://blog.bulknews.net/cookbook/blosxom/trackback/tb_discovery.html">Trackback Auto Discovery</a></div>
+</div><!-- id="content" -->
+
+    <div id="modules">
+      <div class="module">
+        <h4 class="module">About This Blog</h4>
+        <div class="modulebody">Weblog まわりのテクノロジーをネタにして、プログラミングテクニックを Cookbook 形式で紹介しています。</div>
+      </div>
+
+      <div class="module">
+        <h4 class="module">Site Search</h4>
+        <div class="modulebody"><!-- Search Google -->
+<form method="get" action="http://www.google.co.jp/custom" class="modulebody">
+<input name="q" type="text" size="16" maxlength="255" />
+<input type="submit" name="sa" value="Google" />
+<input type="hidden" name="domains" value="blog.bulknews.net/cookbook" />
+<input type="hidden" name="cof" value="AWFID:FSjae0e0ce7fb7135b3b;GALT:#336699;LC:#0000aa;AH:left;VLC:#000088;GL:0;S:http://blog.bulknews.net/cookbook/;" />
+<br />
+<input type="radio" name="sitesearch" value="" />WWW 
+<input type="radio" name="sitesearch" value="blog.bulknews.net/cookbook" checked="checked" />This Site
+</form>
+<!-- Search Google -->
+</div>
+        <div class="modulebody"><a href="http://blog.bulknews.net/cookbook/blosxom/index.archives">Archive of All Entries</a></div>
+      </div>
+
+      <!-- div class="module">
+       <h4 class="module">Recent referers</h4>
+       <div class="modulebody"><script language="JavaScript" src="/cookbook/js/referer.js"></script></div>
+      </div -->
+
+
+      <div class="module">
+<div class="modulebody">
+      <a href="http://blog.bulknews.net/cookbook/blosxom/index.rss10">Syndicate this site (XML)</a>
+</div>
+      </div>
+
+      <div class="module">
+       <p class="copyright">&copy;2003- <a href="mailto:miyagawa@bulknews.net">Tatsuhiko Miyagawa</a>. Japan. All rights reserved.</p>
+      </div>
+
+      </div><!-- end of "modules" -->
+
+
+</body>
+</html>

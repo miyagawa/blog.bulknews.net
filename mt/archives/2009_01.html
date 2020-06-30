@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
+<title>blog.bulknews.net: January 2009 Archives</title>
+
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/2008_12.html" title="December 2008" />
+
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/2009_02.html" title="February 2009" />
+
+
+<script language="javascript" type="text/javascript">
+function OpenComments (c) {
+    window.open(c,
+                    'comments',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+</script>
+
+</head>
+
+<body>	
+
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+<span class="description">Blogging, RSS Feeds, Perl, Music, Football, Audio & Visual etc.</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2009_01.html#002238"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2154"
+    dc:title="学校では教えてくれないエンジニアリング英語 #6: red herring"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2009_01.html#002238"
+    dc:subject=""
+    dc:description="何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。 Red herring あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。 そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。 &quot;Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was..."
+    dc:creator="miyagawa"
+    dc:date="2009-01-30T05:37:25+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">January 30, 2009</h2>
+
+
+<div class="blogbody">
+<a name="002238"></a>
+<h3 class="title">学校では教えてくれないエンジニアリング英語 #6: red herring</h3>
+
+<p>何もなかったようにしれっと２年ぶりにシリーズ更新してみるテスト。</p>
+
+<h3>Red herring</h3>
+
+<p>あるアプリケーションがエラーを起こしたとき、ユーザの期待通りに動いていないときなど、エラーログなどをあさってその原因がどこにあるかを突き止めようとします。コードが期待通りに動いていない訳ですから、なにか想定していない入力があったり、テスト環境ではインストールされていたライブラリがプロダクションでは入っていなかった、バージョンが違った、などといったことが原因として考えられますね。</p>
+
+<p>そんな中、そのエラーと実は関係ないのだけど、同一のタイムラインで起こっているよう（にみえる）エラーがみつかると「これが原因なんじゃないか？」と疑わせてしまいます。とくにソフトウェアエンジニアとネットワークオペレーションのエンジニアがそれぞれ分担しているようなケースでは、こんな会話がなされるかもしれません。</p>
+
+<p>"Re: the widget not-showing-up issue, I found that in our server log that ImageMagick was giving an OOM (out of memory) error. It looks like we recently updated Image Magick on our development instances but didn't on production. Shall we upgrade?"</p>
+
+<p>(ウィジェットがうまく表示されない件なんだけど、サーバログに ImageMagick の Out of Memory がたくさん出ていたよ。どうも開発環境では ImageMagick をアップグレードしているんだがプロダクションではまだみたいだ。アップグレードすればなおるのかな？)</p>
+
+<p>"That ImageMagick thing is <strong>a red herring</strong>. What's happening here is: when the widget definition XML file causes a parser error, we redirect the user to our Oops error page, which includes a beacon image that's automatically generated based on their geo location, and that is causing ImageMagick OOM. So, what we should fix is the widget XML file syntax error, not ImageMagick"</p>
+
+<p>(そのImageMagick エラーは Red Herring だね。これ、実はウィジェットのXMLファイルがパーサーエラーを起こしていて、それでエラー画面にリダイレクトするときにエラー画面のHTMLにある画像が動的に生成されていてそれがImageMagick のOOMを起こすことがあるみたいだ。だからwidget のXMLファイルの文法エラーをなおすべきで、ImageMagickは直接関係ないよ)</p>
+
+<p>いい直接の訳が思い浮かびませんが、「関係ないのに紛らわしいもの」というぐらいの意味で、Wikipedia には <a href="http://en.wikipedia.org/wiki/Red_herring_(narrative)">ドラマ脚本やサスペンスで読者の気を引いてだますための余計なエピソード</a> という意味も紹介されていますね。</p>
+
+<p>以下、実際に僕のメールボックスから:</p>
+
+<p>typepad.log on our stage doesn't show any errors similar to what Chris saw around the time of his emails.. i.e. yesterday at 9:00pm.. it does show some apache restarts at that time, which would correspond to some redirect changes I was testing.  But he said this morning that it's consistent.. so those log messages are probably <strong>a red herring</strong>.</p>
+
+<p>Categories are a bit weird: only one category is displaying ("Current Affairs"). That sounds similar to what's happening in XXX, *but* I have no idea how YYY is even getting that list of categories, so that may be <strong>a red herring</strong>.</p>
+
+<p>調査段階で red herring かどうかもわからない（けど、おそらく関係ないエラーだろうとおもう）時には、probably や may be とつけていうのが便利ですね。</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002238.html">05:37 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002238.html#comments">Comments (6)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002238.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/2009_01.html#002237"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/2153"
+    dc:title="ガキの使いと電波少年がHulu.comに"
+    dc:identifier="http://blog.bulknews.net/mt/archives/2009_01.html#002237"
+    dc:subject=""
+    dc:description="ガキの使いの古いエピソード（山崎モリマンと２４時間鬼ごっこ）、それに電波少年が Hulu.com で見られるようになってました。（他にも日本テレビ系のバラエティあるのかな？みつけたら教えてください） value=&quot;http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA&quot;&gt; 英語字幕がついていて、見たくない人（つまり在米の日本人）はオフにできる soft sub な親切設計。 例によって remedie でみるとこんなかんじ。 どうも１ヶ月くらい前からこっそりはじまっていたみたいですが、プレスリリースもなんもでていないし、よほど知られたくないんですかね（笑）。日本からは例によって視聴地域制限でみれないみたいだし。第２日本テレビでみれたりするのかなあ。 Thanks to @sekimura...."
+    dc:creator="miyagawa"
+    dc:date="2009-01-09T03:54:13+09:00" />
+</rdf:RDF>
+-->
+
+
+
+<h2 class="date">January 09, 2009</h2>
+
+
+<div class="blogbody">
+<a name="002237"></a>
+<h3 class="title">ガキの使いと電波少年がHulu.comに</h3>
+
+<p><a href="http://www.hulu.com/gaki">ガキの使い</a>の古いエピソード（山崎モリマンと２４時間鬼ごっこ）、それに<a href="http://www.hulu.com/denpa-shonen">電波少年</a>が Hulu.com で見られるようになってました。（他にも日本テレビ系のバラエティあるのかな？みつけたら教えてください）</p>
+
+<p><object width="512" height="296"><param name="movie" <br />
+value="http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.hulu.com/embed/d3DXFG6vpyO7T6qKyBcqqA" type="application/x-shockwave-flash" allowFullScreen="true"  width="512" height="296"></embed></object></p>
+
+<p>英語字幕がついていて、見たくない人（つまり在米の日本人）はオフにできる soft sub な親切設計。</p>
+
+<p>例によって remedie でみるとこんなかんじ。</p>
+
+<p><img src="http://gyazo.com/3820e8fb7b4825f15254337bf60b0310.png" width="500" /></p>
+
+<p>どうも１ヶ月くらい前からこっそりはじまっていたみたいですが、プレスリリースもなんもでていないし、よほど知られたくないんですかね（笑）。日本からは例によって視聴地域制限でみれないみたいだし。第２日本テレビでみれたりするのかなあ。</p>
+
+<p>Thanks to <a href="http://twitter.com/sekimura">@sekimura</a>.</p>
+
+
+
+<div class="posted">
+	Posted by miyagawa at <a href="http://blog.bulknews.net/mt/archives/002237.html">03:54 AM</a>
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002237.html#comments">Comments (6)</a>
+	
+	
+	| <a href="http://blog.bulknews.net/mt/archives/002237.html#trackbacks">TrackBack (0)</a>
+	
+</div>
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+</body>
+</html>

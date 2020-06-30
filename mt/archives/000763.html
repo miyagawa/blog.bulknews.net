@@ -1,0 +1,1826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Bulkfeeds: Similarity Search リリース: blog.bulknews.net</title>
+<script src="http://feeds.feedburner.com/~s/bulknews?i=http://blog.bulknews.net/mt/archives/000763.html" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="http://blog.bulknews.net/mt/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.bulknews.net/mt/index.rdf" />
+<link rel="start" href="http://blog.bulknews.net/mt/" title="Home" />
+<link rel="prev" href="http://blog.bulknews.net/mt/archives/000761.html" title="Bulkfeeds: Excite ブログ、BLOCKBLOG からアグリゲート開始" />
+
+<link rel="next" href="http://blog.bulknews.net/mt/archives/000764.html" title="Plucene = Perl port of Lucene" />
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-52226-1";
+urchinTracker();
+</script>
+
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://blog.bulknews.net/mt/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="miyagawa">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'blog.bulknews.net';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://blog.bulknews.net/mt/archives/000763.html"
+    trackback:ping="http://blog.bulknews.net/mt3/mt-tb.cgi/763"
+    dc:title="Bulkfeeds: Similarity Search リリース"
+    dc:identifier="http://blog.bulknews.net/mt/archives/000763.html"
+    dc:subject="bulkfeeds"
+    dc:description="blosxom 用プラグインのリンクを追加しました。"
+    dc:creator="miyagawa"
+    dc:date="2004-02-03T01:00:46+09:00" />
+</rdf:RDF>
+-->
+
+
+</head>
+
+<body>
+<div id="banner">
+<h1><a href="http://blog.bulknews.net/mt/" accesskey="1">blog.bulknews.net</a></h1>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<h2 class="date">February 03, 2004</h2>
+
+<!-- google_ad_section_start -->
+<div class="blogbody">
+
+<h1 class="title">Bulkfeeds: Similarity Search リリース</h1>
+
+<a title="Bulkfeeds: Similarity Search - RSS Directory & Search" href="http://bulkfeeds.net/app/similar">Bulkfeeds: Similarity Search - RSS Directory & Search</a>
+<blockquote>Permalink から、特徴的単語を持つ似たエントリを検索します。</blockquote>
+
+<p>Bulkfeeds で「似たBlog記事を検索」する Similarity Search をリリースしました。</p>
+
+<a name="more"></a>
+<h3>What's this?</h3>
+
+<p>わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエントリが検索できます。また、Blog ツールの permalink (Individual Entries) に javascript を使って関連記事の見出しを埋め込むこともできます（「くっつきおとなり Blog」みたいなもの）。</p>
+
+<h3>検索</h3>
+
+<p><a href="http://bulkfeeds.net/app/similar">Similarity Search</a> に permalink の URL をいれれば、類似記事が検索できます。</p>
+
+<h3>Bookmarklet</h3>
+<p>
+<a href="http://bulkfeeds.net/app/similar">Similarity Search</a> のページに Bookmarklet がおいてあります。これはブラウズ中のページの URL を /app/similar のクエリに付加するものです。 URL をわざわざ入力する手間がはぶけて便利かと。</p>
+
+<h3>Similarity Feed (Blog ツールの Permalink に埋め込む)</h3>
+
+<p>
+Blog のエントリ Permalink に javascript をつかって、関連記事を埋め込むことができます。Movable Type の場合を例にすると、以下のようなコードを Individual Entries のテンプレートの好きな箇所に埋め込むと、関連記事一覧を出力できます。</p>
+
+<pre class="code">
+&lt;script language="JavaScript"&gt;
+var url ='&lt;$MTEntryPermalink$&gt;';
+var n = 10;
+var oe = 'euc-jp';
+var style = 'mt-comments'; // or 'lite'
+document.write('&lt;scr' + 'ipt language="JavaScript" src="http://bulkfeeds.net/app/similar.js?url=' + escape(url) 
++ '&amp;amp;n=' + n + '&amp;amp;style=' + style 
++ '&amp;amp;oe=' + oe + '"&gt;&lt;/scr' + 'ipt&gt;');
+&lt;/script&gt;
+</pre>
+
+<p>上級者な人は、もっとカンタンに</p>
+<pre class="code">
+&lt;script language="JavaScript" src="http://bulkfeeds.net/app/similar.js?url=&lt;$MTEntryPermalink encode_url=&quot;1&quot;$&gt;&amp;amp;n=5&amp;amp;style=lite&amp;amp;oe=euc-jp&amp;amp;noheader=1"&gt;&lt;/script&gt;
+</pre>
+
+<p>でもよいでしょう。</p>
+
+<p>パラメータの意味は以下のとおり</p>
+
+<ul>
+<li>url - Permalink の URL です。この例ではMT のタグを使用していますが、テンプレートがいじれない Blog ツールなどの場合は、javascript の document.location.href を使用する手もあります（その場合アクセス方法によってはうまく表示されない可能性があります）。</li>
+<li>n - 最大何件表示するかをきめます。デフォルトは 10です</li>
+<li>oe - 出力文字コードをきめます。デフォルトは utf-8</li>
+<li>style - 出力HTMLテンプレートスタイルを設定します。現状サポートされているのは lite (タイトルのみ) と mt-comments (本文先頭255bytes つき。MT の comments とほぼ同様の Stylesheet が使えます) になります。</li>
+<li>noheader - style=lite のみ有効。bulkfeedSimilarityHeader セクションを出さず、bulkfeedsSimilarityFooter に powered by Bulkfeeds を表示します。独自にブロックなどで埋め込む人はこちらがオススメ。</li>
+<li>target - リンク先の target を指定します。省略可</li>
+</ul>
+
+<p>style=lite, style=mt-comments とも div で class 指定を埋め込んでいます。サンプルのスタイルシートを <a href="http://bulknews.net/js.html">Demo Page</a> におきましたので、ソースを参照してみてください。</p>
+
+<p>また <a href="http://www.blosxom.com/">blosxom</a> の場合に permalink に埋め込む用の plugin を <a href="http://hail2u.net/blog/rss/bulkfeeds_similarity_search.html">hail2u の kyo さんが作ってくれました</a>。</p>
+
+<p>
+tDiary などの段落アンカー系ツールでは、1つの日付単位がHTML になるので、複数記事があった場合に js が複数となり Bulkfeeds 側の負荷が高くなってしまいます。この解決方法は、js をつかって1つの script で埋め込めるような仕様を現在検討しています。</p>
+
+<h3>Blog ツールの Permalink からリンクする</h3>
+
+<p>javascript で埋め込まず、リンクだけしたい場合には、単純に以下のようにすればOK
+です。</p>
+
+<pre class="code">
+&lt;a href="http://bulkfeeds.net/app/similar?url=&lt;$MTEntryPermalink encode_url="1"$&gt;"&gt;Bulkfeeds で関連記事検索&lt;/a&gt;
+</pre>
+
+<h3>技術的解説</h3>
+
+<p>Permalink の形態素解析は、Bulkfeeds の全文検索インデクス作成と同時に行っていますので、Bulkfeeds で巡回していないサイトは検索対象外です。また、インデクス作成が追いついてない場合（最大で1時間くらい）、検索対象外となります。時間がたてば検索できるようになるはずです。</p>
+
+<p>また Similarity Feed (埋め込み用 js）の生成は、初回アクセスのみ動的に行い、2回目以降はキャッシュから吐き出すようにしています(ので初回だけは出力が遅くなる場合があります）。以後サーバ側でキャッシュは定期的に最新に保たれますが、結果を強制的に最新にしたい場合は強制リロード (WinIE なら Ctrl+F5) を使用してみてください。</p>
+
+<p>どの単語がそのエントリの特徴語に選ばれたかは、Bulkfeeds の Similarity Search 画面に表示されます。特徴語は、Bulkfeeds の直近 100,000 エントリから idf を作成（1日1回のバッチ）して、エントリの単語の tf の平方根（正規化）とかけあわせ (tf*idf)、上位4語を抜き出して適当にペアをつくって検索しています。分かち書きに kakasi を使用しているため、おかしなところできれることがありますが、実験した限りでは MeCab などよりよい精度を示したため kakasi にしました。</p>
+
+<h3>ベータ版について</h3>
+
+<p>
+ベータ版なので、出力されるHTMLなどが随時変更になる可能性があります。
+その辺はご容赦を。逆にこうしてほしいといった要望があれば（作者にやる気がある）今がチャンスです。</p>
+
+<h3>Updates</h3>
+
+<h4>2004.02.03: 検索結果の改善</h4>
+
+<a href="http://kengo.preston-net.com/archives/001144.shtml">Going My Way: Bulkfeeds の新機能Similarity Search</a>
+<blockquote>
+検索後の表示画面で「特徴的単語」という部分にもBulkfeedsで検索した単語にリンクを張るようにしたらどうでしょう？</blockquote> 
+
+<p>
+てなわけなので対応しました。<a href="http://bulkfeeds.net/app/similar?url=http%3A//blog.bulknews.net/mt/archives/000763.html">こんな感じ</a> 抽出したキーワード1個1個に検索結果のリンクがつくようになります。</p>
+
+<h4>2004.02.03: javascript の Content-Type 修正</h4>
+
+<p><a href="http://kengo.preston-net.com/archives/001146.shtml">Bulkfeeds Similarity Search用Javascriptをちょっと変更(utf-8以外のサイト用)</a></p>
+
+<blockquote>
+BulkfeedsのSimilarity Search設定用のjavascriptの方法だとShift_JISのサイトでの表示にIEだと表示されていたがFirebirdだとちょっと文字化けしてしまったのでcharasetでの強引な表示にしたところIEでもFirebirdでも文字化けなしで設定できたのでこれにする。</blockquote>
+
+<p>これは oe パラメータをいれても Content-Type が charset=utf-8 なままのせいだと思います。script タグで charset をいれてもらえばとりあえず対策になりますが、サーバ側で oe パラメータによってきちんと charset を変更するようにしました。</p>
+
+<h4>2004.02.03: 新パラメータ noheader</h4>
+
+<p>similar.js にパラメータ noheader を追加しました。style=lite の場合に bulkfeedsSimilarityHeader を出力せず、代わりに bulkfeedsSimilarityFooter というセクションで "powered by Bulkfeeds" というリンク文字列をフッタ表示します。独自にブロックなどつくって入れている方はこちらの方が便利かもしれません。<a href="http://bulknews.net/js.html">Demo Page</a> にも UP してますので参考まで。</p>
+
+<h4>2004.02.03: blosxom 用プラグイン</h4>
+
+<p><a href="http://hail2u.net/blog/">hail2u.net</a> で公開されている <a href="http://hail2u.net/blog/rss/bulkfeeds_similarity_search.html">blosxom 用プラグイン</a> にリンクしました。</p>
+
+<h4>2004.02.04: 変数名修正</h4>
+
+<p>上級者用の javascript に記述していたパラメータ num を n に修正しました。</p>
+
+<h4>2004.02.04: ダイアリー系ツールについて</h4>
+
+<p>tDiary などの段落アンカーによる Blog ツールでの対応について追記しました。（現状ではサポート、推奨していません）</p>
+
+<h4>2004.02.16: target パラメータ</h4>
+
+<p>出力するHTMLのリンク target を指定するパラメータを新設しました。</p>
+<!-- google_ad_section_end -->
+
+<div style="margin-left: 2em; padding:1em">
+<script type="text/javascript"><!--
+function getRandom(array) {
+  var idx = Math.round(Math.random() * array.length);
+  if (idx >= array.length) idx = 0;
+  return array[idx];
+}
+
+var alt;
+var kw = '';
+if (kw == '') {
+//  alt = ; // from Bulkfeeds API
+  alt = [ '' ];
+} else {
+  alt = kw.split(/, */);
+}    
+if (alt.length > 0) {
+  alt = [ alt[0], alt[0], alt[0], alt[1], alt[1], alt[2] ];
+}
+google_ad_client = "pub-0854756127426271";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "666666";
+google_color_url = "000000";
+google_color_text = "000000";
+google_ad_channel ="2602048679";
+if (alt.length > 0) {
+  var q;
+  while (q == undefined) {
+    q = getRandom(alt);
+  }
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi?q="+escape(q);
+} else {
+  google_alternate_ad_url = "http://blog.bulknews.net/adsense_alt.cgi";
+}
+
+// AWS only
+// document.write('<iframe width="' + google_ad_width + '" height="' + google_ad_height + '" frameborder="0" src="' + google_alternate_ad_url + '" marginwidth=0 marginheight=0 vspace=0 hspace=0 allowtransparency="true" + scrolling="no"></iframe>');
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<span class="posted">Posted by miyagawa at February  3, 2004 01:00 AM
+| <a href="http://blog.bulknews.net/mt/archives/000763.html">Permalink</a>
+| <a href="http://blog.bulknews.net/mt/archives/000763.html#comments">Comments (18)</a>
+
+| <a href="#trackbacks">TrackBack(176)</a>
+
+<br /></span>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.write("<div class=\"menu\">\n<a href=\"http://blog.bulknews.net/mt/archives/000761.html\">&laquo; Bulkfeeds: Excite ブログ、BLOCKBLOG からアグリゲート開始</a> |\n\n<a href=\"http://blog.bulknews.net/mt/\">Main</a>\n| <a href=\"http://blog.bulknews.net/mt/archives/000764.html\">Plucene = Perl port of Lucene &raquo;</a>\n\n</div>\n");
+//-->
+</script>
+</div>
+
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>変数名 num となっていたのを n に修正しました。<br />
+上級者向けのとこをコピペした方は修正おねがいします。すいません。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  4, 2004 03:24 AM</span>
+</div>
+<div class="comments-body">
+<p>またまた script の上級者用にバグがありました。<br />
+MTPermalink の encode_url=1 とあるのは encode_url="1" です。クォートが必要です。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  5, 2004 02:31 AM</span>
+</div>
+<div class="comments-body">
+<p>js ファイルはどのように生成されているか、負荷はどの程度かについての解説を追加しました。</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  6, 2004 11:50 AM</span>
+</div>
+<div class="comments-body">
+<p>はじめまして。とても便利な機能なので試しに導入させていただきました。<br />
+HTMLの仕様としては推奨されていないようですが、.jsで出力されるaタグ内のtarget属性を指定できるようにできないでしょうか。<br />
+別ウインドウで開くようにしたいということです。<br />
+ぜひご検討をお願いします。</p>
+<span class="comments-post">Posted by: <a href="http://openscrap.net/oto/" rel="nofollow">cab</a> on February  7, 2004 12:44 AM</span>
+</div>
+<div class="comments-body">
+<p>cabさん<br />
+なるほどフレームとか使ってる場合はもんだいになるかもしれませんね。検討します。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  7, 2004 05:04 AM</span>
+</div>
+<div class="comments-body">
+<p>結城です。試しにhttp://www.textfile.org/のエントリにSimilarity Searchを導入してみました。かっこいいですね。でも、Bulkfeedsへの負荷は大丈夫なのでしょうか…。</p>
+<span class="comments-post">Posted by: <a href="http://www.textfile.org/" rel="nofollow">結城浩</a> on February  8, 2004 12:05 AM</span>
+</div>
+<div class="comments-body">
+<p>結城さん<br />
+導入どうもです。<br />
+動的生成は1回目だけなので負荷的にはまだ大丈夫だとおもいます。<br />
+やばくなったら会社に頼りますか ;-)</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  8, 2004 01:25 AM</span>
+</div>
+<div class="comments-body">
+<p>のらさん<br />
+たぶんキャッシュのせいですねえ。<br />
+js は負荷下げるために3時間ぐらいDBみないでそのまま吐いてるんすよ。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://blog.bulknews.net/" rel="nofollow">miyagawa</a> on February  8, 2004 02:23 AM</span>
+</div>
+<div class="comments-body">
+<p>cabさんと同じく、link targetを指定できるようにして頂けると助かります。</p>
+<span class="comments-post">Posted by: <a href="http://lp5.hippy.jp/japlog/" rel="nofollow">I'kyu</a> on February 16, 2004 01:17 PM</span>
+</div>
+<div class="comments-body">
+<p>初めまして。自分のblogに導入させていただきました。記事を書くのが楽しくなりそうです。感謝。 </p>
+<span class="comments-post">Posted by: <a href="http://blog.livedoor.jp/tranquillity/archives/154739.html" rel="nofollow">tranquillity</a> on February 24, 2004 09:00 PM</span>
+</div>
+<div class="comments-body">
+<p>target属性指定に対応して頂いてたんですね。ありがとうございます。<br />
+早速対応させました。<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://openscrap.net/oto/" rel="nofollow">cab</a> on March  1, 2004 01:47 AM</span>
+</div>
+<div class="comments-body">
+<p>あらら、Trackbackが重複してしまいました。スイマセン。<br />
+ところで、jsで吐き出しているのですが、Sort byの指定ができるとウレシイです。ぜひご検討を。</p>
+<span class="comments-post">Posted by: <a href="http://blog.s32.xrea.com/" rel="nofollow">kawai</a> on March 11, 2004 04:48 PM</span>
+</div>
+<div class="comments-body">
+<p>はじめまして。<br />
+Similarity Searchを使わせていただきました。<br />
+負荷になるようならやめます、大丈夫でしょうか？</p>
+<span class="comments-post">Posted by: <a href="http://mrf.jugem.cc/" rel="nofollow">ゆう</a> on March 20, 2004 04:21 PM</span>
+</div>
+<div class="comments-body">
+<p>learning...<br />
+</p>
+<span class="comments-post">Posted by: <a href="http://www.saturn.ne.jp" rel="nofollow">bishop</a> on April 10, 2004 12:30 AM</span>
+</div>
+<div class="comments-body">
+<p>Similarity Searchの「形態素解析の結果で得られる特徴的単語」を取得するようなインタフェースって検討されてませんでしょうか？</p>
+
+<p>例えば、それがJavaScriptで取ってこれれば、GoogleのWebSearchの検索ボックスにその「特徴的単語」を突っ込ませたりできないかなーと思ったもので…。これがあれば、そのエントリ見ている人が、Similarity Searchが挙げてくれる他の類似エントリ以外に、簡単にGoogleの検索結果に飛べるんじゃないかなーと思ったもので…(検索ボックスから余分な単語を削ったりする必要はありますけど)。</p>
+<span class="comments-post">Posted by: <a href="http://mya.blogdns.org/" rel="nofollow">mya</a> on June 21, 2004 07:55 PM</span>
+</div>
+<div class="comments-body">
+<p>Similarity Search ですが、コレってblogのエントリ自体のタイトルって見てないのでしょうか?<br />
+先日ウチのblogからも利用させて頂くようにしてみたのですが、どうもエントリ内の本文だけを見ているような感じで、検索結果が妙にトンチンカンになってしまいます。<br />
+例えばFirefoxのweb検索枠についてのエントリを上げたのですが、<br />
+http://n-yoshi.jugem.jp/?eid=477<br />
+本文中には「Firefox」という文言が一度しか出てこないため頻出する「枠」という文言が特徴としてとらえられ、結果、プロ野球のドラフト関連エントリ(ドラフト「枠」)が引っかかってきてしまいます。</p>
+
+<p>似たような不具合はあちこちの検索システムで見受けられると思いますが、ココで一番最初に見て欲しいのはまずタイトルであり、その次に本文中の文言でタイトルと同じ文言があればソレをより重み付けされた特徴として、最後に本文を浚って特徴の絞り込み、と云う感じにする必要があるのではないか、と。</p>
+
+<p>と云うことで、特徴判断のアルゴリズムについて、再考願います。<br />
+(なんてー要望、ココに書いて良いのかな?)</p>
+<span class="comments-post">Posted by: <a href="http://n-yoshi.jugem.jp/" rel="nofollow">n-yoshi</a> on November 26, 2004 05:04 AM</span>
+</div>
+<div class="comments-body">
+<p>>document.location.href を使用する手もあります（その場合アクセス方法によってはうまく表示されない可能性があります）。</p>
+
+<p>ということで、<br />
+location.hrefを使った場合のバージョンを作ってみました。<br />
+一応、#以降を取り除く処理をしてるので、大体の場合は大丈夫かと思います。</p>
+
+<p>http://blog.livedoor.jp/walf443/archives/11218160.html</p>
+<span class="comments-post">Posted by: <a href="http://blog.livedoor.jp/walf443/" rel="nofollow">ヴァルフ</a> on December 26, 2004 12:19 AM</span>
+</div>
+<div class="comments-body">
+<p>bulkfeedsをいつも利用させて頂いています。<br />
+技術的解説の項目を読んでいて、一つ疑問に思った点があります。<br />
+MeCabなどよりkakasiの方がよい精度を示したので、分かち書きにkakasiを採用したそうですが、具体的にどのような点がkakasiの方がよかったのでしょうか？<br />
+もしよろしければ、お答え頂けると幸いです。</p>
+<span class="comments-post">Posted by: シバサキ on November 22, 2005 10:34 AM</span>
+</div>
+
+
+<div class="comments-head"><a name="trackbacks">Trackbacks</a></div>
+
+<div class="trackback-url">TrackBack URL for this entry: http://blog.bulknews.net/mt3/mt-tb.cgi/763</div>
+
+<div class="comments-body">
+<a name="452"></a>
+<span class="comments-post"><a href="http://www.tarosite.net/blog/archives/002427.html" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Searchリリース！</a><br />
+<b>Excerpt:</b> 　1月31日に「 Bulkfeedsサーチではてなダイアリーのキーワードみたいに…できないか。」と書いていて、ひたすらキーワードにbulkfeeds検索へのリンクを作ってみて楽しんでいたのですが、上のエントリーにmiyagawaサンからtrackbackを頂いた。手作業でやらなくても、その�...<br />
+<b>Weblog:</b> tarosite.net&#8482<br />
+<b>Tracked:</b> February  3, 2004 02:20 AM</span>
+</div>
+<div class="comments-body">
+<a name="453"></a>
+<span class="comments-post"><a href="http://tiger.air-nifty.com/tigers_logs/2004/02/bulkfeeds_simil.html" target="new" rel="nofollow nofollow">[Bulkfeeds] Similarity Search、登場</a><br />
+<b>Excerpt:</b> 「Bookmarklet: Bulkfeedsで似た記事を検索 v0.9」もあります。 Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で<br />
+<b>Weblog:</b> あそびをせんとやうまれけむ<br />
+<b>Tracked:</b> February  3, 2004 03:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="454"></a>
+<span class="comments-post"><a href="http://5net.com/blog/archives/000244.html" target="new" rel="nofollow nofollow">関連記事を検索する Similar Search powered by Bulkfeeds</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエントリが検索できます。 まずショック。同じようなも...<br />
+<b>Weblog:</b> klog<br />
+<b>Tracked:</b> February  3, 2004 03:32 AM</span>
+</div>
+<div class="comments-body">
+<a name="455"></a>
+<span class="comments-post"><a href="http://hail2u.net/blog/rss/bulkfeeds_similarity_search.html" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeedsに新たな機能、Similarity Searchが加わりました。かなりいろいろなところで取りあげられていますが、面白いように似た感じのエントリが拾えて楽しすぎるので、うちでもエントリを書いてみる。Permanent linkをクエリに送ってやると、そのエントリから単語抽出し...<br />
+<b>Weblog:</b> hail2u.net - Weblog<br />
+<b>Tracked:</b> February  3, 2004 06:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="456"></a>
+<span class="comments-post"><a href="http://kengo.preston-net.com/archives/001144.shtml" target="new" rel="nofollow nofollow">Bulkfeedsの新機能Similarity Search</a><br />
+<b>Excerpt:</b> 日々進化を続けるBulkfeedsに新機能が追加された。Similarity Searchというこの機能を使うとURLを入れて検索すればその文章内に使われているキーワードを元に似たようなエントリーを探してくれる。 Bookmarkletも用意されているのでブラウザーのツールバーに登録しておけ�...<br />
+<b>Weblog:</b> Going My Way<br />
+<b>Tracked:</b> February  3, 2004 09:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="457"></a>
+<span class="comments-post"><a href="http://www.unknownplace.org/blosxom/blog/169.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeedsに面白い新機能が。さっそくPermlinkに埋め込む。おもしろー。<br />
+<b>Weblog:</b> UnknownPlace.<br />
+<b>Tracked:</b> February  3, 2004 10:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="458"></a>
+<span class="comments-post"><a href="http://www.drk7.jp/MT/archives/000118.html" target="new" rel="nofollow nofollow">Similarity Search使える!!</a><br />
+<b>Excerpt:</b> Blog のエントリ Permalink に javascript をつかって、関連記事を埋め込むことができます。Movable Type の場合を例にすると、以下のようなコードを Individual Entries のテンプレートの好きな箇所に埋め込むと、関連記事一覧を出力できます。 Bulkfeeds:がβリリースし...<br />
+<b>Weblog:</b> Drk7jp<br />
+<b>Tracked:</b> February  3, 2004 01:20 PM</span>
+</div>
+<div class="comments-body">
+<a name="459"></a>
+<span class="comments-post"><a href="http://www.plainspot.com/blog/archives/000161.php" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Search</a><br />
+<b>Excerpt:</b> Quoted from blog.bulknews.net: Bulkfeeds: Similarity Search リリースBlog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエントリが検索できます。 便利そうなので�...<br />
+<b>Weblog:</b> plainspot.com<br />
+<b>Tracked:</b> February  3, 2004 02:30 PM</span>
+</div>
+<div class="comments-body">
+<a name="460"></a>
+<span class="comments-post"><a href="http://www.rica.ath.cx/usr/mttips/archives/001263.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search リリース</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> movabletype tips<br />
+<b>Tracked:</b> February  3, 2004 03:32 PM</span>
+</div>
+<div class="comments-body">
+<a name="461"></a>
+<span class="comments-post"><a href="http://www.ikepon.jp/~kenji/movabletype/archives/000452.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search入れました</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search Blog のエントリ Permalink に javascript をつかって、関連記事を埋め込むことができます。 てことでコレやってたんですが .bulkfeedsSimilarityHeader a { &amp;nbsp;&amp;nbsp;font-weight: bold; &amp;nbsp;&amp;nbsp;color: #000; } が有効にならずにず...<br />
+<b>Weblog:</b> Memo Leaves<br />
+<b>Tracked:</b> February  3, 2004 05:04 PM</span>
+</div>
+<div class="comments-body">
+<a name="462"></a>
+<span class="comments-post"><a href="http://stella.cocolog-nifty.com/starchartlog/2004/02/bulkfeeds_simil.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search リリース</a><br />
+<b>Excerpt:</b> 各所から、blog.bulknews.net: Bulkfeeds: Similarity Search リリース。 形態素解析結果から特徴的な単語を抜き出し、同じような単語を使っているほかの記事を検索するというサービスです。 普通に検索フォームで探すのもいいけど、Movable Type や blosxom を使っている...<br />
+<b>Weblog:</b> StarChartLog @cocolog<br />
+<b>Tracked:</b> February  3, 2004 09:24 PM</span>
+</div>
+<div class="comments-body">
+<a name="464"></a>
+<span class="comments-post"><a href="http://sasapanda.com/toshi/archives/000114.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search リリース</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search リリース [blog.bulknews.net] 似た内容のエントリを探してくれる「Bulkfeeds: Similarity Search」がリリースされました． Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全�...<br />
+<b>Weblog:</b> Orbium<br />
+<b>Tracked:</b> February  3, 2004 10:36 PM</span>
+</div>
+<div class="comments-body">
+<a name="465"></a>
+<span class="comments-post"><a href="http://hotrod.oops.jp/archives/000198.html" target="new" rel="nofollow nofollow">Bulkfeedsに新機能</a><br />
+<b>Excerpt:</b> 次々に追加される新機能ですが、新たにBulkfeeds: Similarity Searchと言う機能が追加されました。どういった機能かと言うと 
+
+blog.bulknews.net: Bulkfeeds: Similarity Search リリース
+
+Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それ...<br />
+<b>Weblog:</b> ROD'S COLLECTION<br />
+<b>Tracked:</b> February  3, 2004 10:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="467"></a>
+<span class="comments-post"><a href="http://www.ai.rcast.u-tokyo.ac.jp/~satoru/htdocs/mt/archives/000149.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search リリース。 Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、 それらの単語で Bulkfeeds の RSS Item 全文検索します。 結果、話題の関連性が高いエントリが検索できます。 はてなダイアリーみたいになってきた。 3月�...<br />
+<b>Weblog:</b> S.C.I.E.N.C.E<br />
+<b>Tracked:</b> February  5, 2004 01:19 AM</span>
+</div>
+<div class="comments-body">
+<a name="469"></a>
+<span class="comments-post"><a href="http://www.negitaku.org/archives/002194.shtml" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> plainspot.comをみていたら、『Similarity Search』がおもしろそうだったので導入してみた。 これはbulknews.netというサイトに保存されているデータから 書いたニュースに関連した記事を抽出して表示してくれるというもの。 『記事表示』を押してコメントフォームの下を�...<br />
+<b>Weblog:</b> negitaku.org<br />
+<b>Tracked:</b> February  5, 2004 12:54 PM</span>
+</div>
+<div class="comments-body">
+<a name="476"></a>
+<span class="comments-post"><a href="http://gnk.s15.xrea.com/archives/000407.html" target="new" rel="nofollow nofollow">Similarity Search表示をつけてみた。</a><br />
+<b>Excerpt:</b> 最近スパムの後始末でコメントフォームにhiddenを 追加するという方法をとったこともあって 全エントリーをなんとかリビルド。 で、それにあわせていくつかテンプレートを変更。 中でもbulkfeedsのSimilarity Searchはイイ！ blog.bulknews.net: Bulkfeeds: Similarity Se...<br />
+<b>Weblog:</b> @ parallel minds<br />
+<b>Tracked:</b> February  6, 2004 11:14 AM</span>
+</div>
+<div class="comments-body">
+<a name="477"></a>
+<span class="comments-post"><a href="http://gnk.s15.xrea.com/archives/000407.html" target="new" rel="nofollow nofollow">Similarity Search表示をつけてみた。</a><br />
+<b>Excerpt:</b> 最近スパムの後始末でコメントフォームにhiddenを 追加するという方法をとったこともあって 全エントリーをなんとかリビルド。 で、それにあわせていくつかテンプレートを変更。 中でもbulkfeedsのSimilarity Searchはイイ！ blog.bulknews.net: Bulkfeeds: Similarity Se...<br />
+<b>Weblog:</b> @ parallel minds<br />
+<b>Tracked:</b> February  6, 2004 11:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="485"></a>
+<span class="comments-post"><a href="http://girled.net/archives/000423.html" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Search リリース</a><br />
+<b>Excerpt:</b> Bulkfeeds Similarity Search リリース　わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエン�...<br />
+<b>Weblog:</b> HuntingGirledCollective<br />
+<b>Tracked:</b> February  6, 2004 11:14 PM</span>
+</div>
+<div class="comments-body">
+<a name="486"></a>
+<span class="comments-post"><a href="http://clumsyken.com/archives/000101.html" target="new" rel="nofollow nofollow">Similarity Search(by Bulkfeeds)を設置しました。</a><br />
+<b>Excerpt:</b> ARTIFACT 〓人工事実〓 | BulkfeedsのSimilarity Search導入を読んで設置を決意。 メインblogの各Permalinkに、「類似のblog記事」が表示されるようにしました。...<br />
+<b>Weblog:</b> ClumsyKen<br />
+<b>Tracked:</b> February  7, 2004 02:14 AM</span>
+</div>
+<div class="comments-body">
+<a name="490"></a>
+<span class="comments-post"><a href="http://www.takegawa.net/jpn/archives/000571.html" target="new" rel="nofollow nofollow">RSS</a><br />
+<b>Excerpt:</b> RSSの意味があんまりわかってなかった…今もわかってないけど。RSSの使い方のひとつが載ってたんで、ちょっとお勉強してみよう。 RSSの説明：　はじめてのWeblog RSSを利用したサーチエンジン：　Bulkfeeds 便利そうなプラグイン：　Bulkfeeds: Similarity Search RSSツー...<br />
+<b>Weblog:</b> WWW.TAKEGAWA.NET<br />
+<b>Tracked:</b> February  7, 2004 03:06 AM</span>
+</div>
+<div class="comments-body">
+<a name="491"></a>
+<span class="comments-post"><a href="http://a-tak.com/blog/archives/000208.html" target="new" rel="nofollow nofollow">Similarity Searchを入れてみた</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題...<br />
+<b>Weblog:</b> A-tak on PC Weblog<br />
+<b>Tracked:</b> February  7, 2004 01:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="492"></a>
+<span class="comments-post"><a href="http://gamma.or.tp/pm/weblog/P251/" target="new" rel="nofollow nofollow">Similarity Search導入</a><br />
+<b>Excerpt:</b> blog.bulknews.net/mt/archives/000763.html
+わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高い...<br />
+<b>Weblog:</b> Cubic::cubic<br />
+<b>Tracked:</b> February  7, 2004 01:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="493"></a>
+<span class="comments-post"><a href="http://www.flowerlounge.com/archives/000016.html" target="new" rel="nofollow nofollow">Similarity Search絨����</a><br />
+<b>Excerpt:</b> 各地で話題のBulkfeedsのSimilarity SearchをPermalinkに導入しました。コレはイイ。もうトラバいらないんじゃないの？ blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含�...<br />
+<b>Weblog:</b> FlowerLounge<br />
+<b>Tracked:</b> February  7, 2004 02:03 PM</span>
+</div>
+<div class="comments-body">
+<a name="494"></a>
+<span class="comments-post"><a href="http://d.hatena.ne.jp/yukatti/20040207#p2" target="new" rel="nofollow nofollow">関連記事を探し出す「Bulkfeeds: Similarity Search」</a><br />
+<b>Excerpt:</b> リファラにもときどき残っているし自分でも最近よく使わせてもらうようになったBulkfeedsで、すごい検索が可能になっている。「Similarity Search」。<br />
+<b>Weblog:</b> 香雪ジャーナル<br />
+<b>Tracked:</b> February  7, 2004 05:57 PM</span>
+</div>
+<div class="comments-body">
+<a name="499"></a>
+<span class="comments-post"><a href="http://news.yoshidakosuke.com/archives/200402/07_212619.php" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search に見るGlobal Brain への可能性</a><br />
+<b>Excerpt:</b> tarosite.net?: Bulkfeedsサーチではてなダイアリーのキーワードみたいに…できないか。っての読んで、 確かに記事のキーワードに自動的に関連する他のWeblogなりの記事へのリンクがついてくるのは絶対面白いよなぁ、と思ってたんです。 と、気づかないうちにこんな凄いこ...<br />
+<b>Weblog:</b> The Neppoh Times ++news熱風ch<br />
+<b>Tracked:</b> February  7, 2004 10:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="500"></a>
+<span class="comments-post"><a href="http://blue-bullet.dyndns.org/mt/archives/2004/0207222652.php" target="new" rel="nofollow nofollow">Similarity Search絨����</a><br />
+<b>Excerpt:</b> BulkfeedsのSimilarity SearchをPermalink に導入しました。 わかりやすく言うと、「おとなり...<br />
+<b>Weblog:</b> BBBLOG<br />
+<b>Tracked:</b> February  7, 2004 10:28 PM</span>
+</div>
+<div class="comments-body">
+<a name="501"></a>
+<span class="comments-post"><a href="http://blog.poly.bz/archives/000009.html" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Search 絨����</a><br />
+<b>Excerpt:</b> 前から気になってたSimilarity SearchをMTに埋め込んでみました。<br />
+<b>Weblog:</b> West Of The Sun<br />
+<b>Tracked:</b> February  7, 2004 10:56 PM</span>
+</div>
+<div class="comments-body">
+<a name="502"></a>
+<span class="comments-post"><a href="http://mput.dip.jp/mput/?date=20040208" target="new" rel="nofollow nofollow">tDiary 版プラグインを作ってみました。 とりあえず最初のセクションだけ考えることにしてあります。</a><br />
+<b>Excerpt:</b> tDiary 版プラグインを作ってみました。
+とりあえず最初のセクションだけ考えることにしてあります。<br />
+<b>Weblog:</b> mputの日記。<br />
+<b>Tracked:</b> February  8, 2004 02:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="504"></a>
+<span class="comments-post"><a href="http://mylog.ishinao.net/id/1127" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search リリース from blog.bulknews.net</a><br />
+<b>Excerpt:</b> *Bulkfeeds: Similarity Search リリース - http://blog.bulknews.net/mt/archives/000763.html
+
+&gt;&gt;Bulkfeeds で「似たBlog記事を検索」する Similarity Search をリリースしました。
+
+「そのうち遊ぼう」用メモ。単に使うだけなら記事ごとにリンクを張るなり、JavaScrip<br />
+<b>Weblog:</b> ishinao.net/mylog<br />
+<b>Tracked:</b> February  9, 2004 01:40 AM</span>
+</div>
+<div class="comments-body">
+<a name="505"></a>
+<span class="comments-post"><a href="http://too.cheap.jp/wiki/index.php?memo%20link" target="new" rel="nofollow nofollow">memo link</a><br />
+<b>Excerpt:</b>  Too Cheap Wiki    リンクのメモ    http://www.blhs.org/   CSSの使い方と、色遣いが好み。   http://homepage.mac.com/masanorif/iMovieTheater23.html   AppleStoreOpenのムービー   http://www.aska-corp.co.jp/sg/index.html   Studio Graphics &amp;quot;デジカメライ...<br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February  9, 2004 12:22 PM</span>
+</div>
+<div class="comments-body">
+<a name="506"></a>
+<span class="comments-post"><a href="http://ch.kitaguni.tv/u/116/%a5%cd%a5%c3%a5%c8%a5%b5%a1%bc%a5%d3%a5%b9/0000047948.html" target="new" rel="nofollow nofollow">Similarity Searchとユーザーマッチング機能</a><br />
+<b>Excerpt:</b>  まだβなんですけどbalknewsのひとが「Similarity Search」という新サービスをはじめた。 http://blog.bulknews.net/mt/archives/000763.html コレ。 http://bulkfeeds.net/app/similar BulkfeedsというWeblog(に限<br />
+<b>Weblog:</b> highbiscus<br />
+<b>Tracked:</b> February  9, 2004 02:59 PM</span>
+</div>
+<div class="comments-body">
+<a name="508"></a>
+<span class="comments-post"><a href="http://hidekichi.net/archives/000510.html" target="new" rel="nofollow nofollow">BulkfeedsのSimilarity Search導入</a><br />
+<b>Excerpt:</b> これはすごい。エントリ毎に似た記事を探してリンクを張ってくれる仕組み。 うちのエントリで検索してみると、いろいろ興味深いエントリを検索してくれたので、本格的に貼り付けることにした。 RSSって、今まであまりいい使い道を見つけられなかったのだけど、これはすご�...<br />
+<b>Weblog:</b> ひできち日記<br />
+<b>Tracked:</b> February  9, 2004 10:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="512"></a>
+<span class="comments-post"><a href="http://www.cakesjun.net/mvbg/archives/001017.html" target="new" rel="nofollow nofollow">Similarity Search の設置</a><br />
+<b>Excerpt:</b> 設置に伴って考えたこととか。<br />
+<b>Weblog:</b> チェリオメアリー<br />
+<b>Tracked:</b> February 10, 2004 09:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="513"></a>
+<span class="comments-post"><a href="http://everything.chips.jp/blog/archives/000049.html" target="new" rel="nofollow nofollow">Similarity Search絨����</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題...<br />
+<b>Weblog:</b> Chips with everything Movie Diary<br />
+<b>Tracked:</b> February 10, 2004 11:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="514"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/ccbcc/archives/110055.html" target="new" rel="nofollow nofollow">livedoor Blog で Bulkfeeds Similarity Search を使う方法</a><br />
+<b>Excerpt:</b> livedoor Blog で Bulkfeeds Similarity Search を使う方法がだいたい分かりました。
+
+「Bulkfeeds: Similarity Search リリース」で javascript を使って自分の記事中に埋め込む方法が書いてあるのですが、Movable Type 用の設定のため livedoor Blog ではそのままコピペ.<br />
+<b>Weblog:</b> (Scheme) (Lisp) の Blog<br />
+<b>Tracked:</b> February 11, 2004 04:31 AM</span>
+</div>
+<div class="comments-body">
+<a name="515"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/ccbcc/archives/110055.html" target="new" rel="nofollow nofollow">livedoor Blog で Bulkfeeds Similarity Search を使う方法</a><br />
+<b>Excerpt:</b> livedoor Blog で Bulkfeeds Similarity Search を使う方法がだいたい分かりました。
+
+「Bulkfeeds: Similarity Search リリース」で javascript を使って自分の記事中に埋め込む方法が書いてあるのですが、Movable Type 用の設定のため livedoor Blog ではそのままコピペ<br />
+<b>Weblog:</b> (Scheme) (Lisp) の Blog<br />
+<b>Tracked:</b> February 11, 2004 04:36 AM</span>
+</div>
+<div class="comments-body">
+<a name="516"></a>
+<span class="comments-post"><a href="http://miyaken.stbbs.net/diary/20040211.html" target="new" rel="nofollow nofollow">ものはためしってことで、いくつかのコンテンツで取り込んでみたのだけれど、なかなかどうして、興味深いリンクが生成されるようになった。自分で自分のコンテンツを見ながら、おとな</a><br />
+<b>Excerpt:</b> ものはためしってことで、いくつかのコンテンツで取り込んでみたのだけれど、なかなかどうして、興味深いリンクが生成されるようになった。自分で自分のコンテンツを見ながら、おとなりBlogを見ながらにやにやしている光景ってのはあまり褒められたものでもないんだけれど。<br />
+<b>Weblog:</b> だいあろぐ<br />
+<b>Tracked:</b> February 11, 2004 06:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="518"></a>
+<span class="comments-post"><a href="http://www.aga-ye.com/archives/000126.html" target="new" rel="nofollow nofollow">類似記事検索を入れてみた</a><br />
+<b>Excerpt:</b> 遅ればせながら、blog.bulknews.net: Bulkfeeds: Similarity Search リリースを参考に、permalink(固定リンク)のページ(Individual Entry)でBulkfeedsが収集した記事から類似する記事を表示できるようにしてみた。自分の興味範囲に類似するblogの発見に役立ちそう。...<br />
+<b>Weblog:</b> Aga-Ye!! : Kasedac<br />
+<b>Tracked:</b> February 12, 2004 11:46 AM</span>
+</div>
+<div class="comments-body">
+<a name="521"></a>
+<span class="comments-post"><a href="http://WWW.funsquaredesign.com/mt/jp/archives/2004_02.html#000141" target="new" rel="nofollow nofollow">memo - Similarity Search</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search &amp;#65533;&amp;#65533;&amp;#65533;&amp;#65533;&amp;#65533;若&amp;#65533;&amp;#65533;...<br />
+<b>Weblog:</b> Blog: Funsquaredesign.jp<br />
+<b>Tracked:</b> February 12, 2004 04:57 PM</span>
+</div>
+<div class="comments-body">
+<a name="522"></a>
+<span class="comments-post"><a href="http://www.fukulog.com/wiki/index.php?LinkStack" target="new" rel="nofollow nofollow">LinkStack</a><br />
+<b>Excerpt:</b>  とりあえずここに放り込み。                                    URL:      タイトル:      コメント:              blog.bulknews.net  Bulkfeeds  Similarity Search リリース  -- 似たページ表示  2004-02-12 (木) 20:38:51      geO Navi    ジヲナビ  -- 代替シェ...<br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February 12, 2004 08:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="525"></a>
+<span class="comments-post"><a href="http://www.fukulog.com/wiki/index.php?LinkStack" target="new" rel="nofollow nofollow">LinkStack</a><br />
+<b>Excerpt:</b>  とりあえずここに放り込み。                                    URL:      タイトル:      コメント:              blog.bulknews.net  Bulkfeeds  Similarity Search リリース  -- 似たページ表示      geO Navi    ジヲナビ  -- 代替シェル   Sumraize  -- 便利そう ...<br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February 13, 2004 04:49 PM</span>
+</div>
+<div class="comments-body">
+<a name="526"></a>
+<span class="comments-post"><a href="http://www.fukulog.com/wiki/index.php?LinkStack" target="new" rel="nofollow nofollow">LinkStack</a><br />
+<b>Excerpt:</b>  とりあえずここに放り込み。                                    URL:      タイトル:      コメント:             blog.bulknews.net  Bulkfeeds  Similarity Search リリース  似たページ表示     geO Navi    ジヲナビ  代替シェル  Sumraize  便利そう :達人のゆで...<br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February 13, 2004 04:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="528"></a>
+<span class="comments-post"><a href="http://yinyang.cocolog-nifty.com/showndough/2004/02/similarity_sear.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> BulkfeedsさんのSimilarity Searchというのを導入してみた。 当blogで、記事の末尾に「Similarity Search powered by Bulkfeeds」とあって、その下にリンクが何行か並んでいるのがそれ。 bulkfeedsさんの説明によると、 わかりやすく言うと、「おとなり Blog」とか呼ばれ�...<br />
+<b>Weblog:</b> 渉雲堂別館<br />
+<b>Tracked:</b> February 13, 2004 11:55 PM</span>
+</div>
+<div class="comments-body">
+<a name="542"></a>
+<span class="comments-post"><a href="http://blog.pinponpanpon.net/archives/2004-0216-0706.php" target="new" rel="nofollow nofollow">話題の似ている他所様の記事</a><br />
+<b>Excerpt:</b> あるニュースやネタについてエントリを書いたとき、他のサイトさんはどう感じているのか知りたいときがあります。そういうときは、FeedBackを使って調べて いましたが、なんとエントリにトラックバックが付くように、自動的に話題の似ている他所様のエントリを表示できる�...<br />
+<b>Weblog:</b> pinponpanpon<br />
+<b>Tracked:</b> February 16, 2004 07:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="543"></a>
+<span class="comments-post"><a href="http://llcafell.s28.xrea.com/mt/archives/000811.html" target="new" rel="nofollow nofollow">��������ŝ��blog</a><br />
+<b>Excerpt:</b> ll blog.bulknews.net: Bulkfeeds: Similarity Search リリース ll わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果...<br />
+<b>Weblog:</b> :::���cafe���'s VILLA  :::<br />
+<b>Tracked:</b> February 16, 2004 10:45 AM</span>
+</div>
+<div class="comments-body">
+<a name="544"></a>
+<span class="comments-post"><a href="http://www.fukulog.com/wiki/index.php?CMS" target="new" rel="nofollow nofollow">CMS</a><br />
+<b>Excerpt:</b>  Nucleus、MT等のCMS使用   blog.bulknews.net  Bulkfeeds  Similarity Search リリース  似たページ表示  <br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February 16, 2004 01:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="545"></a>
+<span class="comments-post"><a href="http://lp5.hippy.jp/japlog/archives/000074.php" target="new" rel="nofollow nofollow">関連記事を自動で生成</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Searchを導入した。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエ...<br />
+<b>Weblog:</b> Japlog<br />
+<b>Tracked:</b> February 16, 2004 01:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="547"></a>
+<span class="comments-post"><a href="http://tonica.ciao.jp/blog/archives/000197.php" target="new" rel="nofollow nofollow">��������ŝ��������Blog����｢������</a><br />
+<b>Excerpt:</b> 「Individual Entries 」のテンプレートにスクリプトを貼りつけるだけで、「Recent Entries」のどれかをクリックすると、似たような記事を検索してくれるというものです。 コメントとトラバでBlogが繋がっていきますが、こういう方法も良いですね。 私でもできました。益�...<br />
+<b>Weblog:</b> ふんわり堂<br />
+<b>Tracked:</b> February 16, 2004 06:26 PM</span>
+</div>
+<div class="comments-body">
+<a name="549"></a>
+<span class="comments-post"><a href="http://www.sawa-one.com/mt/archives/000106.html" target="new" rel="nofollow nofollow">ご近所ブログ機能追加</a><br />
+<b>Excerpt:</b> いつもお世話になっている、「ふんわり堂」さんで楽しそうなエントリーを発見。 ◇おとなりさんBlogを探そう（ふんわり堂） 文中から特徴的な単語を抜き出し、その単語をもとに、似た内容のブログを検索してくれるという機能を追加できるとのこと。 さっそく、さわわんペ�...<br />
+<b>Weblog:</b> さわわん　ＢＬＯＧ　パラダイス<br />
+<b>Tracked:</b> February 16, 2004 10:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="550"></a>
+<span class="comments-post"><a href="http://ch-1000.main.jp/blog/mt/archives/000197.html" target="new" rel="nofollow nofollow">関連記事どうしをつなぐ！</a><br />
+<b>Excerpt:</b> llcafell's VILLAさんのところで面白い記事を見つけました。毎度ありがとうです、llcafellさん。 平たく言えば、似ている内容と分析された記事どうしを自動的につなぐことができるらしいんですよ。 DABLOGさんのこの記事を読んで「なるほど」と理解。 よそさまのサイトか�...<br />
+<b>Weblog:</b> ch-1000<br />
+<b>Tracked:</b> February 16, 2004 11:37 PM</span>
+</div>
+<div class="comments-body">
+<a name="551"></a>
+<span class="comments-post"><a href="http://www.ikushimo.com/news/2004/02/17.html#0217-7" target="new" rel="nofollow nofollow">似た記事検索</a><br />
+<b>Excerpt:</b> 使い方というか、価値がイマイチ分かってなかったんですが、なるほど、コレは便利だ。&amp;nbsp;...<br />
+<b>Weblog:</b> 幾霜<br />
+<b>Tracked:</b> February 17, 2004 02:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="552"></a>
+<span class="comments-post"><a href="http://ktf.bbzone.net/pmlog/weblog/P19/" target="new" rel="nofollow nofollow">真似してSimilarity Search導入</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search リリース
+
+Bulkfeeds で「似たBlog記事を検索」する Similarity Search をリリースしました。
+
+What's this?
+わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単...<br />
+<b>Weblog:</b> Hybrid<br />
+<b>Tracked:</b> February 17, 2004 08:51 AM</span>
+</div>
+<div class="comments-body">
+<a name="553"></a>
+<span class="comments-post"><a href="http://www.swanq.co.jp/blog/archives/000422.html" target="new" rel="nofollow nofollow">Similarity Search を導入してみた</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース ネタ元：ARTIFACT −人工事実− | BulkfeedsのSimilarity Search導入 ついでに Bulkfeeds: Home - RSS Directory &amp; Search - blogの検索に便利。特に1ヶ月以内のごく最近のニュースは、まだGoogleにクロールさ�...<br />
+<b>Weblog:</b> HowSoonIsNow?<br />
+<b>Tracked:</b> February 17, 2004 06:34 PM</span>
+</div>
+<div class="comments-body">
+<a name="554"></a>
+<span class="comments-post"><a href="http://zazie-tyo.com/blog/archives/000182.html" target="new" rel="nofollow nofollow">レイアウト手直しとSimilarity Feed導入</a><br />
+<b>Excerpt:</b> そろそろサイトの感じを変えたいなぁ、というのとレイアウト左側のメニュー部がやたら長くなってしまったので、「RecentEntry」を上部右に、「Category」を横並びにしてみた。x-indexとpositionを駆使して画像の上にブロックで配置。基本的にindex本体はいじらずにidを与�...<br />
+<b>Weblog:</b> H&K<br />
+<b>Tracked:</b> February 18, 2004 12:35 AM</span>
+</div>
+<div class="comments-body">
+<a name="555"></a>
+<span class="comments-post"><a href="http://gotin.shiftweb.net/blog/archives/000463.html" target="new" rel="nofollow nofollow">blog.bulknews.netのSimilarity Search導入。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題...<br />
+<b>Weblog:</b> ゴニッキ<br />
+<b>Tracked:</b> February 18, 2004 02:36 AM</span>
+</div>
+<div class="comments-body">
+<a name="558"></a>
+<span class="comments-post"><a href="http://jun.daa.jp/archives/000268.html" target="new" rel="nofollow nofollow">知的ツール？</a><br />
+<b>Excerpt:</b> 当Weblogには、「見聞を広げるという名目」がある以上、知的ツールとしての役割を果たさねば！ なんていう大義名分は横に置いといて。 blogの構成に手を加えました。 以下は備忘録。...<br />
+<b>Weblog:</b> Diary::Weblog<br />
+<b>Tracked:</b> February 19, 2004 05:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="559"></a>
+<span class="comments-post"><a href="http://bookslope.jp/blog/archives/000079.html" target="new" rel="nofollow nofollow">[RSS] Similarity Feed</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題...<br />
+<b>Weblog:</b> blog | bookslope<br />
+<b>Tracked:</b> February 20, 2004 02:17 AM</span>
+</div>
+<div class="comments-body">
+<a name="564"></a>
+<span class="comments-post"><a href="http://tongariyama.tea-nifty.com/weblog/2004/02/similarity_sear.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> 　というのをテストしてます。これはBulkfeedsが展開しているサーヴィスで、Blogエントリ全文から特徴的な単語を自動抽出し、他のBlogから関連するエントリを検索・表示するというもの。（参考） 　はたしてうまく「関連リンク集」になるかどうか、とりあえず、最近コメン...<br />
+<b>Weblog:</b> 踊る阿呆を、観る阿呆。<br />
+<b>Tracked:</b> February 21, 2004 05:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="565"></a>
+<span class="comments-post"><a href="http://pen.jugem.cc/?eid=17" target="new" rel="nofollow nofollow">初めてのSimilarity Search</a><br />
+<b>Excerpt:</b> 初めてBulkfeeds Similarity Searchをつけてみた。
+JUGEMならテンプレートのHTMLいじれるから楽だなーと思ったらなかなかうまくいかないし、ページはやたら重くなって(詰め込みすぎ)表示に時間かかるしで疲れてしまった。
+なんかCSSがうまく反映されないけどまぁいいや�...<br />
+<b>Weblog:</b> (｀･ω･´)避難所＠JUGEM<br />
+<b>Tracked:</b> February 22, 2004 02:30 AM</span>
+</div>
+<div class="comments-body">
+<a name="566"></a>
+<span class="comments-post"><a href="http://relax.dip.jp/archives/000183.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search</a><br />
+<b>Excerpt:</b> 似ているエントリーを見つけてくれるシステム。そして、その結果をJavaScript使って自分のblogに埋め込める。早速導入。すごいイイじゃん、このアイデア。導入も簡単だし、自分のエントリー見るのが楽しくなっていい感じ。あー、なんかやられたって感じ。Bulkfeedsの検索�...<br />
+<b>Weblog:</b> Funky Life<br />
+<b>Tracked:</b> February 23, 2004 03:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="568"></a>
+<span class="comments-post"><a href="http://teru.s45.xrea.com/mt/archives/000264.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchへのリンクを貼る</a><br />
+<b>Excerpt:</b> Going My Wayさんで見て、このやり方ならあまり邪魔にもならないなと思ったので、メインインデックスの各エントリーとパーマリンクにBulkfeeds: Similarity Searchへのリンクを貼った。これは、自分でblogサーフィンするのに便利という感じなのだが……。 このシステムと�...<br />
+<b>Weblog:</b> Teru's Dialog<br />
+<b>Tracked:</b> February 23, 2004 06:57 PM</span>
+</div>
+<div class="comments-body">
+<a name="569"></a>
+<span class="comments-post"><a href="http://ace.s53.xrea.com/archives/000005.html" target="new" rel="nofollow nofollow">BulkfeedsのSimilarity Searchを付けてみた</a><br />
+<b>Excerpt:</b> まあこのためにXREA借りてMovable Typeを設置したわけですけども。 http://blog.bulknews.net/mt/archives/000763.html...<br />
+<b>Weblog:</b> ACE TONIGHT!!!<br />
+<b>Tracked:</b> February 23, 2004 07:51 PM</span>
+</div>
+<div class="comments-body">
+<a name="571"></a>
+<span class="comments-post"><a href="http://www.csua.berkeley.edu/~toshi/abacus/archives/000237.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを入れてみました．</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Searchを入れてみました．<br />
+<b>Weblog:</b> Abacus::blog<br />
+<b>Tracked:</b> February 24, 2004 04:10 AM</span>
+</div>
+<div class="comments-body">
+<a name="575"></a>
+<span class="comments-post"><a href="http://www.fukulog.com/wiki/index.php?CMS%C1%B4%C8%CC" target="new" rel="nofollow nofollow">CMS全般</a><br />
+<b>Excerpt:</b>  blog.bulknews.net  Bulkfeeds  Similarity Search リリース  似たページ表示  <br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> February 25, 2004 06:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="576"></a>
+<span class="comments-post"><a href="http://stock.main.jp/archives/000063.shtml" target="new" rel="nofollow nofollow">��������ŝ��blog</a><br />
+<b>Excerpt:</b> エントリーのPermalinkにおとなりblogを設定してるんですけど、これが情報収集にとても役に立つということに最近気づきました。 たとえば僕が前に書いたエントリー「ライブドアって」だと、Permalinkはhttp://stock.main.jp/archives/000046.shtmlになるわけですが、ここ�...<br />
+<b>Weblog:</b> arround the stock<br />
+<b>Tracked:</b> February 25, 2004 11:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="580"></a>
+<span class="comments-post"><a href="http://f23.aaacafe.ne.jp/~kimaore/blog/archives/000037.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Searchを導入しました。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高...<br />
+<b>Weblog:</b> Kimagure log<br />
+<b>Tracked:</b> February 26, 2004 02:40 PM</span>
+</div>
+<div class="comments-body">
+<a name="584"></a>
+<span class="comments-post"><a href="http://nyoro.net/mt/archives/000027.html" target="new" rel="nofollow nofollow">おとなり Blog</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search Bulkfeedsで、似た内容の記事を検索表示します。 いわば「おとなり Blog」です。 導入検討中。...<br />
+<b>Weblog:</b> [nyolog] ニョログ<br />
+<b>Tracked:</b> February 27, 2004 01:18 PM</span>
+</div>
+<div class="comments-body">
+<a name="586"></a>
+<span class="comments-post"><a href="http://www.s-hashi.net/archives/000265.php" target="new" rel="nofollow nofollow">Similarity Search絨����</a><br />
+<b>Excerpt:</b> BulkfeedsさんのSimilarity Searchを導入してみました。<br />
+<b>Weblog:</b> SHAW's Home Page<br />
+<b>Tracked:</b> February 28, 2004 02:28 PM</span>
+</div>
+<div class="comments-body">
+<a name="587"></a>
+<span class="comments-post"><a href="http://futuristic.cocolog-nifty.com/it/2004/02/similarity_sear.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeeds: Home - RSS Directory &amp; Searchのmiyagawaさんが始めたSimilarity Searchは関心のある情報を知るのにかなり有効です。Similarity Searchの詳細な説明は、blog.bulknews.net: Bulkfeeds: Similarity Search リリースにあります。自分の記事に類似した他のblog記...<br />
+<b>Weblog:</b> it<br />
+<b>Tracked:</b> February 28, 2004 04:35 PM</span>
+</div>
+<div class="comments-body">
+<a name="588"></a>
+<span class="comments-post"><a href="http://www.legeres.net/mt/archives/000007.html" target="new" rel="nofollow nofollow">いろいろと</a><br />
+<b>Excerpt:</b> いじってみました。 CSSを若干変更。色味など。 Amazonアソシエイトのバナーなどを設置 GoogleのAdSenseに加入してみた BlogTimesというプラグイン（トップページ右上）を入れてみた Bulkfeeds: Similarity Searchというのを入れてみた プラグインはMT Plugin Directoryと...<br />
+<b>Weblog:</b> Blog legeres<br />
+<b>Tracked:</b> February 29, 2004 04:56 AM</span>
+</div>
+<div class="comments-body">
+<a name="589"></a>
+<span class="comments-post"><a href="http://on-o.com/FirstWeblog/archives/000115.html" target="new" rel="nofollow nofollow">似たようなページ追加</a><br />
+<b>Excerpt:</b> Individual Entry ArchiveのコメントをOnにしたときに、Bulkfeeds: Similarity Search(似たようなページ)が出るようにした。 参考: blog.bulknews.net: Bulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> First Weblog<br />
+<b>Tracked:</b> February 29, 2004 11:30 AM</span>
+</div>
+<div class="comments-body">
+<a name="590"></a>
+<span class="comments-post"><a href="http://on-o.com/FirstWeblog/archives/000115.html" target="new" rel="nofollow nofollow">似たようなページ追加</a><br />
+<b>Excerpt:</b> Individual Entry Archiveに変更してコメントをOnにしたときに、Bulkfeeds: Similarity Search(似たようなページ)が出るようにした。 参考: blog.bulknews.net: Bulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> First Weblog<br />
+<b>Tracked:</b> February 29, 2004 11:31 AM</span>
+</div>
+<div class="comments-body">
+<a name="592"></a>
+<span class="comments-post"><a href="http://hori-uchi.com/archives/000118.html" target="new" rel="nofollow nofollow">Similarity Search を入れてみました</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリース Bulkfeeds: Similarity SearchはRSSの検索エンジン（という表現でいいのかどうか・・）Buldfeedsが提供する「ご近所Weblog」みたいなサービスです。自分の記事と内容が似た記事を検索できたり、その検索結果を�...<br />
+<b>Weblog:</b> Horiuchi::Weblog<br />
+<b>Tracked:</b> March  1, 2004 09:22 AM</span>
+</div>
+<div class="comments-body">
+<a name="606"></a>
+<span class="comments-post"><a href="http://sansaku.kueri.com/archives/2004/03/05-2111.php" target="new" rel="nofollow nofollow">Similarity Search を導入</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリースわかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題�...<br />
+<b>Weblog:</b> くえりの散策記<br />
+<b>Tracked:</b> March  5, 2004 09:12 PM</span>
+</div>
+<div class="comments-body">
+<a name="607"></a>
+<span class="comments-post"><a href="http://blog.omouusagi.net/archives/200403/06-customize-72.html" target="new" rel="nofollow nofollow">ちょこっとカスタマイズ</a><br />
+<b>Excerpt:</b> blogを始めて2ヶ月とちょっと。 MyblogListやBlogPeopleのリストも、ありがたいことにリンクしていただいたりさせていただいたりでぼちぼちと増えてきました。でリストを全部表示にすると縦に伸びすぎるので最新更新サイト20件にしてたんですが、やっぱり全部表示できるよ...<br />
+<b>Weblog:</b> もの思ううさぎ<br />
+<b>Tracked:</b> March  6, 2004 07:53 PM</span>
+</div>
+<div class="comments-body">
+<a name="612"></a>
+<span class="comments-post"><a href="http://blog.xole.net/archives/2004-03/07_1443.php" target="new" rel="nofollow nofollow">Bulkfeedsで関連記事検索</a><br />
+<b>Excerpt:</b> Bulkfeedsさんはホント便利なツールを沢山出してくれます こんかい、私のブログにもつけてみましたよSimilarity Search要は関連記事探しですね。 たぶん表示されていると思うんですが 下に[ &quot;&gt;関連記事検索 ]　ってのを付けました。 これで、Bulkfeedsさんを通して関連記�...<br />
+<b>Weblog:</b> X *ole.net<br />
+<b>Tracked:</b> March  7, 2004 02:43 PM</span>
+</div>
+<div class="comments-body">
+<a name="617"></a>
+<span class="comments-post"><a href="http://simple.lib.net/blog2004/001447.shtml" target="new" rel="nofollow nofollow">Similarity Searchを入れてみました</a><br />
+<b>Excerpt:</b> 　自分がエントリーした内容と同じような内容のWeblogがあれば，自動でリンクを表示してくれるSimilarity Searchを導入してみました。...<br />
+<b>Weblog:</b> Simple...<br />
+<b>Tracked:</b> March  9, 2004 05:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="620"></a>
+<span class="comments-post"><a href="http://111.boo.jp/blog/archives/000952.php" target="new" rel="nofollow nofollow">「おとなりのBlog」使ってみる。</a><br />
+<b>Excerpt:</b> blog.bulknews.net: Bulkfeeds: Similarity Search リリースわかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題�...<br />
+<b>Weblog:</b> D@nny's cafe BLOG<br />
+<b>Tracked:</b> March  9, 2004 06:13 PM</span>
+</div>
+<div class="comments-body">
+<a name="629"></a>
+<span class="comments-post"><a href="http://mk22.com/blog/archives/000154.html" target="new" rel="nofollow nofollow">Similarity Searchを設置</a><br />
+<b>Excerpt:</b> 試しに、Similarity Searchを設置してみた。 どんなものかというと、 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item...<br />
+<b>Weblog:</b> WHATSOEVER ;)<br />
+<b>Tracked:</b> March 11, 2004 03:33 PM</span>
+</div>
+<div class="comments-body">
+<a name="630"></a>
+<span class="comments-post"><a href="http://blog.s32.xrea.com/archives/000126.html" target="new" rel="nofollow nofollow">おとなり Blog</a><br />
+<b>Excerpt:</b> bulknews.net さんが提供しているSimilarity Searchを個別アーカイブにセットしました。 blog.bulknews.net: Bulkfeeds: Similarity Search リリースPermalink から、特徴的単語を持つ似たエントリを検索します。 そのエントリーを分析し、特徴的な単語を持つ別の記事を探...<br />
+<b>Weblog:</b> from TSUKUBA<br />
+<b>Tracked:</b> March 11, 2004 03:40 PM</span>
+</div>
+<div class="comments-body">
+<a name="631"></a>
+<span class="comments-post"><a href="http://blog.s32.xrea.com/archives/000126.html" target="new" rel="nofollow nofollow">おとなり Blog</a><br />
+<b>Excerpt:</b> bulknews.net さんが提供しているSimilarity Searchを個別アーカイブにセットしました。 blog.bulknews.net: Bulkfeeds: Similarity Search リリースPermalink から、特徴的単語を持つ似たエントリを検索します。 そのエントリーを分析し、特徴的な単語を持つ別の記事を探...<br />
+<b>Weblog:</b> from TSUKUBA<br />
+<b>Tracked:</b> March 11, 2004 03:41 PM</span>
+</div>
+<div class="comments-body">
+<a name="636"></a>
+<span class="comments-post"><a href="http://www.hazama.nu/jvnc/archives/001739.shtml" target="new" rel="nofollow nofollow">縲郡imilarity Search縲阪ｒ蟆主Ş縺励∪縺励◆</a><br />
+<b>Excerpt:</b> 「Similarity Search」を実験的に導入しました。<br />
+<b>Weblog:</b> J.V.N.C.<br />
+<b>Tracked:</b> March 12, 2004 06:16 PM</span>
+</div>
+<div class="comments-body">
+<a name="639"></a>
+<span class="comments-post"><a href="http://www.expat-japan.com/blog/archives/000102.html" target="new" rel="nofollow nofollow">類似ブログを自動的に表示</a><br />
+<b>Excerpt:</b>  Bulkfeeds: Similarity Search Bulkfeedsで提供している類似ブログのタイトルを自動的に表示するサービスを導入してみました。既に利用されている方もよく見かけますので、追っかけで導入。 右側に『この記事に関連するブログ』と書いてあるのがそれ。（見えない方はトッ...<br />
+<b>Weblog:</b> アジア海外駐在員便利帳<br />
+<b>Tracked:</b> March 13, 2004 11:51 PM</span>
+</div>
+<div class="comments-body">
+<a name="640"></a>
+<span class="comments-post"><a href="http://elvis.s41.xrea.com/mt/archives/000191.php" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを導入</a><br />
+<b>Excerpt:</b> いろいろなところで見かけたBulkfeeds: Similarity Searchを導入することにしました。 詳細は下記にあります。結構簡単にできました。 見た目はかなり適当にしちゃいましたが（笑） blog.bulknews.net: Bulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> 日常とECR33とWEB関連なんでも帳<br />
+<b>Tracked:</b> March 14, 2004 01:06 AM</span>
+</div>
+<div class="comments-body">
+<a name="643"></a>
+<span class="comments-post"><a href="http://kenbun.kueri.com/archives/2004/03/15-1938.php" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeedsに登録されているデータの中から似た記事を表示する機能です。以下の文章は公開元からの引用です。 blog.bulknews.net: Bulkfeeds: Similarity Search リリースわかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を...<br />
+<b>Weblog:</b> くえりの見聞ログ<br />
+<b>Tracked:</b> March 15, 2004 07:38 PM</span>
+</div>
+<div class="comments-body">
+<a name="645"></a>
+<span class="comments-post"><a href="http://nikujaga.s35.xrea.com/archives/000015.html" target="new" rel="nofollow nofollow">��������ŝ��Blog</a><br />
+<b>Excerpt:</b> Similarity Searchの導入。 参考： blog.bulknews.netBulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> VNDN-NKJG<br />
+<b>Tracked:</b> March 15, 2004 11:54 PM</span>
+</div>
+<div class="comments-body">
+<a name="646"></a>
+<span class="comments-post"><a href="http://nikujaga.s35.xrea.com/archives/000015.html" target="new" rel="nofollow nofollow">��������ŝ��Blog</a><br />
+<b>Excerpt:</b> Similarity Searchの導入。 参考： blog.bulknews.netBulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> VNDN-NKJG<br />
+<b>Tracked:</b> March 15, 2004 11:55 PM</span>
+</div>
+<div class="comments-body">
+<a name="652"></a>
+<span class="comments-post"><a href="http://dewlines.s14.xrea.com/?itemid=633" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを導入しました。</a><br />
+<b>Excerpt:</b> Bulkfeedsに登録されているページの中から類似記事を自動的に抽出して表示してくれるようになります。
+# ただし、少しだけ詳細ページが表示される際に待たされるかもしれません。<br />
+<b>Weblog:</b> dewlines blog<br />
+<b>Tracked:</b> March 16, 2004 09:34 PM</span>
+</div>
+<div class="comments-body">
+<a name="657"></a>
+<span class="comments-post"><a href="http://emi.plala.jp/htdocs/mt/archives/000075.html" target="new" rel="nofollow nofollow">おとなりblogを表示させる</a><br />
+<b>Excerpt:</b> BulkfeedsのSimilarity Searchを設置しました。 わかりやすく言うと自分のエントリと似たような内容と思われる他のエントリを検索してきて、それを表示することができます。 試しに昨日以前の記事の「記事全文」をクリックしてみてください。 記事の下におとなりblogが表�...<br />
+<b>Weblog:</b> ぱるるアンテナ<br />
+<b>Tracked:</b> March 17, 2004 08:11 PM</span>
+</div>
+<div class="comments-body">
+<a name="665"></a>
+<span class="comments-post"><a href="http://maui.sub.jp/cgi-bin/mt/archives/000367.html" target="new" rel="nofollow nofollow">BulkfeedsのSimilarity Search導入</a><br />
+<b>Excerpt:</b> 土日になると色々やります（笑） やっと（？）BulkfeedsのSimilarity Search導入しました。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS It...<br />
+<b>Weblog:</b> Chic or Wild?<br />
+<b>Tracked:</b> March 20, 2004 12:28 PM</span>
+</div>
+<div class="comments-body">
+<a name="671"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/azisai/archives/264439.html" target="new" rel="nofollow nofollow">blogにまつわる便利ツール</a><br />
+<b>Excerpt:</b> ちょっとほおっておくと、いろんなサービスが開始されているので、いろいろと入れてみました。
+
+まず一つめは、右側のサイドバーに追加したMyClip。いろいろ議論もあるみたいですが、自分が便利な機能ならいいかな、と。
+Webで見つけたネタはこっちに入れるようにしてみま<br />
+<b>Weblog:</b> Azisai.net->UGside<br />
+<b>Tracked:</b> March 21, 2004 11:08 PM</span>
+</div>
+<div class="comments-body">
+<a name="679"></a>
+<span class="comments-post"><a href="http://localhost/xrea/pwiki/index.php?News" target="new" rel="nofollow nofollow">News</a><br />
+<b>Excerpt:</b>   最近の5件   月別   2003   2004                              &amp;lt;&amp;lt;       2004.3       &amp;gt;&amp;gt;       [News]                      日      月      火      水      木      金      土                &amp;nbsp;             1                   2             ...<br />
+<b>Weblog:</b> PukiWiki/TrackBack 0.1<br />
+<b>Tracked:</b> March 24, 2004 12:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="681"></a>
+<span class="comments-post"><a href="http://kirishima.cc/mt/archives/000207.html" target="new" rel="nofollow nofollow">Similarity Feed</a><br />
+<b>Excerpt:</b> ちょっと気になったので、Bulkfeeds: RSS Directory &amp; Searchの Similarity Feed (Blog ツールの Permalink に埋め込む) を試してみました。Permalinkをクリックして、個別エントリを表示させると、しばらくして、Bulkfeedsから提供される「似た内容の記事」が表示される�...<br />
+<b>Weblog:</b> きりしま屋<br />
+<b>Tracked:</b> March 24, 2004 01:00 PM</span>
+</div>
+<div class="comments-body">
+<a name="719"></a>
+<span class="comments-post"><a href="http://www.rhein-strasse.de/archives/2004/0327-blukfeeds.php" target="new" rel="nofollow nofollow">Bulkfeeds 関連記事表示機能、導入</a><br />
+<b>Excerpt:</b> Bulkfeedsさんの 関連記事表示機能を導入しました。 それぞれの記事に、『Bulkfeeds で関連記事検索』 というリンクがついたと思います。 本当は、JavaScript で内容をそのまま表示するようにしたかったのですが、表示に結構時間がかかるのと、最近行った 固定リンク(Perm...<br />
+<b>Weblog:</b> Rhein-strasse - ライン川のほとりから -<br />
+<b>Tracked:</b> March 28, 2004 02:34 AM</span>
+</div>
+<div class="comments-body">
+<a name="746"></a>
+<span class="comments-post"><a href="http://hail2u.net/blog/blosxom/update_similarity_plugin.html" target="new" rel="nofollow nofollow">similarity plugin</a><br />
+<b>Excerpt:</b> BulkfeedsのSimilarity SearchをJavaScriptで出力するサービスをblosxomで利用するためのプラグインを前に書いたのですが、遊びでいろいろいじったまま放置していたのですよ、実は。改めて、ある程度一般的に使えるようにsimilarityを書き直してみました。設定は文字コー�...<br />
+<b>Weblog:</b> hail2u.net - Weblog<br />
+<b>Tracked:</b> April  3, 2004 11:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="748"></a>
+<span class="comments-post"><a href="http://naong.10gallon.jp/archives/000146.html" target="new" rel="nofollow nofollow">関連記事の検索〜Bulkfeeds: Similarity Search</a><br />
+<b>Excerpt:</b> BulkfeedsのSimilarity Searchを入れてみました。 Bulkfeeds: Similarity Search リリース Permalink から、特徴的単語を持つ似たエントリを検索します。 Bulkfeeds で「似たBlog記事を検索」する Similarity Search をリリースしました。 つまり何かっていうと、わたしが...<br />
+<b>Weblog:</b> 赤いオレンヂ<br />
+<b>Tracked:</b> April  5, 2004 01:49 AM</span>
+</div>
+<div class="comments-body">
+<a name="782"></a>
+<span class="comments-post"><a href="http://www.comtsun.com/com2/mt/archives/000029.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> ■Bulkfeeds: Similarity Search - RSS Directory &amp; Search を導入してみました。似たキーワードを含む記事を勝手にリンクしてくれます。BulkfeedsにRSSを登録？しているサイトが検索対象。各エントリーの一番上に表示されるようにしてみました。ちょっと重くなるけど。 �...<br />
+<b>Weblog:</b> コムツコム/ダイアの帯<br />
+<b>Tracked:</b> April 10, 2004 03:09 PM</span>
+</div>
+<div class="comments-body">
+<a name="797"></a>
+<span class="comments-post"><a href="http://www.mayumix.net/blog/archives/000596.html" target="new" rel="nofollow nofollow">カスタマイズー</a><br />
+<b>Excerpt:</b> 必要そうなのをメモ！ 2.661にヴァージョンUP 引き続き、MT2.661用の日本語化パッチをリリースしました コメントSPAM対策 C.G.I.: 簡単SPAMコメント対策 英語に変換 Excite エキサイト 翻訳 英語翻訳＞あなたのホームページ 似た記事を表示 Bulkfeeds: Similarity Search ...<br />
+<b>Weblog:</b> ���MAYUMI_BLOG���<br />
+<b>Tracked:</b> April 12, 2004 06:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="799"></a>
+<span class="comments-post"><a href="http://honeymemo.info/archives/2004/04/13102220.php" target="new" rel="nofollow nofollow">Similarity Searchの面白さ</a><br />
+<b>Excerpt:</b> 「Bloggers meeting in Kyoto 2004」から帰ってきて、ブログに追加したひとつであるSimilarity Searchが、実際設置したら思っていた以上に面白かった。 さて、Similarity Searchって？ blog.bulknews.net: Bulkfeeds: Similarity Search リリース わかりやすく言うと、「�...<br />
+<b>Weblog:</b> ハニムメモ<br />
+<b>Tracked:</b> April 13, 2004 10:26 AM</span>
+</div>
+<div class="comments-body">
+<a name="800"></a>
+<span class="comments-post"><a href="http://www.misia-cafe.com/mt/archives/000682.html" target="new" rel="nofollow nofollow">Similarity SearchとExtendの活用</a><br />
+<b>Excerpt:</b> 久しぶりに、MTの見た目をいじった。 他人のBLOGを見ていて、個人的に魅力的だと感じる機能が２つあった。 類似検索の表示 トップページには記事のポイントだけを表示 の２つである。そこで、その機能を実装した。 特にコメントがあれば、お願いします。...<br />
+<b>Weblog:</b> カフェ日誌<br />
+<b>Tracked:</b> April 13, 2004 11:31 AM</span>
+</div>
+<div class="comments-body">
+<a name="819"></a>
+<span class="comments-post"><a href="http://www.murata.org/murata/blog/archives/000273.html" target="new" rel="nofollow nofollow">似た記事検索</a><br />
+<b>Excerpt:</b> Bulkfeeds: RSS Directory &amp; Searchさんというサイトがありますが、こちらで「似た記事検索(勝手にそう呼んでしまっています)」ができちゃいます(ただし現在β版とのこと)。 エントリーのURLをフィールドに入れると、そのエントリーに似たエントリーを探し出してきて、一�...<br />
+<b>Weblog:</b> WebMURATA::WebLOG<br />
+<b>Tracked:</b> April 16, 2004 01:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="829"></a>
+<span class="comments-post"><a href="http://misc.2log.net/rc0/archives/blog55.html" target="new" rel="nofollow nofollow">2logでbulkfeeds Similarity Searchを使う</a><br />
+<b>Excerpt:</b> Similarity Searchを使うと似ているblog記事のリストを表示させることができます。blog記事にJavaScriptを埋め込めば記事の中に似ている記事のリストを表示することができます。リンク先はMovableType向…<br />
+<b>Weblog:</b> (･A･)<br />
+<b>Tracked:</b> April 18, 2004 08:09 PM</span>
+</div>
+<div class="comments-body">
+<a name="830"></a>
+<span class="comments-post"><a href="http://gamania.s22.xrea.com/mt/archives/200404/19-0006mt_custom.php" target="new" rel="nofollow nofollow">カスタマイズ vol.25</a><br />
+<b>Excerpt:</b> Similarity SearchというJavaScriptを使った自分の作成した記事に関連記事のあるblogを勝手にリンクしてしまうという便利な機能を導入してみた。<br />
+<b>Weblog:</b> G@MANIA ver.MT - CODE:Hyena -<br />
+<b>Tracked:</b> April 19, 2004 12:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="831"></a>
+<span class="comments-post"><a href="http://gamania.s22.xrea.com/mt/archives/200404/19-0006mt_custom.php" target="new" rel="nofollow nofollow">カスタマイズ vol.25</a><br />
+<b>Excerpt:</b> Similarity SearchというJavaScriptを使った自分の作成した記事に関連記事のあるblogを勝手にリンクしてしまうという便利な機能を導入してみた。<br />
+<b>Weblog:</b> G@MANIA ver.MT - CODE:Hyena -<br />
+<b>Tracked:</b> April 19, 2004 12:10 AM</span>
+</div>
+<div class="comments-body">
+<a name="832"></a>
+<span class="comments-post"><a href="http://rhapsody.cherrymilk.net/blog/archives/000529.html" target="new" rel="nofollow nofollow">Similarity Search入れてみました。</a><br />
+<b>Excerpt:</b> Permalink から、特徴的単語を持つ似たエントリを検索します。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話...<br />
+<b>Weblog:</b> トーキョーラプソディ<br />
+<b>Tracked:</b> April 19, 2004 08:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="834"></a>
+<span class="comments-post"><a href="http://glas-gather.girly.jp/blog/archives/000154.html" target="new" rel="nofollow nofollow">Similarity Search導入</a><br />
+<b>Excerpt:</b>  Bulkfeeds: Similarity Search リリース BulkfeedsでのSimilarity Searchを取り入れました。登録されたRSSを読み込んで当該記事の関連記事をそこから読み込んでJSで表示するというものです。JS便利だな…でも切ってる人もいるだろうに。登録したRSS情報から特徴的な単語�...<br />
+<b>Weblog:</b> 硝子の欠片を集める者達<br />
+<b>Tracked:</b> April 19, 2004 05:59 PM</span>
+</div>
+<div class="comments-body">
+<a name="836"></a>
+<span class="comments-post"><a href="http://www.rislim.net/blog/archives/000092.php" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Similarity Searchを導入。<br />
+<b>Weblog:</b> nil blog<br />
+<b>Tracked:</b> April 19, 2004 11:30 PM</span>
+</div>
+<div class="comments-body">
+<a name="846"></a>
+<span class="comments-post"><a href="http://pokapoka.lolipop.jp/blog/archives/000082.html" target="new" rel="nofollow nofollow">��������ŝ��������Blog</a><br />
+<b>Excerpt:</b> ふんわり堂『おとなりさんBlogを探そう』にて♪ 「Individual Entries 」のテンプレートにスクリプトを貼りつけるだけで、「Recent Entries」のどれかをクリックすると、似たような記事を検索してくれるというものです。 取りあえず”最新のエントリー”の中のタイトルを�...<br />
+<b>Weblog:</b> DAY's<br />
+<b>Tracked:</b> April 22, 2004 12:07 AM</span>
+</div>
+<div class="comments-body">
+<a name="847"></a>
+<span class="comments-post"><a href="http://pokapoka.lolipop.jp/blog/archives/000082.html" target="new" rel="nofollow nofollow">��������ŝ��������Blog</a><br />
+<b>Excerpt:</b> ふんわり堂『おとなりさんBlogを探そう』にて♪ 「Individual Entries 」のテンプレートにスクリプトを貼りつけるだけで、「Recent Entries」のどれかをクリックすると、似たような記事を検索してくれるというものです。 取りあえず”最新のエントリー”の中のタイトルを�...<br />
+<b>Weblog:</b> DAY's<br />
+<b>Tracked:</b> April 22, 2004 12:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="852"></a>
+<span class="comments-post"><a href="http://www.masahiko.org/weblog/archives/000201.php" target="new" rel="nofollow nofollow">Similarity Searchを導入してみる</a><br />
+<b>Excerpt:</b> リファーラなどを見ているとBulkfeedsのSimilarity Searchからやってくる方がけっこういます。私自身、失礼なのですが、Bulkfeedsというサービスをあまり知らないので如何なるサービスを提供しているのか分からなかったのですが、ちょっと調べてみたらすごく使い勝手がよ�...<br />
+<b>Weblog:</b> weblog @ masahiko.org<br />
+<b>Tracked:</b> April 23, 2004 01:50 AM</span>
+</div>
+<div class="comments-body">
+<a name="853"></a>
+<span class="comments-post"><a href="http://unmovabletype.org/archives/bulk_how.html" target="new" rel="nofollow nofollow">関連記事を自動で生成</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Searchを導入した。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエ...<br />
+<b>Weblog:</b> UNMOVABLETYPE.ORG<br />
+<b>Tracked:</b> April 23, 2004 03:14 AM</span>
+</div>
+<div class="comments-body">
+<a name="856"></a>
+<span class="comments-post"><a href="http://ruby.cx/archives/i/2004/04/23_1315.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search をつけてみた</a><br />
+<b>Excerpt:</b> 自分のサイトへのリンクを見ていたら、なんか知らないところからのリンクがある。 (検索エンジンではなく） なんでかなぁとおもったら、Bulkfeeds: Similarity Search リリースの機能で自分のBlogのページに関連文字列が入っているサイトが表示できるらしい。 うに、これ�...<br />
+<b>Weblog:</b> Ruby site<br />
+<b>Tracked:</b> April 23, 2004 01:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="857"></a>
+<span class="comments-post"><a href="http://ruby.cx/archives/i/2004/04/23_1315.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search をつけてみた</a><br />
+<b>Excerpt:</b> 自分のサイトへのリンクを見ていたら、なんか知らないところからのリンクがある。 (検索エンジンではなく） なんでかなぁとおもったら、Bulkfeeds: Similarity Search リリースの機能で自分のBlogのページに関連文字列が入っているサイトが表示できるらしい。 うに、これ�...<br />
+<b>Weblog:</b> Ruby site<br />
+<b>Tracked:</b> April 23, 2004 01:16 PM</span>
+</div>
+<div class="comments-body">
+<a name="858"></a>
+<span class="comments-post"><a href="http://fumika.jp/nikki/2004/04/similarity-search.html" target="new" rel="nofollow nofollow">Bulkfeeds Similarity Search をつけてみました。</a><br />
+<b>Excerpt:</b>  Bulkfeeds の Similarity Search を今更ながらにつけてみました。実験的にこのページの最下部に配置しています。まだベータ版とのことですが、Bulkfeeds のデータベースから、似た記事を検索して返してくれます。 しかし、これをつけると Google AdSense のクリック率が�...<br />
+<b>Weblog:</b> 津田ふみかの日記<br />
+<b>Tracked:</b> April 23, 2004 11:19 PM</span>
+</div>
+<div class="comments-body">
+<a name="859"></a>
+<span class="comments-post"><a href="http://mono.lcpweb.net/archives/000029.html" target="new" rel="nofollow nofollow">Similarity Feed</a><br />
+<b>Excerpt:</b> BlogのエントリPermalinkにjavascriptをつかって、関連記事を自動的に埋め込むことができるとの事で、昨夜Individual Entry Archiveに埋め込みました。 Blog始めたばかりなのにapacheのlog見てたら知らないかたのBlogからの訪問が多かったので調べていたらこれでした。...<br />
+<b>Weblog:</b> :: mono.lcpweb.net ::<br />
+<b>Tracked:</b> April 24, 2004 04:50 PM</span>
+</div>
+<div class="comments-body">
+<a name="862"></a>
+<span class="comments-post"><a href="http://unmovabletype.org/archives/bulk_how.html" target="new" rel="nofollow nofollow">関連記事を自動で生成</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Searchを導入した。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高いエ...<br />
+<b>Weblog:</b> UNMOVABLETYPE.ORG<br />
+<b>Tracked:</b> April 27, 2004 02:46 AM</span>
+</div>
+<div class="comments-body">
+<a name="866"></a>
+<span class="comments-post"><a href="http://www.punkfreak.com/pflog/archives/000069.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search 絨����</a><br />
+<b>Excerpt:</b> http://blog.bulknews.net/mt/archives/000763.html 映画とかMTみたいな一般的なエントリーは使えるね。 でも音楽ネタではうまくいかない。 まだうちみたいなニッチな音楽を扱っているBlogがないからかな。 blogの復旧に期待。...<br />
+<b>Weblog:</b> PunkFreak.com<br />
+<b>Tracked:</b> April 27, 2004 02:20 PM</span>
+</div>
+<div class="comments-body">
+<a name="867"></a>
+<span class="comments-post"><a href="http://www.kazu-one.com/sdg/archives/200404/27-2246.php" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bloggers meetingで聞いたblog.bulknews.net: Bulkfeeds: Similarity Searchを導入してみた。 エントリーの投稿者の所の投稿時間をクリックしてもらえればそのエントリー単独の画面になるんですが、Comments の上に「Similarity Search（関連リンク自動抽出）」とそのエン...<br />
+<b>Weblog:</b> ::ShaggyDogsGallery::<br />
+<b>Tracked:</b> April 27, 2004 10:47 PM</span>
+</div>
+<div class="comments-body">
+<a name="868"></a>
+<span class="comments-post"><a href="http://www.kazu-one.com/sdg/archives/200404/27-2246.php" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bloggers meetingで聞いたblog.bulknews.net: Bulkfeeds: Similarity Searchを導入してみた。 エントリーの投稿者の所の投稿時間をクリックしてもらえればそのエントリー単独の画面になるんですが、下の方のComments欄の上に「Similarity Search（関連リンク自動抽出）」�...<br />
+<b>Weblog:</b> ::ShaggyDogsGallery::<br />
+<b>Tracked:</b> April 27, 2004 10:51 PM</span>
+</div>
+<div class="comments-body">
+<a name="874"></a>
+<span class="comments-post"><a href="http://blog.cles.jp/item/153" target="new" rel="nofollow nofollow">SimilaritySearchを入れてみる</a><br />
+<b>Excerpt:</b> 遅ればせながらBulkfeeds: Similarity Searchに対応してみました。
+
+どこかにNucleus用のを元にJavaScriptの書き方が解説してあるページはないかと思っていろいろ探してみたのだけれど、どうも見当たらない。仕方が...<br />
+<b>Weblog:</b> cles::blog<br />
+<b>Tracked:</b> May  2, 2004 04:59 AM</span>
+</div>
+<div class="comments-body">
+<a name="875"></a>
+<span class="comments-post"><a href="http://blog.cles.jp/item/155" target="new" rel="nofollow nofollow">NP_SimilaritySearch 作ってみました</a><br />
+<b>Excerpt:</b> いつも人様の作ったプラグインを利用させていただいているので、先日予告したとおりSimilaritySearchのタグを生成するプラグイン「NP_SimilaritySearch」を練習がてら作ってみました。
+
+ダウンロードはこちら [NP_S...<br />
+<b>Weblog:</b> cles::blog<br />
+<b>Tracked:</b> May  3, 2004 04:04 AM</span>
+</div>
+<div class="comments-body">
+<a name="877"></a>
+<span class="comments-post"><a href="http://raketta.blogzine.jp/blog/2004/05/similarity_sear.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search リリース
+↑これ、うち<br />
+<b>Weblog:</b> らけの、ひ・み・つ・日記〜FFXI<br />
+<b>Tracked:</b> May  4, 2004 01:35 AM</span>
+</div>
+<div class="comments-body">
+<a name="880"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/000969.html" target="new" rel="nofollow nofollow">procfeed と RSS flash ティッカー</a><br />
+<b>Excerpt:</b> naoya さん が procfeed っていうフィードサービスを開始されました（正直このネーミングはどうかと。次は fetchfeed かな）。カンタンに言うと Feedroll （hail2u の kyo さんによる解説）の日本語版ですね。技術的には くっつきRSS のようなCGIを使って実装するのは難し...<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> May  5, 2004 10:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="885"></a>
+<span class="comments-post"><a href="http://ideatech.zive.net/blog/archives/000113.php" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeed Smilarity Search をサイトに実装してみました。Similarity Search の詳細は書きを参照くださいませ。 blog.bulknews.net: Bulkfeeds: Similarity Search リリース Indivisual Entry の右横にその Entry に『似ている』と想像される Entry が表示されます。⇒ こ...<br />
+<b>Weblog:</b> Idea&&Technology->Blog<br />
+<b>Tracked:</b> May  7, 2004 12:59 AM</span>
+</div>
+<div class="comments-body">
+<a name="890"></a>
+<span class="comments-post"><a href="http://melrose.jugem.cc/?eid=64" target="new" rel="nofollow nofollow">JUGEMでbulkfeeds Similarity Searchを使用してみた</a><br />
+<b>Excerpt:</b> Similarity Searchは、「似たBlog記事を検索」して表示してくれるシステムです。
+blog.bulknews.netによると、
+Blogエントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語でBulkfeedsのRSS Item全文検索します。結果、話題の関連性が高いエント�...<br />
+<b>Weblog:</b> stroll::blog<br />
+<b>Tracked:</b> May  7, 2004 06:29 PM</span>
+</div>
+<div class="comments-body">
+<a name="891"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/000976.html" target="new" rel="nofollow nofollow">Similarity Search の負荷軽減に jscache</a><br />
+<b>Excerpt:</b> Similarity Search の負荷が気になる場合は、jscache を利用してみてください。<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> May  7, 2004 08:49 PM</span>
+</div>
+<div class="comments-body">
+<a name="906"></a>
+<span class="comments-post"><a href="http://www.luna-craft.com/archives/000602.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> blog.bulknews.netでみつけたこちらの類似エントリ検索です。 他のブログで取り上げられた関連記事を特徴的単語を元に検索して、自分のブログ（Permalink：Individual Entries）に表示するものです。 おもしろそうなので、うちでも入れてみました。...<br />
+<b>Weblog:</b> LUNA-CRAFT.COM<br />
+<b>Tracked:</b> May  8, 2004 04:17 AM</span>
+</div>
+<div class="comments-body">
+<a name="914"></a>
+<span class="comments-post"><a href="http://fuzuki.zive.net/pcroom/archives/000315.html" target="new" rel="nofollow nofollow">Similarity Feed を追加</a><br />
+<b>Excerpt:</b> 　Bulkfeeds: RSS Directory &amp; Search様が提供されている、Similarity Feed機能を追加してみました。 　要は、似たような記事を持つblogを探して、それを検索してくれる、というシステムです。 　「この記事のみの表示 / コメント投稿」というリンクをクリックしてみてく�...<br />
+<b>Weblog:</b> 文月のパソコン部屋<br />
+<b>Tracked:</b> May  9, 2004 09:50 AM</span>
+</div>
+<div class="comments-body">
+<a name="936"></a>
+<span class="comments-post"><a href="http://www.slo-review.com/blog/archives/000147.html" target="new" rel="nofollow nofollow">いろいろサイト改造　メモ</a><br />
+<b>Excerpt:</b> 今日は諸処諸々の事情からサイトをいろいろいじることにした。 Bulkfeeds Similarity Searchを導入 以前から便利そうだとは思っていたのだが、なぜか実装をためらっていた。 今回入れてみて分かったことは、自分のサイトばかりが引っかかること。俺、文章の書き方ヘタなの...<br />
+<b>Weblog:</b> slo-review BLOG<br />
+<b>Tracked:</b> May 12, 2004 06:41 AM</span>
+</div>
+<div class="comments-body">
+<a name="1026"></a>
+<span class="comments-post"><a href="http://serafree.oops.jp/blog/archives/000054.html" target="new" rel="nofollow nofollow">Similarity Searchを入れてみました</a><br />
+<b>Excerpt:</b>  Bulkfeeds：「Similarity Search リリース」 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item 全文検索します。結果、話題の関連性が高い...<br />
+<b>Weblog:</b> sera::log<br />
+<b>Tracked:</b> May 21, 2004 07:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="1034"></a>
+<span class="comments-post"><a href="http://www.dot-bit.net/archives/20040524/httpblogbulknewsnetmtmttbcgi763.php" target="new" rel="nofollow nofollow">Similarity絨����</a><br />
+<b>Excerpt:</b> Permanent Linkに今回、BulkFeedsさんより配布されているSimilarity機能を導入しました。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS Item...<br />
+<b>Weblog:</b> PixelStation<br />
+<b>Tracked:</b> May 24, 2004 01:53 AM</span>
+</div>
+<div class="comments-body">
+<a name="1035"></a>
+<span class="comments-post"><a href="http://www.dot-bit.net/archives/20040524/similarity.php" target="new" rel="nofollow nofollow">Similarity絨����</a><br />
+<b>Excerpt:</b> Permanent Linkに今回、BulkFeedsさんより配布されているSimilarity Feedsを導入しました。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS It...<br />
+<b>Weblog:</b> PixelStation<br />
+<b>Tracked:</b> May 24, 2004 02:04 AM</span>
+</div>
+<div class="comments-body">
+<a name="1036"></a>
+<span class="comments-post"><a href="http://www.dot-bit.net/archives/20040524/similarity.php" target="new" rel="nofollow nofollow">Similarity絨����</a><br />
+<b>Excerpt:</b> Permanent Linkに今回、BulkFeedsさんより配布されているSimilarity Feedsを導入しました。 わかりやすく言うと、「おとなり Blog」とか呼ばれるようなものです。Blog エントリに含まれる文章を形態素解析し、特徴的単語を抜き出して、それらの単語で Bulkfeeds の RSS It...<br />
+<b>Weblog:</b> PixelStation<br />
+<b>Tracked:</b> May 24, 2004 02:11 AM</span>
+</div>
+<div class="comments-body">
+<a name="1037"></a>
+<span class="comments-post"><a href="http://rui.ciao.jp/lunaria/blog/archives/000452.html" target="new" rel="nofollow nofollow">Bulkfeedsを導入</a><br />
+<b>Excerpt:</b> してみました。 自分が書いた記事と似たようなことを書いているブログを探してくれます。 MovableTypeなら、導入方法は簡単。 Blogの設定でPingを送るサイトに&quot;http://bulkfeeds.net/rpc&quot;を追加。 そして、Bulkfeeds: Similarity Search リリースの記事中にある「Blogツー...<br />
+<b>Weblog:</b> Lunaria@blog<br />
+<b>Tracked:</b> May 24, 2004 12:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="1039"></a>
+<span class="comments-post"><a href="http://www.dot-bit.net/archives/20040525/similaritydelete.php" target="new" rel="nofollow nofollow">Similarity罘���遵�����</a><br />
+<b>Excerpt:</b> 記事に関連したBLOGサイトを自動表示してくれるblog.bulknews.netさんのSimilarity機能ですが、どうやら注目度が非常に高いせいかアクセスが集中し、思ったほどのパフォーマンスが出せない状態ですので、PermanentLinkでの表示を削除いたしました。時間帯によっては予想以...<br />
+<b>Weblog:</b> PixelStation<br />
+<b>Tracked:</b> May 25, 2004 08:42 AM</span>
+</div>
+<div class="comments-body">
+<a name="1040"></a>
+<span class="comments-post"><a href="http://www.dot-bit.net/archives/20040525/similaritydelete.php" target="new" rel="nofollow nofollow">Similarity罘���遵�����</a><br />
+<b>Excerpt:</b> 記事に関連したBLOGサイトを自動表示してくれるblog.bulknews.netさんのSimilarity機能ですが、どうやら注目度が非常に高いせいかアクセスが集中し、思ったほどのパフォーマンスが出せない状態ですので、PermanentLinkでの表示を削除いたしました。時間帯によっては予想以...<br />
+<b>Weblog:</b> PixelStation<br />
+<b>Tracked:</b> May 25, 2004 08:44 AM</span>
+</div>
+<div class="comments-body">
+<a name="1065"></a>
+<span class="comments-post"><a href="http://cat.sutego.com/archives/2004/05/200405280258.php" target="new" rel="nofollow nofollow">他人のかいた関係ない記事を読ませる試み</a><br />
+<b>Excerpt:</b> （私が）変な文章のかき方をしているせいか、妙に関係ない記事が表示されて面白いです。ありがとうございます。<br />
+<b>Weblog:</b> neco de R<br />
+<b>Tracked:</b> May 29, 2004 01:16 PM</span>
+</div>
+<div class="comments-body">
+<a name="1077"></a>
+<span class="comments-post"><a href="http://amerio.cocolog-nifty.com/top/2004/06/similarity_sear.html" target="new" rel="nofollow nofollow">similarity search������������������������������</a><br />
+<b>Excerpt:</b> 　Read Me、VERに引き続き、調子に乗ってsimilarity searchも設置してみタ!
+　similarity searchって、Bulkfeedsの機能の一つで、記事に関連したブログが...<br />
+<b>Weblog:</b> 無意味なブログを検出しました!<br />
+<b>Tracked:</b> June  2, 2004 03:01 AM</span>
+</div>
+<div class="comments-body">
+<a name="1083"></a>
+<span class="comments-post"><a href="http://ppppp.s53.xrea.com/diary/index.php?UID=1086524444" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを設置しました。</a><br />
+<b>Excerpt:</b> 宣言どおり，bulkfeeds similarity searchを設置しました。
+google similarと比較してみたかったんですが，昨日からずっとチャ．．．<br />
+<b>Weblog:</b> naoKの「ホイきたー!」<br />
+<b>Tracked:</b> June  6, 2004 09:39 PM</span>
+</div>
+<div class="comments-body">
+<a name="1084"></a>
+<span class="comments-post"><a href="http://aoiro.s58.xrea.com/modules/wordpress/index.php?p=27" target="new" rel="nofollow nofollow">WordPressモジュールにBulkfeeds Similarity Searchをサイトに埋め込みたい！</a><br />
+<b>Excerpt:</b> タイトルどうり、WordPressモジュールに
+Bulkfeeds: Similarity Search
+をサイトに埋め込みたい！って方はいると思うのですが。
+その方法です。
+
+wp-comment.phpの44行目に
+Similarity Search
+
+var url ='';
+var n = 10;
+var ...<br />
+<b>Weblog:</b> aoiro_Blog<br />
+<b>Tracked:</b> June  6, 2004 10:22 PM</span>
+</div>
+<div class="comments-body">
+<a name="1086"></a>
+<span class="comments-post"><a href="http://munch.jugem.cc/?eid=181" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search</a><br />
+<b>Excerpt:</b> blog.bulknews.netの
+Bulkfeeds: Similarity Searchを導入してみた。
+ Blog エントリに含まれる文章を形態素解析し、
+特徴的単語を抜き出して、
+それらの単語で Bulkfeeds の RSS Item 全文検索します。
+結果、話題の関連性が高いエントリが検索できます。
+また、Bl...<br />
+<b>Weblog:</b> ムンクさんのボヤキ　)'Д'(<br />
+<b>Tracked:</b> June  8, 2004 08:20 PM</span>
+</div>
+<div class="comments-body">
+<a name="1099"></a>
+<span class="comments-post"><a href="http://ygh.s41.xrea.com/blog/archives/2004/06/08_2216.php" target="new" rel="nofollow nofollow">Similarity Searchをつけてみた</a><br />
+<b>Excerpt:</b> いまさら感が漂ってますがSimilarity Searchを導入してみました。blog.bulknews.net: Bulkfeeds: Similarity Search リリースBulkfeeds で「似たBlog記事を検索」する Similarity Search をリリースしました。javascriptのコードを設置するだけでいいので導入も簡単。 表�...<br />
+<b>Weblog:</b> laughter in the rain<br />
+<b>Tracked:</b> June 10, 2004 04:07 PM</span>
+</div>
+<div class="comments-body">
+<a name="1100"></a>
+<span class="comments-post"><a href="http://www.xsection.com/weblog/archives/000206.html" target="new" rel="nofollow nofollow">ブログで Amazon, Google, Bulkfeeds</a><br />
+<b>Excerpt:</b>  Drk7.jpで公開中 ☆ Amazon Search ： JavaScript を設置するだけで、自分のページの内容と関連する Amazon 内の商品を検索して一覧を表示することができます。 ☆ Google Similar ： JavaScript を設置するだけで、自分のページ似たページの一覧を Google から検索して�...<br />
+<b>Weblog:</b> Memoooo!!<br />
+<b>Tracked:</b> June 10, 2004 05:10 PM</span>
+</div>
+<div class="comments-body">
+<a name="1106"></a>
+<span class="comments-post"><a href="http://kaionji.s31.xrea.com/archives/000081.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを導入</a><br />
+<b>Excerpt:</b> Miyagawaさんのところで公開されているSimilarity Search機能を導入してみました。Permalinkをクリックするといわゆる「おとなりBLOG」が10件ほど紹介されます。 私のサイトはutf-8で構成されているので、 var oe = 'euc-jp'; のeuc-jpをutf-8に変えただけで簡単に導入で�...<br />
+<b>Weblog:</b> Hardcow<br />
+<b>Tracked:</b> June 11, 2004 04:33 AM</span>
+</div>
+<div class="comments-body">
+<a name="1109"></a>
+<span class="comments-post"><a href="http://laugh.sub.jp/archives/200406/11-1931-627.html" target="new" rel="nofollow nofollow">似たもの検索（Similarity Search ）</a><br />
+<b>Excerpt:</b> いろんなサイトに触発されて、bulkfeedsのSimilarity Searchを導入してみました。 blog.bulknews.net: Bulkfeeds: Similarity Search リリース Permalink から、特徴的単語を持つ似たエントリを検索します。 Bulkfeeds で「似たBlog記事を検索」する Similarity Search を...<br />
+<b>Weblog:</b> blog:N@TURE BRAIN<br />
+<b>Tracked:</b> June 11, 2004 10:49 PM</span>
+</div>
+<div class="comments-body">
+<a name="1110"></a>
+<span class="comments-post"><a href="http://laugh.sub.jp/archives/200406/11-1931-627.html" target="new" rel="nofollow nofollow">似たもの検索（Similarity Search ）</a><br />
+<b>Excerpt:</b> いろんなサイトに触発されて、bulkfeedsのSimilarity Searchを導入してみました。 blog.bulknews.net: Bulkfeeds: Similarity Search リリース Permalink から、特徴的単語を持つ似たエントリを検索します。 Bulkfeeds で「似たBlog記事を検索」する Similarity Search を...<br />
+<b>Weblog:</b> blog:N@TURE BRAIN<br />
+<b>Tracked:</b> June 11, 2004 10:49 PM</span>
+</div>
+<div class="comments-body">
+<a name="1111"></a>
+<span class="comments-post"><a href="http://chappie.dion.jp/diary/archives/000149.html" target="new" rel="nofollow nofollow">色々カスタマイズ</a><br />
+<b>Excerpt:</b> ■Bulkfeedsへの登録　＆　SimilartySearchの導入 情報源の輪を広げるため、導入してみた。上手くいくかな？ Bulkfeeds: Home - RSS Directory &amp; Search blog.bulknews.net: Bulkfeeds: Similarity Search リリース...<br />
+<b>Weblog:</b> ちゃっぴー日記オンライン（謎）<br />
+<b>Tracked:</b> June 12, 2004 12:40 AM</span>
+</div>
+<div class="comments-body">
+<a name="1113"></a>
+<span class="comments-post"><a href="http://nano.moo.jp/archives/individual/2004/0612161312.php" target="new" rel="nofollow nofollow">Bulkfeeds: similarity search</a><br />
+<b>Excerpt:</b> Individual Entry Archive（記事別アーカイブ）に、Similarity Searchをつけてみました。作者のTatsuhiko Miyagawa様に感謝です。記事のキーワードを自動で生成して、Bulkfeedsのデータの中から、似た記事を探し出してリストにしてくれるという、便利な機能です。いろいろ...<br />
+<b>Weblog:</b> the meager<br />
+<b>Tracked:</b> June 12, 2004 04:30 PM</span>
+</div>
+<div class="comments-body">
+<a name="1129"></a>
+<span class="comments-post"><a href="http://blog.photon.cx/archives/905797.html" target="new" rel="nofollow nofollow">デザインの変更</a><br />
+<b>Excerpt:</b> 地獄変00さんの「livedoor Blogの個別記事にサイドバーをつける」をパクらせていただきました。
+ついでに各所のソースを参考に3カラムを実現。
+ふーむ、皆さん工夫されていますねぇ。JavaScriptでHTMLを書き込ませるなんて。
+ここまでしなければいけないlivedoor Blogって<br />
+<b>Weblog:</b> あおい<br />
+<b>Tracked:</b> June 13, 2004 07:48 PM</span>
+</div>
+<div class="comments-body">
+<a name="1140"></a>
+<span class="comments-post"><a href="http://ren.sub.jp/archives/000086.html" target="new" rel="nofollow nofollow">Similarity Search 導入テスト</a><br />
+<b>Excerpt:</b> 　最近ブログサイトを巡回することが多くなってくるのに伴って、気になっていたのがこのSimilarity Search 。そこでちょっと実験的に導入してみました。　これは・Permalink から、特徴的単語を持つ似たエントリを検索します。・わかりやすく言うと、「おとなり Blog」と�...<br />
+<b>Weblog:</b> 月夜塚-2nd-Blog<br />
+<b>Tracked:</b> June 16, 2004 08:40 AM</span>
+</div>
+<div class="comments-body">
+<a name="1143"></a>
+<span class="comments-post"><a href="http://noppo.info/item/955" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> 最近、巡回blogが増えてきて、二進も三進もいかない状態(？)になってきたので、とりあえず類似記事を探して表示してくれるbulkfeedsのSimilarity Searchを導入しました。Bulkfeeds: Similarity Search リリース
+わ...<br />
+<b>Weblog:</b> noppo's blog<br />
+<b>Tracked:</b> June 16, 2004 02:25 PM</span>
+</div>
+<div class="comments-body">
+<a name="1144"></a>
+<span class="comments-post"><a href="http://magichouse.jp/nijiko/blog/archives/000094.html" target="new" rel="nofollow nofollow">RSS対パーティーピープル</a><br />
+<b>Excerpt:</b> 以下のサービスを追加。 Bulkfeeds: Similarity Search （なんだか重いから消すかも） #BLOG: MTで人気記事ランキングを作る BlogPeople Again Pluginについて 上のみっつは一般的にブログについてるRSSとPing機能を利用するもので、このナゾのふたつをいかに利用するかこ...<br />
+<b>Weblog:</b> Nijiko's Dance Fortune* ( For Party People )<br />
+<b>Tracked:</b> June 16, 2004 05:53 PM</span>
+</div>
+<div class="comments-body">
+<a name="1145"></a>
+<span class="comments-post"><a href="http://www.roiet101.com/blog/archives/2004/06/20040616_2207.php" target="new" rel="nofollow nofollow">PlugIn以外の改造点</a><br />
+<b>Excerpt:</b> 一週間ほど前のエントリで、当サイトに導入しているプラグインについて書いた。 今回はプラグイン以外の改造点を書き留めておく事にしよう。 BulkfeedsのSimilarity SearchをIndividual Entry Archiveに表示するようにしました。blog.bulknews.net: Bulkfeeds: Similarity...<br />
+<b>Weblog:</b> 佰壱式 ver.3<br />
+<b>Tracked:</b> June 16, 2004 11:34 PM</span>
+</div>
+<div class="comments-body">
+<a name="1147"></a>
+<span class="comments-post"><a href="http://cyberwonk.org/ken/blog/archives/200406/001038.html" target="new" rel="nofollow nofollow">似た Blog 記事を検索</a><br />
+<b>Excerpt:</b> 隣のブログの個別記事に Google Similar に加えて、Bulkfeeds: Similarity Search の結果も出力されるようにしました。 自分の作業メモも兼ねるつもりなので、「関連する情報が勝手に紐付けされていれば便利」という趣旨です。 blog.bulknews.net: Bulkfeeds: Similarity ...<br />
+<b>Weblog:</b> あるネットワーク管理者(よっぱらい)の日常<br />
+<b>Tracked:</b> June 17, 2004 11:15 PM</span>
+</div>
+<div class="comments-body">
+<a name="1153"></a>
+<span class="comments-post"><a href="http://blog.bulknews.net/mt/archives/001052.html" target="new" rel="nofollow nofollow">Similarity Search の単語取得API</a><br />
+<b>Excerpt:</b> コメントでいただきましたが、レスが深くなっているので、エントリで返答します。 blog.bulknews.net: Bulkfeeds: Similarity Search リリース Similarity Searchの「形態素解析の結果で得られる特徴的単語」を取得するようなインタフェースって検討されてませんでしょう�...<br />
+<b>Weblog:</b> blog.bulknews.net<br />
+<b>Tracked:</b> June 21, 2004 08:00 PM</span>
+</div>
+<div class="comments-body">
+<a name="1161"></a>
+<span class="comments-post"><a href="http://www.murata.org/blog/archives/000378.html" target="new" rel="nofollow nofollow">Similarity Search powered by Bulkfeeds</a><br />
+<b>Excerpt:</b> 以前にもちょこっとご紹介した、Bulkfeedsの「似たものエントリーサーチ」ですが、書くエントリーの下にリアルタイムで表示するようにさせてみました。結構面白いですねぇ。 へんてこなものが似たもの紹介される場合も、「ああ、このキーワードに引っかかったのかな」なん...<br />
+<b>Weblog:</b> WebMURATA::WebLOG<br />
+<b>Tracked:</b> June 26, 2004 11:03 AM</span>
+</div>
+<div class="comments-body">
+<a name="1164"></a>
+<span class="comments-post"><a href="http://matilda.lolipop.jp/cgi/mt/archives/000273.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Search</a><br />
+<b>Excerpt:</b> Bulkfeeds経由で、このブログに来られる方がいたので便利だなと思っていました。 その後、あちこちのブログで　Bulkfeeds で「似たBlog記事を検索」するというSimilarity Searchを発見して、今日　Individual Entriesのテンプレートに入れてみました。が、文字化け(´Д⊂...<br />
+<b>Weblog:</b> Matilda Blog : Nervous every day<br />
+<b>Tracked:</b> June 26, 2004 10:29 PM</span>
+</div>
+<div class="comments-body">
+<a name="1167"></a>
+<span class="comments-post"><a href="http://cloclo.zive.net/~pega/mt/archives/2004/06/uoub_1.html" target="new" rel="nofollow nofollow">おとなりブログを設置しました。</a><br />
+<b>Excerpt:</b> blog.bulknews.netさんのBulkfeeds: Similarity Search （Similarity Feed ）を設置しました。これはいわゆる「おとなりブログ」です。自分のページに関連するページが表示されるので面白い！感謝です、blog.bulknews.netさん。
+<br />
+<b>Weblog:</b> Pega Weblog<br />
+<b>Tracked:</b> June 27, 2004 08:52 PM</span>
+</div>
+<div class="comments-body">
+<a name="1200"></a>
+<span class="comments-post"><a href="http://catcat.boo.jp/blog/archives/000928.html" target="new" rel="nofollow nofollow">Bulkfeeds で関連記事検索を廃止</a><br />
+<b>Excerpt:</b> これまでBulkfeeds: Similarity Searchを利用させていただいていたのですが，どうやら私の文章の書き方とは相性が悪いらしく，あまり関連するサイトを検索できないようなので，「Bulkfeeds で関連記事検索」へのリンクを外しました。 これまでお世話になりましたm(_ _)m＞...<br />
+<b>Weblog:</b> Kyan's BLOG<br />
+<b>Tracked:</b> July 15, 2004 10:53 AM</span>
+</div>
+<div class="comments-body">
+<a name="1215"></a>
+<span class="comments-post"><a href="http://wweb.zive.net/mt/archives/000620.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity Searchを適用</a><br />
+<b>Excerpt:</b> 　Bulkfeeds: Similarity Searchというものをindividualエントリに適用しました。そして、Bulkfeedsのサーバーに負荷がかかったり、反応が遅くなったりすることを防ぐために、中継君ｊｓというCGIを自宅サーバーに入れました。中継君ＪＳは検索した結果をキャッシュしてく...<br />
+<b>Weblog:</b> 臨機応変？<br />
+<b>Tracked:</b> July 18, 2004 09:47 AM</span>
+</div>
+<div class="comments-body">
+<a name="1229"></a>
+<span class="comments-post"><a href="http://www.murata.org/blog/archives/000224.php" target="new" rel="nofollow nofollow">Similarity Search powered by Bulkfeeds</a><br />
+<b>Excerpt:</b> …ってなわけで話がそれてしまったけど、文意検索がも少しまともなものに、かつ安価なものになってくると、本当に面白ことができそう。とはいえ、下手すると意識操作にも応用が利くから怖いところではあります。
+※先だっての、ウェディング告訴による google から悪徳商�...<br />
+<b>Weblog:</b> WebMURATA::WebLOG<br />
+<b>Tracked:</b> July 24, 2004 08:16 AM</span>
+</div>
+<div class="comments-body">
+<a name="1267"></a>
+<span class="comments-post"><a href="http://papanosenaka.livedoor.biz/archives/5366193.html" target="new" rel="nofollow nofollow">HTMLテンプレートいぢりはとりあえず終了です</a><br />
+<b>Excerpt:</b> HTMLテンプレートいぢりはとりあえず終了です。トップページを除いて。
+で、今回は、以下の方々に、勝手にお世話になっております。<br />
+<b>Weblog:</b> ぱぱの背中<br />
+<b>Tracked:</b> August  2, 2004 01:42 AM</span>
+</div>
+<div class="comments-body">
+<a name="1332"></a>
+<span class="comments-post"><a href="http://pebbleinsky.ddo.jp/mt/archives/2004/08/13_0025.php" target="new" rel="nofollow nofollow">jscacheでSimilarity Searchの負荷軽減</a><br />
+<b>Excerpt:</b> Bulkfeedsを使った関連記事の検索(Similarity Search)が...<br />
+<b>Weblog:</b> pebbleinsky's blog<br />
+<b>Tracked:</b> August 13, 2004 12:25 AM</span>
+</div>
+<div class="comments-body">
+<a name="1346"></a>
+<span class="comments-post"><a href="http://ryumu.jugem.jp/?eid=63" target="new" rel="nofollow nofollow">今日もJUGEMイジり</a><br />
+<b>Excerpt:</b> 本日はSimilarity Searchをここにも設置しました。
+<br />
+<b>Weblog:</b> HARDCORE HEAVEN<br />
+<b>Tracked:</b> August 15, 2004 02:55 PM</span>
+</div>
+<div class="comments-body">
+<a name="1349"></a>
+<span class="comments-post"><a href="http://ikari.kiyoring.jp/archives/000045.html" target="new" rel="nofollow nofollow">検索エンジン</a><br />
+<b>Excerpt:</b> BulkfeedsのSimilarity Searchを使っていたりトラックバックをするおかげ(？)で、ココもGoogleにインデックスされるようになってきた。しかーし会社の愚痴を会社の人に見られたりしたらヤヴァイわけなのよ。いつ検索されるかわかんないしね。 というわけでロボットのクロ�...<br />
+<b>Weblog:</b> 怒濤生活ヽ(`Д´)ﾉ<br />
+<b>Tracked:</b> August 18, 2004 01:13 AM</span>
+</div>
+<div class="comments-body">
+<a name="1376"></a>
+<span class="comments-post"><a href="http://blog.magicwhite.jp/archives/2004/08/29-022306.php" target="new" rel="nofollow nofollow">Similarity Searchいれてみました。</a><br />
+<b>Excerpt:</b> blog.bulknews.netさんの「Similarity Search」を...<br />
+<b>Weblog:</b> Magic White<br />
+<b>Tracked:</b> August 29, 2004 02:32 AM</span>
+</div>
+<div class="comments-body">
+<a name="1508"></a>
+<span class="comments-post"><a href="http://www.gosmaniax.com/archives/2004/09/post_22.php" target="new" rel="nofollow nofollow">本日のカスタマイズ - 似たもの探しを導入</a><br />
+<b>Excerpt:</b> 今日のカスタマイズ報告です
+
+1  Blog Timesを２つに（これは報告済み）
+2 個別ページに似たもの探しを追加
+3 2に伴い、メインページに個別ページへのリンクを追加
+
+ 2 個別ページに似たもの探しを追加
+　まずは&amp;lt;a href=&quot;http://www.drk7.jp/MT/&quot; target...<br />
+<b>Weblog:</b> Soul de Gosmaniax<br />
+<b>Tracked:</b> September  1, 2004 10:56 PM</span>
+</div>
+<div class="comments-body">
+<a name="1623"></a>
+<span class="comments-post"><a href="http://blog.yappo.jp/yappo/archives/000119.html" target="new" rel="nofollow nofollow">志村検索リリースしました</a><br />
+<b>Excerpt:</b> blogdb.jpで、いわゆるSimilarity Searchと呼ばれるタイプの志村検索をリリースしました。 いわゆるBulkfeeds等で実装されているあの機能です。 おんなじ様な物を作るのもアレだったのですが、とりあえず作ってみました。 MTな方はIndividual Entry Archiveテンプレートの...<br />
+<b>Weblog:</b> YappoLogs<br />
+<b>Tracked:</b> September 13, 2004 11:08 AM</span>
+</div>
+<div class="comments-body">
+<a name="1663"></a>
+<span class="comments-post"><a href="http://blog.b-notes.net/archives/7281563.html" target="new" rel="nofollow nofollow">similarity search 絨����</a><br />
+<b>Excerpt:</b> 個別記事のページに、similarity searchの検索結果を表示するようにしてみました。
+
+表示に時間がかかるようになったので途中でとりやめようかとも思いましたが、スピードより情報量をとることにしました。書評のエントリの場合は、他の人の書評へとリンクしてくれるので楽<br />
+<b>Weblog:</b> book-notes<br />
+<b>Tracked:</b> September 27, 2004 05:27 PM</span>
+</div>
+<div class="comments-body">
+<a name="1932"></a>
+<span class="comments-post"><a href="http://denki.txt-nifty.com/mitamond/2004/11/bulkfeeds_simil.html" target="new" rel="nofollow nofollow">Bulkfeeds: Similarity SearchとAmazon Search</a><br />
+<b>Excerpt:</b> 　以前は「どーせうちのblogなんざニッチと言うもおこがましい既知外blogなん<br />
+<b>Weblog:</b> 主水血笑録<br />
+<b>Tracked:</b> November 11, 2004 01:29 AM</span>
+</div>
+<div class="comments-body">
+<a name="1944"></a>
+<span class="comments-post"><a href="http://lara.zeroshiki.jp/archives/000021.php" target="new" rel="nofollow nofollow">Bulkfeeds提供のSimilarity Searchを導入</a><br />
+<b>Excerpt:</b> 投稿文から単語を抽出して、他ブログサイトの関連がありそうなエントリを勝手にリンクしてくれるという、面白そうな機能をLaLa LIFEに導入してみました。 詳細はTB先にてお確かめ下さい。 Permalinkをクリックすると個別エントリが表示されるんですが、本文のすぐしたに「...<br />
+<b>Weblog:</b> la-la LIFE<br />
+<b>Tracked:</b> November 14, 2004 02:23 PM</span>
+</div>
+<div class="comments-body">
+<a name="2058"></a>
+<span class="comments-post"><a href="http://www.cync.jp/log/2004/11/bulkfeeds_simil.php" target="new" rel="nofollow nofollow">ゴミが増えすぎた、Similarity Search</a><br />
+<b>Excerpt:</b> うちは、ちょっと前から利用するのを見合わせています。 Bulkfeedsさん提供...<br />
+<b>Weblog:</b> cync.jp<br />
+<b>Tracked:</b> November 24, 2004 10:41 AM</span>
+</div>
+<div class="comments-body">
+<a name="2059"></a>
+<span class="comments-post"><a href="http://blog.goo.ne.jp/copper_the_public/e/578508a503d7af6ee8b21ab6b2ab2677" target="new" rel="nofollow nofollow">公共的なトラックバック空間</a><br />
+<b>Excerpt:</b> 22日の新装開店後、さぞかしアクセスは激減しただろうと思い、いざ蓋を開けて見ればpvが前日比約3倍となっているので仰天（今日はすでに沈静化）。これは絶対にどこぞの有力サイトからリンク張られたに違いないと踏み、複数のサーチ・エンジンで調べたら、案のニュース・�...<br />
+<b>Weblog:</b> 裏サイキック<br />
+<b>Tracked:</b> November 24, 2004 01:17 PM</span>
+</div>
+<div class="comments-body">
+<a name="2767"></a>
+<span class="comments-post"><a href="http://blog2.fc2.com/sf/?no=79" target="new" rel="nofollow nofollow">FC2でSimilarity Searchを導入</a><br />
+<b>Excerpt:</b> Similarity Searchなるものを導入してみました。記事の一番下(トラックバックの下)を見て頂ければ分かると思うのですが、自分が書いたブログの記事から特徴的な単語を抽出して、類似した記事を探してくれる、はてなダイアリーの「キーワード」みたいなサービスです。それ�...<br />
+<b>Weblog:</b> スプートニクの日記<br />
+<b>Tracked:</b> December 24, 2004 10:15 AM</span>
+</div>
+<div class="comments-body">
+<a name="2772"></a>
+<span class="comments-post"><a href="http://blog.livedoor.jp/walf443/archives/11218160.html" target="new" rel="nofollow nofollow">Similarity Search</a><br />
+<b>Excerpt:</b> スプートニクさんのところで面白い記事を発見。
+
+スプートニクの日記 Similarity Searchを導入
+どうやって作ったかというと、arrow_oテンプレートHTMLのトラックバックの下にこのソースを貼り付けました。
+
+var url =document.location.href ;
+var n = 10;
+var oe = '<br />
+<b>Weblog:</b> I sort my thought...<br />
+<b>Tracked:</b> December 26, 2004 12:13 AM</span>
+</div>
+<div class="comments-body">
+<a name="2848"></a>
+<span class="comments-post"><a href="http://yuki.lolitapunk.jp/blog/archives/2005/01/post_8.html" target="new" rel="nofollow nofollow">おとなりブログ</a><br />
+<b>Excerpt:</b> Bulkfeeds: Similarity Search リリース: blog....<br />
+<b>Weblog:</b> ゴスロリプログラマですが何か？<br />
+<b>Tracked:</b> January 20, 2005 05:24 PM</span>
+</div>
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://blog.bulknews.net/mt3/mt-com.cgi" name="comments_form" onsubmit="if (this.bakecookie.checked) rememberMe(this)" id="comments_form">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="763" />
+
+<label for="author">Name:</label><br />
+<input id="author" name="author" size="30"/><br /><br />
+
+<label for="email">メールアドレス:</label><br />
+<input id="email" name="email" size="30" /><br /><br />
+
+<label for="url">URL:</label><br />
+<input id="url" name="url" size="30" /><br /><br />
+
+<label for="text">Comments:</label><br />
+<textarea id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="checkbox" id="bakecookie" name="bakecookie" /><label for="bakecookie">Remember info?</label><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;PREVIEW&nbsp;" />
+<input type="submit" name="post" value="&nbsp;POST&nbsp;" /><br /><br />
+
+<input type="button" onclick="forgetMe(this.form)" value="FORGET PERSONAL INFORMATION" />
+</form>
+<script>document.forms.comments_form.action="http://blog.bulknews.net/mt3/mt-com2.cgi";</script>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+//-->
+</script>
+
+
+</div>
+
+</div>
+</div>
+<div id="footer">
+<p class="powered">Since 2002.11.28, Tatsuhiko Miyagawa <a href="mailto:miyagawa&#64;bulknews.net">&lt;miyagawa&#64;bulknews.net&gt;</a>. Powered by <a href="http://www.movabletype.org/">MT 3.2</a></p>
+<script type='text/javascript' src='http://track.mybloglog.com/js?mblID=2005030709374275'></script>
+</div>
+
+
+<!-- nakanohito -->
+<script LANGUAGE="Javascript">
+<!--
+var refer = document.referrer;
+document.write("<a href='http://nakanohito.jp/'>");
+document.write("<img src='http://nakanohito.jp/an/?u=122225&h=495964&w=128&version=js&refer="+escape(parent.document.referrer)+"&url="+escape(parent.document.URL)+"' border='0' width='128' height='128' />");
+document.write("</a>");
+//-->
+</script>
+<noscript>
+<img src="http://nakanohito.jp/an/?u=122225&h=495964&w=128" width="128" height="128" alt="なかのひと" border="0" />
+</noscript>
+<!-- nakanohito end -->
+
+<script type="text/javascript">
+                <!-- 
+                document.write('<img src="http://blog.bulknews.net/mt3/plugins/statwatch/statvisit.cgi?blog_id=1&amp;refer=' + escape(document.referrer) + '&amp;url=' + escape(location.href) + '" width="1" height="1" alt="" /> ');
+                // -->
+                </script> 
+</body>
+</html>
